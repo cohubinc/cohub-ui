@@ -1,0 +1,22 @@
+import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+
+import Buttons from '../../Buttons';
+import { Text } from '../../story-helpers';
+
+<Meta title="Components|Buttons" />
+
+# Text Button
+
+<Margin />
+
+<Story name="Text">
+  <div>
+    <Text underlined>Default Text Button</Text>
+    <Buttons.Text>Text</Buttons.Text>
+    <Margin />
+    <Text underlined>Larger fontSize Text Button</Text>
+    <Buttons.Text fontSize="2rem">Text</Buttons.Text>
+  </div>
+</Story>
+
+<Props of={Buttons.Text} />

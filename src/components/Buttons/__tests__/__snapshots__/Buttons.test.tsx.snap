@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons renders 1`] = `
+<Buttons>
+  <Base>
+    <button
+      className="CohubButton "
+      style={
+        Object {
+          "backgroundColor": "hsl(0, 0%, 77%)",
+          "boxShadow": "0 2px 3px hsla(0, 0%, 0%, 0.2), inset 0px 2px 0px hsl(0, 0%, 92%)",
+        }
+      }
+    >
+      <div
+        className="button-text relative"
+      >
+        <Typography
+          color="#EFF7EE"
+          secondary={true}
+          style={
+            Object {
+              "opacity": 1,
+              "transition": "opacity 150ms ease-in",
+            }
+          }
+          uppercase={true}
+        >
+          <Component
+            color="#EFF7EE"
+            secondary={true}
+            style={
+              Object {
+                "opacity": 1,
+                "transition": "opacity 150ms ease-in",
+              }
+            }
+            uppercase={true}
+          >
+            <span
+              className=""
+              data-qa="text"
+              style={
+                Object {
+                  "color": "#EFF7EE",
+                  "fontFamily": "Akkurat-Mono",
+                  "fontSize": "14px",
+                  "fontWeight": 400,
+                  "opacity": 1,
+                  "textAlign": "initial",
+                  "textTransform": "uppercase",
+                  "transition": "opacity 150ms ease-in",
+                }
+              }
+            >
+              <span>
+                push me
+              </span>
+            </span>
+          </Component>
+        </Typography>
+      </div>
+    </button>
+  </Base>
+</Buttons>
+`;

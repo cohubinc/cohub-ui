@@ -1,0 +1,41 @@
+{
+  "name": "coub-ui",
+  "version": "1.0.0",
+  "description": "Sharable UI components",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Cohub",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -cw"
+  },
+  "dependencies": {
+    "react-animate-height": "^2.0.15"
+  },
+  "peerDependencies": {
+    "lodash": ">=4.0.0",
+    "moment": ">=2.23.0",
+    "react": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.14.136",
+    "@types/react": "16.8.24",
+    "autoprefixer": "9.6.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "node-sass": "4.12.0",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-preset-env": "6.7.0",
+    "react": "^16.8.6",
+    "rollup": "1.18.0",
+    "rollup-plugin-postcss": "2.0.3",
+    "rollup-plugin-typescript2": "0.22.1",
+    "typescript": "3.5.3"
+  }
+}

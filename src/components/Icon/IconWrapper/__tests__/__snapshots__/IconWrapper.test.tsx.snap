@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<IconWrapper
+  name="add"
+>
+  <div
+    className="CohubIcon addIcon  "
+    style={
+      Object {
+        "height": 24,
+        "opacity": undefined,
+        "transition": "opacity 300ms ease-in 200ms",
+        "width": 24,
+      }
+    }
+  >
+    <div
+      className="flex justify-center items-center"
+    >
+      <div>
+        test
+      </div>
+    </div>
+  </div>
+</IconWrapper>
+`;

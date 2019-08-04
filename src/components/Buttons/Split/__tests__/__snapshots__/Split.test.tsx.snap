@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Split
+  labels={
+    Array [
+      "one",
+      "two",
+    ]
+  }
+  onChange={[Function]}
+  selectedIndex={1}
+>
+  <DefaultSplitButtons
+    labels={
+      Array [
+        "one",
+        "two",
+      ]
+    }
+    onChange={[Function]}
+    selectedIndex={1}
+  >
+    <div
+      style={
+        Object {
+          "display": "inline-grid",
+          "gridTemplateColumns": "repeat(2, 1fr)",
+        }
+      }
+    >
+      <Segment
+        key="one"
+        onClick={[Function]}
+        selected={false}
+      >
+        <button
+          className="SplitButtonSegment"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "hsl(0, 0%, 100%)",
+              "border": "1px solid hsl(0, 3%, 7%)",
+              "color": "hsl(0, 3%, 7%)",
+              "cursor": "pointer",
+              "filter": "none",
+              "fontFamily": "Akkurat-Mono",
+              "fontWeight": "lighter",
+              "minWidth": 75,
+              "outline": "none",
+              "overflow": "hidden",
+              "padding": "1em",
+              "transition": "all 65ms ease-in-out",
+            }
+          }
+        >
+          one
+        </button>
+      </Segment>
+      <Segment
+        key="two"
+        onClick={[Function]}
+        selected={true}
+      >
+        <button
+          className="SplitButtonSegment"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "hsl(0, 3%, 7%)",
+              "border": "1px solid hsl(0, 3%, 7%)",
+              "color": "hsl(0, 0%, 100%)",
+              "cursor": "pointer",
+              "filter": "none",
+              "fontFamily": "Akkurat-Mono",
+              "fontWeight": "lighter",
+              "minWidth": 75,
+              "outline": "none",
+              "overflow": "hidden",
+              "padding": "1em",
+              "transition": "all 65ms ease-in-out",
+            }
+          }
+        >
+          two
+        </button>
+      </Segment>
+    </div>
+  </DefaultSplitButtons>
+</Split>
+`;

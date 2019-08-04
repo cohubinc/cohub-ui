@@ -1,0 +1,81 @@
+import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+
+import DropdownButton from '../../Buttons/Dropdown';
+import Color from '../../../definitions/enums/Color';
+
+<Meta title="Components|Buttons" />
+
+# Outline Button
+
+<Margin />
+
+<Story name="Dropdown">
+  <div style={{ width: '13rem' }}>
+    <DropdownButton
+      options={[
+        {
+          onClick: () => console.log('Option one click'),
+          label: 'Option One',
+        },
+        {
+          onClick: () => console.log('Option two click'),
+          label: 'Option Two',
+        },
+        {
+          onClick: () => console.log('Option three click'),
+          label: 'Option Three',
+        },
+        {
+          onClick: () => console.log('Option four click'),
+          label: 'Option Four',
+        },
+      ]}
+    />
+    <div className="mt-1">
+      <DropdownButton
+        backgroundColor={Color.primaryRed500}
+        options={[
+          {
+            onClick: () => console.log('Foo click'),
+            label: 'Foo',
+          },
+          {
+            onClick: () => console.log('Bar click'),
+            label: 'Bar',
+          },
+        ]}
+      />
+    </div>
+    <div className="mt-1">
+      <DropdownButton
+        options={[
+          {
+            onClick: () => console.log('Left click'),
+            label: 'Left',
+          },
+          {
+            onClick: () => console.log('Right click'),
+            label: 'Right',
+          },
+        ]}
+      />
+    </div>
+    <div className="mt-1">
+      <DropdownButton
+        backgroundColor={Color.black}
+        options={[
+          {
+            onClick: () => console.log('Up click'),
+            label: 'Up',
+          },
+          {
+            onClick: () => console.log('Down click'),
+            label: 'Down',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</Story>
+
+<Props of={DropdownButton} />

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Outline Button renders without crashing 1`] = `
+<Outline>
+  <OutlineButtonBase>
+    <Base
+      backgroundColor="hsl(0, 0%, 100%)"
+      raised={false}
+      style={
+        Object {
+          "border": ".75px solid hsl(0, 3%, 7%)",
+          "color": "hsl(0, 3%, 7%)",
+        }
+      }
+    >
+      <button
+        className="CohubButton "
+        style={
+          Object {
+            "backgroundColor": "hsl(0, 0%, 100%)",
+            "border": ".75px solid hsl(0, 3%, 7%)",
+            "boxShadow": undefined,
+            "color": "hsl(0, 3%, 7%)",
+          }
+        }
+      >
+        <div
+          className="button-text relative"
+        >
+          <Typography
+            color="hsl(0, 3%, 7%)"
+            secondary={true}
+            style={
+              Object {
+                "opacity": 1,
+                "transition": "opacity 150ms ease-in",
+              }
+            }
+            uppercase={true}
+          >
+            <Component
+              color="hsl(0, 3%, 7%)"
+              secondary={true}
+              style={
+                Object {
+                  "opacity": 1,
+                  "transition": "opacity 150ms ease-in",
+                }
+              }
+              uppercase={true}
+            >
+              <span
+                className=""
+                data-qa="text"
+                style={
+                  Object {
+                    "color": "hsl(0, 3%, 7%)",
+                    "fontFamily": "Akkurat-Mono",
+                    "fontSize": "14px",
+                    "fontWeight": 400,
+                    "opacity": 1,
+                    "textAlign": "initial",
+                    "textTransform": "uppercase",
+                    "transition": "opacity 150ms ease-in",
+                  }
+                }
+              >
+                <span>
+                  push me
+                </span>
+              </span>
+            </Component>
+          </Typography>
+        </div>
+      </button>
+    </Base>
+  </OutlineButtonBase>
+</Outline>
+`;

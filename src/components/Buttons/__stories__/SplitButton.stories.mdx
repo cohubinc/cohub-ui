@@ -1,0 +1,40 @@
+import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+
+import Split from '../../Buttons/Split';
+import Divider from '../../Divider';
+import { StateContainer, Margin, Text } from '../../story-helpers';
+
+<Meta title="Components|Buttons" />
+
+# SplitButtons
+
+## Usage
+
+<Story name="SplitButtons">
+  <div>
+    <Text underlined>Default Split Buttons</Text>
+    <StateContainer initialState={0}>
+      {({ setState, state }) => (
+        <Split
+          labels={['Brown', 'Chicken', 'BrownCow']}
+          selectedIndex={state}
+          onChange={setState}
+        />
+      )}
+    </StateContainer>
+    <Margin />
+    <Text underlined>Primary Split Buttons</Text>
+    <Text italicize>Segments will always be the same size</Text>
+    <StateContainer initialState={1}>
+      {({ setState, state }) => (
+        <Split.Primary
+          labels={['Collections', 'Search', 'Select an item at random']}
+          selectedIndex={state}
+          onChange={setState}
+        />
+      )}
+    </StateContainer>
+  </div>
+</Story>
+
+<Props of={Split} />

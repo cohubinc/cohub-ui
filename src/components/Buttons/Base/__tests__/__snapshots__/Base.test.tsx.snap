@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Base Button renders without crashing 1`] = `
+<button
+  className="CohubButton "
+  style={
+    Object {
+      "backgroundColor": "hsl(0, 0%, 77%)",
+      "boxShadow": "0 2px 3px hsla(0, 0%, 0%, 0.2), inset 0px 2px 0px hsl(0, 0%, 92%)",
+    }
+  }
+>
+  <div
+    className="button-text relative"
+  >
+    <Typography
+      color="#EFF7EE"
+      secondary={true}
+      style={
+        Object {
+          "opacity": 1,
+          "transition": "opacity 150ms ease-in",
+        }
+      }
+      uppercase={true}
+    >
+      <span>
+        push me
+      </span>
+    </Typography>
+  </div>
+</button>
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blank renders without crashing 1`] = `
+<Blank>
+  <button
+    className="ButtonBlank "
+  >
+    <Typography
+      style={Object {}}
+    >
+      <Component
+        style={Object {}}
+      >
+        <span
+          className=""
+          data-qa="text"
+          style={
+            Object {
+              "color": "hsl(0, 2%, 22%)",
+              "fontFamily": "Inter",
+              "fontSize": "14px",
+              "fontWeight": 400,
+              "textAlign": "initial",
+              "textTransform": "initial",
+            }
+          }
+        >
+          push me
+        </span>
+      </Component>
+    </Typography>
+  </button>
+</Blank>
+`;

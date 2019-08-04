@@ -1,0 +1,45 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { StateCtrl, Margin } from "../../story-helpers";
+import Color from "../../../definitions/enums/Color";
+import AnimatedCheckmark from "../index.tsx";
+
+<Meta title="Components|AnimatedCheckmark" />
+
+# AnimatedCheckmark
+
+<Story name="AnimatedCheckmark">
+  <div>
+    <StateCtrl>
+      {({ state }) => (
+        <div
+          className="flex justify-center items-center"
+          style={{
+            height: "8em",
+            width: "14.6em",
+            backgroundColor: Color.black
+          }}
+        >
+          {state && <AnimatedCheckmark size="3em" />}
+        </div>
+      )}
+    </StateCtrl>
+    <Margin />
+    <StateCtrl>
+      {({ state }) => (
+        <div
+          className="flex justify-center items-center"
+          style={{
+            height: "8em",
+            width: "14.6em",
+            backgroundColor: Color.primary
+          }}
+        >
+          {state && <AnimatedCheckmark size="3em" />}
+        </div>
+      )}
+    </StateCtrl>
+  </div>
+</Story>
+
+<Props of={AnimatedCheckmark} />

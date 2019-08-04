@@ -1,0 +1,37 @@
+import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+
+import Buttons from '../../Buttons/index';
+import Base from '../../Buttons/Base';
+import { StateCtrl, Margin } from '../../story-helpers';
+
+<Meta title="Components|Buttons" />
+
+# Defualt Button
+
+<Margin />
+
+<Story name="Default">
+  <div>
+    <Buttons>Default</Buttons>
+    <Margin />
+    <StateCtrl label="error">
+      {({ state }) => <Buttons error={state}>Error</Buttons>}
+    </StateCtrl>
+    <Margin />
+    <StateCtrl label="raised" defaultState>
+      {({ state }) => <Buttons raised={state}>Raised</Buttons>}
+    </StateCtrl>
+    <Margin />
+    <StateCtrl label="success">
+      {({ state }) => (
+        <Buttons success={state} style={{ width: '5rem' }}>
+          Submit
+        </Buttons>
+      )}
+    </StateCtrl>
+  </div>
+</Story>
+
+<Props of={Base} />
+
+**Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

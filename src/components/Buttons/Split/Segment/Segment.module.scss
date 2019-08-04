@@ -1,0 +1,16 @@
+.SplitButtonSegment {
+  &:hover,
+  &:focus {
+    filter: brightness(90%);
+  }
+
+  &:first-of-type {
+    border-top-left-radius: var(--default-border-radius);
+    border-bottom-left-radius: var(--default-border-radius);
+  }
+
+  &:last-of-type {
+    border-top-right-radius: var(--default-border-radius);
+    border-bottom-right-radius: var(--default-border-radius);
+  }
+}
