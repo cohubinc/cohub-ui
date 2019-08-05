@@ -12,6 +12,7 @@ import Text from "./Text";
 import Primary from "./Primary";
 import Info from "./Info";
 import Cancel from "./Cancel";
+import Dropdown from "./Dropdown";
 
 export default class Buttons extends Component<IBaseButtonProps> {
   static Primary = Primary;
@@ -24,6 +25,7 @@ export default class Buttons extends Component<IBaseButtonProps> {
   static Ghost = Ghost;
   static PrimaryGhost = PrimaryGhostButton;
   static CancelGhost = CancelGhostButton;
+  static Dropdown = Dropdown;
 
   static Text = Text;
 

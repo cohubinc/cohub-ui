@@ -1,5 +1,5 @@
 export default function logError(message: string) {
-  if (process.env.NODE_ENV === 'development') {
+  if (__DEV__) {
     throw new Error(message);
   }
 

@@ -4,7 +4,9 @@
     "target": "es5",
     "module": "es6",
     "declarationDir": "./dist",
-    "lib": ["es7", "es2015.promise", "dom", "dom.iterable", "esnext"],
+    "sourceMap": true,
+    // Using babel to add polyfills
+    // "lib": ["es7", "es2015.promise", "dom", "dom.iterable", "esnext"],
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
@@ -13,7 +15,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "jsx": "react",
+    // Save the transform of jsx for babel so we can do cool babel shite
+    "jsx": "preserve",
     "paths": {
       "src": ["src/*"]
     }

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Sharable UI components",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -12,20 +11,26 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "react-animate-height": "^2.0.15"
+    "styled-jsx": "3.2.1"
   },
   "peerDependencies": {
     "lodash": ">=4.0.0",
     "moment": ">=2.23.0",
-    "react": ">=16.0.0"
+    "react": ">=16.0.0",
+    "react-animate-height": ">=2.0.0",
+    "react-dome": ">=16.0.0"
   },
   "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-react": "7.0.0",
     "@types/lodash": "4.14.136",
     "@types/react": "16.8.24",
+    "@types/styled-jsx": "2.2.8",
     "autoprefixer": "9.6.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
@@ -33,9 +38,17 @@
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-preset-env": "6.7.0",
     "react": "^16.8.6",
+    "react-animate-height": "^2.0.15",
+    "react-dom": "^16.8.6",
     "rollup": "1.18.0",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-commonjs": "10.0.2",
+    "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-postcss": "2.0.3",
+    "rollup-plugin-replace": "2.2.0",
     "rollup-plugin-typescript2": "0.22.1",
+    "styled-jsx-plugin-sass": "1.0.0",
+    "tslib": "1.10.0",
     "typescript": "3.5.3"
   }
 }
