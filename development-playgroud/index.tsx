@@ -4,13 +4,13 @@ import {
   Buttons,
   Typography,
   Icon,
-  CssVariables
+  CssFramework
 } from "../dist/index.development";
 
 const App = () => {
   return (
     <div>
-      <CssVariables />
+      <CssFramework />
       <div>
         <Typography.HeadingLarge>Dat Button</Typography.HeadingLarge>
       </div>

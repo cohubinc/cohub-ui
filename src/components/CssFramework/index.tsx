@@ -5,6 +5,8 @@ import Color from "src/definitions/enums/Color";
 import BoxShadow from "src/definitions/enums/BoxShadow";
 import Font from "src/definitions/enums/Font";
 
+import "./styles/main.scss";
+
 enum Miscellaneous {
   defaultBorderRadius = "4px",
   disabledOpacity = "0.45",
