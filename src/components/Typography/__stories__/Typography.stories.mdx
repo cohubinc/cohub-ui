@@ -1,14 +1,16 @@
 import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import { StateCtrl, Margin } from "../../story-helpers";
-import Color from "../../../definitions/enums/Color";
-import Typography from "../";
+import {
+  Typography,
+  StoryHelpers,
+  Color
+} from "../../../../dist/index.storybook.js";
 
 <Meta title="Components|Typography" />
 
 # Typography
 
-<Margin showDividerLine />
+<StoryHelpers.Margin showDividerLine />
 
 <Story name="Typography">
   <div>

@@ -1,8 +1,8 @@
-import React, { PureComponent, CSSProperties } from 'react';
-import Blank from '../Blank';
-import Color from '../../../definitions/enums/Color';
-import Typography from '../../Typography';
-import { Props as BlankButtonProps } from '../../Buttons/Blank';
+import React, { PureComponent, CSSProperties } from "react";
+import Blank from "../Blank";
+import Color from "src/definitions/enums/Color";
+import Typography from "src/components/Typography";
+import { Props as BlankButtonProps } from "src/components/Buttons/Blank";
 
 interface IProps {
   color?: Color;
@@ -11,12 +11,12 @@ interface IProps {
   block?: boolean;
 }
 
-type TProps = IProps & Omit<BlankButtonProps, 'color'>;
+type TProps = IProps & Omit<BlankButtonProps, "color">;
 
 export default class Text extends PureComponent<TProps> {
   static defaultProps: Partial<IProps> = {
     color: Color.iconGrey,
-    fontSize: '14px',
+    fontSize: "12px"
   };
 
   render() {
@@ -27,7 +27,7 @@ export default class Text extends PureComponent<TProps> {
       textStyle,
       block,
       style,
-      className = '',
+      className = "",
       ...rest
     } = this.props;
 
@@ -35,7 +35,7 @@ export default class Text extends PureComponent<TProps> {
       <Blank
         {...rest}
         className={`${className} p-05`}
-        style={{ display: block ? 'block' : undefined, ...style }}
+        style={{ display: block ? "block" : undefined, ...style }}
       >
         <Typography
           uppercase
@@ -43,7 +43,7 @@ export default class Text extends PureComponent<TProps> {
           weight={500}
           style={{
             fontSize,
-            ...textStyle,
+            ...textStyle
           }}
           kerning={0.07}
         >

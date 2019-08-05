@@ -1,7 +1,7 @@
-import React, { Component, CSSProperties } from 'react';
-import Color from '../../../../definitions/enums/Color';
+import React, { Component, CSSProperties } from "react";
+import Color from "src/definitions/enums/Color";
 
-// import styles from "./Segment.module.scss";
+import styles from "./Segment.module.scss";
 
 export interface IProps {
   children: React.ReactNode;
@@ -36,28 +36,28 @@ export default class Segment extends Component<IProps, IState> {
       backgroundColor = color;
     }
 
-    const smallStyle = small ? { height: 24, padding: '3px 11px' } : {};
+    const smallStyle = small ? { height: 24, padding: "3px 11px" } : {};
 
     return (
       <button
         {...restOfProps}
-        // className={styles.SplitButtonSegment}
+        className={styles.SplitButtonSegment}
         style={
           {
             backgroundColor,
             color: selected ? Color.trueWhite : color,
-            filter: hasFocus && selected ? 'brightness(90%)' : 'none',
+            filter: hasFocus && selected ? "brightness(90%)" : "none",
             border: `1px solid ${color}`,
             transition: `all 65ms ease-in-out`,
-            cursor: 'pointer',
+            cursor: "pointer",
             minWidth: 75,
-            padding: '1em',
-            fontFamily: 'Akkurat-Mono',
-            fontWeight: 'lighter',
-            outline: 'none',
-            overflow: 'hidden',
+            padding: "1em",
+            fontFamily: "Akkurat-Mono",
+            fontWeight: "lighter",
+            outline: "none",
+            overflow: "hidden",
             ...smallStyle,
-            ...style,
+            ...style
           } as CSSProperties
         }
       >

@@ -1,0 +1,28 @@
+import React from "react";
+// Load came in here because we modified the index.d.ts file to add a load type definition
+// This is not part of the actual library
+import { addDecorator } from "@storybook/react";
+import { addParameters, configure } from "@storybook/react";
+import { DocsPage } from "@storybook/addon-docs/blocks";
+
+import { CssFramework } from "../dist";
+
+import "./custom-styles.scss";
+
+const padding = "1rem";
+const Decorator = storyFn => (
+  <div style={{ paddingTop: padding, paddingLeft: padding }}>
+    <CssFramework />
+    {storyFn()}
+  </div>
+);
+
+addDecorator(Decorator);
+// addParameters({
+//   docs: DocsPage
+// });
+
+configure(
+  require.context("../src", true, /\.stories\.(js|ts|tsx|mdx)$/),
+  module
+);

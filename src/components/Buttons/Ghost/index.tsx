@@ -1,14 +1,14 @@
 import React from "react";
-import Color from "../../../definitions/enums/Color";
+import Color from "src/definitions/enums/Color";
 import OutlineButton from "../Outline";
 import { IBaseButtonProps } from "../Base";
 
-interface IProps {
+export interface IProps {
   color?: Color;
   light?: boolean;
 }
 
-export type TProps = IProps & Omit<IBaseButtonProps, "raised" | "color">;
+type TProps = IProps & Omit<IBaseButtonProps, "raised" | "color">;
 
 export const Ghost = ({ color = Color.invertedText, ...props }: TProps) => (
   <OutlineButton backgroundColor={Color.black500} color={color} {...props} />

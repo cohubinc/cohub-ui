@@ -1,13 +1,10 @@
-import React, { Component, CSSProperties } from 'react';
+import React, { CSSProperties, useState } from "react";
 
-import Text from '../../Typography';
-import Icon from '../../Icon';
-import Color from '../../../definitions/enums/Color';
+import Color from "src/definitions/enums/Color";
 
-import Blank from '../Blank';
-
-import './Dropdown.scss';
-import AnimateHeight from 'react-animate-height';
+import "./Dropdown.scss";
+import Buttons from "../index";
+import Tooltip from "src/components/Tooltip";
 
 interface IOption {
   onClick: () => void;
@@ -18,136 +15,86 @@ interface IProps {
   style?: CSSProperties;
   className?: string;
   disabled?: boolean;
-  width?: string | number;
-  backgroundColor?: Color;
-}
-interface IState {
-  expanded: boolean;
-  selectedOption: IOption;
+  buttonType?: "Primary" | "Secondary" | "Info" | "Cancel";
 }
 
-export default class Dropdown extends Component<IProps, IState> {
-  constructor(props: IProps) {
-    super(props);
+export default function Dropdown(props: IProps) {
+  const {
+    options,
+    style,
+    className,
+    disabled,
+    buttonType = "Secondary"
+  } = props;
 
-    this.state = {
-      expanded: false,
-      selectedOption: props.options[0],
-    };
-  }
+  const [expanded, setExpanded] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(props.options[0]);
 
-  render() {
-    const {
-      style,
-      className = '',
-      width,
-      disabled,
-      options,
-      backgroundColor = Color.primary,
-    } = this.props;
-    const {
-      selectedOption: { onClick, label },
-      expanded,
-    } = this.state;
+  const cursor = disabled ? "default" : "pointer";
 
-    const cursor = disabled ? 'default' : 'pointer';
+  const Button = Buttons[buttonType];
 
-    return (
-      <div
-        className={`CohubDropdownButton relative ${className}`}
-        style={{ width, ...style }}
-      >
-        <div>
-          <div
-            className="flex bd-radius"
-            style={{
-              padding: 2,
-              backgroundColor: backgroundColor as any,
-              opacity: disabled ? 0.45 : 1,
-            }}
-          >
-            <div className="w-100">
-              <Blank
-                style={{
-                  backgroundColor: 'transparent',
-                  padding: '6px 33px',
-                  width: '100%',
-                  cursor,
-                }}
-                onClick={onClick}
-                disabled={disabled}
-              >
-                <div className="text-center">
-                  <Text light style={{ whiteSpace: 'nowrap' }}>
-                    {label}
-                  </Text>
-                </div>
-              </Blank>
-            </div>
-
-            <div
-              className="flex justify-center items-center"
-              style={{
-                width: 35,
-                borderLeft: `1px solid ${Color.trueWhite}`,
-                paddingLeft: 1,
-                cursor,
-              }}
-              onClick={this.toggleOptions}
-            >
-              <Icon.ChevronDown color={Color.trueWhite} />
-            </div>
-          </div>
-        </div>
-
-        {/* OPTIONS */}
-        <AnimateHeight
-          height={expanded ? 'auto' : 0}
-          style={{ position: 'absolute', width: '100%', zIndex: 2 }}
+  return (
+    <div className={`CohubDropdownButton relative ${className}`} style={style}>
+      <div className="flex bd-radius">
+        <Button
+          onClick={selectedOption.onClick}
+          disabled={disabled}
+          style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
         >
-          <div className="flex justify-center items-center">
-            <div
-              className="bd-radius mt-1 w-100"
-              style={{
-                boxShadow:
-                  '0 4px 20px rgba(0,0,0,0.19), 0px 0px 6px rgba(0,0,0,0.23)',
-                backgroundColor: Color.trueWhite as any,
-              }}
-              data-qa="cohub-dropdown-button"
-            >
-              <ul
-                className="p-0"
-                style={{
-                  maxHeight: '50vh',
-                  listStyle: 'none',
-                  overflowY: 'auto',
-                }}
-              >
-                {options
-                  .filter(option => option.label !== label)
-                  .map(option => (
-                    <li
-                      key={option.label}
-                      className="cursor-pointer"
-                      style={{ padding: '.25rem .5rem' }}
-                      onClick={() =>
-                        this.setState({
-                          selectedOption: option,
-                          expanded: false,
-                        })
-                      }
-                    >
-                      {option.label}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-          </div>
-        </AnimateHeight>
-      </div>
-    );
-  }
+          {selectedOption.label}
+        </Button>
 
-  private toggleOptions = () =>
-    this.setState(({ expanded }) => ({ expanded: !expanded }));
+        <Tooltip
+          content={
+            <ul
+              className="p-0 m-0 text-left"
+              style={{
+                maxHeight: "50vh",
+                listStyle: "none",
+                overflowY: "auto"
+              }}
+            >
+              {options
+                .filter(option => option.label !== selectedOption.label)
+                .map(option => (
+                  <li
+                    key={option.label}
+                    className="cursor-pointer CohubDropdownOption p-05"
+                    onClick={() => {
+                      setSelectedOption(option);
+                      setExpanded(false);
+                    }}
+                  >
+                    {option.label}
+                  </li>
+                ))}
+            </ul>
+          }
+          className="p-0"
+          placement="bottom-end"
+          theme="light"
+          interactive={true}
+          trigger="click"
+          arrow={true}
+          delay={[100, 300]}
+          visible={expanded}
+        >
+          <Button
+            icon="chevronDown"
+            iconSize={16}
+            className="flex justify-center items-center"
+            style={{
+              width: 35,
+              borderLeft: `1px solid ${Color.trueWhite}`,
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0,
+              cursor
+            }}
+            onClick={() => setExpanded(!expanded)}
+          />
+        </Tooltip>
+      </div>
+    </div>
+  );
 }

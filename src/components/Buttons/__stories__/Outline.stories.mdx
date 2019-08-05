@@ -1,25 +1,27 @@
-import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import Buttons from '../../Buttons/index';
-import Base from '../../Buttons/Base';
-import { Margin } from '../../story-helpers';
+import {
+  Buttons,
+  Margin,
+  StoryHelpers
+} from "../../../../dist/index.storybook.js";
 
-<Meta title="Components|Buttons" />
+<Meta title="Components|Buttons|Outline" />
 
 # Outline Button
 
-<Margin />
+<StoryHelpers.Margin />
 
 <Story name="Outline">
   <div>
     <Buttons.Outline>Outline</Buttons.Outline>
-    <Margin />
+    <StoryHelpers.Margin />
     <div>
       <Buttons.Outline light>Light Outline</Buttons.Outline>
     </div>
   </div>
 </Story>
 
-<Props of={Base} />
+<Props of={Buttons.Base} />
 
 **Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

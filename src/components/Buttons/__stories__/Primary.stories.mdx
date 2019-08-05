@@ -1,37 +1,46 @@
-import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import Buttons from '../../Buttons/index';
-import Base from '../../Buttons/Base';
-import { Margin, StateCtrl } from '../../story-helpers';
+import { Buttons, StoryHelpers } from "../../../../dist/index.storybook.js";
 
-<Meta title="Components|Buttons" />
+<Meta title="Components|Buttons|Primary" />
 
 # Primary Button
 
-<Margin />
+<StoryHelpers.Margin />
 
 <Story name="Primary">
   <div>
     <Buttons.Primary>Primary</Buttons.Primary>
-    <Margin />
-    <StateCtrl label="error">
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateCtrl label="error">
       {({ state }) => <Buttons.Primary error={state}>Error</Buttons.Primary>}
-    </StateCtrl>
-    <Margin />
-    <StateCtrl label="raised" defaultState>
+    </StoryHelpers.StateCtrl>
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateCtrl label="raised" defaultState>
       {({ state }) => <Buttons.Primary raised={state}>Raised</Buttons.Primary>}
-    </StateCtrl>
-    <Margin />
-    <StateCtrl label="success">
+    </StoryHelpers.StateCtrl>
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateCtrl label="success">
       {({ state }) => (
-        <Buttons.Primary success={state} style={{ width: '5rem' }}>
+        <Buttons.Primary success={state} style={{ width: "5rem" }}>
           Submit
         </Buttons.Primary>
       )}
-    </StateCtrl>
+    </StoryHelpers.StateCtrl>
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateCtrl label="position">
+      {({ state }) => (
+        <Buttons.Primary
+          icon="chevronDown"
+          iconPosition={state ? "right" : "left"}
+        >
+          Text
+        </Buttons.Primary>
+      )}
+    </StoryHelpers.StateCtrl>
   </div>
 </Story>
 
-<Props of={Base} />
+<Props of={Buttons.Default} />
 
 **Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

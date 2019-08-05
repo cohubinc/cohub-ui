@@ -3,22 +3,20 @@ import React, { Component } from "react";
 import Button, { IBaseButtonProps } from "./Base";
 import Blank from "./Blank";
 import OutlineButton from "./Outline";
-import {
-  Ghost,
-  PrimaryGhostButton,
-  CancelGhostButton
-} from "src/components/Buttons/Ghost";
+import { Ghost, PrimaryGhostButton, CancelGhostButton } from "./Ghost";
 import Text from "./Text";
 import Primary from "./Primary";
+import Secondary from "./Secondary";
 import Info from "./Info";
 import Cancel from "./Cancel";
-import Dropdown from "./Dropdown";
+import Dropdown from "./Dropdown/index";
 
 export default class Buttons extends Component<IBaseButtonProps> {
   static Primary = Primary;
+  static Secondary = Secondary;
   static Info = Info;
   static Cancel = Cancel;
-  static Default = Button;
+  static Base = Button;
 
   static Outline = OutlineButton;
 
@@ -32,6 +30,6 @@ export default class Buttons extends Component<IBaseButtonProps> {
   static Blank = Blank;
 
   render() {
-    return <Buttons.Default {...this.props} />;
+    return <Buttons.Secondary {...this.props} />;
   }
 }

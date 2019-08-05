@@ -1,10 +1,9 @@
 .CohubButton {
-  font-family: Akkurat-Mono;
+  // font-family: Akkurat-Mono;
   font-weight: lighter;
   border: none;
   border-radius: var(--default-border-radius);
   padding: 6px 12px;
-  font-size: 16px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -25,13 +24,13 @@
     }
   }
 
-  &:focus {
-    filter: brightness(93%);
-  }
+  // &:focus {
+  //   filter: brightness(93%);
+  // }
 
-  &:hover {
-    filter: brightness(97%);
-  }
+  // &:hover {
+  //   filter: brightness(97%);
+  // }
 
   &:disabled {
     cursor: default;

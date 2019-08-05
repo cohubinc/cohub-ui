@@ -2,33 +2,30 @@
 
 exports[`Buttons renders 1`] = `
 <Buttons>
-  <Base>
-    <button
-      className="CohubButton "
+  <Secondary>
+    <Base
+      backgroundColor="hsl(0, 0%, 100%)"
       style={
         Object {
-          "backgroundColor": "hsl(0, 0%, 77%)",
-          "boxShadow": "0 2px 3px hsla(0, 0%, 0%, 0.2), inset 0px 2px 0px hsl(0, 0%, 92%)",
+          "color": "hsl(212, 14%, 35%)",
         }
       }
     >
-      <div
-        className="button-text relative"
-      >
-        <Typography
-          color="#EFF7EE"
-          secondary={true}
-          style={
-            Object {
-              "opacity": 1,
-              "transition": "opacity 150ms ease-in",
-            }
+      <button
+        className="CohubButton "
+        style={
+          Object {
+            "backgroundColor": "hsl(0, 0%, 100%)",
+            "boxShadow": "0 1px 3px hsla(0, 0%, 0%, 0.1), inset 0px 1px 0px #F2F2F2",
+            "color": "hsl(212, 14%, 35%)",
           }
-          uppercase={true}
+        }
+      >
+        <div
+          className="button-text relative flex items-center"
         >
           <Component
-            color="#EFF7EE"
-            secondary={true}
+            color="hsl(212, 14%, 35%)"
             style={
               Object {
                 "opacity": 1,
@@ -42,9 +39,9 @@ exports[`Buttons renders 1`] = `
               data-qa="text"
               style={
                 Object {
-                  "color": "#EFF7EE",
-                  "fontFamily": "Akkurat-Mono",
-                  "fontSize": "14px",
+                  "color": "hsl(212, 14%, 35%)",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
                   "fontWeight": 400,
                   "opacity": 1,
                   "textAlign": "initial",
@@ -53,14 +50,31 @@ exports[`Buttons renders 1`] = `
                 }
               }
             >
-              <span>
-                push me
-              </span>
+              <div
+                className="flex items-center"
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <span
+                  id="CHILDREN"
+                  style={
+                    Object {
+                      "marginLeft": "",
+                      "marginRight": "",
+                    }
+                  }
+                >
+                  push me
+                </span>
+              </div>
             </span>
           </Component>
-        </Typography>
-      </div>
-    </button>
-  </Base>
+        </div>
+      </button>
+    </Base>
+  </Secondary>
 </Buttons>
 `;

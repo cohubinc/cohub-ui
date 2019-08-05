@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import Color from "src/definitions/enums/Color";
-import { getInsetColor } from "./getInsetColor";
 import AnimatedCheckmark from "src/components/AnimatedCheckmark";
 import Typography from "src/components/Typography";
+import { getInsetColor } from "./getInsetColor";
+import Icon, { IconName } from "src/components/Icon";
 
 import "./Base.scss";
 
@@ -25,6 +26,20 @@ export interface IBaseButtonProps
    * Background color of button
    */
   backgroundColor?: Color;
+  /**
+   * Name of Icon
+   */
+  icon?: IconName;
+
+  /**
+   * Position of Icon
+   */
+  iconPosition?: "left" | "right";
+
+  /**
+   * Size of Icon
+   */
+  iconSize?: number;
 }
 
 export default function Base(props: IBaseButtonProps) {
@@ -37,50 +52,71 @@ export default function Base(props: IBaseButtonProps) {
     backgroundColor = Color.grey600,
     disabled,
     error,
+    icon,
+    iconPosition,
+    iconSize,
     ...restOfProps
   } = props;
 
   backgroundColor = error ? Color.red500 : backgroundColor;
   const insetColor = raised && getInsetColor(backgroundColor);
   const color = (style && style.color) || "#EFF7EE";
+  const flexDirection = iconPosition === "right" ? "row-reverse" : "row";
 
   return (
-    <Fragment>
-      <button
-        className={`CohubButton ${className}`}
-        style={{
-          backgroundColor: backgroundColor as any,
-          boxShadow: raised
-            ? `0 2px 3px hsla(0, 0%, 0%, 0.2), inset 0px 2px 0px ${insetColor}`
-            : undefined,
-          ...style
-        }}
-        disabled={disabled}
-        {...restOfProps}
-      >
-        <div className="button-text relative">
-          {success && (
-            <div
-              className="flex justify-center items-center absolute w-100"
-              style={{ zIndex: 2, bottom: -0.5 }}
-            >
-              <AnimatedCheckmark size="1.25rem" />
-            </div>
-          )}
-
-          <Typography
-            secondary
-            uppercase
-            color={color as any}
-            style={{
-              opacity: success ? 0 : 1,
-              transition: "opacity 150ms ease-in"
-            }}
+    <button
+      className={`CohubButton ${className}`}
+      style={{
+        backgroundColor: backgroundColor as any,
+        boxShadow: raised
+          ? `0 1px 3px hsla(0, 0%, 0%, 0.1), inset 0px 1px 0px ${insetColor}`
+          : undefined,
+        ...style
+      }}
+      disabled={disabled}
+      {...restOfProps}
+    >
+      <div className="button-text relative flex items-center">
+        {success && (
+          <div
+            className="flex justify-center items-center absolute w-100"
+            style={{ zIndex: 2, bottom: -0.5 }}
           >
-            {children}
-          </Typography>
-        </div>
-      </button>
-    </Fragment>
+            <AnimatedCheckmark size="1.25rem" />
+          </div>
+        )}
+
+        <Typography.Small
+          uppercase
+          color={color as any}
+          style={{
+            opacity: success ? 0 : 1,
+            transition: "opacity 150ms ease-in"
+          }}
+        >
+          <div className="flex items-center" style={{ flexDirection }}>
+            {icon && (
+              <Icon
+                name={icon}
+                color={color as any}
+                size={iconSize}
+                style={{
+                  marginTop: 1
+                }}
+              />
+            )}
+            <span
+              id="CHILDREN"
+              style={{
+                marginLeft: icon && iconPosition === "left" ? "0.5rem" : "",
+                marginRight: icon && iconPosition === "right" ? "0.5rem" : ""
+              }}
+            >
+              {children}
+            </span>
+          </div>
+        </Typography.Small>
+      </div>
+    </button>
   );
 }

@@ -1,17 +1,18 @@
-import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
-import Buttons from '../../Buttons/index';
-import Base from '../../Buttons/Base';
-import Color from '../../../definitions/enums/Color';
-import { StateCtrl } from '../../story-helpers';
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import {
+  Buttons,
+  StoryHelpers,
+  Color
+} from "../../../../dist/index.storybook.js";
 
-<Meta title="Components|Buttons" />
+<Meta title="Components|Buttons|Ghost" />
 
 # Outline Button
 
-<Margin />
+<StoryHelpers.Margin />
 
 <Story name="Ghost 👻">
-  <div style={{ backgroundColor: Color.black500, padding: '6em' }}>
+  <div style={{ backgroundColor: Color.black500, padding: "6em" }}>
     <div className="mb-2">
       <Buttons.Ghost>Default 👻</Buttons.Ghost>
     </div>
@@ -21,16 +22,16 @@ import { StateCtrl } from '../../story-helpers';
     <div className="mb-2">
       <Buttons.CancelGhost>Cancel</Buttons.CancelGhost>
     </div>
-    <StateCtrl label="success">
+    <StoryHelpers.StateCtrl label="success">
       {({ state }) => (
-        <Buttons.PrimaryGhost success={state} style={{ width: '5rem' }}>
+        <Buttons.PrimaryGhost success={state} style={{ width: "5rem" }}>
           Submit
         </Buttons.PrimaryGhost>
       )}
-    </StateCtrl>
+    </StoryHelpers.StateCtrl>
   </div>
 </Story>
 
-<Props of={Base} />
+<Props of={Buttons.Base} />
 
 **Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

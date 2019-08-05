@@ -1,27 +1,25 @@
-import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import Buttons from '../../Buttons/index';
-import Base from '../../Buttons/Base';
-import { StateCtrl, Margin } from '../../story-helpers';
+import { Buttons, StoryHelpers } from "../../../../dist/index.storybook.js";
 
-<Meta title="Components|Buttons" />
+<Meta title="Components|Buttons|Cancel" />
 
 # Cancel Button
 
 <Story name="Cancel">
   <div>
     <Buttons.Cancel>Cancel</Buttons.Cancel>
-    <Margin />
-    <StateCtrl label="raised" defaultState={true}>
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateCtrl label="raised" defaultState={true}>
       {({ state }) => <Buttons.Cancel raised={state}>Raised</Buttons.Cancel>}
-    </StateCtrl>
+    </StoryHelpers.StateCtrl>
   </div>
 </Story>
 
-<Margin showDividerLine marginBottom={0} />
+<StoryHelpers.Margin showDividerLine marginBottom={0} />
 
 Cancel only excepts the **raised** and **backgroundColor** props
 
-<Props of={Buttons.Default} />
+<Props of={Buttons.Base} />
 
 **Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

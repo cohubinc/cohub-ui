@@ -1,13 +1,13 @@
 import React from "react";
-import Color from "../../../definitions/enums/Color";
+import Color from "src/definitions/enums/Color";
 import Button, { IBaseButtonProps } from "../Base";
 
-interface IProps {
+export interface IProps {
   color?: Color;
   light?: boolean;
 }
 
-export type TProps = IProps & Omit<IBaseButtonProps, "raised" | "color">;
+type TProps = IProps & Omit<IBaseButtonProps, "raised" | "color">;
 
 const OutlineButtonBase = ({
   style,

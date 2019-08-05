@@ -1,0 +1,27 @@
+---
+name: Tooltip
+---
+
+import { Playground, PropsTable } from "docz";
+import DoczStateCtrl from "src/components/Docz/DoczStateCtrl";
+import Tooltip from "../index.tsx";
+
+# Tooltip
+
+<PropsTable of={Tooltip} />
+
+## Usage
+
+```javascript
+<Tooltip
+  content="Tooltip Content"
+  placement="left-end"
+  theme="light"
+  arrow={false}
+  duration={200}
+  delay={[100, 300]}
+  interactive={true}
+>
+  <button>Hover Me</button>
+</Tooltip>
+```

@@ -1,8 +1,8 @@
 import lowerFirst from "lodash/lowerFirst";
 import findKey from "lodash/findKey";
 
-import Color from "../../../definitions/enums/Color";
-import logError from "../../../utils/logError";
+import Color from "src/definitions/enums/Color";
+import logError from "src/utils/logError";
 
 // Calculate the inset color by finding the background color then dropping down two color shades
 export function getInsetColor(backgroundColor: Color) {

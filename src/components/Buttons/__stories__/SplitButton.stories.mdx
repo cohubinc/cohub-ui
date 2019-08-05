@@ -1,10 +1,8 @@
-import { Story, Meta, Props, Source } from '@storybook/addon-docs/blocks';
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import Split from '../../Buttons/Split';
-import Divider from '../../Divider';
-import { StateContainer, Margin, Text } from '../../story-helpers';
+import { SplitButton, StoryHelpers } from "../../../../dist/index.storybook.js";
 
-<Meta title="Components|Buttons" />
+<Meta title="Components|Buttons|SplitButton" />
 
 # SplitButtons
 
@@ -13,27 +11,29 @@ import { StateContainer, Margin, Text } from '../../story-helpers';
 <Story name="SplitButtons">
   <div>
     <Text underlined>Default Split Buttons</Text>
-    <StateContainer initialState={0}>
+    <StoryHelpers.StateContainer initialState={0}>
       {({ setState, state }) => (
         <Split
-          labels={['Brown', 'Chicken', 'BrownCow']}
+          labels={["Brown", "Chicken", "BrownCow"]}
           selectedIndex={state}
           onChange={setState}
         />
       )}
-    </StateContainer>
-    <Margin />
-    <Text underlined>Primary Split Buttons</Text>
-    <Text italicize>Segments will always be the same size</Text>
-    <StateContainer initialState={1}>
+    </StoryHelpers.StateContainer>
+    <StoryHelpers.Margin />
+    <StoryHelpers.Text underlined>Primary Split Buttons</StoryHelpers.Text>
+    <StoryHelpers.Text italicize>
+      Segments will always be the same size
+    </StoryHelpers.Text>
+    <StoryHelpers.StateContainer initialState={1}>
       {({ setState, state }) => (
         <Split.Primary
-          labels={['Collections', 'Search', 'Select an item at random']}
+          labels={["Collections", "Search", "Select an item at random"]}
           selectedIndex={state}
           onChange={setState}
         />
       )}
-    </StateContainer>
+    </StoryHelpers.StateContainer>
   </div>
 </Story>
 

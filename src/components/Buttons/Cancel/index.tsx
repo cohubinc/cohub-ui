@@ -1,6 +1,6 @@
 import React from "react";
 
-import Color from "../../../definitions/enums/Color";
+import Color from "src/definitions/enums/Color";
 import BaseButton, { IBaseButtonProps } from "../Base/index";
 
 export type TProps = Omit<IBaseButtonProps, "error" | "success">;

@@ -1,5 +1,5 @@
 import React, { CSSProperties, Component } from "react";
-import Color from "../../../definitions/enums/Color";
+import Color from "src/definitions/enums/Color";
 import Segment from "./Segment";
 
 interface IProps {

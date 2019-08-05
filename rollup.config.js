@@ -14,14 +14,29 @@ import commonjs from "rollup-plugin-commonjs";
 import pkg from "./package.json";
 
 const NODE_ENV = process.env.NODE_ENV || "development";
-const __DEV__ = NODE_ENV !== "production";
+const __DEV__ = NODE_ENV === "development";
 const peerDependencies = Object.keys(pkg.peerDependencies || {});
 const dependencies = Object.keys(pkg.dependencies || {});
+const isStoryBuild = NODE_ENV === "storybook";
+
+let file = __DEV__ ? "./dist/index.development.js" : pkg.main;
+if (isStoryBuild) {
+  file = "./dist/index.storybook.js";
+}
+
+console.log(`
+
+
+
+file: ${file}
+
+
+`);
 
 export default {
   input: "src/index.ts",
   output: {
-    file: __DEV__ ? "./dist/index.development.js" : pkg.main,
+    file,
     format: "es",
     sourcemap: true,
     globals: { lodash: "lodash" }
@@ -39,7 +54,10 @@ export default {
     babel({
       extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       exclude: "node_modules/**",
-      presets: ["@babel/preset-react"]
+      presets: ["@babel/preset-react"],
+      plugins: isStoryBuild
+        ? ["babel-plugin-react-docgen-typescript"]
+        : undefined
     }),
     postcss({
       preprocessor: (content, id) => {

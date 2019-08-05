@@ -1,8 +1,6 @@
-.CohubDropdownButton {
-  li {
-    &:focus,
-    &:hover {
-      background-color: #f2f2f2;
-    }
+li.CohubDropdownOption {
+  &:focus,
+  &:hover {
+    background-color: #f2f2f2;
   }
 }

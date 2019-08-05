@@ -32,11 +32,10 @@ exports[`Ghost renders without crashing 1`] = `
           }
         >
           <div
-            className="button-text relative"
+            className="button-text relative flex items-center"
           >
-            <Typography
+            <Component
               color="hsl(0, 0%, 98%)"
-              secondary={true}
               style={
                 Object {
                   "opacity": 1,
@@ -45,39 +44,44 @@ exports[`Ghost renders without crashing 1`] = `
               }
               uppercase={true}
             >
-              <Component
-                color="hsl(0, 0%, 98%)"
-                secondary={true}
+              <span
+                className=""
+                data-qa="text"
                 style={
                   Object {
+                    "color": "hsl(0, 0%, 98%)",
+                    "fontFamily": "Inter",
+                    "fontSize": 12,
+                    "fontWeight": 400,
                     "opacity": 1,
+                    "textAlign": "initial",
+                    "textTransform": "uppercase",
                     "transition": "opacity 150ms ease-in",
                   }
                 }
-                uppercase={true}
               >
-                <span
-                  className=""
-                  data-qa="text"
+                <div
+                  className="flex items-center"
                   style={
                     Object {
-                      "color": "hsl(0, 0%, 98%)",
-                      "fontFamily": "Akkurat-Mono",
-                      "fontSize": "14px",
-                      "fontWeight": 400,
-                      "opacity": 1,
-                      "textAlign": "initial",
-                      "textTransform": "uppercase",
-                      "transition": "opacity 150ms ease-in",
+                      "flexDirection": "row",
                     }
                   }
                 >
-                  <span>
+                  <span
+                    id="CHILDREN"
+                    style={
+                      Object {
+                        "marginLeft": "",
+                        "marginRight": "",
+                      }
+                    }
+                  >
                     push me
                   </span>
-                </span>
-              </Component>
-            </Typography>
+                </div>
+              </span>
+            </Component>
           </div>
         </button>
       </Base>
