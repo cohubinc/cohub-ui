@@ -1,0 +1,11 @@
+/// <reference types="react" />
+export declare const SuperTitle: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const Title: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const Subtitle: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const HeadingLarge: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const HeadingSmall: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const HeadingTiny: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const Large: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const Regular: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const Small: (props: import("../definitions/IProps").default) => JSX.Element | null;
+export declare const Tiny: (props: import("../definitions/IProps").default) => JSX.Element | null;
