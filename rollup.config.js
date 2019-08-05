@@ -38,17 +38,6 @@ export default {
     }),
     babel({
       extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
-      plugins: [
-        [
-          "styled-jsx/babel",
-          {
-            // optimizeForSpeed: !__DEV__,
-            plugins: ["styled-jsx-plugin-sass"],
-            sourceMaps: true,
-            vendorPrefixes: boolean
-          }
-        ]
-      ],
       exclude: "node_modules/**",
       presets: ["@babel/preset-react"]
     }),

@@ -14,9 +14,7 @@
     "build": "NODE_ENV=production rollup -c",
     "watch": "rollup -cw"
   },
-  "dependencies": {
-    "styled-jsx": "3.2.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "lodash": ">=4.0.0",
     "moment": ">=2.23.0",
@@ -26,11 +24,9 @@
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
-    "@babel/preset-env": "7.5.5",
     "@babel/preset-react": "7.0.0",
     "@types/lodash": "4.14.136",
     "@types/react": "16.8.24",
-    "@types/styled-jsx": "2.2.8",
     "autoprefixer": "9.6.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
@@ -47,7 +43,6 @@
     "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-replace": "2.2.0",
     "rollup-plugin-typescript2": "0.22.1",
-    "styled-jsx-plugin-sass": "1.0.0",
     "tslib": "1.10.0",
     "typescript": "3.5.3"
   }
