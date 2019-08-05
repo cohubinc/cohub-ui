@@ -4,3 +4,7 @@ node_modules
 # They're supposed to move it to a `tmp` directory in a future version
 .rpt2_cache
 yarn-error.log
+
+development-playground/node_modules
+development-playground/dist
+development-playgroud/.cache

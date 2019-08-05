@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CSSVariables renders without crashing 1`] = `
+<CssVariables>
+  <style>
+    
+  :root {
+    
+      --dp-0: ;
+    
+      --dp-1: 0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14);
+    
+      --dp-2: 0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    
+      --dp-3: 0px 1px 8px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14);
+    
+      --dp-8: 0px 5px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12);
+    
+      --dp-16: 0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12);
+    
+      --dp-24: 0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14);
+    
+    
+      --green-900: hsl(114, 35%, 20%);
+    
+      --green-800: hsl(114, 35%, 30%);
+    
+      --green-700: hsl(114, 35%, 40%);
+    
+      --green-600: hsl(114, 35%, 47%);
+    
+      --green-500: hsl(114, 35%, 52%);
+    
+      --green-400: hsl(114, 35%, 65%);
+    
+      --green-300: hsl(114, 35%, 75%);
+    
+      --green-200: hsl(114, 35%, 85%);
+    
+      --green-100: hsl(114, 35%, 95%);
+    
+      --grey-800: hsl(212, 14%, 35%);
+    
+      --grey-700: hsl(356, 3%, 59%);
+    
+      --grey-600: hsl(0, 0%, 77%);
+    
+      --grey-500: hsl(0, 2%, 88%);
+    
+      --grey-400: hsl(0, 0%, 92%);
+    
+      --grey-300: hsl(0, 0%, 96%);
+    
+      --grey-200: hsl(0, 0%, 98%);
+    
+      --grey-100: hsla(0, 11%, 98%);
+    
+      --hsla-0-11-98: grey100;
+    
+      --black-200: hsl(0, 2%, 22%);
+    
+      --black-500: hsl(0, 2%, 12%);
+    
+      --black-800: hsl(0, 3%, 7%);
+    
+      --white-500: hsl(0, 0%, 100%);
+    
+      --red-900: hsl(353, 66%, 20%);
+    
+      --red-800: hsl(353, 66%, 30%);
+    
+      --red-700: hsl(353, 66%, 40%);
+    
+      --red-600: hsl(353, 56%, 49%);
+    
+      --red-500: hsl(353, 66%, 55%);
+    
+      --red-400: hsl(353, 66%, 65%);
+    
+      --red-300: hsl(353, 66%, 75%);
+    
+      --red-200: hsl(353, 60%, 85%);
+    
+      --red-100: hsl(353, 60%, 95%);
+    
+      --blue-900: hsl(200, 61%, 18%);
+    
+      --blue-800: hsl(200, 61%, 28%);
+    
+      --blue-700: hsl(200, 61%, 37%);
+    
+      --blue-600: hsl(200, 61%, 45%);
+    
+      --blue-500: hsl(200, 61%, 50%);
+    
+      --blue-400: hsl(200, 61%, 72%);
+    
+      --blue-300: hsl(200, 61%, 82%);
+    
+      --blue-200: hsl(200, 61%, 90%);
+    
+      --blue-100: hsl(200, 61%, 95%);
+    
+      --yellow-900: hsl(21, 70%, 21%);
+    
+      --yellow-800: hsl(22, 94%, 45%);
+    
+      --yellow-700: hsl(32, 94%, 59%);
+    
+      --yellow-600: hsl(45, 86%, 62%);
+    
+      --yellow-500: hsl(50, 90%, 70%);
+    
+      --yellow-400: hsl(54, 94%, 75%);
+    
+      --yellow-300: hsl(54, 90%, 80%);
+    
+      --yellow-200: hsl(51, 88%, 90%);
+    
+      --yellow-100: hsl(49, 85%, 95%);
+    
+      --purple-200: hsl(256, 80%, 90%);
+    
+      --purple-500: hsl(256, 80%, 70%);
+    
+      --purple-800: hsl(256, 80%, 50%);
+    
+      --teal-200: hsl(188, 80%, 93%);
+    
+      --teal-500: hsl(188, 80%, 70%);
+    
+      --teal-800: hsl(188, 80%, 50%);
+    
+      --pink-200: hsl(344, 80%, 94%);
+    
+      --pink-500: hsl(344, 80%, 70%);
+    
+      --pink-800: hsl(344, 80%, 50%);
+    
+      --orange-200: hsl(28, 80%, 90%);
+    
+      --orange-500: hsl(28, 80%, 70%);
+    
+      --orange-800: hsl(28, 80%, 50%);
+    
+      --primary-green: hsl(114, 35%, 52%);
+    
+      --primary-blue: hsl(200, 61%, 50%);
+    
+      --primary-red: hsl(353, 66%, 55%);
+    
+      --primary-yellow: hsl(50, 90%, 70%);
+    
+      --primary: hsl(114, 35%, 52%);
+    
+      --true-white: hsl(0, 0%, 100%);
+    
+      --background: hsl(0, 0%, 98%);
+    
+      --text: hsl(0, 2%, 22%);
+    
+      --light-text: hsl(356, 3%, 59%);
+    
+      --inverted-text: hsl(0, 0%, 98%);
+    
+      --inverted-background: hsl(0, 2%, 12%);
+    
+      --link: hsl(200, 61%, 50%);
+    
+      --light-black: hsl(0, 2%, 22%);
+    
+      --black: hsl(0, 2%, 12%);
+    
+      --dark-black: hsl(0, 3%, 7%);
+    
+      --border: hsl(0, 2%, 88%);
+    
+      --icon-grey: hsl(212, 14%, 35%);
+    
+      --dark-grey: hsl(356, 3%, 59%);
+    
+      --grey: hsl(0, 0%, 77%);
+    
+      --light-grey: hsl(0, 2%, 88%);
+    
+      --divider-grey: hsl(0, 0%, 92%);
+    
+      --outline-grey: hsl(0, 0%, 96%);
+    
+      --highlight-grey: hsl(0, 0%, 98%);
+    
+      --transparent: hsla(0, 0%, 0%, 0%);
+    
+      --hsla-0-0-0-0: transparent;
+    
+      --dark-overlay: rgba(0, 0, 0, 0.75);
+    
+      --rgba-0-0-0-0-75: darkOverlay;
+    
+    
+      --default-font-family: Inter;
+    
+      --default-font-size: 14px;
+    
+    
+      --default-border-radius: 4px;
+    
+      --disabled-opacity: 0.45;
+    
+      --gutter: 16px;
+    
+  }
+
+  </style>
+</CssVariables>
+`;

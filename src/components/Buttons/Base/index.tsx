@@ -47,7 +47,7 @@ export default function Base(props: IBaseButtonProps) {
   return (
     <Fragment>
       <button
-        className={className}
+        className={`CohubButton ${className}`}
         style={{
           backgroundColor: backgroundColor as any,
           boxShadow: raised
