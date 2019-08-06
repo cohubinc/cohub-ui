@@ -1,6 +1,6 @@
 import React from "react";
 import Color from "src/definitions/enums/Color";
-import { IconName } from "src/components/Icon";
+import TIconName from "src/definitions/interfaces/TIconName";
 import "./Base.scss";
 export interface IBaseButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     /** Shows success checkmark animation */
@@ -19,7 +19,7 @@ export interface IBaseButtonProps extends React.DetailedHTMLProps<React.ButtonHT
     /**
      * Name of Icon
      */
-    icon?: IconName;
+    icon?: TIconName;
     /**
      * Position of Icon
      */

@@ -4,7 +4,8 @@ import Color from "src/definitions/enums/Color";
 import AnimatedCheckmark from "src/components/AnimatedCheckmark";
 import Typography from "src/components/Typography";
 import { getInsetColor } from "./getInsetColor";
-import Icon, { IconName } from "src/components/Icon";
+import Icon from "src/components/Icon";
+import TIconName from "src/definitions/interfaces/TIconName";
 
 import "./Base.scss";
 
@@ -29,7 +30,7 @@ export interface IBaseButtonProps
   /**
    * Name of Icon
    */
-  icon?: IconName;
+  icon?: TIconName;
 
   /**
    * Position of Icon

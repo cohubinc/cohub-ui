@@ -1,10 +1,9 @@
 import React, { MouseEvent, PureComponent } from "react";
 import Color from "../../definitions/enums/Color";
-import { IconName as Name } from "./Icons";
-export { IconName } from "./Icons";
+import TIconName from "src/definitions/interfaces/TIconName";
 import "./Icon.scss";
 export interface IProps {
-    name: Name;
+    name: TIconName;
     size?: number;
     color?: Color;
     className?: string;

@@ -35,45 +35,9 @@ import tripleDotsVertical from "./TripleDotsVertical";
 import userGroup from "./UserGroup";
 import user from "./User";
 import { IProps } from "../index";
-export type IconName =
-  | "add"
-  | "arrowDown"
-  | "arrowUp"
-  | "back"
-  | "bell"
-  | "calculator"
-  | "calendar"
-  | "caretDown"
-  | "checkmark"
-  | "chevronDown"
-  | "chevronLeft"
-  | "chevronRight"
-  | "circle"
-  | "circleCheck"
-  | "circlePlus"
-  | "circlePlusInverted"
-  | "circleRemove"
-  | "close"
-  | "columns"
-  | "controlPanel"
-  | "dashboard"
-  | "eye"
-  | "forward"
-  | "laptop"
-  | "report"
-  | "sales"
-  | "save"
-  | "scales"
-  | "search"
-  | "shipping"
-  | "tagDollar"
-  | "trash"
-  | "triangle"
-  | "tripleDotsVertical"
-  | "userGroup"
-  | "user";
+import TIconName from "src/definitions/interfaces/TIconName";
 
-type TIconMap = { [key in IconName]: (props: IProps) => JSX.Element };
+type TIconMap = { [key in TIconName]: (props: IProps) => JSX.Element };
 const icons: TIconMap = {
   add,
   arrowDown,
@@ -114,4 +78,4 @@ const icons: TIconMap = {
 };
 export default icons;
 // For generating examples in Docz
-export const iconNames = Object.keys(icons) as IconName[];
+export const iconNames = Object.keys(icons) as TIconName[];

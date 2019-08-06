@@ -1,22 +1,18 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Buttons, Typography, Icon, CssFramework } from "../dist";
+import { CssFramework, FloatingActionButton, Color } from "../dist/";
 
 const App = () => {
   return (
-    <div>
+    <div className="flex justify-center items-center h-100">
       <CssFramework />
-      <div>
-        <Typography.HeadingLarge>Dat Button</Typography.HeadingLarge>
-      </div>
-
-      <div>
-        <Buttons.Primary>Dat Button</Buttons.Primary>
-      </div>
-
-      <div>
-        <Icon.Eye />
-      </div>
+      <FloatingActionButton
+        icon={"back"}
+        iconColor={Color.green500}
+        size={50}
+        backgroundColor={Color.green200}
+        elevation={2}
+      />
     </div>
   );
 };
