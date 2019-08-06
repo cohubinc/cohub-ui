@@ -18,7 +18,7 @@
     // Save the transform of jsx for babel so we can do cool babel shite
     "jsx": "react",
     "paths": {
-      "src": ["src/*"]
+      "src": ["dist/*"]
     }
   },
   "include": ["src"],

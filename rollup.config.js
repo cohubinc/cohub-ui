@@ -19,10 +19,16 @@ const peerDependencies = Object.keys(pkg.peerDependencies || {});
 const dependencies = Object.keys(pkg.dependencies || {});
 const isStoryBuild = NODE_ENV === "storybook";
 
-// let file = __DEV__ ? "./dist/index.development.js" : pkg.main;
-// if (isStoryBuild) {
-//   file = "./dist/index.storybook.js";
-// }
+let babelPlugins = isStoryBuild ? ["babel-plugin-react-docgen-typescript"] : [];
+babelPlugins.push([
+  "module-resolver",
+  {
+    root: ["."],
+    alias: {
+      src: "./src"
+    }
+  }
+]);
 
 export default {
   input: "src/index.ts",
@@ -42,14 +48,12 @@ export default {
     typescriptPlugin({
       typescript
     }),
-    // babel({
-    //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
-    //   exclude: "node_modules/**",
-    //   presets: ["@babel/preset-react"],
-    //   plugins: isStoryBuild
-    //     ? ["babel-plugin-react-docgen-typescript"]
-    //     : undefined
-    // }),
+    babel({
+      extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
+      exclude: "node_modules/**",
+      presets: ["@babel/preset-react"],
+      plugins: babelPlugins
+    }),
     postcss({
       preprocessor: (content, id) => {
         return new Promise((resolve, reject) => {

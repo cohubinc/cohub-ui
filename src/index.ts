@@ -12,5 +12,5 @@ export {
   default as FloatingActionButton
 } from "src/components/FloatingActionButton";
 
-import * as StoryCmpts from "src/story-helpers";
+import * as StoryCmpts from "./story-helpers";
 export const StoryHelpers = StoryCmpts;
