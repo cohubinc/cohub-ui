@@ -1,5 +1,4 @@
 import typescriptPlugin from "rollup-plugin-typescript2";
-import typescript from "typescript";
 import sass from "node-sass";
 import postcss from "rollup-plugin-postcss";
 import autoprefixer from "autoprefixer";
@@ -10,8 +9,8 @@ import babel from "rollup-plugin-babel";
 import replace from "rollup-plugin-replace";
 import nodeResolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import moduleResolver from "babel-plugin-module-resolver";
 import docGenPlugin from "babel-plugin-react-docgen-typescript";
+import ttypescript from "ttypescript";
 
 import pkg from "./package.json";
 
@@ -37,7 +36,7 @@ export default {
       exclude: "node_modules/**"
     }),
     typescriptPlugin({
-      typescript
+      typescript: ttypescript
     }),
     babel({
       extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],

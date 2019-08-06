@@ -1,6 +1,6 @@
 import { PureComponent, CSSProperties } from "react";
-import Color from "src/definitions/enums/Color";
-import { Props as BlankButtonProps } from "src/components/Buttons/Blank";
+import Color from "../../../definitions/enums/Color";
+import { Props as BlankButtonProps } from "../Blank";
 interface IProps {
     color?: Color;
     fontSize?: number | string;
@@ -13,4 +13,3 @@ export default class Text extends PureComponent<TProps> {
     render(): JSX.Element;
 }
 export {};
-//# sourceMappingURL=index.d.ts.map

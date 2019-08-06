@@ -4,4 +4,3 @@ interface IProps {
 }
 declare const AnimatedCheckmark: ({ size }: IProps) => JSX.Element;
 export default AnimatedCheckmark;
-//# sourceMappingURL=index.d.ts.map

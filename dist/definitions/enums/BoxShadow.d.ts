@@ -9,4 +9,3 @@ declare enum BoxShadow {
     dp24 = "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)"
 }
 export default BoxShadow;
-//# sourceMappingURL=BoxShadow.d.ts.map

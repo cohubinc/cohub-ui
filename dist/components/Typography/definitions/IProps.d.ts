@@ -32,4 +32,3 @@ export default interface IProps {
     kerning?: number;
     "data-qa"?: string;
 }
-//# sourceMappingURL=IProps.d.ts.map

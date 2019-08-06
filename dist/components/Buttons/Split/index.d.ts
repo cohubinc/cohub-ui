@@ -1,5 +1,5 @@
 import { CSSProperties, Component } from "react";
-import Color from "src/definitions/enums/Color";
+import Color from "../../../definitions/enums/Color";
 interface IProps {
     labels: string[];
     selectedIndex?: number;
@@ -14,4 +14,3 @@ export default class Split extends Component<IProps> {
     render(): JSX.Element;
 }
 export {};
-//# sourceMappingURL=index.d.ts.map

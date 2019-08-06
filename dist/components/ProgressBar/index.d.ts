@@ -1,5 +1,5 @@
 import React from "react";
-import Color from "src/definitions/enums/Color";
+import Color from "../../definitions/enums/Color";
 interface IProps {
     barHeight: number;
     barColor: Color;
@@ -11,4 +11,3 @@ export default class ProgressBar extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
 export {};
-//# sourceMappingURL=index.d.ts.map

@@ -1,6 +1,6 @@
 import React, { MouseEvent, PureComponent } from "react";
 import Color from "../../definitions/enums/Color";
-import TIconName from "src/definitions/interfaces/TIconName";
+import TIconName from "../../definitions/types/TIconName";
 import "./Icon.scss";
 export interface IProps {
     name: TIconName;
@@ -48,4 +48,3 @@ export default class Icon extends PureComponent<IProps> {
     static User: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     render(): JSX.Element;
 }
-//# sourceMappingURL=index.d.ts.map

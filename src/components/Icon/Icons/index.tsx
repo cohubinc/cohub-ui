@@ -35,7 +35,7 @@ import tripleDotsVertical from "./TripleDotsVertical";
 import userGroup from "./UserGroup";
 import user from "./User";
 import { IProps } from "../index";
-import TIconName from "src/definitions/interfaces/TIconName";
+import TIconName from "src/definitions/types/TIconName";
 
 type TIconMap = { [key in TIconName]: (props: IProps) => JSX.Element };
 const icons: TIconMap = {

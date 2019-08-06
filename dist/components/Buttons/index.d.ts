@@ -19,4 +19,3 @@ export default class Buttons extends Component<IBaseButtonProps> {
     static FloatingAction: typeof FloatingActionButton;
     render(): JSX.Element;
 }
-//# sourceMappingURL=index.d.ts.map

@@ -18,4 +18,3 @@ export declare const size: (height: string | number, width?: string | number) =>
     height: string | number;
     width: string | number;
 };
-//# sourceMappingURL=style-utils.d.ts.map

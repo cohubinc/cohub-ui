@@ -1,6 +1,6 @@
 import React from "react";
-import Color from "src/definitions/enums/Color";
-import TIconName from "src/definitions/interfaces/TIconName";
+import Color from "../../../definitions/enums/Color";
+import TIconName from "../../../definitions/types/TIconName";
 import "./Base.scss";
 export interface IBaseButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     /** Shows success checkmark animation */
@@ -30,4 +30,3 @@ export interface IBaseButtonProps extends React.DetailedHTMLProps<React.ButtonHT
     iconSize?: number;
 }
 export default function Base(props: IBaseButtonProps): JSX.Element;
-//# sourceMappingURL=index.d.ts.map

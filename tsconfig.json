@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "target": "es5",
     "module": "es6",
     "declarationDir": "./dist",
     "outDir": "./dist",
     "sourceMap": true,
-    "declarationMap": true,
+    // "declarationMap": true,
     "declaration": true,
     "noImplicitAny": true,
     "strict": true,
@@ -15,12 +15,13 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    // Save the transform of jsx for babel so we can do cool babel shite
-    "jsx": "react",
+    "jsx": "preserve",
     "paths": {
-      "src": ["src/*"]
+      "src/*": ["src/*"]
     },
-    "plugins": [{ "transform": "ts-transformer-imports" }]
+    "plugins": [
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]

@@ -4,4 +4,3 @@ export declare type Props = {
 } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 declare const Blank: ({ className, children, style, nativeElRef, ...rest }: Props) => JSX.Element;
 export default Blank;
-//# sourceMappingURL=index.d.ts.map

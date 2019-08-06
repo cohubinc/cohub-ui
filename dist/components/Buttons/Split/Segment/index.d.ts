@@ -1,5 +1,5 @@
 import React, { Component, CSSProperties } from "react";
-import Color from "src/definitions/enums/Color";
+import Color from "../../../../definitions/enums/Color";
 export interface IProps {
     children: React.ReactNode;
     selected: boolean;
@@ -16,4 +16,3 @@ export default class Segment extends Component<IProps, IState> {
     render(): JSX.Element;
 }
 export {};
-//# sourceMappingURL=index.d.ts.map

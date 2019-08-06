@@ -153,4 +153,3 @@ export declare const ContrastColor: {
     [key: string]: BaseColor;
 };
 export default Color;
-//# sourceMappingURL=Color.d.ts.map

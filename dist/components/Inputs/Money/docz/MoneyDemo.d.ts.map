@@ -1,1 +1,0 @@
-{"version":3,"file":"MoneyDemo.d.ts","sourceRoot":"","sources":["../../../../src/components/Inputs/Money/docz/MoneyDemo.tsx"],"names":[],"mappings":"AAAA,OAAc,EAAE,SAAS,EAAE,MAAM,OAAO,CAAC;AAKzC,UAAU,MAAM;IACd,KAAK,EAAE,MAAM,CAAC;CACf;AACD,MAAM,CAAC,OAAO,OAAO,SAAU,SAAQ,SAAS,CAAC,GAAG,EAAE,MAAM,CAAC;IAC3D,KAAK,EAAE,MAAM,CAAuB;IAEpC,MAAM;IAiCN,OAAO,CAAC,YAAY,CAA+C;CACpE"}
