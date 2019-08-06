@@ -28,3 +28,4 @@ export default class Base extends React.PureComponent<TProps, IState> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

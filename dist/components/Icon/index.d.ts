@@ -49,3 +49,4 @@ export default class Icon extends PureComponent<IProps> {
     static User: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     render(): JSX.Element;
 }
+//# sourceMappingURL=index.d.ts.map

@@ -11,3 +11,4 @@ export default interface IComponentProps<T = any> {
     style: CSSProperties;
     ["aria-invalid"]?: boolean;
 }
+//# sourceMappingURL=IComponentProps.d.ts.map

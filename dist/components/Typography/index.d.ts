@@ -13,3 +13,4 @@ export default class Typography extends Component<TTypographyProps> {
     static Tiny: (props: IProps) => JSX.Element | null;
     render(): JSX.Element;
 }
+//# sourceMappingURL=index.d.ts.map

@@ -16,3 +16,4 @@ interface IProps {
 export declare type MultiSelectProps = IProps & FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
 export default function Multiselect({ options, label, allowCreate, loading, input, appearance }: MultiSelectProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

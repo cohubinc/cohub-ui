@@ -8,3 +8,4 @@ export interface IProps {
 declare type TProps = IProps & Omit<IBaseButtonProps, "raised" | "color">;
 export declare const Outline: ({ light, color, ...props }: TProps) => JSX.Element;
 export default Outline;
+//# sourceMappingURL=index.d.ts.map

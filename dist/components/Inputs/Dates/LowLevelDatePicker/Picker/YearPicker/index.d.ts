@@ -17,3 +17,4 @@ interface IProps {
 }
 export default function YearPicker({ onChange, picker, goToSection, minDate: { minMonth, minDay, minYear }, dateTime }: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

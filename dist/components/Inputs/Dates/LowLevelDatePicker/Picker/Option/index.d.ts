@@ -9,3 +9,4 @@ interface IProps {
 }
 export default function Option({ children, selected, onClick, onFocus, nativeElRef, ...rest }: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

@@ -11,3 +11,4 @@ interface IProps {
 }
 export default function StateCtrl(props: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=StateCtrl.d.ts.map

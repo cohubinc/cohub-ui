@@ -8,3 +8,4 @@ export default class MoneyDemo extends Component<any, IState> {
     private handleChange;
 }
 export {};
+//# sourceMappingURL=MoneyDemo.d.ts.map

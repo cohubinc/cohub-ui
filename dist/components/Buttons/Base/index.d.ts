@@ -30,3 +30,4 @@ export interface IBaseButtonProps extends React.DetailedHTMLProps<React.ButtonHT
     iconSize?: number;
 }
 export default function Base(props: IBaseButtonProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

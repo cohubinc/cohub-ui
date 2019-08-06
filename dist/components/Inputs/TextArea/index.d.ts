@@ -11,3 +11,4 @@ export default class TextArea extends Component<TProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

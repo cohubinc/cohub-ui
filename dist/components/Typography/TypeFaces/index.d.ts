@@ -9,3 +9,4 @@ export declare const Large: (props: import("../definitions/IProps").default) => 
 export declare const Regular: (props: import("../definitions/IProps").default) => JSX.Element | null;
 export declare const Small: (props: import("../definitions/IProps").default) => JSX.Element | null;
 export declare const Tiny: (props: import("../definitions/IProps").default) => JSX.Element | null;
+//# sourceMappingURL=index.d.ts.map

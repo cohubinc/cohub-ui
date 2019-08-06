@@ -6,3 +6,4 @@ export declare const switchPickerTransitionTime = 350;
 export declare const timeItTakesForAllTransitionsToComplete: number;
 export declare const transition: string;
 export declare const months: string[];
+//# sourceMappingURL=index.d.ts.map

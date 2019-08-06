@@ -11,3 +11,4 @@ export default class ProgressBar extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

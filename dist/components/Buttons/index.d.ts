@@ -17,3 +17,4 @@ export default class Buttons extends Component<IBaseButtonProps> {
     static Blank: ({ className, children, style, nativeElRef, ...rest }: import("./Blank").Props) => JSX.Element;
     render(): JSX.Element;
 }
+//# sourceMappingURL=index.d.ts.map

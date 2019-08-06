@@ -14,3 +14,4 @@ export default class Split extends Component<IProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

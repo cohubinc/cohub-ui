@@ -19,3 +19,4 @@ export default class Tooltip extends React.Component<IProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

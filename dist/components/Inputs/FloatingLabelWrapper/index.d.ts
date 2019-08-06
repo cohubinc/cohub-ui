@@ -41,3 +41,4 @@ export interface IFloatingLabelWrapperProps<T = any> {
 declare type TProps<T> = IFloatingLabelWrapperProps<T> & Omit<HTMLElementProps<HTMLInputElement>, "onChange" | "value">;
 export default function FloatingLabelWrapper<T = any>({ className, appearance, type, autoComplete, autoFocus, onClick, style, "data-qa": dataQa, "data-qa-label": dataQaLabel, floatLabel, onFocus, onBlur, htmlFor, error, onChange, children, label, value }: TProps<T | undefined>): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

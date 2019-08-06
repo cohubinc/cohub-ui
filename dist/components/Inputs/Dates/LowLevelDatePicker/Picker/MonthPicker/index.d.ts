@@ -8,3 +8,4 @@ interface IProps {
 }
 export default function MonthPicker({ month, onChange, picker, goToSection }: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

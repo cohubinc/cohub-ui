@@ -27,3 +27,4 @@ declare class MoneyInput extends PureComponent<IProps & HTMLElementProps<HTMLSpa
     render(): JSX.Element;
 }
 export default MoneyInput;
+//# sourceMappingURL=index.d.ts.map

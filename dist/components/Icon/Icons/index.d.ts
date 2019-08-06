@@ -7,3 +7,4 @@ declare type TIconMap = {
 declare const icons: TIconMap;
 export default icons;
 export declare const iconNames: IconName[];
+//# sourceMappingURL=index.d.ts.map

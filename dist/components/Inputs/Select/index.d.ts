@@ -19,3 +19,4 @@ export default class Select extends React.Component<SelectProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

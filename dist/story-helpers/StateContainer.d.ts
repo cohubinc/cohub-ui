@@ -9,3 +9,4 @@ interface IProps<T> {
 }
 export default function StateContainer<T>({ initialState, children }: IProps<T>): ReactNode;
 export {};
+//# sourceMappingURL=StateContainer.d.ts.map

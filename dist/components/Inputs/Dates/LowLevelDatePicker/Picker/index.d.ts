@@ -23,3 +23,4 @@ export interface IPickerProps {
     goToSection: (picker: TPicker) => void;
 }
 export default function Picker(props: IPickerProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

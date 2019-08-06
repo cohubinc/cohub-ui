@@ -13,3 +13,4 @@ interface IProps {
 }
 export default function Dropdown(props: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

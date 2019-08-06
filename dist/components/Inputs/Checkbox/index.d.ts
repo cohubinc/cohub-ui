@@ -9,3 +9,4 @@ export default class Checkbox extends React.Component<TProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

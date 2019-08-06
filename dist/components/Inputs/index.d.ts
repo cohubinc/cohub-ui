@@ -22,3 +22,4 @@ declare const Inputs: {
     Toggle: typeof Toggle;
 };
 export default Inputs;
+//# sourceMappingURL=index.d.ts.map

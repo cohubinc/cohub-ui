@@ -16,3 +16,4 @@ export default class Segment extends Component<IProps, IState> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

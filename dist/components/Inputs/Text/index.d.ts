@@ -15,3 +15,4 @@ export default class Text extends React.Component<TProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

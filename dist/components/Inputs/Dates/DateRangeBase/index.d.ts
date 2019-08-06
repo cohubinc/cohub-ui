@@ -11,3 +11,4 @@ export interface IProps extends InheritedProps {
 }
 export default function DateRangeBase({ value, onChange, appearance, error, ...restProps }: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

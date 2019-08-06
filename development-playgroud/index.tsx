@@ -1,11 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {
-  Buttons,
-  Typography,
-  Icon,
-  CssFramework
-} from "../dist/index.development";
+import { Buttons, Typography, Icon, CssFramework } from "../dist";
 
 const App = () => {
   return (

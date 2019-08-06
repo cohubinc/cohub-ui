@@ -25,3 +25,4 @@ interface IProps {
 declare type TProps = IProps & HTMLElementProps<HTMLSpanElement>;
 export default function DecimalInput({ input, meta, label, "data-qa": dataQa, appearance, extendedPrecision, integer, ...spanProps }: TProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

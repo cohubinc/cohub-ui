@@ -14,3 +14,4 @@ declare class IconWrapper extends PureComponent<IWrapperProps> {
     render(): JSX.Element;
 }
 export default IconWrapper;
+//# sourceMappingURL=index.d.ts.map

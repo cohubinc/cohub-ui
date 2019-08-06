@@ -13,3 +13,4 @@ export default class Text extends PureComponent<TProps> {
     render(): JSX.Element;
 }
 export {};
+//# sourceMappingURL=index.d.ts.map

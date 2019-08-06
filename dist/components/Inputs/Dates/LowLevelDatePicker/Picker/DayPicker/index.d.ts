@@ -15,3 +15,4 @@ interface IProps {
 }
 export default function DayPicker(props: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

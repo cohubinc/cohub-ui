@@ -9,3 +9,4 @@ interface IProps {
 }
 export default function DateHeader({ picker, day, month, year, onClick }: IProps): JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map
