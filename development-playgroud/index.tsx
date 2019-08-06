@@ -1,20 +1,32 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { CssFramework, Color, Buttons, Typography } from "../dist/";
+import { CssFramework, Color, Buttons, Typography, Color } from "../dist/";
 
 const App = () => {
   return (
     <div className="flex justify-center items-center h-100">
       <CssFramework />
-      <Buttons.FloatingAction
-        icon={"back"}
-        iconColor={Color.green500}
-        size={50}
-        backgroundColor={Color.green200}
-        elevation={8}
-        type="submit"
+      <Buttons.Dropdown
+        buttonType="Primary"
+        options={[
+          {
+            onClick: () => console.log("Option one click"),
+            label: "Option One"
+          },
+          {
+            onClick: () => console.log("Option two click"),
+            label: "Option Two"
+          },
+          {
+            onClick: () => console.log("Option three click"),
+            label: "Option Three"
+          },
+          {
+            onClick: () => console.log("Option four click"),
+            label: "Option Four"
+          }
+        ]}
       />
-      <Typography fontFamily="MillerDisplay">Test</Typography>
     </div>
   );
 };

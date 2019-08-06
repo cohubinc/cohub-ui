@@ -60,6 +60,7 @@ export default function Base(props: IBaseButtonProps) {
   } = props;
 
   backgroundColor = error ? Color.red500 : backgroundColor;
+
   const insetColor = raised && getInsetColor(backgroundColor);
   const color = (style && style.color) || "#EFF7EE";
   const flexDirection = iconPosition === "right" ? "row-reverse" : "row";
@@ -107,7 +108,6 @@ export default function Base(props: IBaseButtonProps) {
               />
             )}
             <span
-              id="CHILDREN"
               style={{
                 marginLeft: icon && iconPosition === "left" ? "0.5rem" : "",
                 marginRight: icon && iconPosition === "right" ? "0.5rem" : ""

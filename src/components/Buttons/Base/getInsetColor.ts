@@ -16,7 +16,9 @@ export function getInsetColor(backgroundColor: Color) {
     const insetColorValue = Color[insetColorName as any];
 
     if (!insetColorValue) {
-      logError(`Please add ${insetColorName} to Color Enum`);
+      logError(
+        `Couldn't find an inset color. Please add ${insetColorName} to Color Enum`
+      );
     }
 
     return insetColorValue;

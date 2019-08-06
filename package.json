@@ -12,6 +12,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
+    "build:stories": "NODE_ENV=storybook rollup -c",
     "watch": "NODE_ENV=development rollup -cw",
     "watch:stories": "NODE_ENV=storybook rollup -cw",
     "storybook": "start-storybook -p 6007",

@@ -13,10 +13,8 @@ const ChevronDown = (props: IProps) => (
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M0.730415 1.00001L6.61014 6.07693L12.4899 1.00001"
-          stroke={color as any}
-        />
+        <path d="M7,10l5,5l5,-5Z" fill={color as any} />
+        <path fill="none" d="M0,0h24v24h-24Z" />
       </svg>
     )}
   </IconWrapper>

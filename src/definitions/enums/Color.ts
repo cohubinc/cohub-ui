@@ -27,6 +27,7 @@ enum BaseColor {
 
   // Whites
   white500 = "hsl(0, 0%, 100%)",
+  white300 = "#F2F2F2",
 
   // Reds
   red900 = "hsl(353, 66%, 20%)",
@@ -116,6 +117,7 @@ enum Color {
 
   // Whites
   white500 = BaseColor.white500,
+  white300 = BaseColor.white300,
 
   // Reds
   red900 = BaseColor.red900,
