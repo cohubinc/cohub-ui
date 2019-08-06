@@ -1,5 +1,6 @@
 import React, { Component, CSSProperties } from "react";
 import Color from "src/definitions/enums/Color";
+import Typography from "src/components/Typography";
 
 import styles from "./Segment.module.scss";
 
@@ -45,7 +46,6 @@ export default class Segment extends Component<IProps, IState> {
         style={
           {
             backgroundColor,
-            color: selected ? Color.trueWhite : color,
             filter: hasFocus && selected ? "brightness(90%)" : "none",
             border: `1px solid ${color}`,
             transition: `all 65ms ease-in-out`,
@@ -61,7 +61,9 @@ export default class Segment extends Component<IProps, IState> {
           } as CSSProperties
         }
       >
-        {children}
+        <Typography color={selected ? Color.trueWhite : color}>
+          {children}
+        </Typography>
       </button>
     );
   }

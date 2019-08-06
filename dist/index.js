@@ -1995,7 +1995,6 @@ function (_super) {
       className: styles$2.SplitButtonSegment,
       style: __assign({
         backgroundColor: backgroundColor,
-        color: selected ? Color$1.trueWhite : color,
         filter: hasFocus && selected ? "brightness(90%)" : "none",
         border: "1px solid " + color,
         transition: "all 65ms ease-in-out",
@@ -2007,7 +2006,9 @@ function (_super) {
         outline: "none",
         overflow: "hidden"
       }, smallStyle, style)
-    }), children);
+    }), React.createElement(Typography, {
+      color: selected ? Color$1.trueWhite : color
+    }, children));
   };
 
   return Segment;

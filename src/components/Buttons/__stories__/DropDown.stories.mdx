@@ -11,6 +11,7 @@ import { Buttons, StoryHelpers, Color } from "../../../../dist/index.js";
 <Story name="Dropdown">
   <div style={{ width: "13rem" }}>
     <Buttons.Dropdown
+      buttonType="Primary"
       options={[
         {
           onClick: () => console.log("Option one click"),
@@ -32,7 +33,7 @@ import { Buttons, StoryHelpers, Color } from "../../../../dist/index.js";
     />
     <div className="mt-1">
       <Buttons.Dropdown
-        backgroundColor={Color.primaryRed500}
+        buttonType="Info"
         options={[
           {
             onClick: () => console.log("Foo click"),
@@ -47,6 +48,7 @@ import { Buttons, StoryHelpers, Color } from "../../../../dist/index.js";
     </div>
     <div className="mt-1">
       <Buttons.Dropdown
+        buttonType="Cancel"
         options={[
           {
             onClick: () => console.log("Left click"),
@@ -61,7 +63,6 @@ import { Buttons, StoryHelpers, Color } from "../../../../dist/index.js";
     </div>
     <div className="mt-1">
       <Buttons.Dropdown
-        backgroundColor={Color.black}
         options={[
           {
             onClick: () => console.log("Up click"),

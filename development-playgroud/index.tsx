@@ -1,31 +1,22 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { CssFramework, Color, Buttons, Typography, Color } from "../dist/";
+import {
+  CssFramework,
+  Color,
+  Buttons,
+  Typography,
+  Color,
+  SplitButton
+} from "../dist/";
 
 const App = () => {
   return (
     <div className="flex justify-center items-center h-100">
       <CssFramework />
-      <Buttons.Dropdown
-        buttonType="Primary"
-        options={[
-          {
-            onClick: () => console.log("Option one click"),
-            label: "Option One"
-          },
-          {
-            onClick: () => console.log("Option two click"),
-            label: "Option Two"
-          },
-          {
-            onClick: () => console.log("Option three click"),
-            label: "Option Three"
-          },
-          {
-            onClick: () => console.log("Option four click"),
-            label: "Option Four"
-          }
-        ]}
+      <SplitButton.Primary
+        labels={["Collections", "Search", "Select an item at random"]}
+        selectedIndex={0}
+        onChange={() => console.log("click")}
       />
     </div>
   );

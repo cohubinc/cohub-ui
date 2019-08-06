@@ -10,10 +10,10 @@ import { SplitButton, StoryHelpers } from "../../../../dist/index.js";
 
 <Story name="SplitButtons">
   <div>
-    <Text underlined>Default Split Buttons</Text>
+    <StoryHelpers.Text underlined>Default Split Buttons</StoryHelpers.Text>
     <StoryHelpers.StateContainer initialState={0}>
       {({ setState, state }) => (
-        <Split
+        <SplitButton
           labels={["Brown", "Chicken", "BrownCow"]}
           selectedIndex={state}
           onChange={setState}
@@ -27,7 +27,7 @@ import { SplitButton, StoryHelpers } from "../../../../dist/index.js";
     </StoryHelpers.Text>
     <StoryHelpers.StateContainer initialState={1}>
       {({ setState, state }) => (
-        <Split.Primary
+        <SplitButton.Primary
           labels={["Collections", "Search", "Select an item at random"]}
           selectedIndex={state}
           onChange={setState}
@@ -37,4 +37,4 @@ import { SplitButton, StoryHelpers } from "../../../../dist/index.js";
   </div>
 </Story>
 
-<Props of={Split} />
+<Props of={SplitButton} />
