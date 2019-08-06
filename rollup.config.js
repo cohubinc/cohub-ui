@@ -10,6 +10,8 @@ import babel from "rollup-plugin-babel";
 import replace from "rollup-plugin-replace";
 import nodeResolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import moduleResolver from "babel-plugin-module-resolver";
+import docGenPlugin from "babel-plugin-react-docgen-typescript";
 
 import pkg from "./package.json";
 
@@ -19,16 +21,23 @@ const peerDependencies = Object.keys(pkg.peerDependencies || {});
 const dependencies = Object.keys(pkg.dependencies || {});
 const isStoryBuild = NODE_ENV === "storybook";
 
-let babelPlugins = isStoryBuild ? ["babel-plugin-react-docgen-typescript"] : [];
-babelPlugins.push([
-  "module-resolver",
-  {
-    root: ["."],
-    alias: {
-      src: "./src"
+// let file = __DEV__ ? "./dist/index.development.js" : pkg.main;
+// if (isStoryBuild) {
+//   file = "./dist/index.storybook.js";
+// }
+
+const babelPlugins = [
+  isStoryBuild && docGenPlugin,
+  [
+    moduleResolver,
+    {
+      root: ["./"],
+      alias: {
+        "src/*": "src/*"
+      }
     }
-  }
-]);
+  ]
+].filter(Boolean);
 
 export default {
   input: "src/index.ts",
