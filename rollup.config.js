@@ -21,24 +21,6 @@ const peerDependencies = Object.keys(pkg.peerDependencies || {});
 const dependencies = Object.keys(pkg.dependencies || {});
 const isStoryBuild = NODE_ENV === "storybook";
 
-// let file = __DEV__ ? "./dist/index.development.js" : pkg.main;
-// if (isStoryBuild) {
-//   file = "./dist/index.storybook.js";
-// }
-
-const babelPlugins = [
-  isStoryBuild && docGenPlugin,
-  [
-    moduleResolver,
-    {
-      root: ["./"],
-      alias: {
-        "src/*": "src/*"
-      }
-    }
-  ]
-].filter(Boolean);
-
 export default {
   input: "src/index.ts",
   output: {
@@ -61,7 +43,7 @@ export default {
       extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       exclude: "node_modules/**",
       presets: ["@babel/preset-react"],
-      plugins: babelPlugins
+      plugins: [isStoryBuild && docGenPlugin].filter(Boolean)
     }),
     postcss({
       preprocessor: (content, id) => {
