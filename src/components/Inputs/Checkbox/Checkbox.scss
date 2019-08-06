@@ -1,0 +1,18 @@
+.CheckboxField-Container label {
+  font-size: var(--default-font-size);
+}
+
+.CheckboxField {
+  width: 20px;
+  height: 20px;
+  background-color: var(--grey-400);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:focus {
+    outline-width: 0;
+  }
+}

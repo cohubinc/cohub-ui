@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-// import Toggle from "../components/Inputs/Toggle";
+import Toggle from "../components/Inputs/Toggle";
 
 interface IRenderProps {
   state: boolean;
@@ -12,10 +12,6 @@ interface IProps {
   toggleInterval?: number | boolean;
   defaultState?: boolean;
 }
-
-const Toggle = (props: any) => (
-  <button onClick={props.onChange}>{props.label}</button>
-);
 
 export default function StateCtrl(props: IProps) {
   const { children, toggleInterval, label = "", defaultState = false } = props;

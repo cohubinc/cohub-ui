@@ -1,0 +1,25 @@
+---
+name: MoneyInput
+---
+
+import { Playground, PropsTable } from "docz";
+import DoczStateCtrl from "src/components/Docz/DoczStateCtrl";
+import MoneyInput from "../index";
+import MoneyInputDemo from "./MoneyDemo";
+
+# Money Input
+
+<PropsTable of={MoneyInput} />
+
+## Usage
+
+<MoneyInputDemo />
+
+```javascript
+<MoneyInput
+  input={{
+    value: this.state.value,
+    onChange: value => this.setState({ value })
+  }}
+/>
+```
