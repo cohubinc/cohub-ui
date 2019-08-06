@@ -7,5 +7,6 @@ export { default as Color } from "src/definitions/enums/Color";
 export { default as BoxShadow } from "src/definitions/enums/BoxShadow";
 export { default as SplitButton } from "src/components/Buttons/Split";
 export { default as AnimatedCheckmark } from "src/components/AnimatedCheckmark";
+export { default as ProgressBar } from "src/components/ProgressBar";
 import * as StoryCmpts from "src/story-helpers";
 export declare const StoryHelpers: typeof StoryCmpts;

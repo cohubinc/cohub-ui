@@ -1,0 +1,24 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import {
+  Buttons,
+  StoryHelpers,
+  Color,
+  ProgressBar
+} from "../../../../dist/index.storybook.js";
+
+<Meta title="Components|ProgressBars" />
+
+# ProgressBar
+
+<StoryHelpers.Margin />
+
+## A bar for showing progress, visually
+
+<Story name="ProgressBar">
+  <div className="flex w-100 h-100">
+    <ProgressBar progress={88} />
+  </div>
+</Story>
+
+<Props of={Buttons.Blank} />

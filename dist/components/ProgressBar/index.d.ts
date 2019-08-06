@@ -1,9 +1,9 @@
 import React from "react";
-import "./ProgressBar.scss";
+import Color from "src/definitions/enums/Color";
 interface IProps {
     barHeight: number;
-    barColor: string;
-    progressColor: string;
+    barColor: Color;
+    progressColor: Color;
     progress: number;
 }
 export default class ProgressBar extends React.PureComponent<IProps> {

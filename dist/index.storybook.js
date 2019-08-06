@@ -10143,6 +10143,48 @@ try {
   };
 } catch (e) {}
 
+var css$7 = ".ProgressBar-module_Bar__357tf {\n  width: 100%;\n  border-radius: 361px; }\n\n.ProgressBar-module_Progress__FcFUX {\n  position: relative;\n  top: 0;\n  height: 100%;\n  border-radius: 361px;\n  max-width: 100%; }\n";
+var styles$3 = {"Bar":"ProgressBar-module_Bar__357tf","Progress":"ProgressBar-module_Progress__FcFUX"};
+styleInject(css$7);
+
+var ProgressBar =
+/** @class */
+function (_super) {
+  __extends(ProgressBar, _super);
+
+  function ProgressBar() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  ProgressBar.prototype.render = function () {
+    var _a = this.props,
+        barHeight = _a.barHeight,
+        barColor = _a.barColor,
+        progressColor = _a.progressColor,
+        progress = _a.progress;
+    return React.createElement("div", {
+      className: styles$3.Bar,
+      style: {
+        backgroundColor: barColor,
+        height: barHeight + "px"
+      }
+    }, React.createElement("div", {
+      className: styles$3.Progress,
+      style: {
+        backgroundColor: progressColor,
+        width: progress + "%"
+      }
+    }));
+  };
+
+  ProgressBar.defaultProps = {
+    barHeight: 8,
+    barColor: Color$1.green200,
+    progressColor: Color$1.primaryGreen
+  };
+  return ProgressBar;
+}(React.PureComponent);
+
 //   /**
 //    * Margin as rems used on Y axis of element
 //    * @defaultValue 1.5
@@ -10200,9 +10242,9 @@ try {
   };
 } catch (e) {}
 
-var css$7 = ".Toggle-module_labelContainer__6R_gw, .Toggle-module_labelContainerLeft__jyqAv, .Toggle-module_labelContainerRight__3t8zx, .Toggle-module_labelContainerTop__2824a, .Toggle-module_labelContainerBottom__1g9y_ {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content; }\n  .Toggle-module_labelContainer__6R_gw:focus, .Toggle-module_labelContainerLeft__jyqAv:focus, .Toggle-module_labelContainerRight__3t8zx:focus, .Toggle-module_labelContainerTop__2824a:focus, .Toggle-module_labelContainerBottom__1g9y_:focus {\n    -webkit-filter: brightness(90%);\n            filter: brightness(90%); }\n\n.Toggle-module_labelContainerLeft__jyqAv span {\n  margin-right: 0.5rem; }\n\n.Toggle-module_labelContainerRight__3t8zx {\n  flex-direction: row-reverse; }\n  .Toggle-module_labelContainerRight__3t8zx span {\n    margin-left: 0.5rem; }\n\n.Toggle-module_labelContainerTop__2824a {\n  flex-direction: column;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerTop__2824a span {\n    margin-bottom: 0.5rem; }\n\n.Toggle-module_labelContainerBottom__1g9y_ {\n  flex-direction: column-reverse;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerBottom__1g9y_ span {\n    margin-top: 0.5rem; }\n\n.Toggle-module_container__3DMtn, .Toggle-module_containerActive__1jtDw, .Toggle-module_containerInactive__3RAMH {\n  width: 40px;\n  height: 20px;\n  border-radius: 10px; }\n\n.Toggle-module_containerActive__1jtDw {\n  background-color: var(--green-300); }\n\n.Toggle-module_containerInactive__3RAMH {\n  background-color: var(--grey-300); }\n\n.Toggle-module_toggle__1BLbN, .Toggle-module_toggleActive__33s_R, .Toggle-module_toggleInactive__1lJfx {\n  position: -webkit-sticky;\n  position: sticky;\n  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);\n  width: 20px;\n  height: 20px;\n  border-radius: 50%; }\n\n.Toggle-module_toggleActive__33s_R {\n  transform: translate(20px);\n  background-color: var(--green-500); }\n\n.Toggle-module_toggleInactive__1lJfx {\n  background-color: var(--grey-600); }\n";
-var styles$3 = {"labelContainer":"Toggle-module_labelContainer__6R_gw","labelContainerLeft":"Toggle-module_labelContainerLeft__jyqAv","labelContainerRight":"Toggle-module_labelContainerRight__3t8zx","labelContainerTop":"Toggle-module_labelContainerTop__2824a","labelContainerBottom":"Toggle-module_labelContainerBottom__1g9y_","container":"Toggle-module_container__3DMtn","containerActive":"Toggle-module_containerActive__1jtDw","containerInactive":"Toggle-module_containerInactive__3RAMH","toggle":"Toggle-module_toggle__1BLbN","toggleActive":"Toggle-module_toggleActive__33s_R","toggleInactive":"Toggle-module_toggleInactive__1lJfx"};
-styleInject(css$7);
+var css$8 = ".Toggle-module_labelContainer__6R_gw, .Toggle-module_labelContainerLeft__jyqAv, .Toggle-module_labelContainerRight__3t8zx, .Toggle-module_labelContainerTop__2824a, .Toggle-module_labelContainerBottom__1g9y_ {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content; }\n  .Toggle-module_labelContainer__6R_gw:focus, .Toggle-module_labelContainerLeft__jyqAv:focus, .Toggle-module_labelContainerRight__3t8zx:focus, .Toggle-module_labelContainerTop__2824a:focus, .Toggle-module_labelContainerBottom__1g9y_:focus {\n    -webkit-filter: brightness(90%);\n            filter: brightness(90%); }\n\n.Toggle-module_labelContainerLeft__jyqAv span {\n  margin-right: 0.5rem; }\n\n.Toggle-module_labelContainerRight__3t8zx {\n  flex-direction: row-reverse; }\n  .Toggle-module_labelContainerRight__3t8zx span {\n    margin-left: 0.5rem; }\n\n.Toggle-module_labelContainerTop__2824a {\n  flex-direction: column;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerTop__2824a span {\n    margin-bottom: 0.5rem; }\n\n.Toggle-module_labelContainerBottom__1g9y_ {\n  flex-direction: column-reverse;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerBottom__1g9y_ span {\n    margin-top: 0.5rem; }\n\n.Toggle-module_container__3DMtn, .Toggle-module_containerActive__1jtDw, .Toggle-module_containerInactive__3RAMH {\n  width: 40px;\n  height: 20px;\n  border-radius: 10px; }\n\n.Toggle-module_containerActive__1jtDw {\n  background-color: var(--green-300); }\n\n.Toggle-module_containerInactive__3RAMH {\n  background-color: var(--grey-300); }\n\n.Toggle-module_toggle__1BLbN, .Toggle-module_toggleActive__33s_R, .Toggle-module_toggleInactive__1lJfx {\n  position: -webkit-sticky;\n  position: sticky;\n  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);\n  width: 20px;\n  height: 20px;\n  border-radius: 50%; }\n\n.Toggle-module_toggleActive__33s_R {\n  transform: translate(20px);\n  background-color: var(--green-500); }\n\n.Toggle-module_toggleInactive__1lJfx {\n  background-color: var(--grey-600); }\n";
+var styles$4 = {"labelContainer":"Toggle-module_labelContainer__6R_gw","labelContainerLeft":"Toggle-module_labelContainerLeft__jyqAv","labelContainerRight":"Toggle-module_labelContainerRight__3t8zx","labelContainerTop":"Toggle-module_labelContainerTop__2824a","labelContainerBottom":"Toggle-module_labelContainerBottom__1g9y_","container":"Toggle-module_container__3DMtn","containerActive":"Toggle-module_containerActive__1jtDw","containerInactive":"Toggle-module_containerInactive__3RAMH","toggle":"Toggle-module_toggle__1BLbN","toggleActive":"Toggle-module_toggleActive__33s_R","toggleInactive":"Toggle-module_toggleInactive__1lJfx"};
+styleInject(css$8);
 
 var Toggle =
 /** @class */
@@ -10236,23 +10278,23 @@ function (_super) {
 
     switch (labelPosition) {
       case "left":
-        containerClass = styles$3.labelContainerLeft;
+        containerClass = styles$4.labelContainerLeft;
         break;
 
       case "right":
-        containerClass = styles$3.labelContainerRight;
+        containerClass = styles$4.labelContainerRight;
         break;
 
       case "top":
-        containerClass = styles$3.labelContainerTop;
+        containerClass = styles$4.labelContainerTop;
         break;
 
       case "bottom":
-        containerClass = styles$3.labelContainerBottom;
+        containerClass = styles$4.labelContainerBottom;
         break;
 
       default:
-        containerClass = styles$3.labelContainerLeft;
+        containerClass = styles$4.labelContainerLeft;
     }
 
     return React.createElement("div", {
@@ -10263,9 +10305,9 @@ function (_super) {
     }, label && React.createElement(Typography, {
       color: Color$1.grey700
     }, label), React.createElement("div", {
-      className: checked ? styles$3.containerActive : styles$3.containerInactive
+      className: checked ? styles$4.containerActive : styles$4.containerInactive
     }, React.createElement("div", {
-      className: checked ? styles$3.toggleActive : styles$3.toggleInactive
+      className: checked ? styles$4.toggleActive : styles$4.toggleInactive
     })));
   };
 
@@ -10404,5 +10446,5 @@ var StoryCmpts = /*#__PURE__*/Object.freeze({
 
 var StoryHelpers = StoryCmpts;
 
-export { AnimatedCheckmark, Base, BoxShadow$1 as BoxShadow, Buttons, Color$1 as Color, CssVariables as CssFramework, Icon, Split as SplitButton, StoryHelpers, Typography };
+export { AnimatedCheckmark, Base, BoxShadow$1 as BoxShadow, Buttons, Color$1 as Color, CssVariables as CssFramework, Icon, ProgressBar, Split as SplitButton, StoryHelpers, Typography };
 //# sourceMappingURL=index.storybook.js.map
