@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import "./Dropdown.scss";
+import ButtonType from "./definitions/ButtonType";
 interface IOption {
     onClick: () => void;
     label: string;
@@ -9,7 +9,7 @@ interface IProps {
     style?: CSSProperties;
     className?: string;
     disabled?: boolean;
-    buttonType?: "Primary" | "Secondary" | "Info" | "Cancel";
+    buttonType?: ButtonType;
 }
 export default function Dropdown(props: IProps): JSX.Element;
 export {};

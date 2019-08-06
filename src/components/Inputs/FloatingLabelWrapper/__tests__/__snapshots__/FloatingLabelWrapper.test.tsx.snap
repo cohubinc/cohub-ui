@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<FloatingLabelWrapper>
+  <div
+    className="FloatingLabelWrapper GenericInput "
+    style={
+      Object {
+        "color": "hsl(0, 2%, 12%)",
+        "cursor": "text",
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      className="inputWrapper  bd-radius"
+    >
+      <input
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "color": "hsl(0, 2%, 12%)",
+            "cursor": "text",
+            "textAlign": undefined,
+          }
+        }
+      />
+      <span
+        className="bar "
+      />
+    </div>
+  </div>
+</FloatingLabelWrapper>
+`;

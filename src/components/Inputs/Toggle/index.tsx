@@ -1,7 +1,8 @@
 import React from "react";
-import Color from "../../../definitions/enums/Color";
-
-const styles = {} as any;
+import { FieldRenderProps } from "react-final-form";
+import styles from "./Toggle.module.scss";
+import Typography from "src/components/Typography";
+import Color from "src/definitions/enums/Color";
 
 interface IProps {
   label?: string;
@@ -9,9 +10,7 @@ interface IProps {
   className?: string;
 }
 
-type TProps = IProps & any;
-
-const Typography = (props: any) => <span {...props} />;
+type TProps = IProps & FieldRenderProps<boolean | string, HTMLInputElement>;
 
 export default class Toggle extends React.Component<TProps> {
   static defaultProps: Partial<IProps> = {

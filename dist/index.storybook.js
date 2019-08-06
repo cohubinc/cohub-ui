@@ -9569,11 +9569,8 @@ try {
   };
 } catch (e) {}
 
-var css$3 = "li.CohubDropdownOption:focus, li.CohubDropdownOption:hover {\n  background-color: #f2f2f2; }\n";
+var css$3 = ".Tooltip,\n.tippy-tooltip {\n  box-shadow: var(--dp-3); }\n  .Tooltip.dark-theme,\n  .tippy-tooltip.dark-theme {\n    background-color: var(--black-500);\n    color: var(--grey-200); }\n    .Tooltip.dark-theme[data-animatefill],\n    .tippy-tooltip.dark-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.dark-theme .tippy-backdrop,\n    .tippy-tooltip.dark-theme .tippy-backdrop {\n      background-color: var(--black-500); }\n  .Tooltip.light-theme,\n  .tippy-tooltip.light-theme {\n    background-color: var(--true-white);\n    color: var(--black-500); }\n    .Tooltip.light-theme[data-animatefill],\n    .tippy-tooltip.light-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.light-theme .tippy-backdrop,\n    .tippy-tooltip.light-theme .tippy-backdrop {\n      background-color: var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.light-theme .tippy-arrow {\n  border-right: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.light-theme .tippy-arrow {\n  border-left: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.light-theme .tippy-arrow {\n  border-top: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme .tippy-arrow {\n  border-bottom: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-right: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-left: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-top: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-bottom: 7px solid var(--black-500); }\n";
 styleInject(css$3);
-
-var css$4 = ".Tooltip,\n.tippy-tooltip {\n  box-shadow: var(--dp-3); }\n  .Tooltip.dark-theme,\n  .tippy-tooltip.dark-theme {\n    background-color: var(--black-500);\n    color: var(--grey-200); }\n    .Tooltip.dark-theme[data-animatefill],\n    .tippy-tooltip.dark-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.dark-theme .tippy-backdrop,\n    .tippy-tooltip.dark-theme .tippy-backdrop {\n      background-color: var(--black-500); }\n  .Tooltip.light-theme,\n  .tippy-tooltip.light-theme {\n    background-color: var(--true-white);\n    color: var(--black-500); }\n    .Tooltip.light-theme[data-animatefill],\n    .tippy-tooltip.light-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.light-theme .tippy-backdrop,\n    .tippy-tooltip.light-theme .tippy-backdrop {\n      background-color: var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.light-theme .tippy-arrow {\n  border-right: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.light-theme .tippy-arrow {\n  border-left: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.light-theme .tippy-arrow {\n  border-top: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme .tippy-arrow {\n  border-bottom: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-right: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-left: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-top: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-bottom: 7px solid var(--black-500); }\n";
-styleInject(css$4);
 
 var Tooltip =
 /** @class */
@@ -9617,6 +9614,14 @@ function (_super) {
   return Tooltip;
 }(React.Component);
 
+var getButton = function (type) {
+  return Buttons[type];
+};
+
+var css$4 = ".Dropdown-module_CohubDropdownOption__1oF92:focus, .Dropdown-module_CohubDropdownOption__1oF92:hover {\n  background-color: #f2f2f2; }\n";
+var styles$1 = {"CohubDropdownOption":"Dropdown-module_CohubDropdownOption__1oF92"};
+styleInject(css$4);
+
 function Dropdown(props) {
   var options = props.options,
       style = props.style,
@@ -9634,7 +9639,7 @@ function Dropdown(props) {
       setSelectedOption = _c[1];
 
   var cursor = disabled ? "default" : "pointer";
-  var Button = Buttons[buttonType];
+  var Button = getButton(buttonType);
   return React.createElement("div", {
     className: "CohubDropdownButton relative " + className,
     style: style
@@ -9660,7 +9665,7 @@ function Dropdown(props) {
     }).map(function (option) {
       return React.createElement("li", {
         key: option.label,
-        className: "cursor-pointer CohubDropdownOption p-05",
+        className: styles$1.CohubDropdownOption + " cursor-pointer p-05",
         onClick: function () {
           setSelectedOption(option);
           setExpanded(false);
@@ -9740,7 +9745,7 @@ try {
         "name": "buttonType",
         "required": false,
         "type": {
-          "name": "\"Primary\" | \"Secondary\" | \"Info\" | \"Cancel\""
+          "name": "ButtonType"
         }
       }
     }
@@ -9892,7 +9897,7 @@ function generateCssVariables(VariablesEnum) {
 } // generateCssVariables will return a string that looks something like whats below
 
 var css$6 = ".Segment-module_SplitButtonSegment__ArSv1:hover, .Segment-module_SplitButtonSegment__ArSv1:focus {\n  -webkit-filter: brightness(90%);\n          filter: brightness(90%); }\n\n.Segment-module_SplitButtonSegment__ArSv1:first-of-type {\n  border-top-left-radius: var(--default-border-radius);\n  border-bottom-left-radius: var(--default-border-radius); }\n\n.Segment-module_SplitButtonSegment__ArSv1:last-of-type {\n  border-top-right-radius: var(--default-border-radius);\n  border-bottom-right-radius: var(--default-border-radius); }\n";
-var styles$1 = {"SplitButtonSegment":"Segment-module_SplitButtonSegment__ArSv1"};
+var styles$2 = {"SplitButtonSegment":"Segment-module_SplitButtonSegment__ArSv1"};
 styleInject(css$6);
 
 var Segment =
@@ -9933,7 +9938,7 @@ function (_super) {
       padding: "3px 11px"
     } : {};
     return React.createElement("button", _extends({}, restOfProps, {
-      className: styles$1.SplitButtonSegment,
+      className: styles$2.SplitButtonSegment,
       style: __assign({
         backgroundColor: backgroundColor,
         color: selected ? Color$1.trueWhite : color,
@@ -10195,11 +10200,9 @@ try {
   };
 } catch (e) {}
 
-var styles$2 = {};
-
-var Typography$1 = function (props) {
-  return React.createElement("span", props);
-};
+var css$7 = ".Toggle-module_labelContainer__6R_gw, .Toggle-module_labelContainerLeft__jyqAv, .Toggle-module_labelContainerRight__3t8zx, .Toggle-module_labelContainerTop__2824a, .Toggle-module_labelContainerBottom__1g9y_ {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content; }\n  .Toggle-module_labelContainer__6R_gw:focus, .Toggle-module_labelContainerLeft__jyqAv:focus, .Toggle-module_labelContainerRight__3t8zx:focus, .Toggle-module_labelContainerTop__2824a:focus, .Toggle-module_labelContainerBottom__1g9y_:focus {\n    -webkit-filter: brightness(90%);\n            filter: brightness(90%); }\n\n.Toggle-module_labelContainerLeft__jyqAv span {\n  margin-right: 0.5rem; }\n\n.Toggle-module_labelContainerRight__3t8zx {\n  flex-direction: row-reverse; }\n  .Toggle-module_labelContainerRight__3t8zx span {\n    margin-left: 0.5rem; }\n\n.Toggle-module_labelContainerTop__2824a {\n  flex-direction: column;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerTop__2824a span {\n    margin-bottom: 0.5rem; }\n\n.Toggle-module_labelContainerBottom__1g9y_ {\n  flex-direction: column-reverse;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerBottom__1g9y_ span {\n    margin-top: 0.5rem; }\n\n.Toggle-module_container__3DMtn, .Toggle-module_containerActive__1jtDw, .Toggle-module_containerInactive__3RAMH {\n  width: 40px;\n  height: 20px;\n  border-radius: 10px; }\n\n.Toggle-module_containerActive__1jtDw {\n  background-color: var(--green-300); }\n\n.Toggle-module_containerInactive__3RAMH {\n  background-color: var(--grey-300); }\n\n.Toggle-module_toggle__1BLbN, .Toggle-module_toggleActive__33s_R, .Toggle-module_toggleInactive__1lJfx {\n  position: -webkit-sticky;\n  position: sticky;\n  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);\n  width: 20px;\n  height: 20px;\n  border-radius: 50%; }\n\n.Toggle-module_toggleActive__33s_R {\n  transform: translate(20px);\n  background-color: var(--green-500); }\n\n.Toggle-module_toggleInactive__1lJfx {\n  background-color: var(--grey-600); }\n";
+var styles$3 = {"labelContainer":"Toggle-module_labelContainer__6R_gw","labelContainerLeft":"Toggle-module_labelContainerLeft__jyqAv","labelContainerRight":"Toggle-module_labelContainerRight__3t8zx","labelContainerTop":"Toggle-module_labelContainerTop__2824a","labelContainerBottom":"Toggle-module_labelContainerBottom__1g9y_","container":"Toggle-module_container__3DMtn","containerActive":"Toggle-module_containerActive__1jtDw","containerInactive":"Toggle-module_containerInactive__3RAMH","toggle":"Toggle-module_toggle__1BLbN","toggleActive":"Toggle-module_toggleActive__33s_R","toggleInactive":"Toggle-module_toggleInactive__1lJfx"};
+styleInject(css$7);
 
 var Toggle =
 /** @class */
@@ -10233,23 +10236,23 @@ function (_super) {
 
     switch (labelPosition) {
       case "left":
-        containerClass = styles$2.labelContainerLeft;
+        containerClass = styles$3.labelContainerLeft;
         break;
 
       case "right":
-        containerClass = styles$2.labelContainerRight;
+        containerClass = styles$3.labelContainerRight;
         break;
 
       case "top":
-        containerClass = styles$2.labelContainerTop;
+        containerClass = styles$3.labelContainerTop;
         break;
 
       case "bottom":
-        containerClass = styles$2.labelContainerBottom;
+        containerClass = styles$3.labelContainerBottom;
         break;
 
       default:
-        containerClass = styles$2.labelContainerLeft;
+        containerClass = styles$3.labelContainerLeft;
     }
 
     return React.createElement("div", {
@@ -10257,12 +10260,12 @@ function (_super) {
       onClick: toggle,
       tabIndex: 0,
       onKeyDown: keyDown
-    }, label && React.createElement(Typography$1, {
+    }, label && React.createElement(Typography, {
       color: Color$1.grey700
     }, label), React.createElement("div", {
-      className: checked ? styles$2.containerActive : styles$2.containerInactive
+      className: checked ? styles$3.containerActive : styles$3.containerInactive
     }, React.createElement("div", {
-      className: checked ? styles$2.toggleActive : styles$2.toggleInactive
+      className: checked ? styles$3.toggleActive : styles$3.toggleInactive
     })));
   };
 

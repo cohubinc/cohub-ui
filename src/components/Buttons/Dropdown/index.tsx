@@ -2,9 +2,12 @@ import React, { CSSProperties, useState } from "react";
 
 import Color from "src/definitions/enums/Color";
 
-import "./Dropdown.scss";
 import Buttons from "../index";
 import Tooltip from "src/components/Tooltip";
+import ButtonType from "./definitions/ButtonType";
+import { getButton } from "./getButton";
+
+import styles from "./Dropdown.module.scss";
 
 interface IOption {
   onClick: () => void;
@@ -15,7 +18,7 @@ interface IProps {
   style?: CSSProperties;
   className?: string;
   disabled?: boolean;
-  buttonType?: "Primary" | "Secondary" | "Info" | "Cancel";
+  buttonType?: ButtonType;
 }
 
 export default function Dropdown(props: IProps) {
@@ -32,7 +35,7 @@ export default function Dropdown(props: IProps) {
 
   const cursor = disabled ? "default" : "pointer";
 
-  const Button = Buttons[buttonType];
+  const Button = getButton(buttonType);
 
   return (
     <div className={`CohubDropdownButton relative ${className}`} style={style}>
@@ -60,7 +63,9 @@ export default function Dropdown(props: IProps) {
                 .map(option => (
                   <li
                     key={option.label}
-                    className="cursor-pointer CohubDropdownOption p-05"
+                    className={`${
+                      styles.CohubDropdownOption
+                    } cursor-pointer p-05`}
                     onClick={() => {
                       setSelectedOption(option);
                       setExpanded(false);
