@@ -298,11 +298,11 @@ function typographyFactory(defaultProps) {
 
     var mergedProperties = __assign({}, defaultProps, props);
 
-    var p = mergedProperties.p,
+    var fontFamily = mergedProperties.fontFamily,
+        p = mergedProperties.p,
         muted = mergedProperties.muted,
         light = mergedProperties.light,
         block = mergedProperties.block,
-        secondary = mergedProperties.secondary,
         error = mergedProperties.error,
         _a = mergedProperties.className,
         className = _a === void 0 ? "" : _a,
@@ -317,6 +317,11 @@ function typographyFactory(defaultProps) {
         italicize = mergedProperties.italicize,
         _c = mergedProperties["data-qa"],
         dataQa = _c === void 0 ? "text" : _c;
+    var fontFamilyStyle = fontFamily ? {
+      fontFamily: fontFamily
+    } : {
+      fontFamily: "Inter"
+    };
     var fontWeightStyle = {
       fontWeight: weight || 400
     };
@@ -345,7 +350,6 @@ function typographyFactory(defaultProps) {
       fontStyle: "italic"
     } : {};
     var styleDefaults = {
-      fontFamily: secondary ? "Akkurat-Mono" : "Inter",
       color: color,
       textTransform: uppercase ? "uppercase" : "initial",
       textAlign: alignment ? alignment : "initial"
@@ -353,7 +357,7 @@ function typographyFactory(defaultProps) {
 
     var mergedStyles = __assign({}, factoryStyle, style);
 
-    var styleProp = __assign({}, styleDefaults, fontWeightStyle, boldStyles, italicStyle, kerningStyle, mutedStyle, blockStyle, lightStyle, invertedStyle, errorStyle, mergedStyles);
+    var styleProp = __assign({}, styleDefaults, fontFamilyStyle, fontWeightStyle, boldStyles, italicStyle, kerningStyle, mutedStyle, blockStyle, lightStyle, invertedStyle, errorStyle, mergedStyles);
 
     var properties = {
       children: children,
@@ -1821,6 +1825,49 @@ function Dropdown(props) {
   }))));
 }
 
+var BoxShadow;
+
+(function (BoxShadow) {
+  BoxShadow["dp0"] = "";
+  BoxShadow["dp1"] = "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)";
+  BoxShadow["dp2"] = "0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp3"] = "0px 1px 8px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14)";
+  BoxShadow["dp8"] = "0px 5px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp16"] = "0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp24"] = "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)";
+})(BoxShadow || (BoxShadow = {}));
+
+var BoxShadow$1 = BoxShadow;
+
+function FloatingActionButton(_a) {
+  var icon = _a.icon,
+      iconColor = _a.iconColor,
+      backgroundColor = _a.backgroundColor,
+      size = _a.size,
+      _b = _a.elevation,
+      elevation = _b === void 0 ? 0 : _b,
+      rest = __rest(_a, ["icon", "iconColor", "backgroundColor", "size", "elevation"]);
+
+  var dpLevel = "dp" + elevation;
+  return React.createElement(Base, __assign({
+    backgroundColor: Color$1.primary,
+    className: "flex items-center justify-center",
+    style: {
+      width: size,
+      height: size,
+      borderRadius: "50%",
+      backgroundColor: backgroundColor,
+      boxShadow: BoxShadow$1[dpLevel],
+      cursor: "pointer",
+      border: "none"
+    }
+  }, rest), React.createElement(Icon, {
+    name: icon,
+    size: size / 1.5,
+    color: iconColor
+  }));
+}
+
 var Buttons =
 /** @class */
 function (_super) {
@@ -1846,22 +1893,9 @@ function (_super) {
   Buttons.Dropdown = Dropdown;
   Buttons.Text = Text;
   Buttons.Blank = Blank;
+  Buttons.FloatingAction = FloatingActionButton;
   return Buttons;
 }(Component);
-
-var BoxShadow;
-
-(function (BoxShadow) {
-  BoxShadow["dp0"] = "";
-  BoxShadow["dp1"] = "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)";
-  BoxShadow["dp2"] = "0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp3"] = "0px 1px 8px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14)";
-  BoxShadow["dp8"] = "0px 5px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp16"] = "0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp24"] = "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)";
-})(BoxShadow || (BoxShadow = {}));
-
-var BoxShadow$1 = BoxShadow;
 
 var css$5 = "@import url(\"https://rsms.me/inter/inter.css\");\nhtml {\n  box-sizing: border-box; }\n\n*,\n*::before,\n*::after {\n  box-sizing: inherit; }\n\n/* TYPOGRAPHY */\n.small-body-text {\n  font-size: var(--small-body-text) !important; }\n\n.tiny-body-text {\n  font-size: var(--tiny-body-text) !important; }\n\n.uppercase {\n  text-transform: uppercase !important; }\n\n/* TEXT ALIGNMENT */\n.text-left {\n  text-align: left !important; }\n\n.text-center {\n  text-align: center !important; }\n\n.text-right {\n  text-align: right !important; }\n\n/* CURSOR */\n.cursor-pointer {\n  cursor: pointer !important; }\n\n.block {\n  display: block !important; }\n\n/* FLEXBOX */\n.flex {\n  display: flex !important; }\n\n.inline-flex {\n  display: inline-flex !important; }\n\n.flex-row {\n  flex-direction: row !important; }\n\n.flex-row-reverse {\n  flex-direction: row-reverse !important; }\n\n.flex-column {\n  flex-direction: column !important; }\n\n.flex-column-reverse {\n  flex-direction: column-reverse !important; }\n\n.flex-wrap {\n  flex-wrap: wrap !important; }\n\n.flex-nowrap {\n  flex-wrap: nowrap !important; }\n\n.flex-wrap-reverse {\n  flex-wrap: wrap-reverse !important; }\n\n.free-top {\n  margin-top: auto !important; }\n\n.free-left {\n  margin-left: auto !important; }\n\n.free-right {\n  margin-right: auto !important; }\n\n.free-bottom {\n  margin-bottom: auto !important; }\n\n.order-before {\n  order: -1 !important; }\n\n.order-after {\n  order: 1 !important; }\n\n.items-start {\n  align-items: flex-start !important; }\n\n.items-end {\n  align-items: flex-end !important; }\n\n.items-center {\n  align-items: center !important; }\n\n.items-baseline {\n  align-items: baseline !important; }\n\n.items-stretch {\n  align-items: stretch !important; }\n\n.self-center {\n  align-self: center !important; }\n\n.self-baseline {\n  align-self: baseline !important; }\n\n.self-stretch {\n  align-self: stretch !important; }\n\n.self-start {\n  align-self: flex-start !important; }\n\n.self-end {\n  align-self: flex-end !important; }\n\n.justify-start {\n  justify-content: flex-start !important; }\n\n.justify-end {\n  justify-content: flex-end !important; }\n\n.justify-center {\n  justify-content: center !important; }\n\n.justify-between {\n  justify-content: space-between !important; }\n\n.justify-around {\n  justify-content: space-around !important; }\n\n.justify-evenly {\n  justify-content: space-evenly !important; }\n\n.content-start {\n  align-content: flex-start !important; }\n\n.content-end {\n  align-content: flex-end !important; }\n\n.content-center {\n  align-content: center !important; }\n\n.content-between {\n  align-content: space-between !important; }\n\n.content-around {\n  align-content: space-around !important; }\n\n.content-stretch {\n  align-content: stretch !important; }\n\n.flex-min {\n  min-height: 0 !important;\n  min-width: 0 !important; }\n\n.flex-max {\n  max-height: 100% !important;\n  max-width: 100% !important; }\n\n.flex-golden {\n  flex: 0 1 61.803398875% !important; }\n\n.flex-initial {\n  flex: 0 1 auto !important; }\n\n.flex-auto {\n  flex: 1 1 auto !important; }\n\n.flex-none {\n  flex: 0 0 auto !important; }\n\n.flex-1 {\n  flex: 1 1 !important; }\n\n.flex-2 {\n  flex: 2 1 !important; }\n\n.flex-3 {\n  flex: 3 1 !important; }\n\n.flex-4 {\n  flex: 4 1 !important; }\n\n.flex-5 {\n  flex: 5 1 !important; }\n\n.flex-6 {\n  flex: 6 1 !important; }\n\n.flex-7 {\n  flex: 7 1 !important; }\n\n.flex-8 {\n  flex: 8 1 !important; }\n\n.flex-9 {\n  flex: 9 1 !important; }\n\n.flex-10 {\n  flex: 10 1 !important; }\n\n.flex-11 {\n  flex: 11 1 !important; }\n\n.flex-12 {\n  flex: 12 1 !important; }\n\n.grow-0 {\n  flex-grow: 0 !important; }\n\n.grow-1 {\n  flex-grow: 1 !important; }\n\n.grow-2 {\n  flex-grow: 2 !important; }\n\n.grow-3 {\n  flex-grow: 3 !important; }\n\n.grow-4 {\n  flex-grow: 4 !important; }\n\n.grow-5 {\n  flex-grow: 5 !important; }\n\n.grow-6 {\n  flex-grow: 6 !important; }\n\n.grow-7 {\n  flex-grow: 7 !important; }\n\n.grow-8 {\n  flex-grow: 8 !important; }\n\n.grow-9 {\n  flex-grow: 9 !important; }\n\n.grow-10 {\n  flex-grow: 10 !important; }\n\n.grow-11 {\n  flex-grow: 11 !important; }\n\n.grow-12 {\n  flex-grow: 12 !important; }\n\n.shrink-0 {\n  flex-shrink: 0 !important; }\n\n.shrink-1 {\n  flex-shrink: 1 !important; }\n\n.shrink-2 {\n  flex-shrink: 2 !important; }\n\n.shrink-3 {\n  flex-shrink: 3 !important; }\n\n.shrink-4 {\n  flex-shrink: 4 !important; }\n\n.shrink-5 {\n  flex-shrink: 5 !important; }\n\n.shrink-6 {\n  flex-shrink: 6 !important; }\n\n.shrink-7 {\n  flex-shrink: 7 !important; }\n\n.shrink-8 {\n  flex-shrink: 8 !important; }\n\n.shrink-9 {\n  flex-shrink: 9 !important; }\n\n.shrink-10 {\n  flex-shrink: 10 !important; }\n\n.shrink-11 {\n  flex-shrink: 11 !important; }\n\n.shrink-12 {\n  flex-shrink: 12 !important; }\n\n.basis-0 {\n  flex-basis: 0% !important; }\n\n.basis-1 {\n  flex-basis: 8.333333333% !important; }\n\n.basis-2 {\n  flex-basis: 16.6666666666% !important; }\n\n.basis-3 {\n  flex-basis: 25% !important; }\n\n.basis-4 {\n  flex-basis: 33.3333333333% !important; }\n\n.basis-5 {\n  flex-basis: 41.6666666666% !important; }\n\n.basis-6 {\n  flex-basis: 50% !important; }\n\n.basis-7 {\n  flex-basis: 58.333333333% !important; }\n\n.basis-8 {\n  flex-basis: 66.6666666666% !important; }\n\n.basis-9 {\n  flex-basis: 75% !important; }\n\n.basis-10 {\n  flex-basis: 83.3333333333% !important; }\n\n.basis-11 {\n  flex-basis: 91.6666666666% !important; }\n\n.basis-12 {\n  flex-basis: 100% !important; }\n\n.basis-100vw {\n  flex-basis: 100vw !important; }\n\n.basis-100vh {\n  flex-basis: 100vh !important; }\n\n.basis-100vmax {\n  flex-basis: 100vmax !important; }\n\n.basis-100vmin {\n  flex-basis: 100vmin !important; }\n\n.basis-golden {\n  flex-basis: 61.803398875% !important; }\n\n.basis-content {\n  flex-basis: content !important; }\n\n.basis-auto {\n  flex-basis: auto !important; }\n\n.inline-block {\n  display: inline-block; }\n\n.relative {\n  position: relative; }\n\n.absolute {\n  position: absolute; }\n\n@media (orientation: portrait) {\n  .flex\\@portrait {\n    display: flex !important; }\n  .inline-flex\\@portrait {\n    display: inline-flex !important; }\n  .flex-wrap\\@portrait {\n    flex-wrap: wrap !important; }\n  .flex-nowrap\\@portrait {\n    flex-wrap: nowrap !important; }\n  .flex-wrap-reverse\\@portrait {\n    flex-wrap: wrap-reverse !important; } }\n\n@media (orientation: landscape) {\n  .flex\\@landscape {\n    display: flex !important; }\n  .inline-flex\\@landscape {\n    display: inline-flex !important; }\n  .flex-wrap\\@landscape {\n    flex-wrap: wrap !important; }\n  .flex-nowrap\\@landscape {\n    flex-wrap: nowrap !important; }\n  .flex-wrap-reverse\\@landscape {\n    flex-wrap: wrap-reverse !important; } }\n\n.float-r {\n  float: right !important; }\n\n.float-l {\n  float: left !important; }\n\n.m-0 {\n  margin: 0 !important; }\n\n.m-025 {\n  margin: 0.25rem !important; }\n\n.m-05 {\n  margin: 0.5rem !important; }\n\n.m-1 {\n  margin: 1rem !important; }\n\n.m-2 {\n  margin: 2rem !important; }\n\n.m-3 {\n  margin: 3rem !important; }\n\n.m-4 {\n  margin: 4rem !important; }\n\n.m-5 {\n  margin: 5rem !important; }\n\n.m-auto {\n  margin: auto !important; }\n\n.mx-auto {\n  margin-left: auto !important;\n  margin-right: auto !important; }\n\n.mx-0 {\n  margin-left: 0 !important;\n  margin-right: 0 !important; }\n\n.mx-025 {\n  margin-left: 0.25rem !important;\n  margin-right: 0.25rem !important; }\n\n.mx-05 {\n  margin-left: 0.5rem !important;\n  margin-right: 0.5rem !important; }\n\n.mx-075 {\n  margin-left: 0.75rem !important;\n  margin-right: 0.75rem !important; }\n\n.mx-1 {\n  margin-left: 1rem !important;\n  margin-right: 1rem !important; }\n\n.mx-2 {\n  margin-left: 2rem !important;\n  margin-right: 2rem !important; }\n\n.mx-3 {\n  margin-left: 3rem !important;\n  margin-right: 3rem !important; }\n\n.mx-4 {\n  margin-left: 4rem !important;\n  margin-right: 4rem !important; }\n\n.mx-5 {\n  margin-left: 5rem !important;\n  margin-right: 5rem !important; }\n\n.mx-6 {\n  margin-left: 6rem !important;\n  margin-right: 6rem !important; }\n\n.mx-7 {\n  margin-left: 7rem !important;\n  margin-right: 7rem !important; }\n\n.mx-8 {\n  margin-left: 8rem !important;\n  margin-right: 8rem !important; }\n\n.mx-9 {\n  margin-left: 9rem !important;\n  margin-right: 9rem !important; }\n\n.mx-10 {\n  margin-left: 10rem !important;\n  margin-right: 10rem !important; }\n\n.mx-11 {\n  margin-left: 11rem !important;\n  margin-right: 11rem !important; }\n\n.mx-12 {\n  margin-left: 12rem !important;\n  margin-right: 12rem !important; }\n\n.mx-13 {\n  margin-left: 13rem !important;\n  margin-right: 13rem !important; }\n\n.mx-14 {\n  margin-left: 14rem !important;\n  margin-right: 14rem !important; }\n\n.my-auto {\n  margin-bottom: auto !important;\n  margin-top: auto !important; }\n\n.my-0 {\n  margin-bottom: 0 !important;\n  margin-top: 0 !important; }\n\n.my-025 {\n  margin-bottom: 0.25rem !important;\n  margin-top: 0.25rem !important; }\n\n.my-05 {\n  margin-bottom: 0.5rem !important;\n  margin-top: 0.5rem !important; }\n\n.my-075 {\n  margin-bottom: 0.75rem !important;\n  margin-top: 0.75rem !important; }\n\n.my-1 {\n  margin-bottom: 1rem !important;\n  margin-top: 1rem !important; }\n\n.my-2 {\n  margin-bottom: 2rem !important;\n  margin-top: 2rem !important; }\n\n.my-3 {\n  margin-bottom: 3rem !important;\n  margin-top: 3rem !important; }\n\n.my-4 {\n  margin-bottom: 4rem !important;\n  margin-top: 4rem !important; }\n\n.my-5 {\n  margin-bottom: 5rem !important;\n  margin-top: 5rem !important; }\n\n.my-6 {\n  margin-bottom: 6rem !important;\n  margin-top: 6rem !important; }\n\n.my-6 {\n  margin-bottom: 6rem !important;\n  margin-top: 6rem !important; }\n\n.my-7 {\n  margin-bottom: 7rem !important;\n  margin-top: 7rem !important; }\n\n.my-8 {\n  margin-bottom: 8rem !important;\n  margin-top: 8rem !important; }\n\n.my-9 {\n  margin-bottom: 9rem !important;\n  margin-top: 9rem !important; }\n\n.my-10 {\n  margin-bottom: 10rem !important;\n  margin-top: 10rem !important; }\n\n.my-11 {\n  margin-bottom: 11rem !important;\n  margin-top: 11rem !important; }\n\n.my-12 {\n  margin-bottom: 12rem !important;\n  margin-top: 12rem !important; }\n\n.my-13 {\n  margin-bottom: 13rem !important;\n  margin-top: 13rem !important; }\n\n.my-14 {\n  margin-bottom: 14rem !important;\n  margin-top: 14rem !important; }\n\n.mt-auto {\n  margin-top: auto !important; }\n\n.mt-0 {\n  margin-top: 0 !important; }\n\n.mt-025 {\n  margin-top: 0.25rem !important; }\n\n.mt-05 {\n  margin-top: 0.5rem !important; }\n\n.mt-075 {\n  margin-top: 0.75rem !important; }\n\n.mt-1 {\n  margin-top: 1rem !important; }\n\n.mt-2 {\n  margin-top: 2rem !important; }\n\n.mt-3 {\n  margin-top: 3rem !important; }\n\n.mt-4 {\n  margin-top: 4rem !important; }\n\n.mt-5 {\n  margin-top: 5rem !important; }\n\n.mt-6 {\n  margin-top: 6rem !important; }\n\n.mt-7 {\n  margin-top: 7rem !important; }\n\n.mt-8 {\n  margin-top: 8rem !important; }\n\n.mt-9 {\n  margin-top: 9rem !important; }\n\n.mt-10 {\n  margin-top: 10rem !important; }\n\n.mt-11 {\n  margin-top: 11rem !important; }\n\n.mt-12 {\n  margin-top: 12rem !important; }\n\n.mt-13 {\n  margin-top: 13rem !important; }\n\n.mt-14 {\n  margin-top: 14rem !important; }\n\n.mb-auto {\n  margin-bottom: auto !important; }\n\n.mb-0 {\n  margin-bottom: 0 !important; }\n\n.mb-025 {\n  margin-bottom: 0.25rem !important; }\n\n.mb-05 {\n  margin-bottom: 0.5rem !important; }\n\n.mb-075 {\n  margin-bottom: 0.75rem !important; }\n\n.mb-1 {\n  margin-bottom: 1rem !important; }\n\n.mb-2 {\n  margin-bottom: 2rem !important; }\n\n.mb-3 {\n  margin-bottom: 3rem !important; }\n\n.mb-4 {\n  margin-bottom: 4rem !important; }\n\n.mb-5 {\n  margin-bottom: 5rem !important; }\n\n.mb-6 {\n  margin-bottom: 6rem !important; }\n\n.mb-7 {\n  margin-bottom: 7rem !important; }\n\n.mb-8 {\n  margin-bottom: 8rem !important; }\n\n.mb-9 {\n  margin-bottom: 9rem !important; }\n\n.mb-10 {\n  margin-bottom: 10rem !important; }\n\n.mb-11 {\n  margin-bottom: 11rem !important; }\n\n.mb-12 {\n  margin-bottom: 12rem !important; }\n\n.mb-13 {\n  margin-bottom: 13rem !important; }\n\n.mb-14 {\n  margin-bottom: 14rem !important; }\n\n.ml-auto {\n  margin-left: auto !important; }\n\n.ml-0 {\n  margin-left: 0 !important; }\n\n.ml-05 {\n  margin-left: 0.5rem !important; }\n\n.ml-1 {\n  margin-left: 1rem !important; }\n\n.ml-2 {\n  margin-left: 2rem !important; }\n\n.ml-3 {\n  margin-left: 3rem !important; }\n\n.ml-4 {\n  margin-left: 4rem !important; }\n\n.ml-5 {\n  margin-left: 5rem !important; }\n\n.ml-6 {\n  margin-left: 6rem !important; }\n\n.ml-7 {\n  margin-left: 7rem !important; }\n\n.ml-8 {\n  margin-left: 8rem !important; }\n\n.ml-9 {\n  margin-left: 9rem !important; }\n\n.ml-10 {\n  margin-left: 10rem !important; }\n\n.ml-11 {\n  margin-left: 11rem !important; }\n\n.ml-12 {\n  margin-left: 12rem !important; }\n\n.ml-13 {\n  margin-left: 13rem !important; }\n\n.ml-14 {\n  margin-left: 14rem !important; }\n\n.mr-auto {\n  margin-right: auto !important; }\n\n.mr-0 {\n  margin-right: 0 !important; }\n\n.mr-05 {\n  margin-right: 0.5rem !important; }\n\n.mr-1 {\n  margin-right: 1rem !important; }\n\n.mr-2 {\n  margin-right: 2rem !important; }\n\n.mr-3 {\n  margin-right: 3rem !important; }\n\n.mr-4 {\n  margin-right: 4rem !important; }\n\n.mr-5 {\n  margin-right: 5rem !important; }\n\n.mr-6 {\n  margin-right: 6rem !important; }\n\n.mr-7 {\n  margin-right: 7rem !important; }\n\n.mr-8 {\n  margin-right: 8rem !important; }\n\n.mr-9 {\n  margin-right: 9rem !important; }\n\n.mr-10 {\n  margin-right: 10rem !important; }\n\n.mr-11 {\n  margin-right: 11rem !important; }\n\n.mr-12 {\n  margin-right: 12rem !important; }\n\n.mr-13 {\n  margin-right: 13rem !important; }\n\n.mr-14 {\n  margin-right: 14rem !important; }\n\n.p-0 {\n  padding: 0 !important; }\n\n.p-05 {\n  padding: 0.5rem !important; }\n\n.p-1 {\n  padding: 1rem !important; }\n\n.pt-0 {\n  padding-top: 0 !important; }\n\n.pt-1 {\n  padding-top: 1rem !important; }\n\n.pt-2 {\n  padding-top: 2rem !important; }\n\n.pt-3 {\n  padding-top: 3rem !important; }\n\n.pb-0 {\n  padding-bottom: 0 !important; }\n\n.pb-1 {\n  padding-bottom: 1rem !important; }\n\n.pb-2 {\n  padding-bottom: 2rem !important; }\n\n.pb-3 {\n  padding-bottom: 3rem !important; }\n\n.pl-0 {\n  padding-left: 0 !important; }\n\n.pl-1 {\n  padding-left: 1rem !important; }\n\n.pl-2 {\n  padding-left: 2rem !important; }\n\n.pl-3 {\n  padding-left: 3rem !important; }\n\n.pr-0 {\n  padding-right: 0 !important; }\n\n.pr-1 {\n  padding-right: 1rem !important; }\n\n.pr-2 {\n  padding-right: 2rem !important; }\n\n.pr-3 {\n  padding-right: 3rem !important; }\n\n.py-1 {\n  padding-bottom: 1rem !important;\n  padding-top: 1rem !important; }\n\n.py-2 {\n  padding-bottom: 2rem !important;\n  padding-top: 2rem !important; }\n\n.py-3 {\n  padding-bottom: 3rem !important;\n  padding-top: 3rem !important; }\n\n.py-4 {\n  padding-bottom: 4rem !important;\n  padding-top: 4rem !important; }\n\n.py-5 {\n  padding-bottom: 5rem !important;\n  padding-top: 5rem !important; }\n\n.py-6 {\n  padding-bottom: 6rem !important;\n  padding-top: 6rem !important; }\n\n.py-6 {\n  padding-bottom: 6rem !important;\n  padding-top: 6rem !important; }\n\n.py-7 {\n  padding-bottom: 7rem !important;\n  padding-top: 7rem !important; }\n\n.py-8 {\n  padding-bottom: 8rem !important;\n  padding-top: 8rem !important; }\n\n.py-9 {\n  padding-bottom: 9rem !important;\n  padding-top: 9rem !important; }\n\n.py-10 {\n  padding-bottom: 10rem !important;\n  padding-top: 10rem !important; }\n\n.py-11 {\n  padding-bottom: 11rem !important;\n  padding-top: 11rem !important; }\n\n.py-12 {\n  padding-bottom: 12rem !important;\n  padding-top: 12rem !important; }\n\n.py-13 {\n  padding-bottom: 13rem !important;\n  padding-top: 13rem !important; }\n\n.py-14 {\n  padding-bottom: 14rem !important;\n  padding-top: 14rem !important; }\n\n/* WIDTH AND HEIGHT */\n.w-100 {\n  width: 100% !important; }\n\n.w-50 {\n  width: 50% !important; }\n\n.h-100 {\n  height: 100% !important; }\n\n.h-50 {\n  height: 50% !important; }\n\n.vw-100 {\n  width: 100vw !important; }\n\n.vh-100 {\n  height: 100vh !important; }\n\n.border {\n  border: 1px solid var(--border) !important; }\n\n.border-l {\n  border-left: 1px solid var(--border) !important; }\n\n.border-t {\n  border-top: 1px solid var(--border) !important; }\n\n.border-r {\n  border-right: 1px solid var(--border) !important; }\n\n.border-b {\n  border-bottom: 1px solid var(--border) !important; }\n\n.dash-border-b {\n  border-bottom: 1px dashed var(--grey-700) !important; }\n\n.bd-radius {\n  border-radius: var(--default-border-radius) !important; }\n\n/* debug helpers */\n.bd {\n  border: 1px solid lime !important; }\n\n.circular {\n  border-radius: 50%; }\n\n/* Uncomment below for x-ray vision */\n/* * {\n  border: 1px solid lime !important;\n} */\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {\n  .not-mobile-mr {\n    margin-right: 0 !important; }\n  .not-mobile-ml {\n    margin-left: 0 !important; } }\n\n@font-face {\n  font-family: \"Akkurat-Mono\";\n  src: url(../assets/fonts/AkkuratMono/AkkMo___.ttf) format(\"truetype\"), url(../assets/fonts/AkkuratMono/AkkMoE__.ttf) format(\"truetype\"); }\n\nhtml,\ninput {\n  font-family: \"Inter\", sans-serif;\n  font-feature-settings: \"tnum\" 1; }\n\n@supports (font-variation-settings: normal) {\n  html {\n    font-family: \"Inter var\", sans-serif; } }\n\nbody {\n  font-weight: 300;\n  font-size: var(--default-font-size);\n  color: #121111; }\n\n/* Override browser focus ring color */\n:focus {\n  outline: none !important; }\n\nul {\n  padding-left: 0; }\n\na {\n  color: inherit;\n  text-decoration: none; }\n\ninput {\n  font-weight: 300; }\n\ninput::-webkit-inner-spin-button {\n  -webkit-appearance: none; }\n\ninput::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0; }\n";
 styleInject(css$5);
@@ -2052,33 +2086,6 @@ function (_super) {
   };
   return ProgressBar;
 }(React.PureComponent);
-
-function FloatingActionButton(props) {
-  var icon = props.icon,
-      backgroundColor = props.backgroundColor,
-      size = props.size,
-      iconColor = props.iconColor,
-      _a = props.elevation,
-      elevation = _a === void 0 ? 0 : _a,
-      onClick = props.onClick;
-  var dpLevel = "dp" + elevation;
-  return React.createElement("div", {
-    className: "flex items-center justify-center pointer",
-    style: {
-      width: size,
-      height: size,
-      borderRadius: "50%",
-      backgroundColor: backgroundColor,
-      boxShadow: BoxShadow$1[dpLevel],
-      cursor: "pointer"
-    },
-    onClick: onClick
-  }, React.createElement(Icon, {
-    name: icon,
-    size: size / 1.5,
-    color: iconColor
-  }));
-}
 
 //   /**
 //    * Margin as rems used on Y axis of element

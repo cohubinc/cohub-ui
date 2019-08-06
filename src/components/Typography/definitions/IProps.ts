@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 import Color from "../../../definitions/enums/Color";
 
 export default interface IProps {
+  fontFamily?: "Akkurat-Mono" | "MillerDisplay-Bold" | "Inter";
   /** React Children nodes are required */
   children: React.ReactNode;
   /** Optionally pass className */
@@ -25,9 +26,6 @@ export default interface IProps {
 
   /** Text can be a <p /> tag instead of a <span /> */
   p?: boolean;
-
-  /** Text can use the secondary font */
-  secondary?: boolean;
 
   /** Easily make the text the default light color */
   light?: boolean;

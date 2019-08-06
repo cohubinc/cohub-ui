@@ -10,6 +10,7 @@ import Secondary from "./Secondary";
 import Info from "./Info";
 import Cancel from "./Cancel";
 import Dropdown from "./Dropdown/index";
+import FloatingActionButton from "./FloatingActionButton";
 
 export default class Buttons extends Component<IBaseButtonProps> {
   static Primary = Primary;
@@ -28,6 +29,8 @@ export default class Buttons extends Component<IBaseButtonProps> {
   static Text = Text;
 
   static Blank = Blank;
+
+  static FloatingAction = FloatingActionButton;
 
   render() {
     return <Buttons.Secondary {...this.props} />;
