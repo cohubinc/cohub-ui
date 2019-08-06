@@ -12,8 +12,9 @@ const App = () => {
         size={50}
         backgroundColor={Color.green200}
         elevation={8}
+        type="submit"
       />
-      <Typography fontFamily="MillerDisplay-Bold">Test</Typography>
+      <Typography fontFamily="MillerDisplay">Test</Typography>
     </div>
   );
 };
