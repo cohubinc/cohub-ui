@@ -2,14 +2,13 @@ import React, { MouseEvent, PureComponent } from "react";
 
 import Color from "../../definitions/enums/Color";
 import logError from "../../utils/logError";
+import TIconName from "src/definitions/interfaces/TIconName";
 
-import icons, { IconName as Name } from "./Icons";
-export { IconName } from "./Icons";
-
+import icons from "./Icons";
 import "./Icon.scss";
 
 export interface IProps {
-  name: Name;
+  name: TIconName;
   size?: number;
   color?: Color;
   className?: string;
@@ -29,7 +28,7 @@ const DefaultIcon = (props: IProps) => {
   return <Ico {...props} />;
 };
 
-const buildIcon = (name: Name) => (props: Omit<IProps, "name">) => (
+const buildIcon = (name: TIconName) => (props: Omit<IProps, "name">) => (
   <DefaultIcon name={name} {...props} />
 );
 

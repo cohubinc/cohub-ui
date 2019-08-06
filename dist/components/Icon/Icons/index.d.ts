@@ -1,10 +1,10 @@
 /// <reference types="react" />
 import { IProps } from "../index";
-export declare type IconName = "add" | "arrowDown" | "arrowUp" | "back" | "bell" | "calculator" | "calendar" | "caretDown" | "checkmark" | "chevronDown" | "chevronLeft" | "chevronRight" | "circle" | "circleCheck" | "circlePlus" | "circlePlusInverted" | "circleRemove" | "close" | "columns" | "controlPanel" | "dashboard" | "eye" | "forward" | "laptop" | "report" | "sales" | "save" | "scales" | "search" | "shipping" | "tagDollar" | "trash" | "triangle" | "tripleDotsVertical" | "userGroup" | "user";
+import TIconName from "src/definitions/interfaces/TIconName";
 declare type TIconMap = {
-    [key in IconName]: (props: IProps) => JSX.Element;
+    [key in TIconName]: (props: IProps) => JSX.Element;
 };
 declare const icons: TIconMap;
 export default icons;
-export declare const iconNames: IconName[];
+export declare const iconNames: TIconName[];
 //# sourceMappingURL=index.d.ts.map
