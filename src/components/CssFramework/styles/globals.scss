@@ -4,12 +4,13 @@
     url(../assets/fonts/AkkuratMono/AkkMoE__.ttf) format("truetype");
 }
 
+@import url("https://use.typekit.net/hpb8lqb.css");
+
 @import url("https://rsms.me/inter/inter.css");
 
 html,
 input {
   font-family: "Inter", sans-serif;
-  font-feature-settings: "tnum" 1;
 }
 
 @supports (font-variation-settings: normal) {
@@ -40,6 +41,7 @@ a {
 
 input {
   font-weight: 300;
+  font-feature-settings: "tnum" 1;
 }
 
 input::-webkit-inner-spin-button {

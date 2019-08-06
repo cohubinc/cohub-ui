@@ -14,11 +14,11 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
 
     const mergedProperties = { ...defaultProps, ...props };
     const {
+      fontFamily,
       p,
       muted,
       light,
       block,
-      secondary,
       error,
       className = "",
       inverted,
@@ -32,6 +32,9 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
       "data-qa": dataQa = "text"
     } = mergedProperties;
 
+    const fontFamilyStyle = fontFamily
+      ? { fontFamily: fontFamily }
+      : { fontFamily: "Inter" };
     const fontWeightStyle = { fontWeight: weight || 400 };
     const boldStyles = bold ? { fontWeight: 600 } : {};
     const mutedStyle = muted ? { color: Color.lightText as any } : {};
@@ -43,7 +46,6 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
     const italicStyle = italicize ? { fontStyle: "italic" } : {};
 
     const styleDefaults = {
-      fontFamily: secondary ? "Akkurat-Mono" : "Inter",
       color: color as any,
       textTransform: (uppercase ? "uppercase" : "initial") as any,
       textAlign: (alignment ? alignment : "initial") as any
@@ -51,6 +53,7 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
     const mergedStyles = { ...factoryStyle, ...style };
     const styleProp: CSSProperties = {
       ...styleDefaults,
+      ...fontFamilyStyle,
       ...fontWeightStyle,
       ...boldStyles,
       ...italicStyle,

@@ -2,6 +2,7 @@ import { Component } from "react";
 import Button, { IBaseButtonProps } from "./Base";
 import Text from "./Text";
 import Dropdown from "./Dropdown/index";
+import FloatingActionButton from "./FloatingActionButton";
 export default class Buttons extends Component<IBaseButtonProps> {
     static Primary: ({ style, ...rest }: IBaseButtonProps) => JSX.Element;
     static Secondary: ({ style, ...rest }: IBaseButtonProps) => JSX.Element;
@@ -15,6 +16,7 @@ export default class Buttons extends Component<IBaseButtonProps> {
     static Dropdown: typeof Dropdown;
     static Text: typeof Text;
     static Blank: ({ className, children, style, nativeElRef, ...rest }: import("./Blank").Props) => JSX.Element;
+    static FloatingAction: typeof FloatingActionButton;
     render(): JSX.Element;
 }
 //# sourceMappingURL=index.d.ts.map

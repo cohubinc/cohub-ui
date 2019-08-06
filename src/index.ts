@@ -10,7 +10,7 @@ export { default as AnimatedCheckmark } from "src/components/AnimatedCheckmark";
 export { default as ProgressBar } from "src/components/ProgressBar";
 export {
   default as FloatingActionButton
-} from "src/components/FloatingActionButton";
+} from "src/components/Buttons/FloatingActionButton";
 
 import * as StoryCmpts from "./story-helpers";
 export const StoryHelpers = StoryCmpts;
