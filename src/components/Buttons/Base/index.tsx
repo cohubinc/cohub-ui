@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, InputHTMLAttributes } from "react";
+import React from "react";
 
 import Color from "src/definitions/enums/Color";
 import AnimatedCheckmark from "src/components/AnimatedCheckmark";

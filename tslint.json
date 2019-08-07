@@ -1,0 +1,62 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-react-hooks"
+  ],
+  "jsRules": {},
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/**/*.ts",
+      "src/components/graphql.tsx"
+    ]
+  },
+  "rules": {
+    "no-console": [true, "log"],
+    "no-empty": {
+      "severity": "warning"
+    },
+    "no-eval": {
+      "severity": "warning"
+    },
+    "radix": false,
+    "jsx-boolean-value": false,
+    "ordered-imports": false,
+    "no-empty-interface": false,
+    "jsx-no-lambda": false,
+    "no-debugger": false,
+    "object-literal-sort-keys": false,
+    "max-classes-per-file": false,
+    "no-string-literal": {
+      "severity": "warning"
+    },
+    "no-switch-case-fall-through": {
+      "severity": "warning"
+    },
+    "switch-final-break": true,
+    "member-ordering": false,
+    "triple-equals": {
+      "severity": "warning"
+    },
+    "curly": false,
+    "member-access": [true, "no-public"],
+    "variable-name": false,
+    "no-unused-expression": [true, "allow-fast-null-checks"],
+    "no-unused-variable": {
+      "severity": "error",
+      "options": [
+        {
+          "ignore-pattern": "^_"
+        }
+      ]
+    },
+    "prefer-const": false,
+    "no-var-keyword": false,
+    "no-bitwise": false
+  }
+}
