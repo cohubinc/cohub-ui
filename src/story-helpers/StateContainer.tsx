@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 
 interface IRenderProps<T = string> {
   state?: T;

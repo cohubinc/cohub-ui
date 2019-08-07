@@ -2,7 +2,6 @@ import React, { CSSProperties, useState } from "react";
 
 import Color from "src/definitions/enums/Color";
 
-import Buttons from "../index";
 import Tooltip from "src/components/Tooltip";
 import ButtonType from "./definitions/ButtonType";
 import { getButton } from "./getButton";
@@ -63,9 +62,7 @@ export default function Dropdown(props: IProps) {
                 .map(option => (
                   <li
                     key={option.label}
-                    className={`${
-                      styles.CohubDropdownOption
-                    } cursor-pointer p-05`}
+                    className={`${styles.CohubDropdownOption} cursor-pointer p-05`}
                     onClick={() => {
                       setSelectedOption(option);
                       setExpanded(false);

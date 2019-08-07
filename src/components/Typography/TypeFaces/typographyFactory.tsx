@@ -33,7 +33,7 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
     } = mergedProperties;
 
     const fontFamilyStyle = fontFamily
-      ? { fontFamily: fontFamily }
+      ? { fontFamily }
       : { fontFamily: "Inter" };
     const fontWeightStyle = { fontWeight: weight || 400 };
     const boldStyles = bold ? { fontWeight: 600 } : {};
