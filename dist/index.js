@@ -5024,6 +5024,609 @@ var GreenDot = function (_a) {
   });
 };
 
+var css$o = ".Avatar-module_Avatar__Irl8C {\n  border-radius: 50%;\n  position: relative; }\n\n.Avatar-module_Avatar__Irl8C::after {\n  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);\n  border-radius: 50%;\n  content: '';\n  display: block;\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0; }\n";
+var styles$e = {"Avatar":"Avatar-module_Avatar__Irl8C"};
+styleInject(css$o);
+
+var Avatar =
+/** @class */
+function (_super) {
+  __extends(Avatar, _super);
+
+  function Avatar() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Avatar.prototype.render = function () {
+    var _a = this.props,
+        src = _a.src,
+        name = _a.name,
+        size = _a.size,
+        className = _a.className;
+    var avatarStyle = {
+      borderRadius: "50%",
+      backgroundColor: "var(--bf-green)",
+      width: "100%",
+      height: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    };
+
+    if (src) {
+      return React.createElement("div", {
+        className: styles$e.Avatar + " " + className,
+        style: {
+          width: size,
+          height: size
+        }
+      }, React.createElement("img", {
+        src: src,
+        style: avatarStyle
+      }));
+    } else if (name) {
+      var firstInitial = void 0;
+      var lastInital = void 0;
+
+      var _b = name.split(" "),
+          firstName = _b[0],
+          lastName = _b[1];
+
+      if (firstName) {
+        firstInitial = firstName.substring(0, 1);
+      }
+
+      if (lastName) {
+        lastInital = lastName.substring(0, 1);
+      }
+
+      var style = __assign({}, avatarStyle, {
+        fontWeight: 400
+      });
+
+      return React.createElement("div", {
+        className: className,
+        style: style
+      }, React.createElement("div", null, firstInitial, lastInital));
+    } else {
+      return React.createElement("div", {
+        className: className
+      }, React.createElement(Icon.User, {
+        size: size
+      }));
+    }
+  };
+
+  Avatar.defaultProps = {
+    size: 50
+  };
+  return Avatar;
+}(PureComponent);
+
+var css$p = ".Horizontal-module_CardHorizontal__2b_IU {\n  padding: 1rem;\n  background-color: var(--true-white);\n  width: 350px;\n  border-radius: var(--default-border-radius); }\n\n.Horizontal-module_CardHorizontalImage__3qOPi {\n  max-width: 150px;\n  max-height: 150px; }\n\n.Horizontal-module_CardAction__3GXRa {\n  transition: 100ms ease-in; }\n  .Horizontal-module_CardAction__3GXRa:hover {\n    color: var(--grey-800); }\n  .Horizontal-module_CardAction__3GXRa:not(:last-of-type) {\n    margin-right: 0.5rem; }\n";
+var styles$f = {"CardHorizontal":"Horizontal-module_CardHorizontal__2b_IU","CardHorizontalImage":"Horizontal-module_CardHorizontalImage__3qOPi","CardAction":"Horizontal-module_CardAction__3GXRa"};
+styleInject(css$p);
+
+var Horizontal =
+/** @class */
+function (_super) {
+  __extends(Horizontal, _super);
+
+  function Horizontal() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Horizontal.prototype.render = function () {
+    var _a = this.props,
+        title = _a.title,
+        subtitle = _a.subtitle,
+        meta = _a.meta,
+        titleLink = _a.titleLink,
+        imageUrl = _a.imageUrl,
+        avatar = _a.avatar,
+        actions = _a.actions,
+        className = _a.className,
+        style = _a.style,
+        children = _a.children,
+        elevation = _a.elevation;
+    var dpLevel = "dp" + elevation;
+    var actionList;
+
+    if (actions) {
+      actionList = actions.map(function (a) {
+        return React.createElement(Buttons.Text, {
+          className: styles$f.CardAction,
+          key: a.name,
+          onClick: function () {
+            return a.action();
+          },
+          fontSize: 12,
+          color: Color$1.iconGrey
+        }, a.name);
+      });
+    }
+
+    var titleLinkElement = function () {
+      if (titleLink) {
+        return React.createElement(Link$1, {
+          to: titleLink
+        }, React.createElement(Typography.HeadingTiny, {
+          block: true
+        }, title));
+      } else {
+        return React.createElement(Typography.HeadingTiny, {
+          block: true
+        }, title);
+      }
+    };
+
+    var cardContent = React.createElement(React.Fragment, null, React.createElement("div", {
+      className: "flex w-100"
+    }, avatar && React.createElement(Avatar, {
+      size: 50,
+      src: imageUrl
+    }), !avatar && imageUrl && React.createElement("div", null, React.createElement("img", {
+      src: imageUrl,
+      className: styles$f.CardHorizontalImage
+    })), React.createElement("div", {
+      className: "flex w-100 ml-1"
+    }, React.createElement("div", {
+      className: "ml-1 w-100"
+    }, titleLinkElement(), React.createElement(Typography, {
+      block: true
+    }, subtitle), meta && React.createElement(Typography.Small, {
+      muted: true
+    }, meta), children && children))));
+    return React.createElement("div", {
+      className: styles$f.CardHorizontal + " " + className,
+      style: __assign({}, style, {
+        boxShadow: BoxShadow$1[dpLevel] || BoxShadow$1.dp1
+      })
+    }, cardContent, actions && React.createElement("div", {
+      className: "flex justify-end items-center mt-05"
+    }, actionList));
+  };
+
+  Horizontal.defaultProps = {
+    elevation: 1
+  };
+  return Horizontal;
+}(PureComponent);
+
+var css$q = ".Vertical-module_CardVertical__elna1 {\n  display: flex;\n  flex-direction: column;\n  background-color: var(--true-white);\n  max-width: 250px;\n  width: 250px;\n  border-radius: var(--default-border-radius); }\n  .Vertical-module_CardVertical__elna1 img {\n    border-top-left-radius: var(--default-border-radius);\n    border-top-right-radius: var(--default-border-radius); }\n\n.Vertical-module_CardAction__1QIBH {\n  color: var(--grey-600);\n  text-transform: uppercase;\n  letter-spacing: 0.05rem;\n  font-weight: 400;\n  font-size: 12px;\n  cursor: pointer;\n  transition: 100ms ease-in; }\n  .Vertical-module_CardAction__1QIBH:hover {\n    color: var(--grey-800); }\n  .Vertical-module_VerticalCard__qsJ7L .Vertical-module_CardAction__1QIBH {\n    margin-right: 1rem; }\n";
+var styles$g = {"CardVertical":"Vertical-module_CardVertical__elna1","CardAction":"Vertical-module_CardAction__1QIBH","VerticalCard":"Vertical-module_VerticalCard__qsJ7L"};
+styleInject(css$q);
+
+var Vertical =
+/** @class */
+function (_super) {
+  __extends(Vertical, _super);
+
+  function Vertical() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Vertical.prototype.render = function () {
+    var _a = this.props,
+        title = _a.title,
+        centered = _a.centered,
+        titleLink = _a.titleLink,
+        subtitle = _a.subtitle,
+        meta = _a.meta,
+        actions = _a.actions,
+        imageUrl = _a.imageUrl,
+        avatar = _a.avatar,
+        className = _a.className,
+        style = _a.style,
+        children = _a.children,
+        elevation = _a.elevation;
+    var dpLevel = "dp" + elevation;
+    var actionList;
+
+    if (actions) {
+      actionList = actions.map(function (a) {
+        return React.createElement("div", {
+          className: styles$g.CardAction,
+          key: a.name,
+          onClick: function () {
+            return a.action();
+          }
+        }, a.name);
+      });
+    }
+
+    var titleLinkElement = function () {
+      if (titleLink) {
+        return React.createElement(Link$1, {
+          to: titleLink
+        }, React.createElement(Typography.Large, {
+          block: true,
+          className: centered ? "text-center" : ""
+        }, title));
+      } else {
+        return React.createElement(Typography.Large, {
+          block: true,
+          className: centered ? "text-center" : ""
+        }, title);
+      }
+    };
+
+    var cardContent = React.createElement(React.Fragment, null, React.createElement("div", {
+      className: "m-auto block"
+    }, avatar && React.createElement(Avatar, {
+      size: 150,
+      src: imageUrl,
+      className: "mt-1"
+    }), !avatar && imageUrl && React.createElement("div", null, React.createElement("img", {
+      src: imageUrl,
+      className: "p-1"
+    }))), React.createElement("div", {
+      className: "mx-1 mt-05"
+    }, titleLinkElement(), React.createElement(Typography.Small, {
+      block: true,
+      className: (centered ? "text-center" : "") + " mt-025"
+    }, subtitle), meta && React.createElement(Typography.Tiny, {
+      muted: true,
+      block: true,
+      className: (centered ? "text-center" : "") + " mt-025"
+    }, meta), children && React.createElement("div", {
+      className: "mt-1"
+    }, children), actions && React.createElement("div", {
+      className: "flex justify-evenly mt-1"
+    }, actionList)));
+    return React.createElement("div", {
+      className: styles$g.CardVertical + " " + className + " pb-1",
+      style: __assign({}, style, {
+        boxShadow: BoxShadow$1[dpLevel] || BoxShadow$1.dp1
+      })
+    }, cardContent);
+  };
+
+  Vertical.defaultProps = {
+    elevation: 1
+  };
+  return Vertical;
+}(PureComponent);
+
+var Card = {
+  Horizontal: Horizontal,
+  Vertical: Vertical
+};
+
+var transition$1 = "0.2s ease-in-out";
+
+var btnInputStyle = __assign({}, size(26), {
+  outline: "none",
+  borderRadius: "50%",
+  padding: 10,
+  transition: transition$1
+});
+
+var expandedInputStyles = {
+  outline: "none",
+  height: 28,
+  width: 120,
+  borderRadius: 32,
+  padding: "3px 9px",
+  transition: transition$1
+};
+var defaultState = {
+  expanded: false
+};
+
+var AddChipInput =
+/** @class */
+function (_super) {
+  __extends(AddChipInput, _super);
+
+  function AddChipInput(props) {
+    var _this = _super.call(this, props) || this;
+
+    _this.state = defaultState;
+
+    _this.toggleState = function () {
+      _this.setState(function (_a) {
+        var expanded = _a.expanded;
+        return {
+          expanded: !expanded
+        };
+      });
+    };
+
+    _this._input = React.createRef();
+    return _this;
+  }
+
+  AddChipInput.prototype.render = function () {
+    var _this = this;
+
+    var _a = this.props,
+        className = _a.className,
+        _b = _a.style,
+        style = _b === void 0 ? {} : _b,
+        restProps = __rest(_a, ["className", "style"]);
+
+    var expanded = this.state.expanded;
+    var defaultIconStyle = {
+      position: "absolute",
+      cursor: "pointer",
+      height: 13,
+      transition: transition$1
+    };
+    var iconStyles = expanded ? __assign({}, defaultIconStyle, {
+      left: 49,
+      top: 6,
+      transform: "translate(50px, 0) rotate(45deg)"
+    }) : __assign({}, defaultIconStyle, {
+      left: 5.3,
+      top: 5.4
+    });
+    var inputRef = this._input.current;
+
+    if (inputRef) {
+      expanded ? inputRef.focus() : inputRef.blur();
+    }
+
+    var onBlur = restProps.onBlur,
+        onFocus = restProps.onFocus,
+        inputProps = __rest(restProps, ["onBlur", "onFocus"]);
+
+    return React.createElement("div", {
+      style: __assign({}, style, {
+        position: "relative"
+      }),
+      className: className
+    }, React.createElement("input", _extends({}, inputProps, {
+      className: "border",
+      style: expanded ? expandedInputStyles : btnInputStyle,
+      ref: this._input,
+      onFocus: function (e) {
+        onFocus && onFocus(e);
+
+        _this.setState({
+          expanded: true
+        });
+      },
+      onBlur: function (e) {
+        onBlur && onBlur(e);
+
+        _this.setState({
+          expanded: false
+        });
+      }
+    })), React.createElement(Icon.Add, {
+      size: 16.5,
+      onClick: this.toggleState,
+      style: iconStyles
+    }));
+  };
+
+  return AddChipInput;
+}(React.Component);
+
+var css$r = ".CohubChip {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  .CohubChip .clickable:hover, .CohubChip .clickable:focus {\n    transform: translate(0, -1px) !important; }\n  .CohubChip .clickable:focus {\n    background-color: inherit !important; }\n";
+styleInject(css$r);
+
+var Chip =
+/** @class */
+function (_super) {
+  __extends(Chip, _super);
+
+  function Chip() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Chip.prototype.render = function () {
+    var _a = this.props,
+        children = _a.children,
+        label = _a.label,
+        onClick = _a.onClick,
+        onDelete = _a.onDelete,
+        checked = _a.checked,
+        _b = _a.className,
+        className = _b === void 0 ? "" : _b,
+        backgroundColor = _a.backgroundColor,
+        style = _a.style,
+        size = _a.size;
+    var name = label || children;
+    var clickable = !!onClick;
+    var clickableClass = clickable ? "clickable" : "";
+    var iconName;
+
+    if (checked) {
+      iconName = "checkmark";
+    } else if (onDelete) {
+      iconName = "close";
+    }
+
+    var padding = size / 2 + "px " + size + "px";
+    return React.createElement("div", {
+      className: "CohubChip " + clickableClass + " " + className,
+      style: __assign({
+        backgroundColor: backgroundColor,
+        borderRadius: "361px",
+        display: "inline-block",
+        padding: padding
+      }, style),
+      onClick: onClick,
+      tabIndex: clickable ? 0 : undefined
+    }, React.createElement("div", {
+      className: "flex justify-center items-center h-100",
+      style: {
+        cursor: clickable ? "pointer" : "inherit"
+      }
+    }, React.createElement(Typography.Small, null, name), iconName && React.createElement(Icon, {
+      onClick: function (e) {
+        return onDelete && onDelete(e);
+      },
+      size: 16,
+      name: iconName,
+      className: "ml-05",
+      color: Color$1.grey800
+    })));
+  };
+
+  Chip.Add = AddChipInput;
+  Chip.defaultProps = {
+    size: 12,
+    backgroundColor: Color$1.grey300
+  };
+  return Chip;
+}(Component);
+
+var FormatMoney =
+/** @class */
+function (_super) {
+  __extends(FormatMoney, _super);
+
+  function FormatMoney() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormatMoney.prototype.render = function () {
+    var _a = this.props,
+        value = _a.value,
+        extendedPrecision = _a.extendedPrecision,
+        dataQa = _a["data-qa"];
+    var decimals = ("" + value).split(".")[1];
+    return React.createElement("span", {
+      "data-qa": dataQa
+    }, React.createElement(NumberFormat, {
+      value: value,
+      displayType: "text",
+      prefix: "$",
+      thousandSeparator: true,
+      fixedDecimalScale: true,
+      decimalScale: extendedPrecision && decimals && decimals.length > 2 ? decimals.length : 2
+    }));
+  };
+
+  FormatMoney.defaultProps = {
+    extendedPrecision: true
+  };
+  return FormatMoney;
+}(PureComponent);
+
+var FormatNumber =
+/** @class */
+function (_super) {
+  __extends(FormatNumber, _super);
+
+  function FormatNumber() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormatNumber.prototype.render = function () {
+    var _a = this.props,
+        value = _a.value,
+        rest = __rest(_a, ["value"]);
+
+    return React.createElement(NumberFormat, _extends({
+      value: value,
+      displayType: "text"
+    }, rest));
+  };
+
+  FormatNumber.defaultProps = {
+    thousandSeparator: true
+  };
+  return FormatNumber;
+}(React.Component);
+
+var FormatPercent =
+/** @class */
+function (_super) {
+  __extends(FormatPercent, _super);
+
+  function FormatPercent() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormatPercent.prototype.render = function () {
+    var value = this.props.value;
+    var percentValue = value * 100;
+    return React.createElement(NumberFormat, {
+      value: percentValue,
+      displayType: "text",
+      thousandSeparator: true,
+      decimalScale: 2,
+      suffix: "%"
+    });
+  };
+
+  FormatPercent.defaultProps = {
+    thousandSeparator: false
+  };
+  return FormatPercent;
+}(React.Component);
+
+var AttributeList =
+/** @class */
+function (_super) {
+  __extends(AttributeList, _super);
+
+  function AttributeList() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.formattedValue = function (value, format) {
+      switch (format) {
+        case "money":
+          return React.createElement(FormatMoney, {
+            value: value
+          });
+
+        case "number":
+          return React.createElement(FormatNumber, {
+            value: value
+          });
+
+        case "percentage":
+          return React.createElement(FormatPercent, {
+            value: value
+          });
+
+        case "text":
+          return value;
+
+        default:
+          return React.createElement(FormatNumber, {
+            value: value
+          });
+      }
+    };
+
+    return _this;
+  }
+
+  AttributeList.prototype.render = function () {
+    var _this = this;
+
+    var _a = this.props,
+        header = _a.header,
+        items = _a.items,
+        contrast = _a.contrast,
+        className = _a.className;
+    var attributes = items.map(function (i) {
+      return React.createElement("div", {
+        className: "flex justify-between items-center mb-1 " + className,
+        key: i.attribute
+      }, React.createElement(Typography, null, i.attribute), React.createElement(Typography, null, _this.formattedValue(i.value, i.format)));
+    });
+    return React.createElement(Segment$1, {
+      className: "flex flex-column",
+      contrast: contrast,
+      padded: contrast ? true : false
+    }, React.createElement(Typography.Small, {
+      muted: true,
+      weight: 500,
+      uppercase: true,
+      className: "mb-1"
+    }, header), attributes);
+  };
+
+  return AttributeList;
+}(PureComponent);
+
 function Margin(props) {
   var _a = props.marginSize,
       marginSize = _a === void 0 ? 1.5 : _a,
@@ -5134,5 +5737,5 @@ var StoryCmpts = /*#__PURE__*/Object.freeze({
 
 var StoryHelpers = StoryCmpts;
 
-export { AnimatedCheckmark, Backdrop, Base, BoxShadow$1 as BoxShadow, Buttons, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FloatingActionButton, FormGroup, Grow, Icon, Inputs, Link, Loader, ProgressBar, Scale, Segment$1 as Segment, Split as SplitButton, StoryHelpers, Toggle$1 as Toggle, Typography, renderDate };
+export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, Base, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FloatingActionButton, FormGroup, Grow, Icon, Inputs, Link, Loader, ProgressBar, Scale, Segment$1 as Segment, Split as SplitButton, StoryHelpers, Toggle$1 as Toggle, Typography, renderDate };
 //# sourceMappingURL=index.js.map

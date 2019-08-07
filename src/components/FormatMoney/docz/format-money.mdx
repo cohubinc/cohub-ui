@@ -1,0 +1,28 @@
+---
+name: FormatMoney
+route: "/"
+---
+
+import { Playground, PropsTable } from "docz";
+import FormatMoney from "../index.tsx";
+
+# FormatMoney
+
+<PropsTable of={FormatMoney} />
+
+## Usage
+
+<Playground>
+  <div className="mb-2">
+
+    <FormatMoney value={26600.12} />
+
+  </div>
+
+  <div className="mb-2">
+
+  <FormatMoney value={26600.12345} />
+  </div>
+
+  <FormatMoney extendedPrecision={false} value={26600.12345} />
+</Playground>

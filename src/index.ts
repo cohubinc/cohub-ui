@@ -19,7 +19,11 @@ export { default as Link } from "src/components/Link";
 export { default as FormGroup } from "src/components/Form/FormGroup";
 export { default as Loader } from "src/components/Loader";
 export { default as Backdrop } from "src/components/Backdrop";
-export * from "src/components/Transition";
+export { default as Avatar } from "src/components/Avatar";
+export { default as Card } from "src/components/Card";
+export { default as Chip } from "src/components/Chip";
+export { default as AttributeList } from "src/components/AttributeList";
 
+export * from "src/components/Transition";
 import * as StoryCmpts from "./story-helpers";
 export const StoryHelpers = StoryCmpts;
