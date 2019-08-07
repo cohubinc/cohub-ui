@@ -19,6 +19,7 @@ export { default as Link } from "src/components/Link";
 export { default as FormGroup } from "src/components/Form/FormGroup";
 export { default as Loader } from "src/components/Loader";
 export { default as Backdrop } from "src/components/Backdrop";
+export { default as Tooltip } from "src/components/Tooltip";
 export { default as Avatar } from "src/components/Avatar";
 export { default as Card } from "src/components/Card";
 export { default as Chip } from "src/components/Chip";
