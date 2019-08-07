@@ -11,5 +11,7 @@ export { default as ProgressBar } from "./components/ProgressBar";
 export { default as Inputs } from "./components/Inputs";
 export { default as FloatingActionButton } from "./components/Buttons/FloatingActionButton";
 export { default as Segment } from "./components/Segment";
+export { default as renderDate } from "./helpers/render-dates";
+export { default as Divider } from "./components/Divider";
 import * as StoryCmpts from "./story-helpers";
 export declare const StoryHelpers: typeof StoryCmpts;

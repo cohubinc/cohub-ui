@@ -9,7 +9,23 @@ import { Inputs, StoryHelpers } from "../../../../dist/index.js";
 <StoryHelpers.Margin />
 
 <Story name="Text">
-  <Inputs.Text input={{ value: "some val" }} />
+  <StoryHelpers.StateCtrl label="Error State">
+    {({ state: error }) => (
+      <StoryHelpers.StateContainer initialState="">
+        {({ state, setState }) => (
+          <Inputs.Text
+            label="Text Input"
+            input={{
+              value: state,
+              onChange: ({ target }) => setState(target.value)
+            }}
+            meta={{ touched: true, error }}
+            style={{ width: 300 }}
+          />
+        )}
+      </StoryHelpers.StateContainer>
+    )}
+  </StoryHelpers.StateCtrl>
 </Story>
 
-<Props of={Text.Blank} />
+<Props of={Inputs.Text} />

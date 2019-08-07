@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Divider>
+  <div
+    style={
+      Object {
+        "borderTop": "1px solid var(--border)",
+        "marginBottom": "2rem",
+        "marginTop": "2rem",
+        "width": "100%",
+      }
+    }
+  />
+</Divider>
+`;

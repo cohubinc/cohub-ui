@@ -11,11 +11,12 @@ type TFormat =
   | "input";
 
 // Use like -> renderDate("dateWithTimeShort")(item.created_at)
-export const renderDate = (format: TFormat) => (dateTime?: string) => {
+const renderDate = (format: TFormat) => (dateTime?: string) => {
   if (!dateTime) return "";
 
   return moment(dateTime).format(formatMap[format]);
 };
+export default renderDate;
 
 type TFormatMap = { [Key in TFormat]: string };
 const formatMap: TFormatMap = {
@@ -28,3 +29,6 @@ const formatMap: TFormatMap = {
   tabularDate: "MM/DD/YY",
   input: "MM-DD-YYYY"
 };
+
+// Needed to generate documentation
+export const formats = Object.keys(formatMap);

@@ -1,0 +1,25 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { Inputs, StoryHelpers } from "../../../../dist/index.js";
+
+<Meta title="Components|Inputs|Toggle" />
+
+# Toggle Input
+
+<StoryHelpers.Margin />
+
+<Story name="Toggle">
+  <StoryHelpers.StateContainer initialState={true}>
+    {({ state, setState }) => (
+      <Inputs.Toggle
+        label="Toggle Input"
+        input={{
+          value: state,
+          onChange: setState
+        }}
+      />
+    )}
+  </StoryHelpers.StateContainer>
+</Story>
+
+<Props of={Inputs.Toggle} />

@@ -1,2 +1,11 @@
 /// <reference types="react" />
-export default function Margin(props: any): JSX.Element;
+import { IProps as IDividerProps, TMargin } from "../components/Divider";
+interface IProps extends Omit<IDividerProps, "marginSize"> {
+    /**
+     * Margin as rems used on Y axis of element
+     * @defaultValue 1.5
+     */
+    marginSize?: TMargin;
+}
+export default function Margin(props: IProps): JSX.Element;
+export {};

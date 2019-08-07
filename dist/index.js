@@ -2497,7 +2497,7 @@ var formatMap = {
   dateShort: "MM/DD/YY",
   tabularDate: "MM/DD/YY",
   input: "MM-DD-YYYY"
-};
+}; // Needed to generate documentation
 
 function composeValidators() {
   var validators = [];
@@ -4497,19 +4497,39 @@ var Inputs = {
   Toggle: Toggle
 };
 
-//   /**
-//    * Margin as rems used on Y axis of element
-//    * @defaultValue 1.5
-//    */
-//   marginSize?: TMargin;
-// }
+function Divider(props) {
+  var _a = props.marginSize,
+      marginSize = _a === void 0 ? 2 : _a,
+      _b = props.marginTop,
+      marginTop = _b === void 0 ? marginSize : _b,
+      _c = props.marginBottom,
+      marginBottom = _c === void 0 ? marginSize : _c,
+      _d = props.showDividerLine,
+      showDividerLine = _d === void 0 ? true : _d,
+      className = props.className,
+      style = props.style;
+  return React.createElement("div", {
+    className: className,
+    style: __assign({
+      borderTop: showDividerLine ? "1px solid var(--border)" : undefined,
+      marginTop: (marginTop || 0) + "rem",
+      marginBottom: (marginBottom || 0) + "rem",
+      width: "100%"
+    }, style)
+  });
+}
 
 function Margin(props) {
   var _a = props.marginSize,
+      marginSize = _a === void 0 ? 1.5 : _a,
       _b = props.showDividerLine,
+      showDividerLine = _b === void 0 ? false : _b,
       rest = __rest(props, ["marginSize", "showDividerLine"]);
 
-  return React.createElement("span", null);
+  return React.createElement(Divider, _extends({}, rest, {
+    marginSize: marginSize,
+    showDividerLine: showDividerLine
+  }));
 }
 
 function StateContainer(_a) {
@@ -4609,5 +4629,5 @@ var StoryCmpts = /*#__PURE__*/Object.freeze({
 
 var StoryHelpers = StoryCmpts;
 
-export { AnimatedCheckmark, Base, BoxShadow$1 as BoxShadow, Buttons, Color$1 as Color, CssVariables as CssFramework, FloatingActionButton, Icon, Inputs, ProgressBar, Segment$1 as Segment, Split as SplitButton, StoryHelpers, Typography };
+export { AnimatedCheckmark, Base, BoxShadow$1 as BoxShadow, Buttons, Color$1 as Color, CssVariables as CssFramework, Divider, FloatingActionButton, Icon, Inputs, ProgressBar, Segment$1 as Segment, Split as SplitButton, StoryHelpers, Typography, renderDate };
 //# sourceMappingURL=index.js.map

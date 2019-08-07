@@ -10,7 +10,7 @@ import React, {
 import moment from "moment";
 import NumberFormat from "react-number-format";
 
-import { renderDate } from "src/helpers/render-dates";
+import renderDate from "src/helpers/render-dates";
 import { isInt } from "src/helpers/input-validations";
 
 import calculateMonth from "./lib/calculateMonth";

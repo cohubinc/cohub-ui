@@ -13,6 +13,8 @@ export {
   default as FloatingActionButton
 } from "src/components/Buttons/FloatingActionButton";
 export { default as Segment } from "src/components/Segment";
+export { default as renderDate } from "src/helpers/render-dates";
+export { default as Divider } from "src/components/Divider";
 
 import * as StoryCmpts from "./story-helpers";
 export const StoryHelpers = StoryCmpts;
