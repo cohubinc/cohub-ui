@@ -1,0 +1,31 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { Buttons, StoryHelpers, Color } from "../../../../dist/index.js";
+
+<Meta title="Components|Buttons|FloatingAction" />
+
+# FloatingAction Button
+
+<Story name="FloatingAction">
+  <div>
+    <Buttons.FloatingAction
+      icon="back"
+      backgroundColor={Color.iconGrey}
+      onClick={() => console.log("click click")}
+    />
+    <StoryHelpers.Margin />
+    {/* <StoryHelpers.StateCtrl label="raised" defaultState={true}>
+      {({ state }) => (
+        <Buttons.FloatingAction raised={state}>Raised</Buttons.FloatingAction>
+      )}
+    </StoryHelpers.StateCtrl> */}
+  </div>
+</Story>
+
+<StoryHelpers.Margin showDividerLine marginBottom={0} />
+
+FloatingAction only excepts the **raised** and **backgroundColor** props
+
+<Props of={Buttons.Base} />
+
+**Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

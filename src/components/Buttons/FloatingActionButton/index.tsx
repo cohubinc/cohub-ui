@@ -19,7 +19,7 @@ export default function FloatingActionButton({
   icon,
   iconColor,
   backgroundColor,
-  size,
+  size = 24,
   elevation = 0,
   ...rest
 }: TProps) {

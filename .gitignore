@@ -5,6 +5,7 @@ node_modules
 # They're supposed to move it to a `tmp` directory in a future version
 .rpt2_cache
 yarn-error.log
+.DS_Store
 
 development-playground/node_modules
 development-playgroud/dist

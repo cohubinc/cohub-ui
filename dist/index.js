@@ -1977,9 +1977,10 @@ function FloatingActionButton(_a) {
   var icon = _a.icon,
       iconColor = _a.iconColor,
       backgroundColor = _a.backgroundColor,
-      size = _a.size,
-      _b = _a.elevation,
-      elevation = _b === void 0 ? 0 : _b,
+      _b = _a.size,
+      size = _b === void 0 ? 24 : _b,
+      _c = _a.elevation,
+      elevation = _c === void 0 ? 0 : _c,
       rest = __rest(_a, ["icon", "iconColor", "backgroundColor", "size", "elevation"]);
 
   var dpLevel = "dp" + elevation;
