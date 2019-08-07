@@ -1,0 +1,9 @@
+@keyframes hop-lock-and-drop {
+  40% {
+    transform: translateY(-6px);
+  }
+
+  90% {
+    transform: initial;
+  }
+}

@@ -1,0 +1,37 @@
+.base {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.horizontal {
+  &>div {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  &> :first-child {
+    margin-left: 0;
+  }
+
+  &> :last-child {
+    margin-right: 0;
+  }
+
+  @extend .base;
+}
+
+.vertical {
+  flex-direction: column;
+
+  &>div {
+    margin-bottom: 1rem;
+  }
+
+  &> :last-child {
+    margin-bottom: 0;
+  }
+
+  @extend .base;
+}

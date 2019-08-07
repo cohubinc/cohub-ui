@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MoneyInput from "../";
-import DoczStateCtrl from "src/components/Docz/DoczStateCtrl";
+import StateCtrl from "../../../../story-helpers/StateCtrl";
 import Divider from "src/components/Divider";
 
 interface IState {
@@ -14,8 +14,8 @@ export default class MoneyDemo extends Component<any, IState> {
 
     return (
       <div>
-        <DoczStateCtrl>
-          {({ on: extendedPrecision }) => (
+        <StateCtrl>
+          {({ state: extendedPrecision }) => (
             <div>
               <div className="mb-1">
                 <i>(toggle extendedPrecision prop on and off)</i>
@@ -28,7 +28,7 @@ export default class MoneyDemo extends Component<any, IState> {
               />
             </div>
           )}
-        </DoczStateCtrl>
+        </StateCtrl>
 
         <Divider marginSize={3} />
 

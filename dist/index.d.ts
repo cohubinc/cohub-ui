@@ -13,5 +13,10 @@ export { default as FloatingActionButton } from "./components/Buttons/FloatingAc
 export { default as Segment } from "./components/Segment";
 export { default as renderDate } from "./helpers/render-dates";
 export { default as Divider } from "./components/Divider";
+export { default as Link } from "./components/Link";
+export { default as FormGroup } from "./components/Form/FormGroup";
+export { default as Loader } from "./components/Loader";
+export { default as Backdrop } from "./components/Backdrop";
+export * from "./components/Transition";
 import * as StoryCmpts from "./story-helpers";
 export declare const StoryHelpers: typeof StoryCmpts;

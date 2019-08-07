@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders fullscreen version 1`] = `
+<Loader
+  fullScreen={true}
+  show={true}
+>
+  <Backdrop
+    containerClass=""
+    focusTrapped={false}
+    onClose={[Function]}
+    open={true}
+    showCloseIcon={false}
+  >
+    <Modal
+      animationDuration={500}
+      blockScroll={true}
+      center={false}
+      classNames={
+        Object {
+          "closeButton": "closeButton",
+          "modal": "modal",
+          "overlay": "CohubBackdrop ",
+        }
+      }
+      classes={
+        Object {
+          "closeButton": "styles_closeButton__20ID4",
+          "closeIcon": "styles_closeIcon__1QwbI",
+          "modal": "styles_modal__gNwvD",
+          "modalCenter": "styles_modalCenter__L9F2w",
+          "overlay": "styles_overlay__CLSq-",
+          "transitionEnter": "styles_transitionEnter__3j_-a",
+          "transitionEnterActive": "styles_transitionEnterActive___eQs7",
+          "transitionExit": "styles_transitionExit__1KmEf",
+          "transitionExitActive": "styles_transitionExitActive__1nQXw",
+        }
+      }
+      closeIconSize={28}
+      closeIconSvgPath={
+        <svg
+          fill="none"
+          height={44}
+          viewBox="0 0 24 24"
+          width={44}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 0.974332L11.025 0L6.00034 5.02532L0.975021 0L0 0.974332L5.02532 5.99966L0 11.025L0.975021 11.9993L6.00034 6.97399L11.025 11.9993L12 11.025L6.97468 5.99966L12 0.974332Z"
+            fill="hsl(0, 0%, 100%)"
+          />
+        </svg>
+      }
+      closeOnEsc={true}
+      closeOnOverlayClick={true}
+      focusTrapOptions={Object {}}
+      focusTrapped={false}
+      onClose={[Function]}
+      onEscKeyDown={[Function]}
+      onOverlayClick={[Function]}
+      open={true}
+      role="dialog"
+      showCloseIcon={false}
+      styles={
+        Object {
+          "overlay": undefined,
+        }
+      }
+    >
+      <Portal
+        containerInfo={
+          <div>
+            <div
+              class="styles_overlay__CLSq- CohubBackdrop styles_transitionEnter__3j_-a styles_transitionEnterActive___eQs7"
+            >
+              <div
+                aria-modal="true"
+                class="styles_modal__gNwvD modal"
+                role="dialog"
+              >
+                <div
+                  class="flex justify-center items-center"
+                  style="height: 2em; width: 6em;"
+                >
+                  <span
+                    style="height: 12px; width: 12px; background-color: hsl(114, 35%, 52%); border-radius: 50%; animation: hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;"
+                  />
+                  <span
+                    style="height: 12px; width: 12px; background-color: hsl(114, 35%, 52%); border-radius: 50%; animation: hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite; animation-delay: 0.1s; margin-left: 5px; margin-right: 5px;"
+                  />
+                  <span
+                    style="height: 12px; width: 12px; background-color: hsl(114, 35%, 52%); border-radius: 50%; animation: hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite; animation-delay: 0.2s;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      >
+        <CSSTransition
+          appear={true}
+          classNames={
+            Object {
+              "appear": "styles_transitionEnter__3j_-a",
+              "appearActive": "styles_transitionEnterActive___eQs7",
+              "enter": "styles_transitionEnter__3j_-a",
+              "enterActive": "styles_transitionEnterActive___eQs7",
+              "exit": "styles_transitionExit__1KmEf",
+              "exitActive": "styles_transitionExitActive__1nQXw",
+            }
+          }
+          in={true}
+          onEntered={[Function]}
+          onExited={[Function]}
+          timeout={500}
+        >
+          <Transition
+            appear={true}
+            enter={true}
+            exit={true}
+            in={true}
+            mountOnEnter={false}
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={500}
+            unmountOnExit={false}
+          >
+            <div
+              className="styles_overlay__CLSq- CohubBackdrop "
+              onClick={[Function]}
+            >
+              <div
+                aria-modal="true"
+                className="styles_modal__gNwvD modal"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                role="dialog"
+              >
+                <HopDropsLoader>
+                  <div
+                    className="flex justify-center items-center"
+                    style={
+                      Object {
+                        "height": "2em",
+                        "width": "6em",
+                      }
+                    }
+                  >
+                    <GreenDot>
+                      <span
+                        style={
+                          Object {
+                            "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
+                            "backgroundColor": "hsl(114, 35%, 52%)",
+                            "borderRadius": "50%",
+                            "height": 12,
+                            "width": 12,
+                          }
+                        }
+                      />
+                    </GreenDot>
+                    <GreenDot
+                      style={
+                        Object {
+                          "animationDelay": "0.1s",
+                          "marginLeft": 5,
+                          "marginRight": 5,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
+                            "animationDelay": "0.1s",
+                            "backgroundColor": "hsl(114, 35%, 52%)",
+                            "borderRadius": "50%",
+                            "height": 12,
+                            "marginLeft": 5,
+                            "marginRight": 5,
+                            "width": 12,
+                          }
+                        }
+                      />
+                    </GreenDot>
+                    <GreenDot
+                      style={
+                        Object {
+                          "animationDelay": "0.2s",
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
+                            "animationDelay": "0.2s",
+                            "backgroundColor": "hsl(114, 35%, 52%)",
+                            "borderRadius": "50%",
+                            "height": 12,
+                            "width": 12,
+                          }
+                        }
+                      />
+                    </GreenDot>
+                  </div>
+                </HopDropsLoader>
+              </div>
+            </div>
+          </Transition>
+        </CSSTransition>
+      </Portal>
+    </Modal>
+  </Backdrop>
+</Loader>
+`;
+
+exports[`Loader renders without crashing 1`] = `
+<Loader
+  show={true}
+>
+  <Fade
+    show={true}
+  >
+    <Transition
+      entered={
+        Object {
+          "opacity": 1,
+        }
+      }
+      entering={
+        Object {
+          "opacity": 0,
+        }
+      }
+      show={true}
+      start={
+        Object {
+          "opacity": 0,
+        }
+      }
+      transitionProperty="opacity"
+    >
+      <Transition
+        appear={true}
+        enter={true}
+        exit={true}
+        in={true}
+        mountOnEnter={true}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={true}
+      >
+        <HopDropsLoader
+          key="0/.0"
+          style={
+            Object {
+              "opacity": 0,
+              "transition": "all 300ms ease-in-out",
+              "transitionProperty": "opacity",
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+            style={
+              Object {
+                "height": "2em",
+                "opacity": 0,
+                "transition": "all 300ms ease-in-out",
+                "transitionProperty": "opacity",
+                "width": "6em",
+              }
+            }
+          >
+            <GreenDot>
+              <span
+                style={
+                  Object {
+                    "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
+                    "backgroundColor": "hsl(114, 35%, 52%)",
+                    "borderRadius": "50%",
+                    "height": 12,
+                    "width": 12,
+                  }
+                }
+              />
+            </GreenDot>
+            <GreenDot
+              style={
+                Object {
+                  "animationDelay": "0.1s",
+                  "marginLeft": 5,
+                  "marginRight": 5,
+                }
+              }
+            >
+              <span
+                style={
+                  Object {
+                    "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
+                    "animationDelay": "0.1s",
+                    "backgroundColor": "hsl(114, 35%, 52%)",
+                    "borderRadius": "50%",
+                    "height": 12,
+                    "marginLeft": 5,
+                    "marginRight": 5,
+                    "width": 12,
+                  }
+                }
+              />
+            </GreenDot>
+            <GreenDot
+              style={
+                Object {
+                  "animationDelay": "0.2s",
+                }
+              }
+            >
+              <span
+                style={
+                  Object {
+                    "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
+                    "animationDelay": "0.2s",
+                    "backgroundColor": "hsl(114, 35%, 52%)",
+                    "borderRadius": "50%",
+                    "height": 12,
+                    "width": 12,
+                  }
+                }
+              />
+            </GreenDot>
+          </div>
+        </HopDropsLoader>
+      </Transition>
+    </Transition>
+  </Fade>
+</Loader>
+`;

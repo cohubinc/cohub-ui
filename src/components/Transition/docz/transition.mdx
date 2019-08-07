@@ -1,0 +1,101 @@
+---
+name: Transition
+---
+
+import { Playground, PropsTable } from "docz";
+
+import Transition, { Fade, Expand, Grow, Toggle } from "../index.tsx";
+import DoczStateCtrl from "src/components/Docz/DoczStateCtrl";
+
+# Transition
+
+<PropsTable of={Transition} />
+
+## Description
+
+The Transition component it a wrapper around _react-transition-group/Transition_ component.
+You can [read more about it here.](https://reactcommunity.org/react-transition-group/transition)
+The component will animate on mount and on dismount if you use the **show** prop to toggle it on and off.
+
+## Default export Usage
+
+<Playground>
+  <DoczStateCtrl>
+    {({ on }) => (
+      <div className="mb-3 text-center">
+        <Transition
+          show={on}
+          start={{ transform: "scale(0)" }}
+          entered={{ transform: "scale(3)" }}
+          duration={1000}
+        >
+          <h2>Scale Up</h2>
+        </Transition>
+      </div>
+    )}
+  </DoczStateCtrl>
+</Playground>
+
+## Named export examples
+
+There are also some predefined transitions availible as named exports from the same file.
+
+<Playground>
+  <DoczStateCtrl>
+    { ({ on }) => (
+      <React.Fragment>
+        <div className="mb-3">
+          <Fade
+            show={on}
+            duration={1000}
+          >
+            <h2>Fade In</h2>
+          </Fade>
+        </div>
+
+          <div className="mb-3">
+          <Expand
+            show={on}
+            duration={1000}
+          >
+            <h2
+              style={{
+                color: "white",
+                backgroundColor: "black",
+                width: "100%"
+              }}
+            >
+              Expand
+            </h2>
+          </Expand>
+        </div>
+
+        <div className="mb-3">
+          <Grow show={on} duration={1000} height="10em">
+            <div className="full-height bd"><h2>Grow</h2></div>
+          </Grow>
+        </div>
+      </React.Fragment>
+    )}
+
+  </DoczStateCtrl>
+</Playground>
+
+## Example of the Toggle named export
+
+There are also some predefined transitions availible as named exports from the same file.
+
+<Playground>
+  <DoczStateCtrl>
+    {({ on }) => (
+     <div>
+        <Toggle showFirstChild={on} width="10em" height="3em">
+          <div><h2>First Child</h2></div>
+
+          <div><h2>Second Child</h2></div>
+        </Toggle>
+     </div>
+    )}
+
+  </DoczStateCtrl>
+</Playground>

@@ -15,6 +15,11 @@ export {
 export { default as Segment } from "src/components/Segment";
 export { default as renderDate } from "src/helpers/render-dates";
 export { default as Divider } from "src/components/Divider";
+export { default as Link } from "src/components/Link";
+export { default as FormGroup } from "src/components/Form/FormGroup";
+export { default as Loader } from "src/components/Loader";
+export { default as Backdrop } from "src/components/Backdrop";
+export * from "src/components/Transition";
 
 import * as StoryCmpts from "./story-helpers";
 export const StoryHelpers = StoryCmpts;
