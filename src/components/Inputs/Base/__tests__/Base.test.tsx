@@ -1,6 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
-import Base from "..";
+
+import Base from "dist/components/Buttons";
 
 describe("Base Input", () => {
   it("renders without crashing", async () => {
