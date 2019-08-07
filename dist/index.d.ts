@@ -18,10 +18,13 @@ export { default as FormGroup } from "./components/Form/FormGroup";
 export { default as Loader } from "./components/Loader";
 export { default as Backdrop } from "./components/Backdrop";
 export { default as Tooltip } from "./components/Tooltip";
+<<<<<<< HEAD
 export { default as Avatar } from "./components/Avatar";
 export { default as Card } from "./components/Card";
 export { default as Chip } from "./components/Chip";
 export { default as AttributeList } from "./components/AttributeList";
+=======
+>>>>>>> wip
 export * from "./components/Transition";
 import * as StoryCmpts from "./story-helpers";
 export declare const StoryHelpers: typeof StoryCmpts;

@@ -3,8 +3,6 @@
     "baseUrl": "./",
     "target": "es5",
     "module": "es6",
-    "declarationDir": "./dist",
-    "outDir": "./dist",
     "sourceMap": true,
     // "declarationMap": true,
     "declaration": true,
@@ -15,7 +13,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react",
     "paths": {
       "src/*": ["src/*"]
     },
@@ -23,6 +21,6 @@
       { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ]
   },
-  "include": ["src", "test/test_utils"],
-  "exclude": ["node_modules", "**/__tests__/*", "test"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

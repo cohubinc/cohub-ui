@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import Icon from "../index";
+import Icon from "dist/components/Icon";
 import { iconNames } from "../Icons";
 
 describe("Icon", () => {

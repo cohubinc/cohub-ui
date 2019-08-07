@@ -4,9 +4,9 @@ import {
   render,
   fireEvent,
   cleanup
-} from "src/test_utils/cohub-testing-library";
+} from "test/test_utils/cohub-testing-library";
 
-import { sleep } from "src/test_utils/sleep";
+import { sleep } from "test/test_utils/sleep";
 
 import "jest-dom/extend-expect";
 import { mount } from "enzyme";
