@@ -1,7 +1,7 @@
 /// <reference types="react" />
+import { OptionsType } from "react-select/src/types";
 import { FieldRenderProps } from "react-final-form";
 import "./Multiselect.scss";
-import { OptionsType } from "react-select/src/types";
 interface IOption {
     label: string;
     value: string;

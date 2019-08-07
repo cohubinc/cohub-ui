@@ -1,9 +1,9 @@
 import React, { MouseEventHandler, Component } from "react";
 
-import HTMLElementProps from "src/definitions/types/HtmlElementProps";
 import Color from "src/definitions/enums/Color";
 import Text from "src/components/Typography";
 import Icon, { IProps as IconProps } from "src/components/Icon";
+import HtmlElementProps from "src/definitions/types/HtmlElementProps";
 
 import AddChipInput from "./AddChipInput";
 
@@ -19,7 +19,7 @@ interface IProps {
 }
 
 export type TProps = IProps &
-  Pick<HTMLElementProps, "onClick" | "className" | "style">;
+  Pick<HtmlElementProps, "onClick" | "className" | "style">;
 
 export default class Chip extends Component<TProps> {
   static Add = AddChipInput;

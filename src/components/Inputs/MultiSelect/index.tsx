@@ -1,17 +1,17 @@
 import React, { CSSProperties } from "react";
 import Select from "react-select";
 import Creatable from "react-select/creatable";
-
+import { OptionsType, ValueType } from "react-select/src/types";
+import { SelectComponentsProps } from "react-select/src/Select";
+import { StylesConfig } from "react-select/src/styles";
 import { uniqBy } from "lodash";
 import { FieldRenderProps } from "react-final-form";
+
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 
 import "./Multiselect.scss";
-import { OptionsType, ValueType } from "react-select/src/types";
-import { SelectComponentsProps } from "react-select/src/Select";
-import { StylesConfig } from "react-select/src/styles";
 
 interface IOption {
   label: string;
