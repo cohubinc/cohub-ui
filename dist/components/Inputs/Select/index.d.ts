@@ -1,7 +1,7 @@
 import React from "react";
 import "./Select.scss";
 import { FieldRenderProps } from "react-final-form";
-import { OptionsType } from "react-select/src/types";
+import { OptionsType, ValueType } from "react-select/src/types";
 interface IOption {
     label: string;
     value: string;
@@ -15,7 +15,10 @@ interface IProps {
 }
 export declare type SelectProps = IProps & FieldRenderProps<IOption["value"] | Array<IOption["value"]>, HTMLElement>;
 export default class Select extends React.Component<SelectProps> {
-    onChange: (selectedOption: any) => void;
+    onChange: (selectedOption: ValueType<{
+        label: string;
+        value: string;
+    }>) => void;
     render(): JSX.Element;
 }
 export {};

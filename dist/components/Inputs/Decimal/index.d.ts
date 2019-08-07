@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { FieldRenderProps } from "react-final-form";
-import HTMLElementProps from "../../../definitions/types/HtmlElementProps";
+import TInputElementProps from "../definitions/TInputElementProps";
 declare type InputValue = number | undefined;
 declare type FormRenderProps = FieldRenderProps<InputValue, HTMLInputElement>;
 declare type FinalFormInputProp = FormRenderProps["input"];
@@ -22,6 +22,6 @@ interface IProps {
     appearance?: "contrast" | "inverted";
     "data-qa"?: string;
 }
-declare type TProps = IProps & HTMLElementProps<HTMLSpanElement>;
+declare type TProps = IProps & TInputElementProps;
 export default function DecimalInput({ input, meta, label, "data-qa": dataQa, appearance, extendedPrecision, integer, ...spanProps }: TProps): JSX.Element;
 export {};

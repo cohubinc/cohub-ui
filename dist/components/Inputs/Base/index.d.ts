@@ -1,5 +1,5 @@
 import React from "react";
-import HTMLElementProps from "../../../definitions/types/HtmlElementProps";
+import TInputElementProps from "../definitions/TInputElementProps";
 export interface IProps {
     /**
      * Floating label for the input
@@ -19,7 +19,7 @@ export interface IProps {
      */
     "data-qa-label"?: string;
 }
-declare type TProps = IProps & HTMLElementProps<HTMLInputElement>;
+declare type TProps = IProps & TInputElementProps;
 interface IState {
     hasFocus: boolean;
 }

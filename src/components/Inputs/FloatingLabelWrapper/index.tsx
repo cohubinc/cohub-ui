@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import Color, { ContrastColor } from "src/definitions/enums/Color";
-import HTMLElementProps from "src/definitions/types/HtmlElementProps";
+import TInputElementProps from "../definitions/TInputElementProps";
 
 import "./FloatingLabelWrapper.scss";
 import IComponentProps from "./IComponentProps";
@@ -58,7 +58,7 @@ export interface IFloatingLabelWrapperProps<T = any> {
 }
 
 type TProps<T> = IFloatingLabelWrapperProps<T> &
-  Omit<HTMLElementProps<HTMLInputElement>, "onChange" | "value">;
+  Omit<TInputElementProps, "onChange" | "value">;
 
 interface IState {
   hasFocus: boolean;

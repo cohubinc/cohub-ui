@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import HTMLElementProps from "../../../definitions/types/HtmlElementProps";
+import TInputElementProps from "../definitions/TInputElementProps";
 import "./FloatingLabelWrapper.scss";
 import OnChangeEvent from "./OnChangeEvent";
 import IRenderProps from "./IRenderProps";
@@ -38,6 +38,6 @@ export interface IFloatingLabelWrapperProps<T = any> {
     "data-qa-label"?: string;
     value?: T;
 }
-declare type TProps<T> = IFloatingLabelWrapperProps<T> & Omit<HTMLElementProps<HTMLInputElement>, "onChange" | "value">;
+declare type TProps<T> = IFloatingLabelWrapperProps<T> & Omit<TInputElementProps, "onChange" | "value">;
 export default function FloatingLabelWrapper<T = any>({ className, appearance, type, autoComplete, autoFocus, onClick, style, "data-qa": dataQa, "data-qa-label": dataQaLabel, floatLabel, onFocus, onBlur, htmlFor, error, onChange, children, label, value }: TProps<T | undefined>): JSX.Element;
 export {};

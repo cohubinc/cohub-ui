@@ -1,7 +1,7 @@
 import { PureComponent } from "react";
 import { FieldRenderProps } from "react-final-form";
+import TInputElementProps from "../definitions/TInputElementProps";
 import "./Money.scss";
-import HTMLElementProps from "../../../definitions/types/HtmlElementProps";
 declare type InputValue = number;
 declare type FormRenderProps = FieldRenderProps<InputValue, HTMLInputElement>;
 declare type FinalFormInputProp = FormRenderProps["input"];
@@ -11,7 +11,7 @@ interface IInputProp {
     onFocus?: FinalFormInputProp["onFocus"];
     value: FinalFormInputProp["value"];
 }
-interface IProps {
+interface IProps extends TInputElementProps {
     /**
      * Use to extend decimal precision
      */
@@ -22,7 +22,7 @@ interface IProps {
     appearance?: "contrast" | "inverted";
     "data-qa"?: string;
 }
-declare class MoneyInput extends PureComponent<IProps & HTMLElementProps<HTMLSpanElement>> {
+declare class MoneyInput extends PureComponent<IProps> {
     static defaultProps: Partial<IProps>;
     render(): JSX.Element;
 }

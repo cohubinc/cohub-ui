@@ -1,0 +1,15 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { Inputs, StoryHelpers } from "../../../../dist/index.js";
+
+<Meta title="Components|Inputs|Text" />
+
+# Text Input
+
+<StoryHelpers.Margin />
+
+<Story name="Text">
+  <Inputs.Text input={{ value: "some val" }} />
+</Story>
+
+<Props of={Text.Blank} />

@@ -8,6 +8,8 @@ export { default as BoxShadow } from "./definitions/enums/BoxShadow";
 export { default as SplitButton } from "./components/Buttons/Split";
 export { default as AnimatedCheckmark } from "./components/AnimatedCheckmark";
 export { default as ProgressBar } from "./components/ProgressBar";
+export { default as Inputs } from "./components/Inputs";
 export { default as FloatingActionButton } from "./components/Buttons/FloatingActionButton";
+export { default as Segment } from "./components/Segment";
 import * as StoryCmpts from "./story-helpers";
 export declare const StoryHelpers: typeof StoryCmpts;

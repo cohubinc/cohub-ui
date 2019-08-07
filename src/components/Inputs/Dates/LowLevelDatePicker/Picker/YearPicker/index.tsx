@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import rangeRight from "lodash/rangeRight";
 
-import Option from "../Option";
-import { switchPickerTransitionTime } from "../../constants";
-import TPicker from "../../definitions/types/TPicker";
 import ScrollIntoView from "src/components/ScrollIntoView";
 import { paddingHorizontal } from "src/helpers/style-utils";
+import { switchPickerTransitionTime } from "../../constants";
+import TPicker from "../../definitions/types/TPicker";
+import Option from "../Option";
 
 interface IProps {
   onChange: (year: string) => void;

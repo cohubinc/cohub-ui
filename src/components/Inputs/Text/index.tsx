@@ -1,9 +1,10 @@
 import React from "react";
 import { FieldRenderProps } from "react-final-form";
-import { Fade } from "src/components/Transition";
-import Typography from "src/components/Typography";
-import HTMLElementProps from "src/definitions/types/HtmlElementProps";
+
+import TInputElementProps from "../definitions/TInputElementProps";
 import Base from "../Base";
+
+type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
 interface IProps {
   label?: string;
@@ -12,52 +13,30 @@ interface IProps {
     bottom: number;
   };
   "data-qa"?: string;
+  input?: Partial<FieldProps["input"]>;
+  meta?: FieldProps["meta"];
 }
 
-type TProps = IProps &
-  FieldRenderProps<string, HTMLInputElement> &
-  HTMLElementProps<HTMLInputElement>;
+type TProps = IProps & Omit<TInputElementProps, "onChange" | "value">;
 
-export default class Text extends React.Component<TProps> {
-  static defaultProps: Partial<TProps> = {
-    type: "text",
-    meta: {},
-    style: {
-      width: "100%"
-    }
-  };
+export default function Text(props: TProps) {
+  const {
+    input,
+    meta,
+    style,
+    className,
+    msgPosition = {},
+    "data-qa": dataQa,
+    ...restProps
+  } = props;
 
-  render() {
-    const {
-      input,
-      meta: { touched, error, active },
-      style,
-      className,
-      msgPosition = {},
-      "data-qa": dataQa,
-      ...restProps
-    } = this.props;
+  const { touched, error } = meta || ({} as any);
 
-    const showError = !!(touched && error);
+  const showError = !!(touched && error);
 
-    return (
-      <div {...{ className, style: { ...Text.defaultProps.style, ...style } }}>
-        <Base {...input} {...restProps} error={showError} data-qa={dataQa} />
-
-        <Fade show={active && showError}>
-          <Typography.Tiny
-            error
-            style={{
-              position: "absolute",
-              left: 1,
-              bottom: -15,
-              ...msgPosition
-            }}
-          >
-            {error}
-          </Typography.Tiny>
-        </Fade>
-      </div>
-    );
-  }
+  return (
+    <div {...{ className, style: { width: "100%", ...style } }}>
+      <Base {...input} {...restProps} error={showError} data-qa={dataQa} />
+    </div>
+  );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { DetailedHTMLProps, InputHTMLAttributes } from "react";
 
 import Color from "src/definitions/enums/Color";
 import AnimatedCheckmark from "src/components/AnimatedCheckmark";
@@ -9,11 +9,12 @@ import TIconName from "src/definitions/types/TIconName";
 
 import "./Base.scss";
 
-export interface IBaseButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
+export type TRootElementProps = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
+
+export interface IBaseButtonProps extends TRootElementProps {
   /** Shows success checkmark animation */
   success?: boolean;
   /** Shows error color */

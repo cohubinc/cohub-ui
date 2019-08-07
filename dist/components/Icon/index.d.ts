@@ -1,9 +1,10 @@
 import React, { MouseEvent, PureComponent } from "react";
 import Color from "../../definitions/enums/Color";
-import TIconName from "../../definitions/types/TIconName";
+import { IconName as IconNameUnion } from "./Icons";
+export declare type IconName = IconNameUnion;
 import "./Icon.scss";
 export interface IProps {
-    name: TIconName;
+    name: IconName;
     size?: number;
     color?: Color;
     className?: string;
@@ -15,11 +16,13 @@ export default class Icon extends PureComponent<IProps> {
     static Add: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static ArrowDown: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static ArrowUp: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
-    static Bell: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Back: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
+    static Bell: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
+    static BoxAdd: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Calculator: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Calendar: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static CaretDown: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
+    static Checkmark: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static ChevronDown: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static ChevronLeft: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static ChevronRight: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
@@ -33,8 +36,12 @@ export default class Icon extends PureComponent<IProps> {
     static ControlPanel: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Dashboard: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Eye: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
+    static Filter: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Laptop: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
+    static List: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
+    static Print: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Report: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
+    static Rows: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Sales: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Save: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;
     static Scales: (props: Pick<IProps, "size" | "color" | "className" | "style" | "onClick" | "disabled">) => JSX.Element;

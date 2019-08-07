@@ -1,6 +1,6 @@
 import React from "react";
+import TInputElementProps from "../definitions/TInputElementProps";
 
-import HTMLElementProps from "src/definitions/types/HtmlElementProps";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 
 export interface IProps {
@@ -27,7 +27,7 @@ export interface IProps {
   "data-qa-label"?: string;
 }
 
-type TProps = IProps & HTMLElementProps<HTMLInputElement>;
+type TProps = IProps & TInputElementProps;
 
 interface IState {
   hasFocus: boolean;

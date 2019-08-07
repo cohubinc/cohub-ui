@@ -2,9 +2,9 @@ import React from "react";
 import { FieldRenderProps } from "react-final-form";
 import NumberFormat from "react-number-format";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
+import TInputElementProps from "../definitions/TInputElementProps";
 
 import styles from "./styles.module.scss";
-import HTMLElementProps from "src/definitions/types/HtmlElementProps";
 
 type InputValue = number | undefined;
 
@@ -31,7 +31,7 @@ interface IProps {
   "data-qa"?: string;
 }
 
-type TProps = IProps & HTMLElementProps<HTMLSpanElement>;
+type TProps = IProps & TInputElementProps;
 
 export default function DecimalInput({
   input,

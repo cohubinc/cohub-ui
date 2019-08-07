@@ -1,10 +1,11 @@
 import React, { PureComponent } from "react";
 import { FieldRenderProps } from "react-final-form";
 import NumberFormat from "react-number-format";
+
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
+import TInputElementProps from "../definitions/TInputElementProps";
 
 import "./Money.scss";
-import HTMLElementProps from "src/definitions/types/HtmlElementProps";
 
 type InputValue = number;
 
@@ -18,7 +19,7 @@ interface IInputProp {
   value: FinalFormInputProp["value"];
 }
 
-interface IProps {
+interface IProps extends TInputElementProps {
   /**
    * Use to extend decimal precision
    */
@@ -30,9 +31,7 @@ interface IProps {
   "data-qa"?: string;
 }
 
-class MoneyInput extends PureComponent<
-  IProps & HTMLElementProps<HTMLSpanElement>
-> {
+class MoneyInput extends PureComponent<IProps> {
   static defaultProps: Partial<IProps> = {
     extendedPrecision: false
   };

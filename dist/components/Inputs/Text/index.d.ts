@@ -1,6 +1,7 @@
-import React from "react";
+/// <reference types="react" />
 import { FieldRenderProps } from "react-final-form";
-import HTMLElementProps from "../../../definitions/types/HtmlElementProps";
+import TInputElementProps from "../definitions/TInputElementProps";
+declare type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 interface IProps {
     label?: string;
     appearance?: "contrast" | "inverted";
@@ -8,10 +9,9 @@ interface IProps {
         bottom: number;
     };
     "data-qa"?: string;
+    input?: Partial<FieldProps["input"]>;
+    meta?: FieldProps["meta"];
 }
-declare type TProps = IProps & FieldRenderProps<string, HTMLInputElement> & HTMLElementProps<HTMLInputElement>;
-export default class Text extends React.Component<TProps> {
-    static defaultProps: Partial<TProps>;
-    render(): JSX.Element;
-}
+declare type TProps = IProps & Omit<TInputElementProps, "onChange" | "value">;
+export default function Text(props: TProps): JSX.Element;
 export {};
