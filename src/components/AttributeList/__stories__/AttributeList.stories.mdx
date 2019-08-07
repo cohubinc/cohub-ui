@@ -1,0 +1,22 @@
+import { action } from "@storybook/addon-actions";
+import { Story, Meta, Props } from "@storybook/addon-docs/blocks";
+import AttributeList from "../index";
+
+<Meta title="Components|AttributeList" />
+
+# AttributeList
+
+Welcome to the future of Storybook!
+
+<Story name="AttributeList">
+  <AttributeList
+    header="Money"
+    contrast
+    items={[
+      { attribute: "Price", value: 100, format: "money" },
+      { attribute: "Cost", value: 10, format: "money" }
+    ]}
+  />
+</Story>
+
+<Props of={AttributeList} />

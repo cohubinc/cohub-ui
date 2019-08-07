@@ -1,0 +1,41 @@
+import { action } from "@storybook/addon-actions";
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import Card from "../index";
+
+<Meta title="Components|Cards" />
+
+# Vertical Card
+
+This is a Vertical Card.
+
+<Story name="Vertical Card">
+  <div className="flex justify-evenly items-center">
+    <Card.Vertical
+      title="Title"
+      subtitle="Subtitle"
+      meta="Meta"
+      imageUrl="https://picsum.photos/id/1062/5092/3395"
+      avatar
+      actions={[
+        { name: "Action 1", action: () => null },
+        { name: "Action 2", action: () => null }
+      ]}
+    >
+      <div>Card Body</div>
+    </Card.Vertical>
+    <Card.Vertical
+      title="Title"
+      subtitle="Subtitle"
+      meta="Meta"
+      imageUrl="https://picsum.photos/id/1062/5092/3395"
+      actions={[
+        { name: "Action 1", action: () => null },
+        { name: "Action 2", action: () => null }
+      ]}
+    >
+      <div>Card Body</div>
+    </Card.Vertical>
+  </div>
+</Story>
+
+<Props of={Card.Vertical} />

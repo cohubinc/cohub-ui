@@ -1,0 +1,28 @@
+@import "src/styles/media-query-mixins";
+
+.CardHorizontal {
+  // display: flex;
+  padding: 1rem;
+  background-color: var(--true-white);
+  width: 350px;
+  border-radius: var(--default-border-radius);
+
+  @include phone-landscape-portrait {}
+}
+
+.CardHorizontalImage {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.CardAction {
+  transition: 100ms ease-in;
+
+  &:hover {
+    color: var(--grey-800);
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+}

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders internal Link without crashing 1`] = `
+<div
+  className="CohubChip  "
+  style={
+    Object {
+      "backgroundColor": "hsl(0, 0%, 96%)",
+      "borderRadius": "361px",
+      "display": "inline-block",
+      "padding": "6px 12px",
+    }
+  }
+>
+  <div
+    className="flex justify-center items-center h-100"
+    style={
+      Object {
+        "cursor": "inherit",
+      }
+    }
+  >
+    <Component>
+      Hi, my name is chip!
+    </Component>
+  </div>
+</div>
+`;
