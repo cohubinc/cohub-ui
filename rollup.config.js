@@ -40,7 +40,16 @@ export default {
       extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       exclude: "node_modules/**",
       presets: ["@babel/preset-react"],
-      plugins: [isStoryBuild && docGenPlugin].filter(Boolean)
+      plugins: [
+        isStoryBuild && [
+          docGenPlugin,
+          {
+            docgenCollectionName: "STORYBOOK_REACT_CLASSES",
+            include: "components.*\\.tsx$",
+            exclude: "stories\\.tsx$"
+          }
+        ]
+      ].filter(Boolean)
     }),
     postcss({
       preprocessor: (content, id) => {
