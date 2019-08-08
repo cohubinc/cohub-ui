@@ -1,35 +1,12 @@
 module.exports = {
-  roots: ["<rootDir>"],
-  globals: {
-    "ts-jest": {
-      tsConfig: "tsconfig.test.json"
-    }
-  },
+  roots: ["<rootDir>/src"],
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
+    "^.+\\.tsx?$": "ts-jest"
   },
-  transformIgnorePatterns: [
-    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx|json)$",
-    "^.+\\.module\\.(css|sass|scss)$",
-    "^.+\\.(json)$"
-  ],
+  // testMatch: ["/test/**/*.[jt]s?(x)"],
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   snapshotSerializers: ["enzyme-to-json/serializer"],
-  setupTestFrameworkScriptFile: "<rootDir>/test/setupEnzyme.ts",
-  moduleNameMapper: {
-    "^src/(.*)$": "<rootDir>/src/$1",
-    "^dist/(.*)$": "<rootDir>/dist/$1",
-    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-  },
-  moduleFileExtensions: [
-    "web.js",
-    "js",
-    "web.ts",
-    "ts",
-    "web.tsx",
-    "tsx",
-    "json",
-    "web.jsx",
-    "jsx",
-    "node"
-  ]
+  setupTestFrameworkScriptFile: "<rootDir>/test/setupEnzyme.ts"
 };
+
+// testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",

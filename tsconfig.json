@@ -15,7 +15,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react",
     "paths": {
       "src/*": ["src/*"]
     },
@@ -24,5 +24,5 @@
     ]
   },
   "include": ["src", "test/test_utils"],
-  "exclude": ["node_modules", "test"]
+  "exclude": ["node_modules", "test", "**/__tests__/*"]
 }

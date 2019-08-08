@@ -71,24 +71,6 @@ function __rest(s, e) {
     return t;
 }
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
 var _a;
 
 var BaseColor;
@@ -399,7 +381,7 @@ function typographyFactory(defaultProps) {
       style: styleProp,
       "data-qa": dataQa
     };
-    return p ? React.createElement("p", properties) : React.createElement("span", properties);
+    return p ? React.createElement("p", __assign({}, properties)) : React.createElement("span", __assign({}, properties));
   };
 }
 
@@ -478,7 +460,7 @@ function (_super) {
   }
 
   Typography.prototype.render = function () {
-    return React.createElement(Regular, this.props);
+    return React.createElement(Regular, __assign({}, this.props));
   };
 
   Typography.SuperTitle = SuperTitle;
@@ -567,7 +549,7 @@ function (_super) {
 }(PureComponent);
 
 var Add = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -585,7 +567,7 @@ var Add = function (props) {
 };
 
 var ArrowDown = function (props) {
-  return React.createElement(IconWrapper, _extends({}, props, {
+  return React.createElement(IconWrapper, __assign({}, props, {
     defaultColor: Color$1.primaryRed
   }), function (_a) {
     var color = _a.color,
@@ -604,7 +586,7 @@ var ArrowDown = function (props) {
 };
 
 var ArrowUp = function (props) {
-  return React.createElement(IconWrapper, _extends({}, props, {
+  return React.createElement(IconWrapper, __assign({}, props, {
     defaultColor: Color$1.primaryGreen
   }), function (_a) {
     var color = _a.color,
@@ -623,7 +605,7 @@ var ArrowUp = function (props) {
 };
 
 var Back = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -640,7 +622,7 @@ var Back = function (props) {
 };
 
 var Bell = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -656,7 +638,7 @@ var Bell = function (props) {
 };
 
 var BoxAdd = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -678,7 +660,7 @@ var BoxAdd = function (props) {
 };
 
 var Calculator = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -725,7 +707,7 @@ var Calculator = function (props) {
 };
 
 var Calendar = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -741,7 +723,7 @@ var Calendar = function (props) {
 };
 
 var CaretDown = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -761,7 +743,7 @@ var CaretDown = function (props) {
 };
 
 var Checkmark = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -778,7 +760,7 @@ var Checkmark = function (props) {
 };
 
 var ChevronDown = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -798,7 +780,7 @@ var ChevronDown = function (props) {
 };
 
 var ChevronLeft = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -816,7 +798,7 @@ var ChevronLeft = function (props) {
 };
 
 var ChevronRight = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -834,7 +816,7 @@ var ChevronRight = function (props) {
 };
 
 var Circle = function (props) {
-  return React.createElement(IconWrapper, _extends({}, props, {
+  return React.createElement(IconWrapper, __assign({}, props, {
     defaultColor: Color$1.primaryGreen
   }), function (_a) {
     var color = _a.color,
@@ -860,7 +842,7 @@ var Circle = function (props) {
 };
 
 var CircleCheck = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -895,7 +877,7 @@ var CircleCheck = function (props) {
 };
 
 var CirclePlus = function (props) {
-  return React.createElement(IconWrapper, _extends({}, props, {
+  return React.createElement(IconWrapper, __assign({}, props, {
     defaultColor: Color$1.primary
   }), function (_a) {
     var color = _a.color,
@@ -920,7 +902,7 @@ var CirclePlus = function (props) {
 };
 
 var CirclePlusInverted = function (props) {
-  return React.createElement(IconWrapper, _extends({}, props, {
+  return React.createElement(IconWrapper, __assign({}, props, {
     defaultColor: Color$1.primaryGreen
   }), function (_a) {
     var color = _a.color,
@@ -946,7 +928,7 @@ var CirclePlusInverted = function (props) {
 };
 
 var CircleRemove = function (props) {
-  return React.createElement(IconWrapper, _extends({}, props, {
+  return React.createElement(IconWrapper, __assign({}, props, {
     defaultColor: Color$1.black
   }), function (_a) {
     var color = _a.color,
@@ -977,7 +959,7 @@ var CircleRemove = function (props) {
 };
 
 var Close = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -997,7 +979,7 @@ var Close = function (props) {
 };
 
 var Columns = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1016,7 +998,7 @@ var Columns = function (props) {
 };
 
 var ControlPanel = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1034,7 +1016,7 @@ var ControlPanel = function (props) {
 };
 
 var Dashboard = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1052,7 +1034,7 @@ var Dashboard = function (props) {
 };
 
 var Eye = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1074,7 +1056,7 @@ var Eye = function (props) {
 };
 
 var Filter = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1092,7 +1074,7 @@ var Filter = function (props) {
 };
 
 var Back$1 = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1109,7 +1091,7 @@ var Back$1 = function (props) {
 };
 
 var Laptop = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1127,7 +1109,7 @@ var Laptop = function (props) {
 };
 
 var List = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1146,7 +1128,7 @@ var List = function (props) {
 };
 
 var Print = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1165,7 +1147,7 @@ var Print = function (props) {
 };
 
 var Report = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1185,7 +1167,7 @@ var Report = function (props) {
 };
 
 var Rows = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1204,7 +1186,7 @@ var Rows = function (props) {
 };
 
 var Sales = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1224,7 +1206,7 @@ var Sales = function (props) {
 };
 
 var Trash = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1244,7 +1226,7 @@ var Trash = function (props) {
 };
 
 var Scales = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1261,7 +1243,7 @@ var Scales = function (props) {
 };
 
 var Search = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1281,7 +1263,7 @@ var Search = function (props) {
 };
 
 var Shipping = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1301,7 +1283,7 @@ var Shipping = function (props) {
 };
 
 var TagDollar = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1324,7 +1306,7 @@ var TagDollar = function (props) {
 };
 
 var Trash$1 = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1344,7 +1326,7 @@ var Trash$1 = function (props) {
 };
 
 var Triangle = function (props) {
-  return React.createElement(IconWrapper, _extends({}, props, {
+  return React.createElement(IconWrapper, __assign({}, props, {
     defaultColor: Color$1.black
   }), function (_a) {
     var color = _a.color,
@@ -1363,7 +1345,7 @@ var Triangle = function (props) {
 };
 
 var TripleDotsVertical = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1383,7 +1365,7 @@ var TripleDotsVertical = function (props) {
 };
 
 var UserGroup = function (props) {
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1415,7 +1397,7 @@ function guid() {
 
 var User = function (props) {
   var uniqueId = guid();
-  return React.createElement(IconWrapper, props, function (_a) {
+  return React.createElement(IconWrapper, __assign({}, props), function (_a) {
     var color = _a.color,
         size = _a.size;
     return React.createElement("svg", {
@@ -1538,12 +1520,12 @@ var DefaultIcon = function (props) {
     return null;
   }
 
-  return React.createElement(Ico, props);
+  return React.createElement(Ico, __assign({}, props));
 };
 
 var buildIcon = function (name) {
   return function (props) {
-    return React.createElement(DefaultIcon, _extends({
+    return React.createElement(DefaultIcon, __assign({
       name: name
     }, props));
   };
@@ -1559,7 +1541,7 @@ function (_super) {
   }
 
   Icon.prototype.render = function () {
-    return React.createElement(DefaultIcon, this.props);
+    return React.createElement(DefaultIcon, __assign({}, this.props));
   };
 
   Icon.Add = buildIcon("add");
@@ -1629,7 +1611,7 @@ function Base(props) {
   var insetColor = raised && getInsetColor(backgroundColor);
   var color = style && style.color || "#EFF7EE";
   var flexDirection = iconPosition === "right" ? "row-reverse" : "row";
-  return React.createElement("button", _extends({
+  return React.createElement("button", __assign({
     className: "CohubButton " + className,
     style: __assign({
       backgroundColor: backgroundColor,
@@ -1685,7 +1667,7 @@ var Blank = function (_a) {
       nativeElRef = _a.nativeElRef,
       rest = __rest(_a, ["className", "children", "style", "nativeElRef"]);
 
-  return React.createElement("button", _extends({
+  return React.createElement("button", __assign({
     style: style,
     className: styles.ButtonBlank + " " + className,
     ref: nativeElRef
@@ -1700,7 +1682,7 @@ var OutlineButtonBase = function (_a) {
       color = _b === void 0 ? Color$1.darkBlack : _b,
       rest = __rest(_a, ["style", "color"]);
 
-  return React.createElement(Base, _extends({
+  return React.createElement(Base, __assign({
     raised: false,
     backgroundColor: Color$1.trueWhite,
     style: __assign({
@@ -1719,7 +1701,7 @@ var Outline = function (_a) {
     color = Color$1.grey700;
   }
 
-  return React.createElement(OutlineButtonBase, _extends({
+  return React.createElement(OutlineButtonBase, __assign({
     color: color
   }, props));
 };
@@ -1729,18 +1711,18 @@ var Ghost = function (_a) {
       color = _b === void 0 ? Color$1.invertedText : _b,
       props = __rest(_a, ["color"]);
 
-  return React.createElement(Outline, _extends({
+  return React.createElement(Outline, __assign({
     backgroundColor: Color$1.black500,
     color: color
   }, props));
 };
 var PrimaryGhostButton = function (props) {
-  return React.createElement(Ghost, _extends({
+  return React.createElement(Ghost, __assign({
     color: Color$1.primary
   }, props));
 };
 var CancelGhostButton = function (props) {
-  return React.createElement(Ghost, _extends({
+  return React.createElement(Ghost, __assign({
     color: Color$1.red500
   }, props));
 };
@@ -1766,7 +1748,7 @@ function (_super) {
         className = _b === void 0 ? "" : _b,
         rest = __rest(_a, ["color", "fontSize", "children", "textStyle", "block", "style", "className"]);
 
-    return React.createElement(Blank, _extends({}, rest, {
+    return React.createElement(Blank, __assign({}, rest, {
       className: className + " p-05",
       style: __assign({
         display: block ? "block" : undefined
@@ -1794,7 +1776,7 @@ var Primary = function (_a) {
       style = _b === void 0 ? {} : _b,
       rest = __rest(_a, ["style"]);
 
-  return React.createElement(Base, _extends({
+  return React.createElement(Base, __assign({
     backgroundColor: Color$1.primary,
     style: style
   }, rest));
@@ -1805,7 +1787,7 @@ var Secondary = function (_a) {
       style = _b === void 0 ? {} : _b,
       rest = __rest(_a, ["style"]);
 
-  return React.createElement(Base, _extends({
+  return React.createElement(Base, __assign({
     backgroundColor: Color$1.white500,
     style: __assign({
       color: Color$1.grey800
@@ -1817,7 +1799,7 @@ var Info = function (_a) {
   var backgroundColor = _a.backgroundColor,
       rest = __rest(_a, ["backgroundColor"]);
 
-  return React.createElement(Base, _extends({
+  return React.createElement(Base, __assign({
     backgroundColor: backgroundColor || Color$1.blue500
   }, rest));
 };
@@ -1826,7 +1808,7 @@ var Cancel = function (_a) {
   var backgroundColor = _a.backgroundColor,
       rest = __rest(_a, ["backgroundColor"]);
 
-  return React.createElement(Base, _extends({
+  return React.createElement(Base, __assign({
     backgroundColor: backgroundColor || Color$1.red500
   }, rest));
 };
@@ -1850,7 +1832,7 @@ function (_super) {
         className = _a.className,
         rest = __rest(_a, ["children", "content", "className"]);
 
-    return React.createElement(Tippy, _extends({
+    return React.createElement(Tippy, __assign({
       content: content,
       className: className,
       animateFill: false,
@@ -1984,7 +1966,7 @@ function FloatingActionButton(_a) {
       rest = __rest(_a, ["icon", "iconColor", "backgroundColor", "size", "elevation"]);
 
   var dpLevel = "dp" + elevation;
-  return React.createElement(Buttons.Blank, _extends({
+  return React.createElement(Buttons.Blank, __assign({
     className: "flex items-center justify-center",
     style: {
       width: size,
@@ -2012,7 +1994,7 @@ function (_super) {
   }
 
   Buttons.prototype.render = function () {
-    return React.createElement(Buttons.Secondary, this.props);
+    return React.createElement(Buttons.Secondary, __assign({}, this.props));
   };
 
   Buttons.Primary = Primary;
@@ -2101,7 +2083,7 @@ function (_super) {
       height: 24,
       padding: "3px 11px"
     } : {};
-    return React.createElement("button", _extends({}, restOfProps, {
+    return React.createElement("button", __assign({}, restOfProps, {
       className: styles$2.SplitButtonSegment,
       style: __assign({
         backgroundColor: backgroundColor,
@@ -2133,7 +2115,7 @@ var DefaultSplitButtons = function (props) {
       selectedIndex = props.selectedIndex,
       color = props.color;
   var numBtns = labels.length;
-  return React.createElement("div", _extends({
+  return React.createElement("div", __assign({}, {
     className: className,
     style: style
   }, {
@@ -2158,7 +2140,7 @@ var PrimarySplitButtons = function (_a) {
   var color = _a.color,
       rest = __rest(_a, ["color"]);
 
-  return React.createElement(DefaultSplitButtons, _extends({
+  return React.createElement(DefaultSplitButtons, __assign({
     color: color || Color$1.primary
   }, rest));
 };
@@ -2173,7 +2155,7 @@ function (_super) {
   }
 
   Split.prototype.render = function () {
-    return React.createElement(DefaultSplitButtons, this.props);
+    return React.createElement(DefaultSplitButtons, __assign({}, this.props));
   };
 
   Split.Primary = PrimarySplitButtons;
@@ -2363,7 +2345,7 @@ function (_super) {
         error = _a.error,
         restProps = __rest(_a, ["style", "className", "appearance", "label", "onClick", "onFocus", "onBlur", "onChange", "value", "error"]);
 
-    return React.createElement(FloatingLabelWrapper, _extends({
+    return React.createElement(FloatingLabelWrapper, __assign({
       "data-qa-label": this.props["data-qa-label"]
     }, {
       style: style,
@@ -2378,7 +2360,7 @@ function (_super) {
       error: error
     }), function (_a) {
       var componentProps = _a.componentProps;
-      return React.createElement("input", _extends({}, componentProps, restProps));
+      return React.createElement("input", __assign({}, componentProps, restProps));
     });
   };
 
@@ -2454,10 +2436,10 @@ function DecimalInput(_a) {
       spanProps = __rest(_a, ["input", "meta", "label", "data-qa", "appearance", "extendedPrecision", "integer"]);
 
   var showError = !!(meta && meta.touched && meta.error);
-  return React.createElement("span", _extends({
+  return React.createElement("span", __assign({
     className: styles$4.input,
     "data-qa": dataQa
-  }, spanProps), React.createElement(FloatingLabelWrapper, _extends({}, input, {
+  }, spanProps), React.createElement(FloatingLabelWrapper, __assign({}, input, {
     label: label,
     error: showError,
     appearance: appearance,
@@ -2468,7 +2450,7 @@ function DecimalInput(_a) {
           rest = __rest(_b, ["onChange", "value"]),
           setInputRef = _a.setInputRef;
 
-      return React.createElement(NumberFormat, _extends({}, rest, {
+      return React.createElement(NumberFormat, __assign({}, rest, {
         getInputRef: setInputRef,
         value: value,
         displayType: "input",
@@ -2665,7 +2647,7 @@ function (_super) {
 
     var dpLevel = contrast || bordered ? "dp0" : "dp" + elevation;
     var classes = styles$5.CohubSegment + " " + (padded ? styles$5.padded : "") + " " + className;
-    return React.createElement("div", _extends({}, rest, {
+    return React.createElement("div", __assign({}, rest, {
       className: classes,
       style: __assign({
         boxShadow: BoxShadow$1[dpLevel],
@@ -3272,7 +3254,7 @@ var MonthUnit = function (_a) {
   }, React.createElement(DateUnitButton, {
     active: active,
     onClick: onClick
-  }, children && months[~~children - 1]), "\xA0");
+  }, children && months[~~children - 1]), "\u00A0");
 };
 
 var DayUnit = function (_a) {
@@ -3346,7 +3328,7 @@ function Picker(props) {
     }
   }, React.createElement("div", {
     className: "flex justify-center align-items-center mb-1"
-  }, React.createElement(DateHeader, _extends({}, dateTime, {
+  }, React.createElement(DateHeader, __assign({}, dateTime, {
     onClick: goToSection,
     picker: picker
   }))), React.createElement("div", {
@@ -3369,7 +3351,7 @@ function Picker(props) {
       marginLeft: marginLeft,
       transition: "all " + switchPickerTransitionTime + "ms ease-in"
     }
-  }, React.createElement(MonthPicker, _extends({
+  }, React.createElement(MonthPicker, __assign({
     month: dateTime.month,
     onChange: setMonth
   }, {
@@ -3377,7 +3359,7 @@ function Picker(props) {
     goToSection: goToSection
   }))), React.createElement(Section, {
     open: open
-  }, React.createElement(DayPicker, _extends({
+  }, React.createElement(DayPicker, __assign({
     onChange: setMonthAndDay,
     dateTime: dateTime
   }, {
@@ -3385,7 +3367,7 @@ function Picker(props) {
     goToSection: goToSection
   }))), React.createElement(Section, {
     open: open
-  }, React.createElement(YearPicker, _extends({
+  }, React.createElement(YearPicker, __assign({
     onChange: setYear
   }, {
     picker: picker,
@@ -3579,7 +3561,7 @@ function LowLevelDatePicker(props) {
       position: "relative"
     }, style),
     ref: thisRef
-  }, React.createElement(NumberFormat, _extends({}, restProps, {
+  }, React.createElement(NumberFormat, __assign({}, restProps, {
     value: inputValue,
     className: "LowLevelDatePickerInput " + styles$8.input,
     displayType: "input",
@@ -3743,7 +3725,7 @@ function LowLevelDatePicker(props) {
     "data-testid": testId,
     "aria-invalid": rangeError ? true : false,
     style: inputStyle
-  })), React.createElement(Picker, _extends({
+  })), React.createElement(Picker, __assign({
     style: {
       position: "absolute",
       top: 50
@@ -3859,7 +3841,7 @@ function DatePickerBase(_a) {
       rangeError = _c[0],
       setRangeError = _c[1];
 
-  return React.createElement(FloatingLabelWrapper, _extends({
+  return React.createElement(FloatingLabelWrapper, __assign({
     floatLabel: inputHasValue,
     error: rangeError || error
   }, restProps, {
@@ -3871,7 +3853,7 @@ function DatePickerBase(_a) {
         cmptProps = __rest(_b, ["onChange", "value"]),
         setInputRef = _a.setInputRef;
 
-    return React.createElement(LowLevelDatePicker, _extends({}, cmptProps, {
+    return React.createElement(LowLevelDatePicker, __assign({}, cmptProps, {
       value: value,
       onChange: onChange,
       rangeError: rangeError,
@@ -3891,7 +3873,7 @@ var Date$1 = function (_a) {
       error = _b.error,
       rest = __rest(_a, ["input", "meta"]);
 
-  return React.createElement(DatePickerBase, _extends({}, input, rest, {
+  return React.createElement(DatePickerBase, __assign({}, input, rest, {
     error: touched && !!error
   }));
 };
@@ -3922,7 +3904,7 @@ function DateRangeBase(_a) {
   var endDateInputRef = useRef(null);
   var startDate = value && value[0] || "";
   var endDate = value && value[1] || "";
-  return React.createElement(FloatingLabelWrapper, _extends({
+  return React.createElement(FloatingLabelWrapper, __assign({
     floatLabel: startDateHasValue || endDateHasValue,
     error: error || startDateRangeError || endDateRangeError,
     appearance: appearance,
@@ -3936,7 +3918,7 @@ function DateRangeBase(_a) {
 
     return React.createElement("div", {
       className: "flex"
-    }, React.createElement(LowLevelDatePicker, _extends({}, cmptProps, {
+    }, React.createElement(LowLevelDatePicker, __assign({}, cmptProps, {
       value: startDate,
       onChange: function (startD) {
         onChange([startDate, endDate], "startDate");
@@ -3959,7 +3941,7 @@ function DateRangeBase(_a) {
         fontWeight: 600,
         paddingTop: appearance === "contrast" ? 7 : undefined
       }
-    }, "to"), React.createElement(LowLevelDatePicker, _extends({}, cmptProps, {
+    }, "to"), React.createElement(LowLevelDatePicker, __assign({}, cmptProps, {
       value: endDate,
       minDate: startDate,
       onChange: function (endD) {
@@ -3987,7 +3969,7 @@ var Date$2 = function (_a) {
       error = _b.error,
       rest = __rest(_a, ["input", "meta"]);
 
-  return React.createElement(DateRangeBase, _extends({}, input, rest, {
+  return React.createElement(DateRangeBase, __assign({}, input, rest, {
     error: touched && !!error
   }));
 };
@@ -4016,10 +3998,10 @@ function (_super) {
         spanProps = __rest(_a, ["extendedPrecision", "input", "meta", "label", "data-qa", "appearance"]);
 
     var showError = !!(meta.touched && meta.error);
-    return React.createElement("span", _extends({
+    return React.createElement("span", __assign({
       className: "CohubMoneyInput",
       "data-qa": dataQa
-    }, spanProps), React.createElement(FloatingLabelWrapper, _extends({}, input, {
+    }, spanProps), React.createElement(FloatingLabelWrapper, __assign({}, input, {
       label: label,
       error: showError,
       appearance: appearance,
@@ -4030,7 +4012,7 @@ function (_super) {
             rest = __rest(_b, ["onChange", "value"]),
             setInputRef = _a.setInputRef;
 
-        return React.createElement(NumberFormat, _extends({}, rest, {
+        return React.createElement(NumberFormat, __assign({}, rest, {
           getInputRef: setInputRef,
           value: value,
           displayType: "input",
@@ -4115,7 +4097,7 @@ function Multiselect(_a) {
     appearance: appearance
   }, function (_a) {
     var componentProps = _a.componentProps;
-    return allowCreate ? React.createElement(Select$1, _extends({}, selectConfig, componentProps)) : React.createElement(Creatable, _extends({}, selectConfig, componentProps));
+    return allowCreate ? React.createElement(Select$1, __assign({}, selectConfig, componentProps)) : React.createElement(Creatable, __assign({}, selectConfig, componentProps));
   });
 }
 var styles$9 = {
@@ -4270,7 +4252,7 @@ function (_super) {
       appearance: appearance
     }, function (_a) {
       var componentProps = _a.componentProps;
-      return React.createElement(Select$1, _extends({
+      return React.createElement(Select$1, __assign({
         options: options,
         isLoading: loading,
         styles: selectStyles,
@@ -4362,12 +4344,12 @@ function Text$1(props) {
       error = _b.error;
 
   var showError = !!(touched && error);
-  return React.createElement("div", {
+  return React.createElement("div", __assign({}, {
     className: className,
     style: __assign({
       width: "100%"
     }, style)
-  }, React.createElement(Base$1, _extends({}, input, restProps, {
+  }), React.createElement(Base$1, __assign({}, input, restProps, {
     error: showError,
     "data-qa": dataQa
   })));
@@ -4395,7 +4377,7 @@ function (_super) {
         className = _a.className,
         restOfProps = __rest(_a, ["style", "className"]);
 
-    return React.createElement("textarea", _extends({
+    return React.createElement("textarea", __assign({
       ref: this.inputRef
     }, restOfProps, {
       className: "GenericTextArea border bd-radius " + className,
@@ -4559,7 +4541,7 @@ function (_super) {
     }, style);
 
     if (href || onClick || !to) {
-      return React.createElement("a", _extends({
+      return React.createElement("a", __assign({
         className: classes,
         style: linkStyle,
         href: href,
@@ -4567,7 +4549,7 @@ function (_super) {
       }, restProps));
     }
 
-    return React.createElement(Link$1, _extends({
+    return React.createElement(Link$1, __assign({
       to: to,
       className: classes,
       style: linkStyle,
@@ -4582,7 +4564,7 @@ var Muted = (function (_a) {
   var children = _a.children,
       rest = __rest(_a, ["children"]);
 
-  return React.createElement(Base$2, _extends({
+  return React.createElement(Base$2, __assign({
     styled: false
   }, rest), React.createElement(Typography, {
     muted: true
@@ -4602,7 +4584,7 @@ function (_super) {
   }
 
   Link.prototype.render = function () {
-    return React.createElement(Base$2, this.props);
+    return React.createElement(Base$2, __assign({}, this.props));
   };
 
   Link.Muted = Muted;
@@ -4632,7 +4614,7 @@ function (_super) {
         direction = _a.direction,
         restProps = __rest(_a, ["children", "direction"]);
 
-    return React.createElement("div", _extends({
+    return React.createElement("div", __assign({
       className: direction === "horizontal" ? styles$d.horizontal : styles$d.vertical
     }, restProps), children);
   };
@@ -4694,7 +4676,7 @@ function (_super) {
         style = _a.style,
         rest = __rest(_a, ["children", "onClose", "showCloseIcon", "containerClass", "style"]);
 
-    return React.createElement(ReactResponsiveModal, _extends({
+    return React.createElement(ReactResponsiveModal, __assign({
       closeOnEsc: true,
       closeOnOverlayClick: true
     }, rest, {
@@ -4814,7 +4796,7 @@ var Fade = function (_a) {
       appear = _a.appear,
       _d = _a.transitionProperty,
       transitionProperty = _d === void 0 ? "opacity" : _d;
-  return React.createElement(Transition, _extends({
+  return React.createElement(Transition, __assign({
     start: __assign({
       opacity: 0
     }, start),
@@ -5084,10 +5066,10 @@ function (_super) {
         fontWeight: 400
       });
 
-      return React.createElement("div", {
+      return React.createElement("div", __assign({}, {
         className: className,
         style: style
-      }, React.createElement("div", null, firstInitial, lastInital));
+      }), React.createElement("div", null, firstInitial, lastInital));
     } else {
       return React.createElement("div", {
         className: className
@@ -5376,7 +5358,7 @@ function (_super) {
         position: "relative"
       }),
       className: className
-    }, React.createElement("input", _extends({}, inputProps, {
+    }, React.createElement("input", __assign({}, inputProps, {
       className: "border",
       style: expanded ? expandedInputStyles : btnInputStyle,
       ref: this._input,
@@ -5521,7 +5503,7 @@ function (_super) {
         value = _a.value,
         rest = __rest(_a, ["value"]);
 
-    return React.createElement(NumberFormat, _extends({
+    return React.createElement(NumberFormat, __assign({
       value: value,
       displayType: "text"
     }, rest));
@@ -5634,7 +5616,7 @@ function Margin(props) {
       showDividerLine = _b === void 0 ? false : _b,
       rest = __rest(props, ["marginSize", "showDividerLine"]);
 
-  return React.createElement(Divider, _extends({}, rest, {
+  return React.createElement(Divider, __assign({}, rest, {
     marginSize: marginSize,
     showDividerLine: showDividerLine
   }));
