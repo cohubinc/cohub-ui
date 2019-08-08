@@ -1,4 +1,3 @@
-/// <reference types="react" />
 interface IRenderProps {
     state: boolean;
     toggleOff: () => void;

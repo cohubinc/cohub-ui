@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { FieldRenderProps } from "react-final-form";
 import { IProps as DateRangeBaseProps } from "../DateRangeBase";
 declare type Val = DateRangeBaseProps["value"];

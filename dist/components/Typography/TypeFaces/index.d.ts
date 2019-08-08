@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare const SuperTitle: (props: import("../definitions/IProps").default) => JSX.Element | null;
 export declare const Title: (props: import("../definitions/IProps").default) => JSX.Element | null;
 export declare const Subtitle: (props: import("../definitions/IProps").default) => JSX.Element | null;

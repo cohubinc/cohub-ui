@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import Loader from "../index";
+import Loader from "dist/components/Loader";
 
 describe("Loader", () => {
   it("renders without crashing", async () => {

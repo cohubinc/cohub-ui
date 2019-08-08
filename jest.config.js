@@ -1,7 +1,11 @@
 module.exports = {
   roots: ["<rootDir>/src"],
+  globals: {
+    __DEV__: true
+  },
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+    ".*": "babel-jest"
   },
   transformIgnorePatterns: [
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx|json)$",
@@ -10,16 +14,5 @@ module.exports = {
   ],
   snapshotSerializers: ["enzyme-to-json/serializer"],
   setupTestFrameworkScriptFile: "<rootDir>/src/setupEnzyme.ts",
-  moduleFileExtensions: [
-    "web.js",
-    "js",
-    "web.ts",
-    "ts",
-    "web.tsx",
-    "tsx",
-    "json",
-    "web.jsx",
-    "jsx",
-    "node"
-  ]
+  moduleFileExtensions: ["js", "ts", "tsx"]
 };

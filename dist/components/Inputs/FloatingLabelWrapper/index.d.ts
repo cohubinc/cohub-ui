@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import TInputElementProps from "../definitions/TInputElementProps";
 import "./FloatingLabelWrapper.scss";
 import OnChangeEvent from "./OnChangeEvent";
