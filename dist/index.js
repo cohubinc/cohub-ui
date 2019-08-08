@@ -2509,12 +2509,12 @@ function composeValidators() {
   }
 
   return function (value) {
-    validators.reduce(function (error, validator) {
+    return validators.reduce(function (error, validator) {
       return error || validator(value);
     }, undefined);
   };
 }
-var required = function (value) {
+function required(value) {
   if (typeof value === "undefined") {
     return "Required";
   }
@@ -2526,34 +2526,34 @@ var required = function (value) {
   }
 
   return valid ? undefined : "Required";
-};
-var minLength = function (min) {
+}
+function minLength(min) {
   return function (value) {
-    if (value === void 0) {
-      value = "";
+    return value && typeof value === "string" && value.length < min ? "Should be at least " + min + " characters long" : undefined;
+  };
+}
+function minValue(min) {
+  return function (value) {
+    if (typeof value === "string") {
+      return isNumber(value) ? undefined : "Not a number";
     }
 
-    return typeof value === "string" && value.length < min ? "Should be at least " + min + " characters long" : undefined;
-  };
-};
-var minValue = function (min) {
-  return function (value) {
-    return typeof value !== "string" && typeof value !== "object" && value && (isNaN(value) || value >= min) ? undefined : "Should be greater than " + min;
-  };
-};
-var length = function (valLength) {
-  return function (value) {
-    if (value === void 0) {
-      value = "";
+    if (typeof value !== "number") {
+      return "Not a number";
     }
 
+    return value >= min ? undefined : "Should be greater than " + min;
+  };
+}
+function length(valLength) {
+  return function (value) {
     if (value && typeof value === "string") {
       return value.length === valLength ? undefined : "Should be " + valLength + " characters long";
     }
 
     return "Invalid length";
   };
-};
+}
 var email = composeValidators(function (value) {
   if (value === void 0) {
     value = "";
@@ -2561,7 +2561,7 @@ var email = composeValidators(function (value) {
 
   return typeof value === "string" && charsArePresent(value, "@", ".") ? undefined : "Should be a valid email";
 }, minLength(4));
-var isInt = function (value) {
+function isInt(value) {
   if (!value) {
     return undefined;
   }
@@ -2577,7 +2577,7 @@ var isInt = function (value) {
   }
 
   return "Not an integer";
-};
+}
 
 var charsArePresent = function (string) {
   var chars = [];
