@@ -1,11 +1,9 @@
 declare type TValidator<T> = (value?: T) => string | undefined;
-export declare function composeValidators<T = any>(...validators: Array<TValidator<T>>): (value?: T | undefined) => void;
-export declare const required: (value?: string | null | undefined) => "Required" | undefined;
-export declare const requiredNumber: (value?: number | null | undefined) => "Required" | undefined;
-export declare const minLength: (min: number) => (value?: string | number | object) => string | undefined;
-export declare const minValue: (min: number) => (value?: string | number | null | undefined) => string | undefined;
-export declare const length: (valLength: number) => (value?: string) => string | undefined;
-export declare const email: (value?: string | number | object | undefined) => void;
-export declare const lengthRange: (min: number, max: number) => (v?: string) => string | undefined;
-export declare const isInt: (value?: string | null | undefined) => boolean | 0;
+export declare function composeValidators<T = any>(...validators: Array<TValidator<T>>): (value?: T | undefined) => string | undefined;
+export declare function required<T = string>(value?: T): "Required" | undefined;
+export declare function minLength<T = number>(min: number): (value?: T | undefined) => string | undefined;
+export declare function minValue<T = number>(min: number): (value?: T | undefined) => string | undefined;
+export declare function length<T = string>(valLength: number): (value?: T | undefined) => string | undefined;
+export declare const email: (value?: string | number | object | null | undefined) => string | undefined;
+export declare function isInt<T>(value?: T): "Not an integer" | undefined;
 export {};
