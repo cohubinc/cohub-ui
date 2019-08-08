@@ -8,6 +8,7 @@ import isEmpty from 'lodash/isEmpty';
 import isNumber from 'lodash/isNumber';
 import NumberFormat from 'react-number-format';
 import moment from 'moment';
+import isInteger from 'lodash/isInteger';
 import AnimateHeight from 'react-animate-height';
 import padStart from 'lodash/padStart';
 import times from 'lodash/times';
@@ -2513,6 +2514,19 @@ function composeValidators() {
     }, undefined);
   };
 }
+var required = function (value) {
+  if (typeof value === "undefined") {
+    return "Required";
+  }
+
+  var valid = !isEmpty(value);
+
+  if (valid && typeof value === "string") {
+    valid = value.trim().length > 0;
+  }
+
+  return valid ? undefined : "Required";
+};
 var minLength = function (min) {
   return function (value) {
     if (value === void 0) {
@@ -2520,6 +2534,24 @@ var minLength = function (min) {
     }
 
     return typeof value === "string" && value.length < min ? "Should be at least " + min + " characters long" : undefined;
+  };
+};
+var minValue = function (min) {
+  return function (value) {
+    return typeof value !== "string" && typeof value !== "object" && value && (isNaN(value) || value >= min) ? undefined : "Should be greater than " + min;
+  };
+};
+var length = function (valLength) {
+  return function (value) {
+    if (value === void 0) {
+      value = "";
+    }
+
+    if (value && typeof value === "string") {
+      return value.length === valLength ? undefined : "Should be " + valLength + " characters long";
+    }
+
+    return "Invalid length";
   };
 };
 var email = composeValidators(function (value) {
@@ -2531,12 +2563,20 @@ var email = composeValidators(function (value) {
 }, minLength(4));
 var isInt = function (value) {
   if (!value) {
-    return false;
+    return undefined;
   }
 
-  var isNum = /^\d+$/.test(value);
-  var parsedVal = isNum && Number.parseFloat(value);
-  return parsedVal && Number.isInteger(parsedVal);
+  if (isInteger(value)) {
+    return undefined;
+  }
+
+  if (typeof value === "string") {
+    var isNum = /^\d+$/.test(value);
+    var parsedVal = isNum && Number.parseFloat(value);
+    return parsedVal && Number.isInteger(parsedVal) ? undefined : "Not an integer";
+  }
+
+  return "Not an integer";
 };
 
 var charsArePresent = function (string) {
@@ -2550,6 +2590,16 @@ var charsArePresent = function (string) {
     return string.includes(char);
   });
 };
+
+var InputValidationsToExport = /*#__PURE__*/Object.freeze({
+    composeValidators: composeValidators,
+    required: required,
+    minLength: minLength,
+    minValue: minValue,
+    length: length,
+    email: email,
+    isInt: isInt
+});
 
 function calculateMonth(month, year) {
   var m = parseInt(month);
@@ -2608,6 +2658,16 @@ var timeItTakesForAllTransitionsToComplete = optionTransitionTime + showPickerTr
 var transition = "all " + optionTransitionTime + "ms ease-in-out";
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+var paddingVertical = function (top, bottom) {
+  if (bottom === void 0) {
+    bottom = top;
+  }
+
+  return {
+    paddingTop: top,
+    paddingBottom: bottom
+  };
+};
 var paddingHorizontal = function (left, right) {
   if (right === void 0) {
     right = left;
@@ -2616,6 +2676,16 @@ var paddingHorizontal = function (left, right) {
   return {
     paddingLeft: left,
     paddingRight: right
+  };
+};
+var marginVertical = function (top, bottom) {
+  if (bottom === void 0) {
+    bottom = top;
+  }
+
+  return {
+    marginTop: top,
+    marginBottom: bottom
   };
 };
 var marginHorizontal = function (left, right) {
@@ -5627,6 +5697,39 @@ function (_super) {
   return AttributeList;
 }(PureComponent);
 
+var truncateString = function (length, separator) {
+  if (separator === void 0) {
+    separator = "...";
+  }
+
+  return function (string) {
+    return length < string.length ? string.slice(0, length).trimEnd() + separator : string;
+  };
+};
+function childIsVisible(parent, child, offset) {
+  if (offset === void 0) {
+    offset = 120;
+  }
+
+  if (!parent || !child) return true;
+  var parentRect = parent.getBoundingClientRect();
+  var parentViewableArea = {
+    height: parent.clientHeight,
+    width: parent.clientWidth
+  };
+  var childRect = child.getBoundingClientRect(); // Is the child viewable?
+
+  var childViewable = childRect.top >= parentRect.top && childRect.top <= parentRect.top + parentViewableArea.height - offset;
+  return childViewable;
+}
+function stringifiedObjectValues(obj, separator) {
+  if (separator === void 0) {
+    separator = ", ";
+  }
+
+  return Object.values(JSON.parse(obj)).join(separator);
+}
+
 function Margin(props) {
   var _a = props.marginSize,
       marginSize = _a === void 0 ? 1.5 : _a,
@@ -5735,7 +5838,9 @@ var StoryCmpts = /*#__PURE__*/Object.freeze({
     Text: Text$2
 });
 
+// Components
+var InputValidations = InputValidationsToExport; // Storybook
 var StoryHelpers = StoryCmpts;
 
-export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, Base, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FloatingActionButton, FormGroup, Grow, Icon, Inputs, Link, Loader, ProgressBar, Scale, Segment$1 as Segment, Split as SplitButton, StoryHelpers, Toggle$1 as Toggle, Tooltip, Typography, renderDate };
+export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, Base, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FloatingActionButton, FormGroup, Grow, Icon, InputValidations, Inputs, Link, Loader, ProgressBar, Scale, Segment$1 as Segment, Split as SplitButton, StoryHelpers, Toggle$1 as Toggle, Tooltip, Typography, childIsVisible, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
 //# sourceMappingURL=index.js.map

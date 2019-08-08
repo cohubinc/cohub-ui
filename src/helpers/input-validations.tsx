@@ -1,11 +1,10 @@
-import isNumber from "lodash/isNumber";
+import isInteger from "lodash/isInteger";
+import isEmpty from "lodash/isEmpty";
 
 type TValidator<T> = (value?: T) => string | undefined;
 
-export function composeValidators<T = any>(
-  ...validators: Array<TValidator<T>>
-) {
-  return (value?: T) => {
+export function composeValidators(...validators: Array<TValidator<any>>) {
+  return (value?: any) => {
     validators.reduce<string | undefined>(
       (error, validator) => error || validator(value),
       undefined
@@ -13,55 +12,75 @@ export function composeValidators<T = any>(
   };
 }
 
-export const required = (value?: string | null) =>
-  value && value.trim() ? undefined : "Required";
+export const required = (value?: string | number | object | null | boolean) => {
+  if (typeof value === "undefined") {
+    return "Required";
+  }
 
-export const requiredNumber = (value?: number | null) =>
-  value && isNumber(value) ? undefined : "Required";
+  let valid = !isEmpty(value);
+
+  if (valid && typeof value === "string") {
+    valid = value.trim().length > 0;
+  }
+
+  return valid ? undefined : "Required";
+};
 
 export const minLength = (min: number) => (
-  value: string | number | object = ""
+  value: string | number | null | object = ""
 ) =>
   typeof value === "string" && value.length < min
     ? `Should be at least ${min} characters long`
     : undefined;
 
-export const minValue = (min: number) => (value?: string | number | null) =>
-  typeof value !== "string" && value && (isNaN(value) || value >= min)
+export const minValue = (min: number) => (
+  value?: string | number | object | null
+) =>
+  typeof value !== "string" &&
+  typeof value !== "object" &&
+  value &&
+  (isNaN(value) || value >= min)
     ? undefined
     : `Should be greater than ${min}`;
 
-export const length = (valLength: number) => (value = "") => {
-  return value.length === valLength
-    ? undefined
-    : `Should be ${valLength} characters long`;
+export const length = (valLength: number) => (
+  value: string | number | object | null = ""
+) => {
+  if (value && typeof value === "string") {
+    return value.length === valLength
+      ? undefined
+      : `Should be ${valLength} characters long`;
+  }
+
+  return "Invalid length";
 };
 
 export const email = composeValidators(
-  (value = "") =>
+  (value: string | number | object | null = "") =>
     typeof value === "string" && charsArePresent(value, "@", ".")
       ? undefined
       : "Should be a valid email",
   minLength(4)
 );
 
-export const lengthRange = (min: number, max: number) => (v = "") => {
-  if (v.length >= min && v.length <= max) {
+export const isInt = (value?: string | number | object | null) => {
+  if (!value) {
     return undefined;
   }
 
-  return `Should be between ${min} and ${max} characters long`;
-};
-
-export const isInt = (value?: string | null) => {
-  if (!value) {
-    return false;
+  if (isInteger(value)) {
+    return undefined;
   }
 
-  const isNum = /^\d+$/.test(value);
-  const parsedVal = isNum && Number.parseFloat(value);
+  if (typeof value === "string") {
+    const isNum = /^\d+$/.test(value);
+    const parsedVal = isNum && Number.parseFloat(value);
+    return parsedVal && Number.isInteger(parsedVal)
+      ? undefined
+      : "Not an integer";
+  }
 
-  return parsedVal && Number.isInteger(parsedVal);
+  return "Not an integer";
 };
 
 const charsArePresent = (string: string, ...chars: string[]) =>

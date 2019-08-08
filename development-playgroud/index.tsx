@@ -4,11 +4,14 @@ import {
   CssFramework,
   Color,
   Buttons,
-  Typography,
-  ProgressBar
+  Inputs,
+  InputValidations
 } from "../dist/";
+import { Form, Field } from "react-final-form";
 
 const App = () => {
+  const { required, composeValidators, minLength } = InputValidations;
+
   return (
     <div className="flex justify-center items-center h-100">
       <CssFramework />
@@ -19,6 +22,18 @@ const App = () => {
         backgroundColor={Color.green100}
         elevation={24}
         type="submit"
+      />
+      <Form
+        onSubmit={values => alert(JSON.stringify(values))}
+        render={() => {
+          return (
+            <Field
+              name="name"
+              render={props => <Inputs.Text {...props} />}
+              validate={composeValidators(required, minLength(2))}
+            />
+          );
+        }}
       />
     </div>
   );
