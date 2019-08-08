@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ["<rootDir>/src"],
+  roots: ["<rootDir>", "<rootDir>/dist"],
   globals: {
     __DEV__: true
   },
@@ -14,5 +14,8 @@ module.exports = {
   ],
   snapshotSerializers: ["enzyme-to-json/serializer"],
   setupTestFrameworkScriptFile: "<rootDir>/src/setupEnzyme.ts",
-  moduleFileExtensions: ["js", "ts", "tsx"]
+  moduleFileExtensions: ["js", "ts", "tsx"],
+  modulePaths: ["<rootDir>", "<rootDir>/dist/"],
+  moduleDirectories: ["node_modules", "/dist"],
+  testMatch: ["<rootDir>/test/__tests__/**"]
 };

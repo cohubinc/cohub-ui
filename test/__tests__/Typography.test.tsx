@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import Text from "dist/components/Typography";
+import Text from "src/components/Typography";
 
 describe("Typography", () => {
   it("renders Regular Text without crashing", async () => {
