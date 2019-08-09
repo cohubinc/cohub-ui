@@ -22,7 +22,8 @@
     "pre-push-test": "yarn test --no-watch",
     "lint": "tslint --project tsconfig.json",
     "lint-fix": "tslint --fix --project tsconfig.json",
-    "test": "yarn jest --watch"
+    "test": "yarn jest --watch",
+    "test:coverage": "yarn test --coverage"
   },
   "lint-staged": {
     "./src/*.{ts,tsx}": [
@@ -34,8 +35,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push-msg": "echo 'Pre-push checks...' && exit 0",
-      "pre-push": "yarn build && git add"
+      "pre-push-msg": "echo 'Building dist. You will likely need to amend your previous commit and force push the changes to dist.' && exit 0",
+      "pre-push": "yarn test --no-watch && yarn build"
     }
   },
   "dependencies": {
