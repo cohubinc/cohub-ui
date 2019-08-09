@@ -14,6 +14,6 @@ module.exports = {
   setupFilesAfterEnv: ["<rootDir>/test/setupEnzyme.ts"],
   moduleFileExtensions: ["js", "ts", "tsx"],
   modulePaths: ["<rootDir>", "<rootDir>/dist/"],
-  moduleDirectories: ["node_modules", "/dist"]
-  // testMatch: ["<rootDir>/test/**/__tests__/**/*.{ts,tsx}"]
+  moduleDirectories: ["node_modules", "/dist"],
+  testMatch: ["<rootDir>/test/**/__tests__/**/*.{ts,tsx}"]
 };
