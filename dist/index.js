@@ -5891,34 +5891,6 @@ function (_super) {
 var css$s = ".Tabs {\n  overflow-x: scroll; }\n  .Tabs div {\n    padding-left: 1rem;\n    padding-right: 1rem; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlRhYnMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQixFQUFFO0VBQ3BCO0lBQ0Usa0JBQWtCO0lBQ2xCLG1CQUFtQixFQUFFIiwiZmlsZSI6IlRhYnMuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5UYWJzIHtcbiAgb3ZlcmZsb3cteDogc2Nyb2xsOyB9XG4gIC5UYWJzIGRpdiB7XG4gICAgcGFkZGluZy1sZWZ0OiAxcmVtO1xuICAgIHBhZGRpbmctcmlnaHQ6IDFyZW07IH1cbiJdfQ== */";
 styleInject(css$s);
 
-var Tabs =
-/** @class */
-function (_super) {
-  __extends(Tabs, _super);
-
-  function Tabs() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Tabs.prototype.render = function () {
-    var children = this.props.children;
-    var activeChild = children.find(function (child) {
-      if (!child || !child.props) {
-        return false;
-      }
-
-      return child.props.active || window.location.pathname === child.props.path;
-    });
-    return React.createElement(React.Fragment, null, React.createElement("div", {
-      className: "Tabs flex"
-    }, children), React.createElement("div", {
-      className: "Tabs-Content"
-    }, activeChild && activeChild.props.component));
-  };
-
-  return Tabs;
-}(Component);
-
 var css$t = ".Tab-module_Tab__3boJB {\n  width: 100%;\n  text-align: center;\n  padding-bottom: 1rem;\n  cursor: pointer;\n  border-bottom: 1px solid var(--grey-500);\n  transition: 200ms ease-in-out;\n  color: var(--grey-800);\n  letter-spacing: 0.03rem;\n  font-weight: 400;\n  text-transform: uppercase;\n  font-size: 12px; }\n\n.Tab-module_Tab__3boJB:hover {\n  border-bottom: 1px solid var(--primary-green);\n  color: var(--black-500); }\n\n.Tab-module_TabActive__3s4pt:hover {\n  border-bottom: 1px solid var(--primary-green); }\n\n.Tab-module_TabActive__3s4pt {\n  color: var(--primary-green);\n  border-bottom: 1px solid var(--primary-green); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlRhYi5tb2R1bGUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsb0JBQW9CO0VBQ3BCLGVBQWU7RUFDZix3Q0FBd0M7RUFDeEMsNkJBQTZCO0VBQzdCLHNCQUFzQjtFQUN0Qix1QkFBdUI7RUFDdkIsZ0JBQWdCO0VBQ2hCLHlCQUF5QjtFQUN6QixlQUFlLEVBQUU7O0FBRW5CO0VBQ0UsNkNBQTZDO0VBQzdDLHVCQUF1QixFQUFFOztBQUUzQjtFQUNFLDZDQUE2QyxFQUFFOztBQUVqRDtFQUNFLDJCQUEyQjtFQUMzQiw2Q0FBNkMsRUFBRSIsImZpbGUiOiJUYWIubW9kdWxlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuVGFiIHtcbiAgd2lkdGg6IDEwMCU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgcGFkZGluZy1ib3R0b206IDFyZW07XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHZhcigtLWdyZXktNTAwKTtcbiAgdHJhbnNpdGlvbjogMjAwbXMgZWFzZS1pbi1vdXQ7XG4gIGNvbG9yOiB2YXIoLS1ncmV5LTgwMCk7XG4gIGxldHRlci1zcGFjaW5nOiAwLjAzcmVtO1xuICBmb250LXdlaWdodDogNDAwO1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBmb250LXNpemU6IDEycHg7IH1cblxuLlRhYjpob3ZlciB7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1wcmltYXJ5LWdyZWVuKTtcbiAgY29sb3I6IHZhcigtLWJsYWNrLTUwMCk7IH1cblxuLlRhYkFjdGl2ZTpob3ZlciB7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1wcmltYXJ5LWdyZWVuKTsgfVxuXG4uVGFiQWN0aXZlIHtcbiAgY29sb3I6IHZhcigtLXByaW1hcnktZ3JlZW4pO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1ncmVlbik7IH1cbiJdfQ== */";
 var style = {"Tab":"Tab-module_Tab__3boJB","TabActive":"Tab-module_TabActive__3s4pt"};
 styleInject(css$t);
@@ -5956,6 +5928,35 @@ function Tab(props) {
     value: count
   })));
 }
+
+var Tabs =
+/** @class */
+function (_super) {
+  __extends(Tabs, _super);
+
+  function Tabs() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Tabs.prototype.render = function () {
+    var children = this.props.children;
+    var activeChild = children.find(function (child) {
+      if (!child || !child.props) {
+        return false;
+      }
+
+      return child.props.active || window.location.pathname === child.props.path;
+    });
+    return React.createElement(React.Fragment, null, React.createElement("div", {
+      className: "Tabs flex"
+    }, children), React.createElement("div", {
+      className: "Tabs-Content"
+    }, activeChild && activeChild.props.component));
+  };
+
+  Tabs.Tab = Tab;
+  return Tabs;
+}(Component);
 
 var truncateString = function (length, separator) {
   if (separator === void 0) {
@@ -6102,5 +6103,5 @@ var StoryCmpts = /*#__PURE__*/Object.freeze({
 var InputValidations = InputValidationsToExport; // Storybook
 var StoryHelpers = StoryCmpts;
 
-export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FormGroup, FormatMoney, FormatNumber, FormatPercent, Grow, Icon, InputValidations, Inputs, Link, Loader, Modal, ProgressBar, Scale, ScrollIntoView, Segment, Statistic, StoryHelpers, Tab, Tabs, Toggle$1 as Toggle, Tooltip, Transition, Typography, childIsVisible, iconNames, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
+export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FormGroup, FormatMoney, FormatNumber, FormatPercent, Grow, Icon, InputValidations, Inputs, Link, Loader, Modal, ProgressBar, Scale, ScrollIntoView, Segment, Statistic, StoryHelpers, Tabs, Toggle$1 as Toggle, Tooltip, Transition, Typography, childIsVisible, iconNames, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
 //# sourceMappingURL=index.js.map

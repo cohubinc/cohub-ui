@@ -24,7 +24,6 @@ export { default as ScrollIntoView } from "./components/ScrollIntoView";
 export { default as Segment } from "./components/Segment";
 export { default as Statistic } from "./components/Statistic";
 export { default as Tabs } from "./components/Tabs";
-export { default as Tab } from "./components/Tabs/Tab";
 export { default as Tooltip } from "./components/Tooltip";
 export { default as Typography } from "./components/Typography";
 export { default as Transition } from "./components/Transition";
