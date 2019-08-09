@@ -43,7 +43,7 @@ export default function Tab(props: IProps) {
   return (
     <div
       className={`${style.Tab} ${isActive && style.TabActive} ${className}`}
-      onClick={() => _clicked}
+      onClick={_clicked}
     >
       {title}
       {showCount && (

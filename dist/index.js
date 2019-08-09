@@ -5918,9 +5918,7 @@ function Tab(props) {
 
   return React.createElement("div", {
     className: style.Tab + " " + (isActive && style.TabActive) + " " + className,
-    onClick: function () {
-      return _clicked;
-    }
+    onClick: _clicked
   }, title, showCount && React.createElement("span", null, "\xA0", React.createElement(NumberFormat, {
     prefix: "(",
     suffix: ")",
