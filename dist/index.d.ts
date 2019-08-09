@@ -22,6 +22,7 @@ export { default as Link } from "./components/Link";
 export { default as Loader } from "./components/Loader";
 export { default as Modal } from "./components/Modal";
 export { default as ProgressBar } from "./components/ProgressBar";
+export { default as RenderBoolean } from "./components/RenderBoolean";
 export { default as ScrollIntoView } from "./components/ScrollIntoView";
 export { default as Segment } from "./components/Segment";
 export { default as Statistic } from "./components/Statistic";

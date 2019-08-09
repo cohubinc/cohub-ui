@@ -1,0 +1,38 @@
+---
+name: RenderBoolean
+---
+
+import RenderBoolean from "../index.tsx";
+import { Playground, PropsTable } from "docz";
+
+# RenderBoolean
+
+<PropsTable of={RenderBoolean} />
+
+## Description
+
+This is the default method for displaying a boolean value in the UI
+
+## Usage
+
+<Playground>
+  <div className="mb-1">
+    <RenderBoolean value={true} />
+  </div>
+
+<div className="mb-1">
+  <RenderBoolean value={false} />
+</div>
+
+<div className="mb-1">
+  <RenderBoolean value={"truthy"} />
+</div>
+{/* falsy */}
+<div className="mb-1">
+  <RenderBoolean value={0} />
+</div>
+{/* truthy */}
+<div className="mb-1">
+  <RenderBoolean value={1} />
+</div>
+</Playground>

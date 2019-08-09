@@ -5860,6 +5860,11 @@ function (_super) {
   return ProgressBar;
 }(React.PureComponent);
 
+var RenderBoolean = function (_a) {
+  var value = _a.value;
+  return React.createElement("span", null, value ? "Yes" : "No");
+};
+
 var Statistic =
 /** @class */
 function (_super) {
@@ -6189,5 +6194,5 @@ var StoryCmpts = /*#__PURE__*/Object.freeze({
 var InputValidations = InputValidationsToExport; // Storybook
 var StoryHelpers = StoryCmpts;
 
-export { Alert, AnimatedCheckmark, AttributeList, Avatar, Backdrop, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FormGroup, FormatMoney, FormatNumber, FormatPercent, FormatWeight, Grow, Icon, InputValidations, Inputs, Link, Loader, Modal, ProgressBar, Scale, ScrollIntoView, Segment, Statistic, StoryHelpers, Tabs, Toggle, Tooltip, Transition, Typography, childIsVisible, iconNames, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
+export { Alert, AnimatedCheckmark, AttributeList, Avatar, Backdrop, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FormGroup, FormatMoney, FormatNumber, FormatPercent, FormatWeight, Grow, Icon, InputValidations, Inputs, Link, Loader, Modal, ProgressBar, RenderBoolean, Scale, ScrollIntoView, Segment, Statistic, StoryHelpers, Tabs, Toggle, Tooltip, Transition, Typography, childIsVisible, iconNames, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
 //# sourceMappingURL=index.js.map
