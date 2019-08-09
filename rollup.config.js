@@ -20,12 +20,18 @@ const isStoryBuild = NODE_ENV === "storybook";
 
 export default {
   input: "src/index.ts",
-  output: {
-    file: pkg.main,
-    format: "es",
-    sourcemap: true,
-    globals: { lodash: "lodash" }
-  },
+  output: [
+    {
+      file: pkg.main,
+      format: "esm",
+      sourcemap: true
+    },
+    {
+      file: "dist/index.cjs.js",
+      format: "cjs",
+      sourcemap: true
+    }
+  ],
   external: dependencies,
   plugins: [
     replace({
