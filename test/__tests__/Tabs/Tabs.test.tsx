@@ -1,13 +1,13 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { Tabs, Tab } from "dist";
+import { Tabs } from "dist";
 
 it("renders without crashing", async () => {
   const wrapper = shallow(
     <Tabs>
-      <Tab title="test" />
-      <Tab title="Test 2" />
+      <Tabs.Tab title="test" />
+      <Tabs.Tab title="Test 2" />
     </Tabs>
   );
 

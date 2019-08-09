@@ -5,10 +5,10 @@ exports[`renders without crashing 1`] = `
   <div
     className="Tabs flex"
   >
-    <Component
+    <Tab
       title="test"
     />
-    <Component
+    <Tab
       title="Test 2"
     />
   </div>
