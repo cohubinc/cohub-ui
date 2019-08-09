@@ -4757,7 +4757,7 @@ function DateRangeBase(_a) {
   });
 }
 
-var Date$2 = function (_a) {
+var DateRange = function (_a) {
   var input = _a.input,
       _b = _a.meta,
       touched = _b.touched,
@@ -5276,7 +5276,7 @@ var Inputs = {
   Checkbox: Checkbox,
   Decimal: DecimalInput,
   Date: Date$1,
-  DateRange: Date$2,
+  DateRange: DateRange,
   Money: MoneyInput,
   MultiSelect: Multiselect,
   Select: Select,

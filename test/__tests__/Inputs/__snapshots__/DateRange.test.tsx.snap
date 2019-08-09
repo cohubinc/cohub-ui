@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateRange matches snapshot 1`] = `
-<Date$2
+<DateRange
   appearance="contrast"
   input={
     Object {
@@ -1341,5 +1341,5 @@ exports[`DateRange matches snapshot 1`] = `
       </div>
     </FloatingLabelWrapper>
   </DateRangeBase>
-</Date$2>
+</DateRange>
 `;
