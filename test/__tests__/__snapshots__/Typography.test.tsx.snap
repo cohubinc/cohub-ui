@@ -1,0 +1,302 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography renders Regular Text without crashing 1`] = `
+<Typography>
+  <Component>
+    <span
+      className=""
+      data-qa="text"
+      style={
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+          "fontFamily": "Inter",
+          "fontSize": "14px",
+          "fontWeight": 400,
+          "textAlign": "initial",
+          "textTransform": "initial",
+        }
+      }
+    >
+      Some Text
+    </span>
+  </Component>
+</Typography>
+`;
+
+exports[`Typography renders Text.HeadingLarge without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="heading-large"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "display": "block",
+        "fontFamily": "Inter",
+        "fontSize": 24,
+        "fontWeight": 400,
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.HeadingSmall without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="heading-small"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "display": "block",
+        "fontFamily": "Inter",
+        "fontSize": 20,
+        "fontWeight": 400,
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.HeadingTiny without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="heading-tiny"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "display": "block",
+        "fontFamily": "Inter",
+        "fontSize": 18,
+        "fontWeight": 400,
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.Large without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="text"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "fontFamily": "Inter",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.Small without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="text"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "fontFamily": "Inter",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.Subtitle without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="page-subtitle"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "display": "block",
+        "fontFamily": "Inter",
+        "fontSize": 30,
+        "fontWeight": 400,
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.SuperTitle without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="page-supertitle"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "display": "block",
+        "fontFamily": "Inter",
+        "fontSize": 48,
+        "fontWeight": 400,
+        "lineHeight": "normal",
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.Tiny without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="text"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "fontFamily": "Inter",
+        "fontSize": 10.2,
+        "fontWeight": 400,
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders Text.Title without crashing 1`] = `
+<Component>
+  <span
+    className=""
+    data-qa="page-title"
+    style={
+      Object {
+        "color": "hsl(0, 2%, 22%)",
+        "display": "block",
+        "fontFamily": "Inter",
+        "fontSize": 36,
+        "fontWeight": 400,
+        "lineHeight": "normal",
+        "textAlign": "initial",
+        "textTransform": "initial",
+      }
+    }
+  >
+    Some Text
+  </span>
+</Component>
+`;
+
+exports[`Typography renders bold Text without crashing 1`] = `
+<Typography
+  weight={500}
+>
+  <Component
+    weight={500}
+  >
+    <span
+      className=""
+      data-qa="text"
+      style={
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+          "fontFamily": "Inter",
+          "fontSize": "14px",
+          "fontWeight": 500,
+          "textAlign": "initial",
+          "textTransform": "initial",
+        }
+      }
+    >
+      Some Text
+    </span>
+  </Component>
+</Typography>
+`;
+
+exports[`Typography renders inverted Text without crashing 1`] = `
+<Typography
+  inverted={true}
+>
+  <Component
+    inverted={true}
+  >
+    <span
+      className=""
+      data-qa="text"
+      style={
+        Object {
+          "color": "hsl(0, 0%, 98%)",
+          "fontFamily": "Inter",
+          "fontSize": "14px",
+          "fontWeight": 400,
+          "textAlign": "initial",
+          "textTransform": "initial",
+        }
+      }
+    >
+      Some Text
+    </span>
+  </Component>
+</Typography>
+`;
+
+exports[`Typography renders muted Text without crashing 1`] = `
+<Typography
+  muted={true}
+>
+  <Component
+    muted={true}
+  >
+    <span
+      className=""
+      data-qa="text"
+      style={
+        Object {
+          "color": "hsl(356, 3%, 59%)",
+          "fontFamily": "Inter",
+          "fontSize": "14px",
+          "fontWeight": 400,
+          "textAlign": "initial",
+          "textTransform": "initial",
+        }
+      }
+    >
+      Some Text
+    </span>
+  </Component>
+</Typography>
+`;

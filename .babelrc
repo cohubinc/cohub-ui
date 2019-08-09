@@ -13,6 +13,7 @@
           "dist": "./dist"
         }
       }
-    ]
+    ],
+    "@babel/plugin-transform-runtime"
   ]
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import DatePicker from "../index";
+import { DatePicker } from "dist";
 
 import "jest-dom/extend-expect";
 import { mount } from "enzyme";

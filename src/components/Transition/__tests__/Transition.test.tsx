@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Transition from "..";
+
+import { Transition } from "dist";
 
 describe("Transition", () => {
   it("renders show without crashing", async () => {
