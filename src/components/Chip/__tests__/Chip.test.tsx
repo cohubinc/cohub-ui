@@ -1,9 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
-import Chip from "../index";
+import { Chip } from "dist";
+
 it("renders internal Link without crashing", async () => {
-  const wrapper = shallow(<Chip>Hi, my name is chip!</Chip>);
+  const wrapper = mount(<Chip>Hi, my name is chip!</Chip>);
 
   expect(wrapper).toMatchSnapshot();
 });

@@ -1,12 +1,12 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import DropdownButton from "../index";
+import { Buttons } from "dist";
 
 describe("DropdownButton", () => {
   it("renders without crashing", async () => {
     const wrapper = mount(
-      <DropdownButton
+      <Buttons.Dropdown
         options={[
           {
             onClick: () => null,

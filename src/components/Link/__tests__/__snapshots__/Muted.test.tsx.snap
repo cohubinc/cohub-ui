@@ -2,8 +2,11 @@
 
 exports[`Muted renders without crashing 1`] = `
 <Base
-  animated={true}
-  styled={true}
+  styled={false}
   to="/custom/path"
-/>
+>
+  <Typography
+    muted={true}
+  />
+</Base>
 `;

@@ -6,7 +6,7 @@ exports[`Vertical renders without crashing 1`] = `
   title="test"
 >
   <div
-    className="CardVertical undefined pb-1"
+    className="Vertical-module_CardVertical__elna1 undefined pb-1"
     style={
       Object {
         "boxShadow": "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)",

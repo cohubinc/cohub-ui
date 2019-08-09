@@ -1,11 +1,12 @@
 import React from "react";
 import { mount } from "enzyme";
-import Multiselect from "..";
+
+import { Inputs } from "dist";
 
 describe("Multiselect Input", () => {
   it("renders checked without crashing", async () => {
     const wrapper = mount(
-      <Multiselect
+      <Inputs.MultiSelect
         label="Select"
         input={
           {

@@ -1,7 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import AttributeList from "../index";
+import { AttributeList } from "dist";
+
 it("renders without crashing", async () => {
   const wrapper = shallow(
     <AttributeList

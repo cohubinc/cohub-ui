@@ -1,10 +1,11 @@
 import React from "react";
 import { mount } from "enzyme";
-import Ghost from "../index";
+
+import { Buttons } from "dist";
 
 describe("Ghost", () => {
   it("renders without crashing", () => {
-    const wrapper = mount(<Ghost>push me</Ghost>);
+    const wrapper = mount(<Buttons.Ghost>push me</Buttons.Ghost>);
     expect(wrapper).toMatchSnapshot();
   });
 });

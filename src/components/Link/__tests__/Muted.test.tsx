@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Muted from "..";
+import { Link } from "dist";
 
 describe("Muted", () => {
   it("renders without crashing", async () => {
-    const wrapper = shallow(<Muted to="/custom/path" />);
+    const wrapper = shallow(<Link.Muted to="/custom/path" />);
     expect(wrapper).toMatchSnapshot();
   });
 });

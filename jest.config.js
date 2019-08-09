@@ -7,12 +7,13 @@ module.exports = {
   transformIgnorePatterns: [
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx|json)$",
     "^.+\\.module\\.(css|sass|scss)$",
+    "^.(css|sass|scss)$",
     "^.+\\.(json)$"
   ],
   snapshotSerializers: ["enzyme-to-json/serializer"],
-  setupTestFrameworkScriptFile: "<rootDir>/src/setupEnzyme.ts",
+  setupFilesAfterEnv: ["<rootDir>/test/setupEnzyme.ts"],
   moduleFileExtensions: ["js", "ts", "tsx"],
   modulePaths: ["<rootDir>", "<rootDir>/dist/"],
-  moduleDirectories: ["node_modules", "/dist"],
-  testMatch: ["<rootDir>/test/__tests__/**"]
+  moduleDirectories: ["node_modules", "/dist"]
+  // testMatch: ["<rootDir>/test/**/__tests__/**/*.{ts,tsx}"]
 };

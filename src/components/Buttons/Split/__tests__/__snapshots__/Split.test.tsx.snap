@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `
+exports[`Split renders without crashing 1`] = `
 <Split
   labels={
     Array [
@@ -35,13 +35,12 @@ exports[`renders without crashing 1`] = `
         selected={false}
       >
         <button
-          className="SplitButtonSegment"
+          className="Segment-module_SplitButtonSegment__ArSv1"
           onClick={[Function]}
           style={
             Object {
               "backgroundColor": "hsl(0, 0%, 100%)",
               "border": "1px solid hsl(0, 3%, 7%)",
-              "color": "hsl(0, 3%, 7%)",
               "cursor": "pointer",
               "filter": "none",
               "fontFamily": "Akkurat-Mono",
@@ -54,7 +53,30 @@ exports[`renders without crashing 1`] = `
             }
           }
         >
-          one
+          <Typography
+            color="hsl(0, 3%, 7%)"
+          >
+            <Component
+              color="hsl(0, 3%, 7%)"
+            >
+              <span
+                className=""
+                data-qa="text"
+                style={
+                  Object {
+                    "color": "hsl(0, 3%, 7%)",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px",
+                    "fontWeight": 400,
+                    "textAlign": "initial",
+                    "textTransform": "initial",
+                  }
+                }
+              >
+                one
+              </span>
+            </Component>
+          </Typography>
         </button>
       </Segment>
       <Segment
@@ -63,13 +85,12 @@ exports[`renders without crashing 1`] = `
         selected={true}
       >
         <button
-          className="SplitButtonSegment"
+          className="Segment-module_SplitButtonSegment__ArSv1"
           onClick={[Function]}
           style={
             Object {
               "backgroundColor": "hsl(0, 3%, 7%)",
               "border": "1px solid hsl(0, 3%, 7%)",
-              "color": "hsl(0, 0%, 100%)",
               "cursor": "pointer",
               "filter": "none",
               "fontFamily": "Akkurat-Mono",
@@ -82,7 +103,30 @@ exports[`renders without crashing 1`] = `
             }
           }
         >
-          two
+          <Typography
+            color="hsl(0, 0%, 100%)"
+          >
+            <Component
+              color="hsl(0, 0%, 100%)"
+            >
+              <span
+                className=""
+                data-qa="text"
+                style={
+                  Object {
+                    "color": "hsl(0, 0%, 100%)",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px",
+                    "fontWeight": 400,
+                    "textAlign": "initial",
+                    "textTransform": "initial",
+                  }
+                }
+              >
+                two
+              </span>
+            </Component>
+          </Typography>
         </button>
       </Segment>
     </div>

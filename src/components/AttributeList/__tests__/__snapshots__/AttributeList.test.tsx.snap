@@ -4,7 +4,7 @@ exports[`renders without crashing 1`] = `
 <Segment
   bordered={false}
   className="flex flex-column"
-  elevation={0}
+  elevation={1}
   padded={false}
 >
   <Component

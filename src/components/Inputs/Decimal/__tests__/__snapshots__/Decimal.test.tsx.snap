@@ -10,7 +10,7 @@ exports[`Decimal renders Decimal without crashing 1`] = `
   }
 >
   <span
-    className="input"
+    className="styles-module_input__28syv"
   >
     <FloatingLabelWrapper
       error={false}
@@ -32,6 +32,7 @@ exports[`Decimal renders Decimal without crashing 1`] = `
         >
           <NumberFormat
             allowEmptyFormatting={false}
+            allowLeadingZeros={false}
             allowNegative={true}
             aria-invalid={false}
             decimalScale={2}

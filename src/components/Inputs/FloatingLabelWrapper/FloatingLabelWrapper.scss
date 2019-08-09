@@ -1,5 +1,4 @@
 .FloatingLabelWrapper {
-
   input,
   textarea {
     border: none;
@@ -28,13 +27,12 @@
       height: 100%;
 
       input {
-        &:focus~.bar:before {
+        &:focus ~ .bar:before {
           width: 100%;
         }
       }
 
       &.error {
-
         &,
         input {
           background-color: var(--red-200);

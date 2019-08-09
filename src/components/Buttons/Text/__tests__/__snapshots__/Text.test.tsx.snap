@@ -14,7 +14,7 @@ exports[`Text renders without crashing 1`] = `
     }
   >
     <button
-      className="ButtonBlank  p-05"
+      className="Blank-module_ButtonBlank__2u_7K  p-05"
       style={
         Object {
           "display": undefined,

@@ -1274,7 +1274,7 @@ exports[`Icon renders forward without crashing 1`] = `
   <DefaultIcon
     name="forward"
   >
-    <Back
+    <Back$1
       name="forward"
     >
       <IconWrapper
@@ -1309,7 +1309,7 @@ exports[`Icon renders forward without crashing 1`] = `
           </div>
         </div>
       </IconWrapper>
-    </Back>
+    </Back$1>
   </DefaultIcon>
 </Icon>
 `;
@@ -1877,7 +1877,7 @@ exports[`Icon renders trash without crashing 1`] = `
   <DefaultIcon
     name="trash"
   >
-    <Trash
+    <Trash$1
       name="trash"
     >
       <IconWrapper
@@ -1916,7 +1916,7 @@ exports[`Icon renders trash without crashing 1`] = `
           </div>
         </div>
       </IconWrapper>
-    </Trash>
+    </Trash$1>
   </DefaultIcon>
 </Icon>
 `;

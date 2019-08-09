@@ -1,11 +1,13 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import IconWrapper from "../index";
+import { Tooltip } from "dist";
 
 it("renders without crashing", async () => {
   const wrapper = mount(
-    <IconWrapper name="add">{() => <div>test</div>}</IconWrapper>
+    <Tooltip content="test content">
+      <div>Tooltip reference</div>
+    </Tooltip>
   );
 
   expect(wrapper).toMatchSnapshot();

@@ -8,6 +8,7 @@ exports[`renders FormatMoney without crashing 1`] = `
   <span>
     <NumberFormat
       allowEmptyFormatting={false}
+      allowLeadingZeros={false}
       allowNegative={true}
       decimalScale={2}
       decimalSeparator="."

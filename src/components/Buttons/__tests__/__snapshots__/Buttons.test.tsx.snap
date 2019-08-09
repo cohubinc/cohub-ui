@@ -59,7 +59,6 @@ exports[`Buttons renders 1`] = `
                 }
               >
                 <span
-                  id="CHILDREN"
                   style={
                     Object {
                       "marginLeft": "",

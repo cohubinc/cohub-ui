@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateRange matches snapshot 1`] = `
-<Date
+<Date$2
   appearance="contrast"
   input={
     Object {
@@ -99,9 +99,10 @@ exports[`DateRange matches snapshot 1`] = `
               >
                 <NumberFormat
                   allowEmptyFormatting={false}
+                  allowLeadingZeros={false}
                   allowNegative={true}
                   aria-invalid={false}
-                  className="LowLevelDatePickerInput input"
+                  className="LowLevelDatePickerInput LowLevelDatePicker-module_input__JwcFZ"
                   data-testid="startDateInput"
                   decimalSeparator="."
                   displayType="input"
@@ -144,7 +145,7 @@ exports[`DateRange matches snapshot 1`] = `
                 >
                   <input
                     aria-invalid={false}
-                    className="LowLevelDatePickerInput input"
+                    className="LowLevelDatePickerInput LowLevelDatePicker-module_input__JwcFZ"
                     data-testid="startDateInput"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -251,7 +252,7 @@ exports[`DateRange matches snapshot 1`] = `
                           }
                         >
                           <div
-                            className="CohubSegment padded "
+                            className="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk "
                             style={
                               Object {
                                 "backgroundColor": "hsl(0, 0%, 100%)",
@@ -325,12 +326,12 @@ exports[`DateRange matches snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <Blank
-                                              className="action active"
+                                              className="SectionNavigation-module_action__wr6E9 SectionNavigation-module_active__3scI6"
                                               onClick={[Function]}
                                               tabIndex={-1}
                                             >
                                               <button
-                                                className="ButtonBlank action active"
+                                                className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 SectionNavigation-module_active__3scI6"
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
@@ -439,12 +440,12 @@ exports[`DateRange matches snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <Blank
-                                              className="action "
+                                              className="SectionNavigation-module_action__wr6E9 "
                                               onClick={[Function]}
                                               tabIndex={-1}
                                             >
                                               <button
-                                                className="ButtonBlank action "
+                                                className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 "
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
@@ -554,12 +555,12 @@ exports[`DateRange matches snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <Blank
-                                              className="action "
+                                              className="SectionNavigation-module_action__wr6E9 "
                                               onClick={[Function]}
                                               tabIndex={-1}
                                             >
                                               <button
-                                                className="ButtonBlank action "
+                                                className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 "
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
@@ -745,9 +746,10 @@ exports[`DateRange matches snapshot 1`] = `
               >
                 <NumberFormat
                   allowEmptyFormatting={false}
+                  allowLeadingZeros={false}
                   allowNegative={true}
                   aria-invalid={false}
-                  className="LowLevelDatePickerInput input"
+                  className="LowLevelDatePickerInput LowLevelDatePicker-module_input__JwcFZ"
                   data-testid="endDateInput"
                   decimalSeparator="."
                   displayType="input"
@@ -789,7 +791,7 @@ exports[`DateRange matches snapshot 1`] = `
                 >
                   <input
                     aria-invalid={false}
-                    className="LowLevelDatePickerInput input"
+                    className="LowLevelDatePickerInput LowLevelDatePicker-module_input__JwcFZ"
                     data-testid="endDateInput"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -895,7 +897,7 @@ exports[`DateRange matches snapshot 1`] = `
                           }
                         >
                           <div
-                            className="CohubSegment padded "
+                            className="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk "
                             style={
                               Object {
                                 "backgroundColor": "hsl(0, 0%, 100%)",
@@ -969,12 +971,12 @@ exports[`DateRange matches snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <Blank
-                                              className="action active"
+                                              className="SectionNavigation-module_action__wr6E9 SectionNavigation-module_active__3scI6"
                                               onClick={[Function]}
                                               tabIndex={-1}
                                             >
                                               <button
-                                                className="ButtonBlank action active"
+                                                className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 SectionNavigation-module_active__3scI6"
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
@@ -1083,12 +1085,12 @@ exports[`DateRange matches snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <Blank
-                                              className="action "
+                                              className="SectionNavigation-module_action__wr6E9 "
                                               onClick={[Function]}
                                               tabIndex={-1}
                                             >
                                               <button
-                                                className="ButtonBlank action "
+                                                className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 "
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
@@ -1198,12 +1200,12 @@ exports[`DateRange matches snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <Blank
-                                              className="action "
+                                              className="SectionNavigation-module_action__wr6E9 "
                                               onClick={[Function]}
                                               tabIndex={-1}
                                             >
                                               <button
-                                                className="ButtonBlank action "
+                                                className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 "
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
@@ -1339,5 +1341,5 @@ exports[`DateRange matches snapshot 1`] = `
       </div>
     </FloatingLabelWrapper>
   </DateRangeBase>
-</Date>
+</Date$2>
 `;

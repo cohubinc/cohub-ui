@@ -1,11 +1,12 @@
 import React from "react";
 import { mount } from "enzyme";
-import Select from "..";
+
+import { Inputs } from "dist";
 
 describe("Select Input", () => {
   it("renders checked without crashing", async () => {
     const wrapper = mount(
-      <Select
+      <Inputs.Select
         label="Select"
         input={
           {

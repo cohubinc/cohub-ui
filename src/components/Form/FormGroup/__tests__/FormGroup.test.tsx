@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import FormGroup from "dist/components/Form/FormGroup";
+import { FormGroup } from "dist";
 
 it("renders without crashing", async () => {
   const wrapper = mount(

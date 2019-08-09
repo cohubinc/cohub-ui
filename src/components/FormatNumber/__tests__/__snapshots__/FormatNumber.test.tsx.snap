@@ -7,6 +7,7 @@ exports[`renders FormatNumber without crashing 1`] = `
 >
   <NumberFormat
     allowEmptyFormatting={false}
+    allowLeadingZeros={false}
     allowNegative={true}
     decimalSeparator="."
     displayType="text"

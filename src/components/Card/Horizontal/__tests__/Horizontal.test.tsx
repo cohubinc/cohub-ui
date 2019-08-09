@@ -1,11 +1,11 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import Horizontal from "../index";
+import { Card } from "dist";
 
 describe("Horizontal", () => {
   it("renders without crashing", () => {
-    const wrapper = mount(<Horizontal title="test" />);
+    const wrapper = mount(<Card.Horizontal title="test" />);
     expect(wrapper).toMatchSnapshot();
   });
 });

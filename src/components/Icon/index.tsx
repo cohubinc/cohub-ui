@@ -7,8 +7,6 @@ import icons, { IconName as IconNameUnion } from "./Icons";
 
 export type IconName = IconNameUnion;
 
-import "./Icon.scss";
-
 export interface IProps {
   name: IconName;
   size?: number;

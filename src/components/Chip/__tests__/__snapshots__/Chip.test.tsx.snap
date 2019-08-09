@@ -1,28 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders internal Link without crashing 1`] = `
-<div
-  className="CohubChip  "
-  style={
-    Object {
-      "backgroundColor": "hsl(0, 0%, 96%)",
-      "borderRadius": "361px",
-      "display": "inline-block",
-      "padding": "6px 12px",
-    }
-  }
+<Chip
+  backgroundColor="hsl(0, 0%, 96%)"
+  size={12}
 >
   <div
-    className="flex justify-center items-center h-100"
+    className="CohubChip  "
     style={
       Object {
-        "cursor": "inherit",
+        "backgroundColor": "hsl(0, 0%, 96%)",
+        "borderRadius": "361px",
+        "display": "inline-block",
+        "padding": "6px 12px",
       }
     }
   >
-    <Component>
-      Hi, my name is chip!
-    </Component>
+    <div
+      className="flex justify-center items-center h-100"
+      style={
+        Object {
+          "cursor": "inherit",
+        }
+      }
+    >
+      <Component>
+        <span
+          className=""
+          data-qa="text"
+          style={
+            Object {
+              "color": "hsl(0, 2%, 22%)",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": 400,
+              "textAlign": "initial",
+              "textTransform": "initial",
+            }
+          }
+        >
+          Hi, my name is chip!
+        </span>
+      </Component>
+    </div>
   </div>
-</div>
+</Chip>
 `;

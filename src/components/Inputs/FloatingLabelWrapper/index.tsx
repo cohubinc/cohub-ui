@@ -3,10 +3,10 @@ import React, { useState, useRef } from "react";
 import Color, { ContrastColor } from "src/definitions/enums/Color";
 import TInputElementProps from "../definitions/TInputElementProps";
 
-import "./FloatingLabelWrapper.scss";
 import IComponentProps from "./IComponentProps";
 import OnChangeEvent from "./OnChangeEvent";
 import IRenderProps from "./IRenderProps";
+import "./FloatingLabelWrapper.scss";
 
 import isEmpty from "lodash/isEmpty";
 import isNumber from "lodash/isNumber";

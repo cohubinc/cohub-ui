@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Link from "../";
+
+import { Link } from "dist";
 
 describe("Link", () => {
   it("renders without crashing", async () => {

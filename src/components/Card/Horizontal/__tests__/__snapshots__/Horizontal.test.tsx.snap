@@ -6,7 +6,7 @@ exports[`Horizontal renders without crashing 1`] = `
   title="test"
 >
   <div
-    className="CardHorizontal undefined"
+    className="Horizontal-module_CardHorizontal__2b_IU undefined"
     style={
       Object {
         "boxShadow": "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)",

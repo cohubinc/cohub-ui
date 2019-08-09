@@ -1,11 +1,11 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { Transition } from "dist";
 
 describe("Transition", () => {
   it("renders show without crashing", async () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Transition show>
         <span>show me</span>
       </Transition>
@@ -14,7 +14,7 @@ describe("Transition", () => {
   });
 
   it("renders without show without crashing", async () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Transition show={false}>
         <span>don't show me</span>
       </Transition>

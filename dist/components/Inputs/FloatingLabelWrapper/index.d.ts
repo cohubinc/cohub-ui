@@ -1,5 +1,4 @@
 import TInputElementProps from "../definitions/TInputElementProps";
-import "./FloatingLabelWrapper.scss";
 import OnChangeEvent from "./OnChangeEvent";
 import IRenderProps from "./IRenderProps";
 export interface IFloatingLabelWrapperProps<T = any> {

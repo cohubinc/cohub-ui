@@ -1,12 +1,12 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import DateRange from "../index";
+import { Inputs } from "dist";
 
 describe("DateRange", () => {
   it("matches snapshot", async () => {
     const wrapper = mount(
-      <DateRange
+      <Inputs.DateRange
         label="Date"
         appearance="contrast"
         input={{

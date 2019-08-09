@@ -1,12 +1,10 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import IconWrapper from "../index";
+import { Segment } from "dist";
 
 it("renders without crashing", async () => {
-  const wrapper = mount(
-    <IconWrapper name="add">{() => <div>test</div>}</IconWrapper>
-  );
+  const wrapper = mount(<Segment>Segment Content...</Segment>);
 
   expect(wrapper).toMatchSnapshot();
 });

@@ -1,8 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import Icon from "../index";
-import { iconNames } from "../Icons";
+import { Icon, iconNames } from "dist";
 
 describe("Icon", () => {
   iconNames.forEach(name => {

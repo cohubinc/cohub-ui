@@ -1,11 +1,12 @@
 import React from "react";
 import { mount } from "enzyme";
-import Toggle from "../";
+
+import { Inputs } from "dist";
 
 describe("Toggle Input", () => {
   it("renders checked without crashing", async () => {
     const wrapper = mount(
-      <Toggle
+      <Inputs.Toggle
         input={{
           name: "toggle-input",
           onBlur: () => ({} as any),
@@ -22,7 +23,7 @@ describe("Toggle Input", () => {
 
   it("renders unchecked without crashing", async () => {
     const wrapper = mount(
-      <Toggle
+      <Inputs.Toggle
         input={{
           name: "toggle-input",
           onBlur: () => ({} as any),

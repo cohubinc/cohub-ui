@@ -1,13 +1,13 @@
 import React from "react";
-import Date from "../.";
+import { Inputs } from "dist";
 
-import "jest-dom/extend-expect";
+import "@testing-library/jest-dom/extend-expect";
 import { mount } from "enzyme";
 
 describe("Date", () => {
   it("matches snapshot", async () => {
     const wrapper = mount(
-      <Date
+      <Inputs.Date
         label="Date"
         appearance="contrast"
         input={{

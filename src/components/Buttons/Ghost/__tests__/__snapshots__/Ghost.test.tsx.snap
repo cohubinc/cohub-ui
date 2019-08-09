@@ -69,7 +69,6 @@ exports[`Ghost renders without crashing 1`] = `
                   }
                 >
                   <span
-                    id="CHILDREN"
                     style={
                       Object {
                         "marginLeft": "",

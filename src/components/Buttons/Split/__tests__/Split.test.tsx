@@ -1,21 +1,19 @@
 import React from "react";
 import { mount, ReactWrapper } from "enzyme";
 
-import SplitButtons from "../index";
+import { Buttons } from "dist";
 
-let wrapper: ReactWrapper;
-beforeEach(() => {
-  wrapper = mount(
-    <SplitButtons
-      labels={["one", "two"]}
-      selectedIndex={1}
-      onChange={() => {
-        "noop";
-      }}
-    />
-  );
-});
-
-it("renders without crashing", async () => {
-  expect(wrapper).toMatchSnapshot();
+describe("Split", () => {
+  it("renders without crashing", () => {
+    const wrapper = mount(
+      <Buttons.Split
+        labels={["one", "two"]}
+        selectedIndex={1}
+        onChange={() => {
+          "noop";
+        }}
+      />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

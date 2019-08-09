@@ -1,12 +1,14 @@
-import React, { Component, PureComponent, useState, useRef, useEffect, useMemo, Children, cloneElement, Fragment } from 'react';
+import React, { PureComponent, Component, useState, useRef, useEffect, useMemo, Children, cloneElement, Fragment } from 'react';
+import NumberFormat from 'react-number-format';
+import ReactResponsiveModal from 'react-responsive-modal';
 import lowerFirst from 'lodash/lowerFirst';
 import findKey from 'lodash/findKey';
 import pick from 'lodash/pick';
 import Tippy from '@tippy.js/react';
+import { Link as Link$1 } from 'react-router-dom';
 import kebabCase from 'lodash/kebabCase';
 import isEmpty from 'lodash/isEmpty';
 import isNumber from 'lodash/isNumber';
-import NumberFormat from 'react-number-format';
 import moment from 'moment';
 import isInteger from 'lodash/isInteger';
 import AnimateHeight from 'react-animate-height';
@@ -16,9 +18,33 @@ import rangeRight from 'lodash/rangeRight';
 import Select$1 from 'react-select';
 import Creatable from 'react-select/creatable';
 import { uniqBy } from 'lodash';
-import { Link as Link$1 } from 'react-router-dom';
-import ReactResponsiveModal from 'react-responsive-modal';
 import ReactTransition from 'react-transition-group/Transition';
+
+var AnimatedCheckmark = function (_a) {
+  var _b = _a.size,
+      size = _b === void 0 ? '100%' : _b;
+  return React.createElement("div", {
+    style: {
+      height: size,
+      width: size,
+      borderRadius: '50%'
+    }
+  }, React.createElement("svg", {
+    className: "AnimatedCheckmark",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 52 52"
+  }, React.createElement("circle", {
+    className: "checkmark__circle",
+    cx: "52",
+    cy: "52",
+    r: "1000",
+    fill: "none"
+  }), React.createElement("path", {
+    className: "checkmark__check",
+    fill: "none",
+    d: "M14.1 27.2l7.1 7.2 16.7-16.8"
+  })));
+};
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -89,6 +115,20 @@ function _extends() {
 
   return _extends.apply(this, arguments);
 }
+
+var BoxShadow;
+
+(function (BoxShadow) {
+  BoxShadow["dp0"] = "";
+  BoxShadow["dp1"] = "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)";
+  BoxShadow["dp2"] = "0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp3"] = "0px 1px 8px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14)";
+  BoxShadow["dp8"] = "0px 5px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp16"] = "0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp24"] = "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)";
+})(BoxShadow || (BoxShadow = {}));
+
+var BoxShadow$1 = BoxShadow;
 
 var _a;
 
@@ -289,31 +329,77 @@ _a[BaseColor.grey200] = BaseColor.grey800, _a[BaseColor.grey300] = BaseColor.gre
 _a[BaseColor.black200] = BaseColor.grey300, _a[BaseColor.black500] = BaseColor.grey300, _a[BaseColor.black800] = BaseColor.grey300, _a);
 var Color$1 = Color;
 
-var AnimatedCheckmark = function (_a) {
-  var _b = _a.size,
-      size = _b === void 0 ? '100%' : _b;
-  return React.createElement("div", {
-    style: {
-      height: size,
-      width: size,
-      borderRadius: '50%'
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
     }
-  }, React.createElement("svg", {
-    className: "AnimatedCheckmark",
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 52 52"
-  }, React.createElement("circle", {
-    className: "checkmark__circle",
-    cx: "52",
-    cy: "52",
-    r: "1000",
-    fill: "none"
-  }), React.createElement("path", {
-    className: "checkmark__check",
-    fill: "none",
-    d: "M14.1 27.2l7.1 7.2 16.7-16.8"
-  })));
-};
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css = ".Segment-module_CohubSegment__3MMwJ {\n  background-color: var(--true-white);\n  border-radius: var(--default-border-radius);\n  transition: 100ms ease-in; }\n\n.Segment-module_padded__39Fvk {\n  padding: 1rem; }\n";
+var styles = {"CohubSegment":"Segment-module_CohubSegment__3MMwJ","padded":"Segment-module_padded__39Fvk"};
+styleInject(css);
+
+var Segment =
+/** @class */
+function (_super) {
+  __extends(Segment, _super);
+
+  function Segment() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Segment.prototype.render = function () {
+    var _a = this.props,
+        className = _a.className,
+        elevation = _a.elevation,
+        style = _a.style,
+        children = _a.children,
+        padded = _a.padded,
+        contrast = _a.contrast,
+        bordered = _a.bordered,
+        rest = __rest(_a, ["className", "elevation", "style", "children", "padded", "contrast", "bordered"]);
+
+    var dpLevel = contrast || bordered ? "dp0" : "dp" + elevation;
+    var classes = styles.CohubSegment + " " + (padded ? styles.padded : "") + " " + className;
+    return React.createElement("div", _extends({}, rest, {
+      className: classes,
+      style: __assign({
+        boxShadow: BoxShadow$1[dpLevel],
+        border: bordered ? "1px solid var(--border)" : "",
+        backgroundColor: contrast ? Color$1.grey200 : Color$1.trueWhite
+      }, style)
+    }), children);
+  };
+
+  Segment.defaultProps = {
+    elevation: 1,
+    padded: true,
+    className: "",
+    bordered: false
+  };
+  return Segment;
+}(PureComponent);
 
 var Font;
 
@@ -494,33 +580,162 @@ function (_super) {
   return Typography;
 }(Component);
 
+var FormatMoney =
+/** @class */
+function (_super) {
+  __extends(FormatMoney, _super);
+
+  function FormatMoney() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormatMoney.prototype.render = function () {
+    var _a = this.props,
+        value = _a.value,
+        extendedPrecision = _a.extendedPrecision,
+        dataQa = _a["data-qa"];
+    var decimals = ("" + value).split(".")[1];
+    return React.createElement("span", {
+      "data-qa": dataQa
+    }, React.createElement(NumberFormat, {
+      value: value,
+      displayType: "text",
+      prefix: "$",
+      thousandSeparator: true,
+      fixedDecimalScale: true,
+      decimalScale: extendedPrecision && decimals && decimals.length > 2 ? decimals.length : 2
+    }));
+  };
+
+  FormatMoney.defaultProps = {
+    extendedPrecision: true
+  };
+  return FormatMoney;
+}(PureComponent);
+
+var FormatNumber =
+/** @class */
+function (_super) {
+  __extends(FormatNumber, _super);
+
+  function FormatNumber() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormatNumber.prototype.render = function () {
+    var _a = this.props,
+        value = _a.value,
+        rest = __rest(_a, ["value"]);
+
+    return React.createElement(NumberFormat, _extends({
+      value: value,
+      displayType: "text"
+    }, rest));
+  };
+
+  FormatNumber.defaultProps = {
+    thousandSeparator: true
+  };
+  return FormatNumber;
+}(React.Component);
+
+var FormatPercent =
+/** @class */
+function (_super) {
+  __extends(FormatPercent, _super);
+
+  function FormatPercent() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormatPercent.prototype.render = function () {
+    var value = this.props.value;
+    var percentValue = value * 100;
+    return React.createElement(NumberFormat, {
+      value: percentValue,
+      displayType: "text",
+      thousandSeparator: true,
+      decimalScale: 2,
+      suffix: "%"
+    });
+  };
+
+  FormatPercent.defaultProps = {
+    thousandSeparator: false
+  };
+  return FormatPercent;
+}(React.Component);
+
+var AttributeList =
+/** @class */
+function (_super) {
+  __extends(AttributeList, _super);
+
+  function AttributeList() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.formattedValue = function (value, format) {
+      switch (format) {
+        case "money":
+          return React.createElement(FormatMoney, {
+            value: value
+          });
+
+        case "number":
+          return React.createElement(FormatNumber, {
+            value: value
+          });
+
+        case "percentage":
+          return React.createElement(FormatPercent, {
+            value: value
+          });
+
+        case "text":
+          return value;
+
+        default:
+          return React.createElement(FormatNumber, {
+            value: value
+          });
+      }
+    };
+
+    return _this;
+  }
+
+  AttributeList.prototype.render = function () {
+    var _this = this;
+
+    var _a = this.props,
+        header = _a.header,
+        items = _a.items,
+        contrast = _a.contrast,
+        className = _a.className;
+    var attributes = items.map(function (i) {
+      return React.createElement("div", {
+        className: "flex justify-between items-center mb-1 " + className,
+        key: i.attribute
+      }, React.createElement(Typography, null, i.attribute), React.createElement(Typography, null, _this.formattedValue(i.value, i.format)));
+    });
+    return React.createElement(Segment, {
+      className: "flex flex-column",
+      contrast: contrast,
+      padded: contrast ? true : false
+    }, React.createElement(Typography.Small, {
+      muted: true,
+      weight: 500,
+      uppercase: true,
+      className: "mb-1"
+    }, header), attributes);
+  };
+
+  return AttributeList;
+}(PureComponent);
+
 function logError(message) {
 
   console.error(message);
-}
-
-function getInsetColor(backgroundColor) {
-  try {
-    var color = findKey(Color$1, function (value) {
-      return backgroundColor === value;
-    });
-    var colorLevel = color.replace(/^\D+/g, "");
-    var colorName = lowerFirst(color.split(colorLevel).filter(function (n) {
-      return n;
-    })[0]);
-    var insetColorLevel = parseInt(colorLevel) - 200;
-    var insetColorName = "" + colorName + insetColorLevel;
-    var insetColorValue = Color$1[insetColorName];
-
-    if (!insetColorValue) {
-      logError("Couldn't find an inset color. Please add " + insetColorName + " to Color Enum");
-    }
-
-    return insetColorValue;
-  } catch (err) {
-    logError(err.message);
-    return "transparent";
-  }
 }
 
 var IconWrapper =
@@ -1501,35 +1716,7 @@ var icons = {
   user: User
 };
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css = "";
-styleInject(css);
+var iconNames = Object.keys(icons);
 
 var DefaultIcon = function (props) {
   var Ico = icons[props.name];
@@ -1606,8 +1793,205 @@ function (_super) {
   return Icon;
 }(PureComponent);
 
-var css$1 = ".CohubButton {\n  font-weight: lighter;\n  border: none;\n  border-radius: var(--default-border-radius);\n  padding: 6px 12px;\n  border: none;\n  outline: none;\n  cursor: pointer;\n  color: var(--white);\n  transition: all 50ms ease-in-out;\n  letter-spacing: 0.05rem; }\n  .CohubButton .content-container {\n    transition: all 50ms ease-in-out; }\n  .CohubButton:active {\n    box-shadow: none !important;\n    -webkit-filter: brightness(97%);\n            filter: brightness(97%); }\n    .CohubButton:active .button-text {\n      transform: translateY(-1px); }\n  .CohubButton:disabled {\n    cursor: default;\n    opacity: 0.4; }\n    .CohubButton:disabled:hover {\n      -webkit-filter: inherit;\n              filter: inherit; }\n";
+var css$1 = ".Avatar-module_Avatar__Irl8C {\n  border-radius: 50%;\n  position: relative; }\n\n.Avatar-module_Avatar__Irl8C::after {\n  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);\n  border-radius: 50%;\n  content: '';\n  display: block;\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0; }\n";
+var styles$1 = {"Avatar":"Avatar-module_Avatar__Irl8C"};
 styleInject(css$1);
+
+var Avatar =
+/** @class */
+function (_super) {
+  __extends(Avatar, _super);
+
+  function Avatar() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Avatar.prototype.render = function () {
+    var _a = this.props,
+        src = _a.src,
+        name = _a.name,
+        size = _a.size,
+        className = _a.className;
+    var avatarStyle = {
+      borderRadius: "50%",
+      backgroundColor: "var(--bf-green)",
+      width: "100%",
+      height: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    };
+
+    if (src) {
+      return React.createElement("div", {
+        className: styles$1.Avatar + " " + className,
+        style: {
+          width: size,
+          height: size
+        }
+      }, React.createElement("img", {
+        src: src,
+        style: avatarStyle
+      }));
+    } else if (name) {
+      var firstInitial = void 0;
+      var lastInital = void 0;
+
+      var _b = name.split(" "),
+          firstName = _b[0],
+          lastName = _b[1];
+
+      if (firstName) {
+        firstInitial = firstName.substring(0, 1);
+      }
+
+      if (lastName) {
+        lastInital = lastName.substring(0, 1);
+      }
+
+      var style = __assign({}, avatarStyle, {
+        fontWeight: 400
+      });
+
+      return React.createElement("div", {
+        className: className,
+        style: style
+      }, React.createElement("div", null, firstInitial, lastInital));
+    } else {
+      return React.createElement("div", {
+        className: className
+      }, React.createElement(Icon.User, {
+        size: size
+      }));
+    }
+  };
+
+  Avatar.defaultProps = {
+    size: 50
+  };
+  return Avatar;
+}(PureComponent);
+
+var css$2 = ".CohubBackdrop {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center; }\n  .CohubBackdrop .modal {\n    background-color: transparent;\n    padding: 0;\n    box-shadow: none; }\n  .CohubBackdrop .closeButton {\n    top: -25px;\n    right: -37px;\n    cursor: pointer; }\n";
+styleInject(css$2);
+
+var Backdrop =
+/** @class */
+function (_super) {
+  __extends(Backdrop, _super);
+
+  function Backdrop() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.appRoot = document.getElementById("root");
+
+    _this.setBlurState = function () {
+      var open = _this.props.open;
+      open ? _this.addBlurClass() : _this.removeBlurClass();
+    };
+
+    _this.addBlurClass = function () {
+      _this.appRoot && _this.appRoot.classList.add("blurred");
+    };
+
+    _this.removeBlurClass = function () {
+      _this.appRoot && _this.appRoot.classList.remove("blurred");
+    };
+
+    return _this;
+  }
+
+  Backdrop.prototype.componentDidMount = function () {
+    this.setBlurState();
+  };
+
+  Backdrop.prototype.componentDidUpdate = function () {
+    this.setBlurState();
+  };
+
+  Backdrop.prototype.componentWillUnmount = function () {
+    this.removeBlurClass();
+  };
+
+  Backdrop.prototype.render = function () {
+    var _a = this.props,
+        children = _a.children,
+        onClose = _a.onClose,
+        showCloseIcon = _a.showCloseIcon,
+        _b = _a.containerClass,
+        containerClass = _b === void 0 ? "" : _b,
+        style = _a.style,
+        rest = __rest(_a, ["children", "onClose", "showCloseIcon", "containerClass", "style"]);
+
+    return React.createElement(ReactResponsiveModal, _extends({
+      closeOnEsc: true,
+      closeOnOverlayClick: true
+    }, rest, {
+      classNames: {
+        overlay: "CohubBackdrop " + containerClass,
+        modal: "modal",
+        closeButton: "closeButton"
+      },
+      showCloseIcon: showCloseIcon,
+      onClose: onClose,
+      onOverlayClick: onClose,
+      onEscKeyDown: onClose,
+      closeIconSvgPath: CloseIcon,
+      styles: {
+        overlay: style
+      }
+    }), children);
+  };
+
+  Backdrop.defaultProps = {
+    showCloseIcon: false,
+    containerClass: "",
+    onClose: function () {
+      return undefined;
+    },
+    focusTrapped: true,
+    open: true
+  };
+  return Backdrop;
+}(PureComponent);
+var iconSize = 44;
+var CloseIcon = React.createElement("svg", {
+  width: iconSize,
+  height: iconSize,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, React.createElement("path", {
+  d: "M12 0.974332L11.025 0L6.00034 5.02532L0.975021 0L0 0.974332L5.02532 5.99966L0 11.025L0.975021 11.9993L6.00034 6.97399L11.025 11.9993L12 11.025L6.97468 5.99966L12 0.974332Z",
+  fill: Color$1.trueWhite
+}));
+
+function getInsetColor(backgroundColor) {
+  try {
+    var color = findKey(Color$1, function (value) {
+      return backgroundColor === value;
+    });
+    var colorLevel = color.replace(/^\D+/g, "");
+    var colorName = lowerFirst(color.split(colorLevel).filter(function (n) {
+      return n;
+    })[0]);
+    var insetColorLevel = parseInt(colorLevel) - 200;
+    var insetColorName = "" + colorName + insetColorLevel;
+    var insetColorValue = Color$1[insetColorName];
+
+    if (!insetColorValue) {
+      logError("Couldn't find an inset color. Please add " + insetColorName + " to Color Enum");
+    }
+
+    return insetColorValue;
+  } catch (err) {
+    logError(err.message);
+    return "transparent";
+  }
+}
+
+var css$3 = ".CohubButton {\n  font-weight: lighter;\n  border: none;\n  border-radius: var(--default-border-radius);\n  padding: 6px 12px;\n  border: none;\n  outline: none;\n  cursor: pointer;\n  color: var(--white);\n  transition: all 50ms ease-in-out;\n  letter-spacing: 0.05rem; }\n  .CohubButton .content-container {\n    transition: all 50ms ease-in-out; }\n  .CohubButton:active {\n    box-shadow: none !important;\n    -webkit-filter: brightness(97%);\n            filter: brightness(97%); }\n    .CohubButton:active .button-text {\n      transform: translateY(-1px); }\n  .CohubButton:disabled {\n    cursor: default;\n    opacity: 0.4; }\n    .CohubButton:disabled:hover {\n      -webkit-filter: inherit;\n              filter: inherit; }\n";
+styleInject(css$3);
 
 function Base(props) {
   var style = props.style,
@@ -1674,9 +2058,9 @@ function Base(props) {
   }, children)))));
 }
 
-var css$2 = ".Blank-module_ButtonBlank__2u_7K {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  outline: none;\n  text-align: inherit;\n  border-radius: 0; }\n";
-var styles = {"ButtonBlank":"Blank-module_ButtonBlank__2u_7K"};
-styleInject(css$2);
+var css$4 = ".Blank-module_ButtonBlank__2u_7K {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  outline: none;\n  text-align: inherit;\n  border-radius: 0; }\n";
+var styles$2 = {"ButtonBlank":"Blank-module_ButtonBlank__2u_7K"};
+styleInject(css$4);
 
 var Blank = function (_a) {
   var _b = _a.className,
@@ -1688,7 +2072,7 @@ var Blank = function (_a) {
 
   return React.createElement("button", _extends({
     style: style,
-    className: styles.ButtonBlank + " " + className,
+    className: styles$2.ButtonBlank + " " + className,
     ref: nativeElRef
   }, rest), React.createElement(Typography, {
     style: pick(style, "color", "fontSize")
@@ -1832,8 +2216,8 @@ var Cancel = function (_a) {
   }, rest));
 };
 
-var css$3 = ".Tooltip,\n.tippy-tooltip {\n  box-shadow: var(--dp-3); }\n  .Tooltip.dark-theme,\n  .tippy-tooltip.dark-theme {\n    background-color: var(--black-500);\n    color: var(--grey-200); }\n    .Tooltip.dark-theme[data-animatefill],\n    .tippy-tooltip.dark-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.dark-theme .tippy-backdrop,\n    .tippy-tooltip.dark-theme .tippy-backdrop {\n      background-color: var(--black-500); }\n  .Tooltip.light-theme,\n  .tippy-tooltip.light-theme {\n    background-color: var(--true-white);\n    color: var(--black-500); }\n    .Tooltip.light-theme[data-animatefill],\n    .tippy-tooltip.light-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.light-theme .tippy-backdrop,\n    .tippy-tooltip.light-theme .tippy-backdrop {\n      background-color: var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.light-theme .tippy-arrow {\n  border-right: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.light-theme .tippy-arrow {\n  border-left: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.light-theme .tippy-arrow {\n  border-top: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme .tippy-arrow {\n  border-bottom: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-right: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-left: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-top: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-bottom: 7px solid var(--black-500); }\n";
-styleInject(css$3);
+var css$5 = ".Tooltip,\n.tippy-tooltip {\n  box-shadow: var(--dp-3); }\n  .Tooltip.dark-theme,\n  .tippy-tooltip.dark-theme {\n    background-color: var(--black-500);\n    color: var(--grey-200); }\n    .Tooltip.dark-theme[data-animatefill],\n    .tippy-tooltip.dark-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.dark-theme .tippy-backdrop,\n    .tippy-tooltip.dark-theme .tippy-backdrop {\n      background-color: var(--black-500); }\n  .Tooltip.light-theme,\n  .tippy-tooltip.light-theme {\n    background-color: var(--true-white);\n    color: var(--black-500); }\n    .Tooltip.light-theme[data-animatefill],\n    .tippy-tooltip.light-theme[data-animatefill] {\n      background-color: transparent; }\n    .Tooltip.light-theme .tippy-backdrop,\n    .tippy-tooltip.light-theme .tippy-backdrop {\n      background-color: var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.light-theme .tippy-arrow {\n  border-right: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.light-theme .tippy-arrow {\n  border-left: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.light-theme .tippy-arrow {\n  border-top: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme .tippy-arrow {\n  border-bottom: 7px solid var(--true-white); }\n\n.tippy-popper[x-placement^=right] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-right: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=left] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-left: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=top] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-top: 7px solid var(--black-500); }\n\n.tippy-popper[x-placement^=bottom] .tippy-tooltip.dark-theme .tippy-arrow {\n  border-bottom: 7px solid var(--black-500); }\n";
+styleInject(css$5);
 
 var Tooltip =
 /** @class */
@@ -1881,9 +2265,9 @@ var getButton = function (type) {
   return Buttons[type];
 };
 
-var css$4 = ".Dropdown-module_CohubDropdownOption__1oF92:focus, .Dropdown-module_CohubDropdownOption__1oF92:hover {\n  background-color: #f2f2f2; }\n";
-var styles$1 = {"CohubDropdownOption":"Dropdown-module_CohubDropdownOption__1oF92"};
-styleInject(css$4);
+var css$6 = ".Dropdown-module_CohubDropdownOption__1oF92:focus, .Dropdown-module_CohubDropdownOption__1oF92:hover {\n  background-color: #f2f2f2; }\n";
+var styles$3 = {"CohubDropdownOption":"Dropdown-module_CohubDropdownOption__1oF92"};
+styleInject(css$6);
 
 function Dropdown(props) {
   var options = props.options,
@@ -1928,7 +2312,7 @@ function Dropdown(props) {
     }).map(function (option) {
       return React.createElement("li", {
         key: option.label,
-        className: styles$1.CohubDropdownOption + " cursor-pointer p-05",
+        className: styles$3.CohubDropdownOption + " cursor-pointer p-05",
         onClick: function () {
           setSelectedOption(option);
           setExpanded(false);
@@ -1960,20 +2344,6 @@ function Dropdown(props) {
   }))));
 }
 
-var BoxShadow;
-
-(function (BoxShadow) {
-  BoxShadow["dp0"] = "";
-  BoxShadow["dp1"] = "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)";
-  BoxShadow["dp2"] = "0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp3"] = "0px 1px 8px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14)";
-  BoxShadow["dp8"] = "0px 5px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp16"] = "0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp24"] = "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)";
-})(BoxShadow || (BoxShadow = {}));
-
-var BoxShadow$1 = BoxShadow;
-
 function FloatingActionButton(_a) {
   var icon = _a.icon,
       iconColor = _a.iconColor,
@@ -2003,69 +2373,11 @@ function FloatingActionButton(_a) {
   }));
 }
 
-var Buttons =
-/** @class */
-function (_super) {
-  __extends(Buttons, _super);
+var css$7 = ".Segment-module_SplitButtonSegment__ArSv1:hover, .Segment-module_SplitButtonSegment__ArSv1:focus {\n  -webkit-filter: brightness(90%);\n          filter: brightness(90%); }\n\n.Segment-module_SplitButtonSegment__ArSv1:first-of-type {\n  border-top-left-radius: var(--default-border-radius);\n  border-bottom-left-radius: var(--default-border-radius); }\n\n.Segment-module_SplitButtonSegment__ArSv1:last-of-type {\n  border-top-right-radius: var(--default-border-radius);\n  border-bottom-right-radius: var(--default-border-radius); }\n";
+var styles$4 = {"SplitButtonSegment":"Segment-module_SplitButtonSegment__ArSv1"};
+styleInject(css$7);
 
-  function Buttons() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Buttons.prototype.render = function () {
-    return React.createElement(Buttons.Secondary, this.props);
-  };
-
-  Buttons.Primary = Primary;
-  Buttons.Secondary = Secondary;
-  Buttons.Info = Info;
-  Buttons.Cancel = Cancel;
-  Buttons.Base = Base;
-  Buttons.Outline = Outline;
-  Buttons.Ghost = Ghost;
-  Buttons.PrimaryGhost = PrimaryGhostButton;
-  Buttons.CancelGhost = CancelGhostButton;
-  Buttons.Dropdown = Dropdown;
-  Buttons.Text = Text;
-  Buttons.Blank = Blank;
-  Buttons.FloatingAction = FloatingActionButton;
-  return Buttons;
-}(Component);
-
-var css$5 = "@import url(\"https://use.typekit.net/hpb8lqb.css\");\n@import url(\"https://rsms.me/inter/inter.css\");\nhtml {\n  box-sizing: border-box; }\n\n*,\n*::before,\n*::after {\n  box-sizing: inherit; }\n\n/* TYPOGRAPHY */\n.small-body-text {\n  font-size: var(--small-body-text) !important; }\n\n.tiny-body-text {\n  font-size: var(--tiny-body-text) !important; }\n\n.uppercase {\n  text-transform: uppercase !important; }\n\n/* TEXT ALIGNMENT */\n.text-left {\n  text-align: left !important; }\n\n.text-center {\n  text-align: center !important; }\n\n.text-right {\n  text-align: right !important; }\n\n/* CURSOR */\n.cursor-pointer {\n  cursor: pointer !important; }\n\n.block {\n  display: block !important; }\n\n/* FLEXBOX */\n.flex {\n  display: flex !important; }\n\n.inline-flex {\n  display: inline-flex !important; }\n\n.flex-row {\n  flex-direction: row !important; }\n\n.flex-row-reverse {\n  flex-direction: row-reverse !important; }\n\n.flex-column {\n  flex-direction: column !important; }\n\n.flex-column-reverse {\n  flex-direction: column-reverse !important; }\n\n.flex-wrap {\n  flex-wrap: wrap !important; }\n\n.flex-nowrap {\n  flex-wrap: nowrap !important; }\n\n.flex-wrap-reverse {\n  flex-wrap: wrap-reverse !important; }\n\n.free-top {\n  margin-top: auto !important; }\n\n.free-left {\n  margin-left: auto !important; }\n\n.free-right {\n  margin-right: auto !important; }\n\n.free-bottom {\n  margin-bottom: auto !important; }\n\n.order-before {\n  order: -1 !important; }\n\n.order-after {\n  order: 1 !important; }\n\n.items-start {\n  align-items: flex-start !important; }\n\n.items-end {\n  align-items: flex-end !important; }\n\n.items-center {\n  align-items: center !important; }\n\n.items-baseline {\n  align-items: baseline !important; }\n\n.items-stretch {\n  align-items: stretch !important; }\n\n.self-center {\n  align-self: center !important; }\n\n.self-baseline {\n  align-self: baseline !important; }\n\n.self-stretch {\n  align-self: stretch !important; }\n\n.self-start {\n  align-self: flex-start !important; }\n\n.self-end {\n  align-self: flex-end !important; }\n\n.justify-start {\n  justify-content: flex-start !important; }\n\n.justify-end {\n  justify-content: flex-end !important; }\n\n.justify-center {\n  justify-content: center !important; }\n\n.justify-between {\n  justify-content: space-between !important; }\n\n.justify-around {\n  justify-content: space-around !important; }\n\n.justify-evenly {\n  justify-content: space-evenly !important; }\n\n.content-start {\n  align-content: flex-start !important; }\n\n.content-end {\n  align-content: flex-end !important; }\n\n.content-center {\n  align-content: center !important; }\n\n.content-between {\n  align-content: space-between !important; }\n\n.content-around {\n  align-content: space-around !important; }\n\n.content-stretch {\n  align-content: stretch !important; }\n\n.flex-min {\n  min-height: 0 !important;\n  min-width: 0 !important; }\n\n.flex-max {\n  max-height: 100% !important;\n  max-width: 100% !important; }\n\n.flex-golden {\n  flex: 0 1 61.803398875% !important; }\n\n.flex-initial {\n  flex: 0 1 auto !important; }\n\n.flex-auto {\n  flex: 1 1 auto !important; }\n\n.flex-none {\n  flex: 0 0 auto !important; }\n\n.flex-1 {\n  flex: 1 1 !important; }\n\n.flex-2 {\n  flex: 2 1 !important; }\n\n.flex-3 {\n  flex: 3 1 !important; }\n\n.flex-4 {\n  flex: 4 1 !important; }\n\n.flex-5 {\n  flex: 5 1 !important; }\n\n.flex-6 {\n  flex: 6 1 !important; }\n\n.flex-7 {\n  flex: 7 1 !important; }\n\n.flex-8 {\n  flex: 8 1 !important; }\n\n.flex-9 {\n  flex: 9 1 !important; }\n\n.flex-10 {\n  flex: 10 1 !important; }\n\n.flex-11 {\n  flex: 11 1 !important; }\n\n.flex-12 {\n  flex: 12 1 !important; }\n\n.grow-0 {\n  flex-grow: 0 !important; }\n\n.grow-1 {\n  flex-grow: 1 !important; }\n\n.grow-2 {\n  flex-grow: 2 !important; }\n\n.grow-3 {\n  flex-grow: 3 !important; }\n\n.grow-4 {\n  flex-grow: 4 !important; }\n\n.grow-5 {\n  flex-grow: 5 !important; }\n\n.grow-6 {\n  flex-grow: 6 !important; }\n\n.grow-7 {\n  flex-grow: 7 !important; }\n\n.grow-8 {\n  flex-grow: 8 !important; }\n\n.grow-9 {\n  flex-grow: 9 !important; }\n\n.grow-10 {\n  flex-grow: 10 !important; }\n\n.grow-11 {\n  flex-grow: 11 !important; }\n\n.grow-12 {\n  flex-grow: 12 !important; }\n\n.shrink-0 {\n  flex-shrink: 0 !important; }\n\n.shrink-1 {\n  flex-shrink: 1 !important; }\n\n.shrink-2 {\n  flex-shrink: 2 !important; }\n\n.shrink-3 {\n  flex-shrink: 3 !important; }\n\n.shrink-4 {\n  flex-shrink: 4 !important; }\n\n.shrink-5 {\n  flex-shrink: 5 !important; }\n\n.shrink-6 {\n  flex-shrink: 6 !important; }\n\n.shrink-7 {\n  flex-shrink: 7 !important; }\n\n.shrink-8 {\n  flex-shrink: 8 !important; }\n\n.shrink-9 {\n  flex-shrink: 9 !important; }\n\n.shrink-10 {\n  flex-shrink: 10 !important; }\n\n.shrink-11 {\n  flex-shrink: 11 !important; }\n\n.shrink-12 {\n  flex-shrink: 12 !important; }\n\n.basis-0 {\n  flex-basis: 0% !important; }\n\n.basis-1 {\n  flex-basis: 8.333333333% !important; }\n\n.basis-2 {\n  flex-basis: 16.6666666666% !important; }\n\n.basis-3 {\n  flex-basis: 25% !important; }\n\n.basis-4 {\n  flex-basis: 33.3333333333% !important; }\n\n.basis-5 {\n  flex-basis: 41.6666666666% !important; }\n\n.basis-6 {\n  flex-basis: 50% !important; }\n\n.basis-7 {\n  flex-basis: 58.333333333% !important; }\n\n.basis-8 {\n  flex-basis: 66.6666666666% !important; }\n\n.basis-9 {\n  flex-basis: 75% !important; }\n\n.basis-10 {\n  flex-basis: 83.3333333333% !important; }\n\n.basis-11 {\n  flex-basis: 91.6666666666% !important; }\n\n.basis-12 {\n  flex-basis: 100% !important; }\n\n.basis-100vw {\n  flex-basis: 100vw !important; }\n\n.basis-100vh {\n  flex-basis: 100vh !important; }\n\n.basis-100vmax {\n  flex-basis: 100vmax !important; }\n\n.basis-100vmin {\n  flex-basis: 100vmin !important; }\n\n.basis-golden {\n  flex-basis: 61.803398875% !important; }\n\n.basis-content {\n  flex-basis: content !important; }\n\n.basis-auto {\n  flex-basis: auto !important; }\n\n.inline-block {\n  display: inline-block; }\n\n.relative {\n  position: relative; }\n\n.absolute {\n  position: absolute; }\n\n@media (orientation: portrait) {\n  .flex\\@portrait {\n    display: flex !important; }\n  .inline-flex\\@portrait {\n    display: inline-flex !important; }\n  .flex-wrap\\@portrait {\n    flex-wrap: wrap !important; }\n  .flex-nowrap\\@portrait {\n    flex-wrap: nowrap !important; }\n  .flex-wrap-reverse\\@portrait {\n    flex-wrap: wrap-reverse !important; } }\n\n@media (orientation: landscape) {\n  .flex\\@landscape {\n    display: flex !important; }\n  .inline-flex\\@landscape {\n    display: inline-flex !important; }\n  .flex-wrap\\@landscape {\n    flex-wrap: wrap !important; }\n  .flex-nowrap\\@landscape {\n    flex-wrap: nowrap !important; }\n  .flex-wrap-reverse\\@landscape {\n    flex-wrap: wrap-reverse !important; } }\n\n.float-r {\n  float: right !important; }\n\n.float-l {\n  float: left !important; }\n\n.m-0 {\n  margin: 0 !important; }\n\n.m-025 {\n  margin: 0.25rem !important; }\n\n.m-05 {\n  margin: 0.5rem !important; }\n\n.m-1 {\n  margin: 1rem !important; }\n\n.m-2 {\n  margin: 2rem !important; }\n\n.m-3 {\n  margin: 3rem !important; }\n\n.m-4 {\n  margin: 4rem !important; }\n\n.m-5 {\n  margin: 5rem !important; }\n\n.m-auto {\n  margin: auto !important; }\n\n.mx-auto {\n  margin-left: auto !important;\n  margin-right: auto !important; }\n\n.mx-0 {\n  margin-left: 0 !important;\n  margin-right: 0 !important; }\n\n.mx-025 {\n  margin-left: 0.25rem !important;\n  margin-right: 0.25rem !important; }\n\n.mx-05 {\n  margin-left: 0.5rem !important;\n  margin-right: 0.5rem !important; }\n\n.mx-075 {\n  margin-left: 0.75rem !important;\n  margin-right: 0.75rem !important; }\n\n.mx-1 {\n  margin-left: 1rem !important;\n  margin-right: 1rem !important; }\n\n.mx-2 {\n  margin-left: 2rem !important;\n  margin-right: 2rem !important; }\n\n.mx-3 {\n  margin-left: 3rem !important;\n  margin-right: 3rem !important; }\n\n.mx-4 {\n  margin-left: 4rem !important;\n  margin-right: 4rem !important; }\n\n.mx-5 {\n  margin-left: 5rem !important;\n  margin-right: 5rem !important; }\n\n.mx-6 {\n  margin-left: 6rem !important;\n  margin-right: 6rem !important; }\n\n.mx-7 {\n  margin-left: 7rem !important;\n  margin-right: 7rem !important; }\n\n.mx-8 {\n  margin-left: 8rem !important;\n  margin-right: 8rem !important; }\n\n.mx-9 {\n  margin-left: 9rem !important;\n  margin-right: 9rem !important; }\n\n.mx-10 {\n  margin-left: 10rem !important;\n  margin-right: 10rem !important; }\n\n.mx-11 {\n  margin-left: 11rem !important;\n  margin-right: 11rem !important; }\n\n.mx-12 {\n  margin-left: 12rem !important;\n  margin-right: 12rem !important; }\n\n.mx-13 {\n  margin-left: 13rem !important;\n  margin-right: 13rem !important; }\n\n.mx-14 {\n  margin-left: 14rem !important;\n  margin-right: 14rem !important; }\n\n.my-auto {\n  margin-bottom: auto !important;\n  margin-top: auto !important; }\n\n.my-0 {\n  margin-bottom: 0 !important;\n  margin-top: 0 !important; }\n\n.my-025 {\n  margin-bottom: 0.25rem !important;\n  margin-top: 0.25rem !important; }\n\n.my-05 {\n  margin-bottom: 0.5rem !important;\n  margin-top: 0.5rem !important; }\n\n.my-075 {\n  margin-bottom: 0.75rem !important;\n  margin-top: 0.75rem !important; }\n\n.my-1 {\n  margin-bottom: 1rem !important;\n  margin-top: 1rem !important; }\n\n.my-2 {\n  margin-bottom: 2rem !important;\n  margin-top: 2rem !important; }\n\n.my-3 {\n  margin-bottom: 3rem !important;\n  margin-top: 3rem !important; }\n\n.my-4 {\n  margin-bottom: 4rem !important;\n  margin-top: 4rem !important; }\n\n.my-5 {\n  margin-bottom: 5rem !important;\n  margin-top: 5rem !important; }\n\n.my-6 {\n  margin-bottom: 6rem !important;\n  margin-top: 6rem !important; }\n\n.my-6 {\n  margin-bottom: 6rem !important;\n  margin-top: 6rem !important; }\n\n.my-7 {\n  margin-bottom: 7rem !important;\n  margin-top: 7rem !important; }\n\n.my-8 {\n  margin-bottom: 8rem !important;\n  margin-top: 8rem !important; }\n\n.my-9 {\n  margin-bottom: 9rem !important;\n  margin-top: 9rem !important; }\n\n.my-10 {\n  margin-bottom: 10rem !important;\n  margin-top: 10rem !important; }\n\n.my-11 {\n  margin-bottom: 11rem !important;\n  margin-top: 11rem !important; }\n\n.my-12 {\n  margin-bottom: 12rem !important;\n  margin-top: 12rem !important; }\n\n.my-13 {\n  margin-bottom: 13rem !important;\n  margin-top: 13rem !important; }\n\n.my-14 {\n  margin-bottom: 14rem !important;\n  margin-top: 14rem !important; }\n\n.mt-auto {\n  margin-top: auto !important; }\n\n.mt-0 {\n  margin-top: 0 !important; }\n\n.mt-025 {\n  margin-top: 0.25rem !important; }\n\n.mt-05 {\n  margin-top: 0.5rem !important; }\n\n.mt-075 {\n  margin-top: 0.75rem !important; }\n\n.mt-1 {\n  margin-top: 1rem !important; }\n\n.mt-2 {\n  margin-top: 2rem !important; }\n\n.mt-3 {\n  margin-top: 3rem !important; }\n\n.mt-4 {\n  margin-top: 4rem !important; }\n\n.mt-5 {\n  margin-top: 5rem !important; }\n\n.mt-6 {\n  margin-top: 6rem !important; }\n\n.mt-7 {\n  margin-top: 7rem !important; }\n\n.mt-8 {\n  margin-top: 8rem !important; }\n\n.mt-9 {\n  margin-top: 9rem !important; }\n\n.mt-10 {\n  margin-top: 10rem !important; }\n\n.mt-11 {\n  margin-top: 11rem !important; }\n\n.mt-12 {\n  margin-top: 12rem !important; }\n\n.mt-13 {\n  margin-top: 13rem !important; }\n\n.mt-14 {\n  margin-top: 14rem !important; }\n\n.mb-auto {\n  margin-bottom: auto !important; }\n\n.mb-0 {\n  margin-bottom: 0 !important; }\n\n.mb-025 {\n  margin-bottom: 0.25rem !important; }\n\n.mb-05 {\n  margin-bottom: 0.5rem !important; }\n\n.mb-075 {\n  margin-bottom: 0.75rem !important; }\n\n.mb-1 {\n  margin-bottom: 1rem !important; }\n\n.mb-2 {\n  margin-bottom: 2rem !important; }\n\n.mb-3 {\n  margin-bottom: 3rem !important; }\n\n.mb-4 {\n  margin-bottom: 4rem !important; }\n\n.mb-5 {\n  margin-bottom: 5rem !important; }\n\n.mb-6 {\n  margin-bottom: 6rem !important; }\n\n.mb-7 {\n  margin-bottom: 7rem !important; }\n\n.mb-8 {\n  margin-bottom: 8rem !important; }\n\n.mb-9 {\n  margin-bottom: 9rem !important; }\n\n.mb-10 {\n  margin-bottom: 10rem !important; }\n\n.mb-11 {\n  margin-bottom: 11rem !important; }\n\n.mb-12 {\n  margin-bottom: 12rem !important; }\n\n.mb-13 {\n  margin-bottom: 13rem !important; }\n\n.mb-14 {\n  margin-bottom: 14rem !important; }\n\n.ml-auto {\n  margin-left: auto !important; }\n\n.ml-0 {\n  margin-left: 0 !important; }\n\n.ml-05 {\n  margin-left: 0.5rem !important; }\n\n.ml-1 {\n  margin-left: 1rem !important; }\n\n.ml-2 {\n  margin-left: 2rem !important; }\n\n.ml-3 {\n  margin-left: 3rem !important; }\n\n.ml-4 {\n  margin-left: 4rem !important; }\n\n.ml-5 {\n  margin-left: 5rem !important; }\n\n.ml-6 {\n  margin-left: 6rem !important; }\n\n.ml-7 {\n  margin-left: 7rem !important; }\n\n.ml-8 {\n  margin-left: 8rem !important; }\n\n.ml-9 {\n  margin-left: 9rem !important; }\n\n.ml-10 {\n  margin-left: 10rem !important; }\n\n.ml-11 {\n  margin-left: 11rem !important; }\n\n.ml-12 {\n  margin-left: 12rem !important; }\n\n.ml-13 {\n  margin-left: 13rem !important; }\n\n.ml-14 {\n  margin-left: 14rem !important; }\n\n.mr-auto {\n  margin-right: auto !important; }\n\n.mr-0 {\n  margin-right: 0 !important; }\n\n.mr-05 {\n  margin-right: 0.5rem !important; }\n\n.mr-1 {\n  margin-right: 1rem !important; }\n\n.mr-2 {\n  margin-right: 2rem !important; }\n\n.mr-3 {\n  margin-right: 3rem !important; }\n\n.mr-4 {\n  margin-right: 4rem !important; }\n\n.mr-5 {\n  margin-right: 5rem !important; }\n\n.mr-6 {\n  margin-right: 6rem !important; }\n\n.mr-7 {\n  margin-right: 7rem !important; }\n\n.mr-8 {\n  margin-right: 8rem !important; }\n\n.mr-9 {\n  margin-right: 9rem !important; }\n\n.mr-10 {\n  margin-right: 10rem !important; }\n\n.mr-11 {\n  margin-right: 11rem !important; }\n\n.mr-12 {\n  margin-right: 12rem !important; }\n\n.mr-13 {\n  margin-right: 13rem !important; }\n\n.mr-14 {\n  margin-right: 14rem !important; }\n\n.p-0 {\n  padding: 0 !important; }\n\n.p-05 {\n  padding: 0.5rem !important; }\n\n.p-1 {\n  padding: 1rem !important; }\n\n.pt-0 {\n  padding-top: 0 !important; }\n\n.pt-1 {\n  padding-top: 1rem !important; }\n\n.pt-2 {\n  padding-top: 2rem !important; }\n\n.pt-3 {\n  padding-top: 3rem !important; }\n\n.pb-0 {\n  padding-bottom: 0 !important; }\n\n.pb-1 {\n  padding-bottom: 1rem !important; }\n\n.pb-2 {\n  padding-bottom: 2rem !important; }\n\n.pb-3 {\n  padding-bottom: 3rem !important; }\n\n.pl-0 {\n  padding-left: 0 !important; }\n\n.pl-1 {\n  padding-left: 1rem !important; }\n\n.pl-2 {\n  padding-left: 2rem !important; }\n\n.pl-3 {\n  padding-left: 3rem !important; }\n\n.pr-0 {\n  padding-right: 0 !important; }\n\n.pr-1 {\n  padding-right: 1rem !important; }\n\n.pr-2 {\n  padding-right: 2rem !important; }\n\n.pr-3 {\n  padding-right: 3rem !important; }\n\n.py-1 {\n  padding-bottom: 1rem !important;\n  padding-top: 1rem !important; }\n\n.py-2 {\n  padding-bottom: 2rem !important;\n  padding-top: 2rem !important; }\n\n.py-3 {\n  padding-bottom: 3rem !important;\n  padding-top: 3rem !important; }\n\n.py-4 {\n  padding-bottom: 4rem !important;\n  padding-top: 4rem !important; }\n\n.py-5 {\n  padding-bottom: 5rem !important;\n  padding-top: 5rem !important; }\n\n.py-6 {\n  padding-bottom: 6rem !important;\n  padding-top: 6rem !important; }\n\n.py-6 {\n  padding-bottom: 6rem !important;\n  padding-top: 6rem !important; }\n\n.py-7 {\n  padding-bottom: 7rem !important;\n  padding-top: 7rem !important; }\n\n.py-8 {\n  padding-bottom: 8rem !important;\n  padding-top: 8rem !important; }\n\n.py-9 {\n  padding-bottom: 9rem !important;\n  padding-top: 9rem !important; }\n\n.py-10 {\n  padding-bottom: 10rem !important;\n  padding-top: 10rem !important; }\n\n.py-11 {\n  padding-bottom: 11rem !important;\n  padding-top: 11rem !important; }\n\n.py-12 {\n  padding-bottom: 12rem !important;\n  padding-top: 12rem !important; }\n\n.py-13 {\n  padding-bottom: 13rem !important;\n  padding-top: 13rem !important; }\n\n.py-14 {\n  padding-bottom: 14rem !important;\n  padding-top: 14rem !important; }\n\n/* WIDTH AND HEIGHT */\n.w-100 {\n  width: 100% !important; }\n\n.w-50 {\n  width: 50% !important; }\n\n.h-100 {\n  height: 100% !important; }\n\n.h-50 {\n  height: 50% !important; }\n\n.vw-100 {\n  width: 100vw !important; }\n\n.vh-100 {\n  height: 100vh !important; }\n\n.border {\n  border: 1px solid var(--border) !important; }\n\n.border-l {\n  border-left: 1px solid var(--border) !important; }\n\n.border-t {\n  border-top: 1px solid var(--border) !important; }\n\n.border-r {\n  border-right: 1px solid var(--border) !important; }\n\n.border-b {\n  border-bottom: 1px solid var(--border) !important; }\n\n.dash-border-b {\n  border-bottom: 1px dashed var(--grey-700) !important; }\n\n.bd-radius {\n  border-radius: var(--default-border-radius) !important; }\n\n/* debug helpers */\n.bd {\n  border: 1px solid lime !important; }\n\n.circular {\n  border-radius: 50%; }\n\n/* Uncomment below for x-ray vision */\n/* * {\n  border: 1px solid lime !important;\n} */\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {\n  .not-mobile-mr {\n    margin-right: 0 !important; }\n  .not-mobile-ml {\n    margin-left: 0 !important; } }\n\n@font-face {\n  font-family: \"Akkurat-Mono\";\n  src: url(../assets/fonts/AkkuratMono/AkkMo___.ttf) format(\"truetype\"), url(../assets/fonts/AkkuratMono/AkkMoE__.ttf) format(\"truetype\"); }\n\nhtml,\ninput {\n  font-family: \"Inter\", sans-serif; }\n\n@supports (font-variation-settings: normal) {\n  html {\n    font-family: \"Inter var\", sans-serif; } }\n\nbody {\n  font-weight: 300;\n  font-size: var(--default-font-size);\n  color: #121111; }\n\n/* Override browser focus ring color */\n:focus {\n  outline: none !important; }\n\nul {\n  padding-left: 0; }\n\na {\n  color: inherit;\n  text-decoration: none; }\n\ninput {\n  font-weight: 300;\n  font-feature-settings: \"tnum\" 1; }\n\ninput::-webkit-inner-spin-button {\n  -webkit-appearance: none; }\n\ninput::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0; }\n";
-styleInject(css$5);
-
-var Miscellaneous;
-
-(function (Miscellaneous) {
-  Miscellaneous["defaultBorderRadius"] = "4px";
-  Miscellaneous["disabledOpacity"] = "0.45";
-  Miscellaneous["gutter"] = "16px";
-})(Miscellaneous || (Miscellaneous = {}));
-
-var variablesString = "\n  :root {\n    " + generateCssVariables(BoxShadow$1) + "\n    " + generateCssVariables(Color$1) + "\n    " + generateCssVariables(Font$1) + "\n    " + generateCssVariables(Miscellaneous) + "\n  }\n";
-
-var CssVariables = function () {
-  return React.createElement("style", null, variablesString);
-};
-
-function generateCssVariables(VariablesEnum) {
-  var names = Object.keys(VariablesEnum).filter(function (name) {
-    return name.indexOf("hsl(");
-  });
-  var cssVariables = names.reduce(function (accumulatedStyles, name) {
-    var variableName = kebabCase(name);
-    var value = VariablesEnum[name];
-    return accumulatedStyles + "\n      --" + variableName + ": " + value + ";\n    ";
-  }, "");
-  return cssVariables;
-} // generateCssVariables will return a string that looks something like whats below
-
-var css$6 = ".Segment-module_SplitButtonSegment__ArSv1:hover, .Segment-module_SplitButtonSegment__ArSv1:focus {\n  -webkit-filter: brightness(90%);\n          filter: brightness(90%); }\n\n.Segment-module_SplitButtonSegment__ArSv1:first-of-type {\n  border-top-left-radius: var(--default-border-radius);\n  border-bottom-left-radius: var(--default-border-radius); }\n\n.Segment-module_SplitButtonSegment__ArSv1:last-of-type {\n  border-top-right-radius: var(--default-border-radius);\n  border-bottom-right-radius: var(--default-border-radius); }\n";
-var styles$2 = {"SplitButtonSegment":"Segment-module_SplitButtonSegment__ArSv1"};
-styleInject(css$6);
-
-var Segment =
+var Segment$1 =
 /** @class */
 function (_super) {
   __extends(Segment, _super);
@@ -2103,7 +2415,7 @@ function (_super) {
       padding: "3px 11px"
     } : {};
     return React.createElement("button", _extends({}, restOfProps, {
-      className: styles$2.SplitButtonSegment,
+      className: styles$4.SplitButtonSegment,
       style: __assign({
         backgroundColor: backgroundColor,
         filter: hasFocus && selected ? "brightness(90%)" : "none",
@@ -2143,7 +2455,7 @@ var DefaultSplitButtons = function (props) {
       gridTemplateColumns: "repeat(" + numBtns + ", 1fr)"
     }
   }), labels.map(function (label, index) {
-    return React.createElement(Segment, {
+    return React.createElement(Segment$1, {
       key: label,
       color: color,
       style: segmentStyle,
@@ -2181,50 +2493,538 @@ function (_super) {
   return Split;
 }(Component);
 
-var css$7 = ".ProgressBar-module_Bar__357tf {\n  width: 100%;\n  border-radius: 361px; }\n\n.ProgressBar-module_Progress__FcFUX {\n  position: relative;\n  top: 0;\n  height: 100%;\n  border-radius: 361px;\n  max-width: 100%; }\n";
-var styles$3 = {"Bar":"ProgressBar-module_Bar__357tf","Progress":"ProgressBar-module_Progress__FcFUX"};
-styleInject(css$7);
-
-var ProgressBar =
+var Buttons =
 /** @class */
 function (_super) {
-  __extends(ProgressBar, _super);
+  __extends(Buttons, _super);
 
-  function ProgressBar() {
+  function Buttons() {
     return _super !== null && _super.apply(this, arguments) || this;
   }
 
-  ProgressBar.prototype.render = function () {
+  Buttons.prototype.render = function () {
+    return React.createElement(Buttons.Secondary, this.props);
+  };
+
+  Buttons.Base = Base;
+  Buttons.Primary = Primary;
+  Buttons.Secondary = Secondary;
+  Buttons.Info = Info;
+  Buttons.Cancel = Cancel;
+  Buttons.Outline = Outline;
+  Buttons.Ghost = Ghost;
+  Buttons.PrimaryGhost = PrimaryGhostButton;
+  Buttons.CancelGhost = CancelGhostButton;
+  Buttons.Dropdown = Dropdown;
+  Buttons.Text = Text;
+  Buttons.Blank = Blank;
+  Buttons.FloatingAction = FloatingActionButton;
+  Buttons.Split = Split;
+  return Buttons;
+}(Component);
+
+var css$8 = ".Horizontal-module_CardHorizontal__2b_IU {\n  padding: 1rem;\n  background-color: var(--true-white);\n  width: 350px;\n  border-radius: var(--default-border-radius); }\n\n.Horizontal-module_CardHorizontalImage__3qOPi {\n  max-width: 150px;\n  max-height: 150px; }\n\n.Horizontal-module_CardAction__3GXRa {\n  transition: 100ms ease-in; }\n  .Horizontal-module_CardAction__3GXRa:hover {\n    color: var(--grey-800); }\n  .Horizontal-module_CardAction__3GXRa:not(:last-of-type) {\n    margin-right: 0.5rem; }\n";
+var styles$5 = {"CardHorizontal":"Horizontal-module_CardHorizontal__2b_IU","CardHorizontalImage":"Horizontal-module_CardHorizontalImage__3qOPi","CardAction":"Horizontal-module_CardAction__3GXRa"};
+styleInject(css$8);
+
+var Horizontal =
+/** @class */
+function (_super) {
+  __extends(Horizontal, _super);
+
+  function Horizontal() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Horizontal.prototype.render = function () {
     var _a = this.props,
-        barHeight = _a.barHeight,
-        barColor = _a.barColor,
-        progressColor = _a.progressColor,
-        progress = _a.progress;
-    return React.createElement("div", {
-      className: styles$3.Bar,
-      style: {
-        backgroundColor: barColor,
-        height: barHeight + "px"
+        title = _a.title,
+        subtitle = _a.subtitle,
+        meta = _a.meta,
+        titleLink = _a.titleLink,
+        imageUrl = _a.imageUrl,
+        avatar = _a.avatar,
+        actions = _a.actions,
+        className = _a.className,
+        style = _a.style,
+        children = _a.children,
+        elevation = _a.elevation;
+    var dpLevel = "dp" + elevation;
+    var actionList;
+
+    if (actions) {
+      actionList = actions.map(function (a) {
+        return React.createElement(Buttons.Text, {
+          className: styles$5.CardAction,
+          key: a.name,
+          onClick: function () {
+            return a.action();
+          },
+          fontSize: 12,
+          color: Color$1.iconGrey
+        }, a.name);
+      });
+    }
+
+    var titleLinkElement = function () {
+      if (titleLink) {
+        return React.createElement(Link$1, {
+          to: titleLink
+        }, React.createElement(Typography.HeadingTiny, {
+          block: true
+        }, title));
+      } else {
+        return React.createElement(Typography.HeadingTiny, {
+          block: true
+        }, title);
       }
+    };
+
+    var cardContent = React.createElement(React.Fragment, null, React.createElement("div", {
+      className: "flex w-100"
+    }, avatar && React.createElement(Avatar, {
+      size: 50,
+      src: imageUrl
+    }), !avatar && imageUrl && React.createElement("div", null, React.createElement("img", {
+      src: imageUrl,
+      className: styles$5.CardHorizontalImage
+    })), React.createElement("div", {
+      className: "flex w-100 ml-1"
     }, React.createElement("div", {
-      className: styles$3.Progress,
-      style: {
-        backgroundColor: progressColor,
-        width: progress + "%"
+      className: "ml-1 w-100"
+    }, titleLinkElement(), React.createElement(Typography, {
+      block: true
+    }, subtitle), meta && React.createElement(Typography.Small, {
+      muted: true
+    }, meta), children && children))));
+    return React.createElement("div", {
+      className: styles$5.CardHorizontal + " " + className,
+      style: __assign({}, style, {
+        boxShadow: BoxShadow$1[dpLevel] || BoxShadow$1.dp1
+      })
+    }, cardContent, actions && React.createElement("div", {
+      className: "flex justify-end items-center mt-05"
+    }, actionList));
+  };
+
+  Horizontal.defaultProps = {
+    elevation: 1
+  };
+  return Horizontal;
+}(PureComponent);
+
+var css$9 = ".Vertical-module_CardVertical__elna1 {\n  display: flex;\n  flex-direction: column;\n  background-color: var(--true-white);\n  max-width: 250px;\n  width: 250px;\n  border-radius: var(--default-border-radius); }\n  .Vertical-module_CardVertical__elna1 img {\n    border-top-left-radius: var(--default-border-radius);\n    border-top-right-radius: var(--default-border-radius); }\n\n.Vertical-module_CardAction__1QIBH {\n  color: var(--grey-600);\n  text-transform: uppercase;\n  letter-spacing: 0.05rem;\n  font-weight: 400;\n  font-size: 12px;\n  cursor: pointer;\n  transition: 100ms ease-in; }\n  .Vertical-module_CardAction__1QIBH:hover {\n    color: var(--grey-800); }\n  .Vertical-module_VerticalCard__qsJ7L .Vertical-module_CardAction__1QIBH {\n    margin-right: 1rem; }\n";
+var styles$6 = {"CardVertical":"Vertical-module_CardVertical__elna1","CardAction":"Vertical-module_CardAction__1QIBH","VerticalCard":"Vertical-module_VerticalCard__qsJ7L"};
+styleInject(css$9);
+
+var Vertical =
+/** @class */
+function (_super) {
+  __extends(Vertical, _super);
+
+  function Vertical() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Vertical.prototype.render = function () {
+    var _a = this.props,
+        title = _a.title,
+        centered = _a.centered,
+        titleLink = _a.titleLink,
+        subtitle = _a.subtitle,
+        meta = _a.meta,
+        actions = _a.actions,
+        imageUrl = _a.imageUrl,
+        avatar = _a.avatar,
+        className = _a.className,
+        style = _a.style,
+        children = _a.children,
+        elevation = _a.elevation;
+    var dpLevel = "dp" + elevation;
+    var actionList;
+
+    if (actions) {
+      actionList = actions.map(function (a) {
+        return React.createElement("div", {
+          className: styles$6.CardAction,
+          key: a.name,
+          onClick: function () {
+            return a.action();
+          }
+        }, a.name);
+      });
+    }
+
+    var titleLinkElement = function () {
+      if (titleLink) {
+        return React.createElement(Link$1, {
+          to: titleLink
+        }, React.createElement(Typography.Large, {
+          block: true,
+          className: centered ? "text-center" : ""
+        }, title));
+      } else {
+        return React.createElement(Typography.Large, {
+          block: true,
+          className: centered ? "text-center" : ""
+        }, title);
       }
+    };
+
+    var cardContent = React.createElement(React.Fragment, null, React.createElement("div", {
+      className: "m-auto block"
+    }, avatar && React.createElement(Avatar, {
+      size: 150,
+      src: imageUrl,
+      className: "mt-1"
+    }), !avatar && imageUrl && React.createElement("div", null, React.createElement("img", {
+      src: imageUrl,
+      className: "p-1"
+    }))), React.createElement("div", {
+      className: "mx-1 mt-05"
+    }, titleLinkElement(), React.createElement(Typography.Small, {
+      block: true,
+      className: (centered ? "text-center" : "") + " mt-025"
+    }, subtitle), meta && React.createElement(Typography.Tiny, {
+      muted: true,
+      block: true,
+      className: (centered ? "text-center" : "") + " mt-025"
+    }, meta), children && React.createElement("div", {
+      className: "mt-1"
+    }, children), actions && React.createElement("div", {
+      className: "flex justify-evenly mt-1"
+    }, actionList)));
+    return React.createElement("div", {
+      className: styles$6.CardVertical + " " + className + " pb-1",
+      style: __assign({}, style, {
+        boxShadow: BoxShadow$1[dpLevel] || BoxShadow$1.dp1
+      })
+    }, cardContent);
+  };
+
+  Vertical.defaultProps = {
+    elevation: 1
+  };
+  return Vertical;
+}(PureComponent);
+
+var Card = {
+  Horizontal: Horizontal,
+  Vertical: Vertical
+};
+
+var paddingVertical = function (top, bottom) {
+  if (bottom === void 0) {
+    bottom = top;
+  }
+
+  return {
+    paddingTop: top,
+    paddingBottom: bottom
+  };
+};
+var paddingHorizontal = function (left, right) {
+  if (right === void 0) {
+    right = left;
+  }
+
+  return {
+    paddingLeft: left,
+    paddingRight: right
+  };
+};
+var marginVertical = function (top, bottom) {
+  if (bottom === void 0) {
+    bottom = top;
+  }
+
+  return {
+    marginTop: top,
+    marginBottom: bottom
+  };
+};
+var marginHorizontal = function (left, right) {
+  if (right === void 0) {
+    right = left;
+  }
+
+  return {
+    marginLeft: left,
+    marginRight: right
+  };
+};
+var size = function (height, width) {
+  if (width === void 0) {
+    width = height;
+  }
+
+  return {
+    height: width,
+    width: height
+  };
+};
+
+var transition = "0.2s ease-in-out";
+
+var btnInputStyle = __assign({}, size(26), {
+  outline: "none",
+  borderRadius: "50%",
+  padding: 10,
+  transition: transition
+});
+
+var expandedInputStyles = {
+  outline: "none",
+  height: 28,
+  width: 120,
+  borderRadius: 32,
+  padding: "3px 9px",
+  transition: transition
+};
+var defaultState = {
+  expanded: false
+};
+
+var AddChipInput =
+/** @class */
+function (_super) {
+  __extends(AddChipInput, _super);
+
+  function AddChipInput(props) {
+    var _this = _super.call(this, props) || this;
+
+    _this.state = defaultState;
+
+    _this.toggleState = function () {
+      _this.setState(function (_a) {
+        var expanded = _a.expanded;
+        return {
+          expanded: !expanded
+        };
+      });
+    };
+
+    _this._input = React.createRef();
+    return _this;
+  }
+
+  AddChipInput.prototype.render = function () {
+    var _this = this;
+
+    var _a = this.props,
+        className = _a.className,
+        _b = _a.style,
+        style = _b === void 0 ? {} : _b,
+        restProps = __rest(_a, ["className", "style"]);
+
+    var expanded = this.state.expanded;
+    var defaultIconStyle = {
+      position: "absolute",
+      cursor: "pointer",
+      height: 13,
+      transition: transition
+    };
+    var iconStyles = expanded ? __assign({}, defaultIconStyle, {
+      left: 49,
+      top: 6,
+      transform: "translate(50px, 0) rotate(45deg)"
+    }) : __assign({}, defaultIconStyle, {
+      left: 5.3,
+      top: 5.4
+    });
+    var inputRef = this._input.current;
+
+    if (inputRef) {
+      expanded ? inputRef.focus() : inputRef.blur();
+    }
+
+    var onBlur = restProps.onBlur,
+        onFocus = restProps.onFocus,
+        inputProps = __rest(restProps, ["onBlur", "onFocus"]);
+
+    return React.createElement("div", {
+      style: __assign({}, style, {
+        position: "relative"
+      }),
+      className: className
+    }, React.createElement("input", _extends({}, inputProps, {
+      className: "border",
+      style: expanded ? expandedInputStyles : btnInputStyle,
+      ref: this._input,
+      onFocus: function (e) {
+        onFocus && onFocus(e);
+
+        _this.setState({
+          expanded: true
+        });
+      },
+      onBlur: function (e) {
+        onBlur && onBlur(e);
+
+        _this.setState({
+          expanded: false
+        });
+      }
+    })), React.createElement(Icon.Add, {
+      size: 16.5,
+      onClick: this.toggleState,
+      style: iconStyles
     }));
   };
 
-  ProgressBar.defaultProps = {
-    barHeight: 8,
-    barColor: Color$1.green200,
-    progressColor: Color$1.primaryGreen
-  };
-  return ProgressBar;
-}(React.PureComponent);
+  return AddChipInput;
+}(React.Component);
 
-var css$8 = ".FloatingLabelWrapper input,\n.FloatingLabelWrapper textarea {\n  border: none;\n  font-size: var(--default-font-size); }\n\n.FloatingLabelWrapper input {\n  padding: 12px 10px; }\n\n.FloatingLabelWrapper label {\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  transition: 100ms ease all;\n  border-radius: none;\n  line-height: 100%; }\n\n.FloatingLabelWrapper.GenericInput .inputWrapper, .FloatingLabelWrapper.ContrastInput .inputWrapper {\n  height: 100%; }\n  .FloatingLabelWrapper.GenericInput .inputWrapper input:focus ~ .bar:before, .FloatingLabelWrapper.ContrastInput .inputWrapper input:focus ~ .bar:before {\n    width: 100%; }\n  .FloatingLabelWrapper.GenericInput .inputWrapper.error,\n  .FloatingLabelWrapper.GenericInput .inputWrapper.error input, .FloatingLabelWrapper.ContrastInput .inputWrapper.error,\n  .FloatingLabelWrapper.ContrastInput .inputWrapper.error input {\n    background-color: var(--red-200); }\n\n.FloatingLabelWrapper.GenericInput .bar, .FloatingLabelWrapper.ContrastInput .bar {\n  position: relative;\n  display: block;\n  width: 100%; }\n  .FloatingLabelWrapper.GenericInput .bar:before, .FloatingLabelWrapper.ContrastInput .bar:before {\n    content: \"\";\n    height: 2px;\n    width: 0;\n    bottom: 0;\n    position: absolute;\n    background: var(--primary-green);\n    transition: 150ms ease all; }\n  .FloatingLabelWrapper.GenericInput .bar.focused:before, .FloatingLabelWrapper.ContrastInput .bar.focused:before {\n    width: 100%; }\n\n.FloatingLabelWrapper.GenericInput .inputWrapper {\n  position: relative;\n  width: 100%;\n  display: block;\n  border-radius: var(--default-border-radius);\n  border: 1px solid var(--divider-grey);\n  background-color: var(--true-white); }\n  .FloatingLabelWrapper.GenericInput .inputWrapper input {\n    background-color: var(--true-white);\n    width: 100%;\n    height: 100%;\n    border-radius: var(--default-border-radius); }\n\n.FloatingLabelWrapper.GenericInput.inverted .inputWrapper {\n  background-color: var(--dark-black); }\n  .FloatingLabelWrapper.GenericInput.inverted .inputWrapper input {\n    background-color: var(--dark-black); }\n\n.FloatingLabelWrapper.GenericInput input[type=\"text\"],\n.FloatingLabelWrapper.GenericInput input[type=\"email\"],\n.FloatingLabelWrapper.GenericInput input[type=\"password\"] {\n  -webkit-appearance: none; }\n\n.FloatingLabelWrapper.GenericInput input[type=\"password\"] {\n  letter-spacing: 0.2rem; }\n\n.FloatingLabelWrapper.GenericInput label {\n  color: var(--grey-600); }\n  .FloatingLabelWrapper.GenericInput label.FloatedLabel {\n    top: 0;\n    font-size: 12px;\n    color: var(--grey-600);\n    padding-left: 4px;\n    padding-right: 4px; }\n\n.FloatingLabelWrapper.ContrastInput .inputWrapper {\n  position: relative;\n  width: 100%;\n  display: block;\n  border-radius: var(--default-border-radius);\n  border: none;\n  background-color: var(--grey-300); }\n  .FloatingLabelWrapper.ContrastInput .inputWrapper input {\n    background-color: var(--grey-300);\n    width: 100%;\n    height: 100%;\n    border-radius: var(--default-border-radius);\n    padding: 16px 10px 8px 10px; }\n\n.FloatingLabelWrapper.ContrastInput input[type=\"text\"],\n.FloatingLabelWrapper.ContrastInput input[type=\"email\"],\n.FloatingLabelWrapper.ContrastInput input[type=\"password\"] {\n  -webkit-appearance: none; }\n\n.FloatingLabelWrapper.ContrastInput input[type=\"password\"] {\n  letter-spacing: 0.2rem; }\n\n.FloatingLabelWrapper.ContrastInput label {\n  background-color: transparent;\n  color: var(--grey-800);\n  top: 50%;\n  transform: translateY(-50%); }\n  .FloatingLabelWrapper.ContrastInput label.FloatedLabel {\n    top: 9px;\n    font-size: 12px; }\n";
-styleInject(css$8);
+var css$a = ".CohubChip {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  .CohubChip .clickable:hover, .CohubChip .clickable:focus {\n    transform: translate(0, -1px) !important; }\n  .CohubChip .clickable:focus {\n    background-color: inherit !important; }\n";
+styleInject(css$a);
+
+var Chip =
+/** @class */
+function (_super) {
+  __extends(Chip, _super);
+
+  function Chip() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Chip.prototype.render = function () {
+    var _a = this.props,
+        children = _a.children,
+        label = _a.label,
+        onClick = _a.onClick,
+        onDelete = _a.onDelete,
+        checked = _a.checked,
+        _b = _a.className,
+        className = _b === void 0 ? "" : _b,
+        backgroundColor = _a.backgroundColor,
+        style = _a.style,
+        size = _a.size;
+    var name = label || children;
+    var clickable = !!onClick;
+    var clickableClass = clickable ? "clickable" : "";
+    var iconName;
+
+    if (checked) {
+      iconName = "checkmark";
+    } else if (onDelete) {
+      iconName = "close";
+    }
+
+    var padding = size / 2 + "px " + size + "px";
+    return React.createElement("div", {
+      className: "CohubChip " + clickableClass + " " + className,
+      style: __assign({
+        backgroundColor: backgroundColor,
+        borderRadius: "361px",
+        display: "inline-block",
+        padding: padding
+      }, style),
+      onClick: onClick,
+      tabIndex: clickable ? 0 : undefined
+    }, React.createElement("div", {
+      className: "flex justify-center items-center h-100",
+      style: {
+        cursor: clickable ? "pointer" : "inherit"
+      }
+    }, React.createElement(Typography.Small, null, name), iconName && React.createElement(Icon, {
+      onClick: function (e) {
+        return onDelete && onDelete(e);
+      },
+      size: 16,
+      name: iconName,
+      className: "ml-05",
+      color: Color$1.grey800
+    })));
+  };
+
+  Chip.Add = AddChipInput;
+  Chip.defaultProps = {
+    size: 12,
+    backgroundColor: Color$1.grey300
+  };
+  return Chip;
+}(Component);
+
+var css$b = "@import url(\"https://use.typekit.net/hpb8lqb.css\");\n@import url(\"https://rsms.me/inter/inter.css\");\nhtml {\n  box-sizing: border-box; }\n\n*,\n*::before,\n*::after {\n  box-sizing: inherit; }\n\n/* TYPOGRAPHY */\n.small-body-text {\n  font-size: var(--small-body-text) !important; }\n\n.tiny-body-text {\n  font-size: var(--tiny-body-text) !important; }\n\n.uppercase {\n  text-transform: uppercase !important; }\n\n/* TEXT ALIGNMENT */\n.text-left {\n  text-align: left !important; }\n\n.text-center {\n  text-align: center !important; }\n\n.text-right {\n  text-align: right !important; }\n\n/* CURSOR */\n.cursor-pointer {\n  cursor: pointer !important; }\n\n.block {\n  display: block !important; }\n\n/* FLEXBOX */\n.flex {\n  display: flex !important; }\n\n.inline-flex {\n  display: inline-flex !important; }\n\n.flex-row {\n  flex-direction: row !important; }\n\n.flex-row-reverse {\n  flex-direction: row-reverse !important; }\n\n.flex-column {\n  flex-direction: column !important; }\n\n.flex-column-reverse {\n  flex-direction: column-reverse !important; }\n\n.flex-wrap {\n  flex-wrap: wrap !important; }\n\n.flex-nowrap {\n  flex-wrap: nowrap !important; }\n\n.flex-wrap-reverse {\n  flex-wrap: wrap-reverse !important; }\n\n.free-top {\n  margin-top: auto !important; }\n\n.free-left {\n  margin-left: auto !important; }\n\n.free-right {\n  margin-right: auto !important; }\n\n.free-bottom {\n  margin-bottom: auto !important; }\n\n.order-before {\n  order: -1 !important; }\n\n.order-after {\n  order: 1 !important; }\n\n.items-start {\n  align-items: flex-start !important; }\n\n.items-end {\n  align-items: flex-end !important; }\n\n.items-center {\n  align-items: center !important; }\n\n.items-baseline {\n  align-items: baseline !important; }\n\n.items-stretch {\n  align-items: stretch !important; }\n\n.self-center {\n  align-self: center !important; }\n\n.self-baseline {\n  align-self: baseline !important; }\n\n.self-stretch {\n  align-self: stretch !important; }\n\n.self-start {\n  align-self: flex-start !important; }\n\n.self-end {\n  align-self: flex-end !important; }\n\n.justify-start {\n  justify-content: flex-start !important; }\n\n.justify-end {\n  justify-content: flex-end !important; }\n\n.justify-center {\n  justify-content: center !important; }\n\n.justify-between {\n  justify-content: space-between !important; }\n\n.justify-around {\n  justify-content: space-around !important; }\n\n.justify-evenly {\n  justify-content: space-evenly !important; }\n\n.content-start {\n  align-content: flex-start !important; }\n\n.content-end {\n  align-content: flex-end !important; }\n\n.content-center {\n  align-content: center !important; }\n\n.content-between {\n  align-content: space-between !important; }\n\n.content-around {\n  align-content: space-around !important; }\n\n.content-stretch {\n  align-content: stretch !important; }\n\n.flex-min {\n  min-height: 0 !important;\n  min-width: 0 !important; }\n\n.flex-max {\n  max-height: 100% !important;\n  max-width: 100% !important; }\n\n.flex-golden {\n  flex: 0 1 61.803398875% !important; }\n\n.flex-initial {\n  flex: 0 1 auto !important; }\n\n.flex-auto {\n  flex: 1 1 auto !important; }\n\n.flex-none {\n  flex: 0 0 auto !important; }\n\n.flex-1 {\n  flex: 1 1 !important; }\n\n.flex-2 {\n  flex: 2 1 !important; }\n\n.flex-3 {\n  flex: 3 1 !important; }\n\n.flex-4 {\n  flex: 4 1 !important; }\n\n.flex-5 {\n  flex: 5 1 !important; }\n\n.flex-6 {\n  flex: 6 1 !important; }\n\n.flex-7 {\n  flex: 7 1 !important; }\n\n.flex-8 {\n  flex: 8 1 !important; }\n\n.flex-9 {\n  flex: 9 1 !important; }\n\n.flex-10 {\n  flex: 10 1 !important; }\n\n.flex-11 {\n  flex: 11 1 !important; }\n\n.flex-12 {\n  flex: 12 1 !important; }\n\n.grow-0 {\n  flex-grow: 0 !important; }\n\n.grow-1 {\n  flex-grow: 1 !important; }\n\n.grow-2 {\n  flex-grow: 2 !important; }\n\n.grow-3 {\n  flex-grow: 3 !important; }\n\n.grow-4 {\n  flex-grow: 4 !important; }\n\n.grow-5 {\n  flex-grow: 5 !important; }\n\n.grow-6 {\n  flex-grow: 6 !important; }\n\n.grow-7 {\n  flex-grow: 7 !important; }\n\n.grow-8 {\n  flex-grow: 8 !important; }\n\n.grow-9 {\n  flex-grow: 9 !important; }\n\n.grow-10 {\n  flex-grow: 10 !important; }\n\n.grow-11 {\n  flex-grow: 11 !important; }\n\n.grow-12 {\n  flex-grow: 12 !important; }\n\n.shrink-0 {\n  flex-shrink: 0 !important; }\n\n.shrink-1 {\n  flex-shrink: 1 !important; }\n\n.shrink-2 {\n  flex-shrink: 2 !important; }\n\n.shrink-3 {\n  flex-shrink: 3 !important; }\n\n.shrink-4 {\n  flex-shrink: 4 !important; }\n\n.shrink-5 {\n  flex-shrink: 5 !important; }\n\n.shrink-6 {\n  flex-shrink: 6 !important; }\n\n.shrink-7 {\n  flex-shrink: 7 !important; }\n\n.shrink-8 {\n  flex-shrink: 8 !important; }\n\n.shrink-9 {\n  flex-shrink: 9 !important; }\n\n.shrink-10 {\n  flex-shrink: 10 !important; }\n\n.shrink-11 {\n  flex-shrink: 11 !important; }\n\n.shrink-12 {\n  flex-shrink: 12 !important; }\n\n.basis-0 {\n  flex-basis: 0% !important; }\n\n.basis-1 {\n  flex-basis: 8.333333333% !important; }\n\n.basis-2 {\n  flex-basis: 16.6666666666% !important; }\n\n.basis-3 {\n  flex-basis: 25% !important; }\n\n.basis-4 {\n  flex-basis: 33.3333333333% !important; }\n\n.basis-5 {\n  flex-basis: 41.6666666666% !important; }\n\n.basis-6 {\n  flex-basis: 50% !important; }\n\n.basis-7 {\n  flex-basis: 58.333333333% !important; }\n\n.basis-8 {\n  flex-basis: 66.6666666666% !important; }\n\n.basis-9 {\n  flex-basis: 75% !important; }\n\n.basis-10 {\n  flex-basis: 83.3333333333% !important; }\n\n.basis-11 {\n  flex-basis: 91.6666666666% !important; }\n\n.basis-12 {\n  flex-basis: 100% !important; }\n\n.basis-100vw {\n  flex-basis: 100vw !important; }\n\n.basis-100vh {\n  flex-basis: 100vh !important; }\n\n.basis-100vmax {\n  flex-basis: 100vmax !important; }\n\n.basis-100vmin {\n  flex-basis: 100vmin !important; }\n\n.basis-golden {\n  flex-basis: 61.803398875% !important; }\n\n.basis-content {\n  flex-basis: content !important; }\n\n.basis-auto {\n  flex-basis: auto !important; }\n\n.inline-block {\n  display: inline-block; }\n\n.relative {\n  position: relative; }\n\n.absolute {\n  position: absolute; }\n\n@media (orientation: portrait) {\n  .flex\\@portrait {\n    display: flex !important; }\n  .inline-flex\\@portrait {\n    display: inline-flex !important; }\n  .flex-wrap\\@portrait {\n    flex-wrap: wrap !important; }\n  .flex-nowrap\\@portrait {\n    flex-wrap: nowrap !important; }\n  .flex-wrap-reverse\\@portrait {\n    flex-wrap: wrap-reverse !important; } }\n\n@media (orientation: landscape) {\n  .flex\\@landscape {\n    display: flex !important; }\n  .inline-flex\\@landscape {\n    display: inline-flex !important; }\n  .flex-wrap\\@landscape {\n    flex-wrap: wrap !important; }\n  .flex-nowrap\\@landscape {\n    flex-wrap: nowrap !important; }\n  .flex-wrap-reverse\\@landscape {\n    flex-wrap: wrap-reverse !important; } }\n\n.float-r {\n  float: right !important; }\n\n.float-l {\n  float: left !important; }\n\n.m-0 {\n  margin: 0 !important; }\n\n.m-025 {\n  margin: 0.25rem !important; }\n\n.m-05 {\n  margin: 0.5rem !important; }\n\n.m-1 {\n  margin: 1rem !important; }\n\n.m-2 {\n  margin: 2rem !important; }\n\n.m-3 {\n  margin: 3rem !important; }\n\n.m-4 {\n  margin: 4rem !important; }\n\n.m-5 {\n  margin: 5rem !important; }\n\n.m-auto {\n  margin: auto !important; }\n\n.mx-auto {\n  margin-left: auto !important;\n  margin-right: auto !important; }\n\n.mx-0 {\n  margin-left: 0 !important;\n  margin-right: 0 !important; }\n\n.mx-025 {\n  margin-left: 0.25rem !important;\n  margin-right: 0.25rem !important; }\n\n.mx-05 {\n  margin-left: 0.5rem !important;\n  margin-right: 0.5rem !important; }\n\n.mx-075 {\n  margin-left: 0.75rem !important;\n  margin-right: 0.75rem !important; }\n\n.mx-1 {\n  margin-left: 1rem !important;\n  margin-right: 1rem !important; }\n\n.mx-2 {\n  margin-left: 2rem !important;\n  margin-right: 2rem !important; }\n\n.mx-3 {\n  margin-left: 3rem !important;\n  margin-right: 3rem !important; }\n\n.mx-4 {\n  margin-left: 4rem !important;\n  margin-right: 4rem !important; }\n\n.mx-5 {\n  margin-left: 5rem !important;\n  margin-right: 5rem !important; }\n\n.mx-6 {\n  margin-left: 6rem !important;\n  margin-right: 6rem !important; }\n\n.mx-7 {\n  margin-left: 7rem !important;\n  margin-right: 7rem !important; }\n\n.mx-8 {\n  margin-left: 8rem !important;\n  margin-right: 8rem !important; }\n\n.mx-9 {\n  margin-left: 9rem !important;\n  margin-right: 9rem !important; }\n\n.mx-10 {\n  margin-left: 10rem !important;\n  margin-right: 10rem !important; }\n\n.mx-11 {\n  margin-left: 11rem !important;\n  margin-right: 11rem !important; }\n\n.mx-12 {\n  margin-left: 12rem !important;\n  margin-right: 12rem !important; }\n\n.mx-13 {\n  margin-left: 13rem !important;\n  margin-right: 13rem !important; }\n\n.mx-14 {\n  margin-left: 14rem !important;\n  margin-right: 14rem !important; }\n\n.my-auto {\n  margin-bottom: auto !important;\n  margin-top: auto !important; }\n\n.my-0 {\n  margin-bottom: 0 !important;\n  margin-top: 0 !important; }\n\n.my-025 {\n  margin-bottom: 0.25rem !important;\n  margin-top: 0.25rem !important; }\n\n.my-05 {\n  margin-bottom: 0.5rem !important;\n  margin-top: 0.5rem !important; }\n\n.my-075 {\n  margin-bottom: 0.75rem !important;\n  margin-top: 0.75rem !important; }\n\n.my-1 {\n  margin-bottom: 1rem !important;\n  margin-top: 1rem !important; }\n\n.my-2 {\n  margin-bottom: 2rem !important;\n  margin-top: 2rem !important; }\n\n.my-3 {\n  margin-bottom: 3rem !important;\n  margin-top: 3rem !important; }\n\n.my-4 {\n  margin-bottom: 4rem !important;\n  margin-top: 4rem !important; }\n\n.my-5 {\n  margin-bottom: 5rem !important;\n  margin-top: 5rem !important; }\n\n.my-6 {\n  margin-bottom: 6rem !important;\n  margin-top: 6rem !important; }\n\n.my-6 {\n  margin-bottom: 6rem !important;\n  margin-top: 6rem !important; }\n\n.my-7 {\n  margin-bottom: 7rem !important;\n  margin-top: 7rem !important; }\n\n.my-8 {\n  margin-bottom: 8rem !important;\n  margin-top: 8rem !important; }\n\n.my-9 {\n  margin-bottom: 9rem !important;\n  margin-top: 9rem !important; }\n\n.my-10 {\n  margin-bottom: 10rem !important;\n  margin-top: 10rem !important; }\n\n.my-11 {\n  margin-bottom: 11rem !important;\n  margin-top: 11rem !important; }\n\n.my-12 {\n  margin-bottom: 12rem !important;\n  margin-top: 12rem !important; }\n\n.my-13 {\n  margin-bottom: 13rem !important;\n  margin-top: 13rem !important; }\n\n.my-14 {\n  margin-bottom: 14rem !important;\n  margin-top: 14rem !important; }\n\n.mt-auto {\n  margin-top: auto !important; }\n\n.mt-0 {\n  margin-top: 0 !important; }\n\n.mt-025 {\n  margin-top: 0.25rem !important; }\n\n.mt-05 {\n  margin-top: 0.5rem !important; }\n\n.mt-075 {\n  margin-top: 0.75rem !important; }\n\n.mt-1 {\n  margin-top: 1rem !important; }\n\n.mt-2 {\n  margin-top: 2rem !important; }\n\n.mt-3 {\n  margin-top: 3rem !important; }\n\n.mt-4 {\n  margin-top: 4rem !important; }\n\n.mt-5 {\n  margin-top: 5rem !important; }\n\n.mt-6 {\n  margin-top: 6rem !important; }\n\n.mt-7 {\n  margin-top: 7rem !important; }\n\n.mt-8 {\n  margin-top: 8rem !important; }\n\n.mt-9 {\n  margin-top: 9rem !important; }\n\n.mt-10 {\n  margin-top: 10rem !important; }\n\n.mt-11 {\n  margin-top: 11rem !important; }\n\n.mt-12 {\n  margin-top: 12rem !important; }\n\n.mt-13 {\n  margin-top: 13rem !important; }\n\n.mt-14 {\n  margin-top: 14rem !important; }\n\n.mb-auto {\n  margin-bottom: auto !important; }\n\n.mb-0 {\n  margin-bottom: 0 !important; }\n\n.mb-025 {\n  margin-bottom: 0.25rem !important; }\n\n.mb-05 {\n  margin-bottom: 0.5rem !important; }\n\n.mb-075 {\n  margin-bottom: 0.75rem !important; }\n\n.mb-1 {\n  margin-bottom: 1rem !important; }\n\n.mb-2 {\n  margin-bottom: 2rem !important; }\n\n.mb-3 {\n  margin-bottom: 3rem !important; }\n\n.mb-4 {\n  margin-bottom: 4rem !important; }\n\n.mb-5 {\n  margin-bottom: 5rem !important; }\n\n.mb-6 {\n  margin-bottom: 6rem !important; }\n\n.mb-7 {\n  margin-bottom: 7rem !important; }\n\n.mb-8 {\n  margin-bottom: 8rem !important; }\n\n.mb-9 {\n  margin-bottom: 9rem !important; }\n\n.mb-10 {\n  margin-bottom: 10rem !important; }\n\n.mb-11 {\n  margin-bottom: 11rem !important; }\n\n.mb-12 {\n  margin-bottom: 12rem !important; }\n\n.mb-13 {\n  margin-bottom: 13rem !important; }\n\n.mb-14 {\n  margin-bottom: 14rem !important; }\n\n.ml-auto {\n  margin-left: auto !important; }\n\n.ml-0 {\n  margin-left: 0 !important; }\n\n.ml-05 {\n  margin-left: 0.5rem !important; }\n\n.ml-1 {\n  margin-left: 1rem !important; }\n\n.ml-2 {\n  margin-left: 2rem !important; }\n\n.ml-3 {\n  margin-left: 3rem !important; }\n\n.ml-4 {\n  margin-left: 4rem !important; }\n\n.ml-5 {\n  margin-left: 5rem !important; }\n\n.ml-6 {\n  margin-left: 6rem !important; }\n\n.ml-7 {\n  margin-left: 7rem !important; }\n\n.ml-8 {\n  margin-left: 8rem !important; }\n\n.ml-9 {\n  margin-left: 9rem !important; }\n\n.ml-10 {\n  margin-left: 10rem !important; }\n\n.ml-11 {\n  margin-left: 11rem !important; }\n\n.ml-12 {\n  margin-left: 12rem !important; }\n\n.ml-13 {\n  margin-left: 13rem !important; }\n\n.ml-14 {\n  margin-left: 14rem !important; }\n\n.mr-auto {\n  margin-right: auto !important; }\n\n.mr-0 {\n  margin-right: 0 !important; }\n\n.mr-05 {\n  margin-right: 0.5rem !important; }\n\n.mr-1 {\n  margin-right: 1rem !important; }\n\n.mr-2 {\n  margin-right: 2rem !important; }\n\n.mr-3 {\n  margin-right: 3rem !important; }\n\n.mr-4 {\n  margin-right: 4rem !important; }\n\n.mr-5 {\n  margin-right: 5rem !important; }\n\n.mr-6 {\n  margin-right: 6rem !important; }\n\n.mr-7 {\n  margin-right: 7rem !important; }\n\n.mr-8 {\n  margin-right: 8rem !important; }\n\n.mr-9 {\n  margin-right: 9rem !important; }\n\n.mr-10 {\n  margin-right: 10rem !important; }\n\n.mr-11 {\n  margin-right: 11rem !important; }\n\n.mr-12 {\n  margin-right: 12rem !important; }\n\n.mr-13 {\n  margin-right: 13rem !important; }\n\n.mr-14 {\n  margin-right: 14rem !important; }\n\n.p-0 {\n  padding: 0 !important; }\n\n.p-05 {\n  padding: 0.5rem !important; }\n\n.p-1 {\n  padding: 1rem !important; }\n\n.pt-0 {\n  padding-top: 0 !important; }\n\n.pt-1 {\n  padding-top: 1rem !important; }\n\n.pt-2 {\n  padding-top: 2rem !important; }\n\n.pt-3 {\n  padding-top: 3rem !important; }\n\n.pb-0 {\n  padding-bottom: 0 !important; }\n\n.pb-1 {\n  padding-bottom: 1rem !important; }\n\n.pb-2 {\n  padding-bottom: 2rem !important; }\n\n.pb-3 {\n  padding-bottom: 3rem !important; }\n\n.pl-0 {\n  padding-left: 0 !important; }\n\n.pl-1 {\n  padding-left: 1rem !important; }\n\n.pl-2 {\n  padding-left: 2rem !important; }\n\n.pl-3 {\n  padding-left: 3rem !important; }\n\n.pr-0 {\n  padding-right: 0 !important; }\n\n.pr-1 {\n  padding-right: 1rem !important; }\n\n.pr-2 {\n  padding-right: 2rem !important; }\n\n.pr-3 {\n  padding-right: 3rem !important; }\n\n.py-1 {\n  padding-bottom: 1rem !important;\n  padding-top: 1rem !important; }\n\n.py-2 {\n  padding-bottom: 2rem !important;\n  padding-top: 2rem !important; }\n\n.py-3 {\n  padding-bottom: 3rem !important;\n  padding-top: 3rem !important; }\n\n.py-4 {\n  padding-bottom: 4rem !important;\n  padding-top: 4rem !important; }\n\n.py-5 {\n  padding-bottom: 5rem !important;\n  padding-top: 5rem !important; }\n\n.py-6 {\n  padding-bottom: 6rem !important;\n  padding-top: 6rem !important; }\n\n.py-6 {\n  padding-bottom: 6rem !important;\n  padding-top: 6rem !important; }\n\n.py-7 {\n  padding-bottom: 7rem !important;\n  padding-top: 7rem !important; }\n\n.py-8 {\n  padding-bottom: 8rem !important;\n  padding-top: 8rem !important; }\n\n.py-9 {\n  padding-bottom: 9rem !important;\n  padding-top: 9rem !important; }\n\n.py-10 {\n  padding-bottom: 10rem !important;\n  padding-top: 10rem !important; }\n\n.py-11 {\n  padding-bottom: 11rem !important;\n  padding-top: 11rem !important; }\n\n.py-12 {\n  padding-bottom: 12rem !important;\n  padding-top: 12rem !important; }\n\n.py-13 {\n  padding-bottom: 13rem !important;\n  padding-top: 13rem !important; }\n\n.py-14 {\n  padding-bottom: 14rem !important;\n  padding-top: 14rem !important; }\n\n/* WIDTH AND HEIGHT */\n.w-100 {\n  width: 100% !important; }\n\n.w-50 {\n  width: 50% !important; }\n\n.h-100 {\n  height: 100% !important; }\n\n.h-50 {\n  height: 50% !important; }\n\n.vw-100 {\n  width: 100vw !important; }\n\n.vh-100 {\n  height: 100vh !important; }\n\n.border {\n  border: 1px solid var(--border) !important; }\n\n.border-l {\n  border-left: 1px solid var(--border) !important; }\n\n.border-t {\n  border-top: 1px solid var(--border) !important; }\n\n.border-r {\n  border-right: 1px solid var(--border) !important; }\n\n.border-b {\n  border-bottom: 1px solid var(--border) !important; }\n\n.dash-border-b {\n  border-bottom: 1px dashed var(--grey-700) !important; }\n\n.bd-radius {\n  border-radius: var(--default-border-radius) !important; }\n\n/* debug helpers */\n.bd {\n  border: 1px solid lime !important; }\n\n.circular {\n  border-radius: 50%; }\n\n/* Uncomment below for x-ray vision */\n/* * {\n  border: 1px solid lime !important;\n} */\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {\n  .not-mobile-mr {\n    margin-right: 0 !important; }\n  .not-mobile-ml {\n    margin-left: 0 !important; } }\n\n@font-face {\n  font-family: \"Akkurat-Mono\";\n  src: url(../assets/fonts/AkkuratMono/AkkMo___.ttf) format(\"truetype\"), url(../assets/fonts/AkkuratMono/AkkMoE__.ttf) format(\"truetype\"); }\n\nhtml,\ninput {\n  font-family: \"Inter\", sans-serif; }\n\n@supports (font-variation-settings: normal) {\n  html {\n    font-family: \"Inter var\", sans-serif; } }\n\nbody {\n  font-weight: 300;\n  font-size: var(--default-font-size);\n  color: #121111; }\n\n/* Override browser focus ring color */\n:focus {\n  outline: none !important; }\n\nul {\n  padding-left: 0; }\n\na {\n  color: inherit;\n  text-decoration: none; }\n\ninput {\n  font-weight: 300;\n  font-feature-settings: \"tnum\" 1; }\n\ninput::-webkit-inner-spin-button {\n  -webkit-appearance: none; }\n\ninput::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0; }\n";
+styleInject(css$b);
+
+var Miscellaneous;
+
+(function (Miscellaneous) {
+  Miscellaneous["defaultBorderRadius"] = "4px";
+  Miscellaneous["disabledOpacity"] = "0.45";
+  Miscellaneous["gutter"] = "16px";
+})(Miscellaneous || (Miscellaneous = {}));
+
+var variablesString = "\n  :root {\n    " + generateCssVariables(BoxShadow$1) + "\n    " + generateCssVariables(Color$1) + "\n    " + generateCssVariables(Font$1) + "\n    " + generateCssVariables(Miscellaneous) + "\n  }\n";
+
+var CssVariables = function () {
+  return React.createElement("style", null, variablesString);
+};
+
+function generateCssVariables(VariablesEnum) {
+  var names = Object.keys(VariablesEnum).filter(function (name) {
+    return name.indexOf("hsl(");
+  });
+  var cssVariables = names.reduce(function (accumulatedStyles, name) {
+    var variableName = kebabCase(name);
+    var value = VariablesEnum[name];
+    return accumulatedStyles + "\n      --" + variableName + ": " + value + ";\n    ";
+  }, "");
+  return cssVariables;
+} // generateCssVariables will return a string that looks something like whats below
+
+function Divider(props) {
+  var _a = props.marginSize,
+      marginSize = _a === void 0 ? 2 : _a,
+      _b = props.marginTop,
+      marginTop = _b === void 0 ? marginSize : _b,
+      _c = props.marginBottom,
+      marginBottom = _c === void 0 ? marginSize : _c,
+      _d = props.showDividerLine,
+      showDividerLine = _d === void 0 ? true : _d,
+      className = props.className,
+      style = props.style;
+  return React.createElement("div", {
+    className: className,
+    style: __assign({
+      borderTop: showDividerLine ? "1px solid var(--border)" : undefined,
+      marginTop: (marginTop || 0) + "rem",
+      marginBottom: (marginBottom || 0) + "rem",
+      width: "100%"
+    }, style)
+  });
+}
+
+var css$c = ".FormGroup-module_base__3hXvl, .FormGroup-module_horizontal__M22Uj, .FormGroup-module_vertical__3U51_ {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n  width: 100%; }\n\n.FormGroup-module_horizontal__M22Uj > div {\n  margin-left: 0.5rem;\n  margin-right: 0.5rem; }\n\n.FormGroup-module_horizontal__M22Uj > :first-child {\n  margin-left: 0; }\n\n.FormGroup-module_horizontal__M22Uj > :last-child {\n  margin-right: 0; }\n\n.FormGroup-module_vertical__3U51_ {\n  flex-direction: column; }\n  .FormGroup-module_vertical__3U51_ > div {\n    margin-bottom: 1rem; }\n  .FormGroup-module_vertical__3U51_ > :last-child {\n    margin-bottom: 0; }\n";
+var styles$7 = {"base":"FormGroup-module_base__3hXvl","horizontal":"FormGroup-module_horizontal__M22Uj","vertical":"FormGroup-module_vertical__3U51_"};
+styleInject(css$c);
+
+var FormGroup =
+/** @class */
+function (_super) {
+  __extends(FormGroup, _super);
+
+  function FormGroup() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormGroup.prototype.render = function () {
+    var _a = this.props,
+        children = _a.children,
+        direction = _a.direction,
+        restProps = __rest(_a, ["children", "direction"]);
+
+    return React.createElement("div", _extends({
+      className: direction === "horizontal" ? styles$7.horizontal : styles$7.vertical
+    }, restProps), children);
+  };
+
+  FormGroup.defaultProps = {
+    direction: "horizontal"
+  };
+  return FormGroup;
+}(React.PureComponent);
 
 var defaultStyle = {
   color: Color$1.black,
@@ -2393,8 +3193,8 @@ function (_super) {
   return Base;
 }(React.PureComponent);
 
-var css$9 = ".CheckboxField-Container label {\n  font-size: var(--default-font-size); }\n\n.CheckboxField {\n  width: 20px;\n  height: 20px;\n  background-color: var(--grey-400);\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer; }\n  .CheckboxField:focus {\n    outline-width: 0; }\n";
-styleInject(css$9);
+var css$d = ".CheckboxField-Container label {\n  font-size: var(--default-font-size); }\n\n.CheckboxField {\n  width: 20px;\n  height: 20px;\n  background-color: var(--grey-400);\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer; }\n  .CheckboxField:focus {\n    outline-width: 0; }\n";
+styleInject(css$d);
 
 var Checkbox =
 /** @class */
@@ -2438,9 +3238,9 @@ function (_super) {
   return Checkbox;
 }(React.Component);
 
-var css$a = ".styles-module_input__28syv input {\n  border: none; }\n";
-var styles$4 = {"input":"styles-module_input__28syv"};
-styleInject(css$a);
+var css$e = ".styles-module_input__28syv input {\n  border: none; }\n";
+var styles$8 = {"input":"styles-module_input__28syv"};
+styleInject(css$e);
 
 function DecimalInput(_a) {
   var input = _a.input,
@@ -2456,7 +3256,7 @@ function DecimalInput(_a) {
 
   var showError = !!(meta && meta.touched && meta.error);
   return React.createElement("span", _extends({
-    className: styles$4.input,
+    className: styles$8.input,
     "data-qa": dataQa
   }, spanProps), React.createElement(FloatingLabelWrapper, _extends({}, input, {
     label: label,
@@ -2592,13 +3392,13 @@ var charsArePresent = function (string) {
 };
 
 var InputValidationsToExport = /*#__PURE__*/Object.freeze({
-    composeValidators: composeValidators,
-    required: required,
-    minLength: minLength,
-    minValue: minValue,
-    length: length,
-    email: email,
-    isInt: isInt
+  composeValidators: composeValidators,
+  required: required,
+  minLength: minLength,
+  minValue: minValue,
+  length: length,
+  email: email,
+  isInt: isInt
 });
 
 function calculateMonth(month, year) {
@@ -2655,108 +3455,12 @@ var optionTransitionTime = 200;
 var showPickerTransitionTime = 250;
 var switchPickerTransitionTime = 350;
 var timeItTakesForAllTransitionsToComplete = optionTransitionTime + showPickerTransitionTime;
-var transition = "all " + optionTransitionTime + "ms ease-in-out";
+var transition$1 = "all " + optionTransitionTime + "ms ease-in-out";
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-var paddingVertical = function (top, bottom) {
-  if (bottom === void 0) {
-    bottom = top;
-  }
-
-  return {
-    paddingTop: top,
-    paddingBottom: bottom
-  };
-};
-var paddingHorizontal = function (left, right) {
-  if (right === void 0) {
-    right = left;
-  }
-
-  return {
-    paddingLeft: left,
-    paddingRight: right
-  };
-};
-var marginVertical = function (top, bottom) {
-  if (bottom === void 0) {
-    bottom = top;
-  }
-
-  return {
-    marginTop: top,
-    marginBottom: bottom
-  };
-};
-var marginHorizontal = function (left, right) {
-  if (right === void 0) {
-    right = left;
-  }
-
-  return {
-    marginLeft: left,
-    marginRight: right
-  };
-};
-var size = function (height, width) {
-  if (width === void 0) {
-    width = height;
-  }
-
-  return {
-    height: width,
-    width: height
-  };
-};
-
-var css$b = ".Segment-module_CohubSegment__3MMwJ {\n  background-color: var(--true-white);\n  border-radius: var(--default-border-radius);\n  transition: 100ms ease-in; }\n\n.Segment-module_padded__39Fvk {\n  padding: 1rem; }\n";
-var styles$5 = {"CohubSegment":"Segment-module_CohubSegment__3MMwJ","padded":"Segment-module_padded__39Fvk"};
-styleInject(css$b);
-
-var Segment$1 =
-/** @class */
-function (_super) {
-  __extends(Segment, _super);
-
-  function Segment() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Segment.prototype.render = function () {
-    var _a = this.props,
-        className = _a.className,
-        elevation = _a.elevation,
-        style = _a.style,
-        children = _a.children,
-        padded = _a.padded,
-        contrast = _a.contrast,
-        bordered = _a.bordered,
-        rest = __rest(_a, ["className", "elevation", "style", "children", "padded", "contrast", "bordered"]);
-
-    var dpLevel = contrast || bordered ? "dp0" : "dp" + elevation;
-    var classes = styles$5.CohubSegment + " " + (padded ? styles$5.padded : "") + " " + className;
-    return React.createElement("div", _extends({}, rest, {
-      className: classes,
-      style: __assign({
-        boxShadow: BoxShadow$1[dpLevel],
-        border: bordered ? "1px solid var(--border)" : "",
-        backgroundColor: contrast ? Color$1.grey200 : Color$1.trueWhite
-      }, style)
-    }), children);
-  };
-
-  Segment.defaultProps = {
-    elevation: 1,
-    padded: true,
-    className: "",
-    bordered: false
-  };
-  return Segment;
-}(PureComponent);
-
-var css$c = ".shared-module_focusable__21z-_ {\n  border: 1px solid transparent; }\n  .shared-module_focusable__21z-_:focus {\n    border-color: var(--green-400); }\n\n.shared-module_selected__r6FXS:focus {\n  box-shadow: 0 0 0 1px var(--green-400); }\n";
-var styles$6 = {"focusable":"shared-module_focusable__21z-_","selected":"shared-module_selected__r6FXS"};
-styleInject(css$c);
+var css$f = ".shared-module_focusable__21z-_ {\n  border: 1px solid transparent; }\n  .shared-module_focusable__21z-_:focus {\n    border-color: var(--green-400); }\n\n.shared-module_selected__r6FXS:focus {\n  box-shadow: 0 0 0 1px var(--green-400); }\n";
+var styles$9 = {"focusable":"shared-module_focusable__21z-_","selected":"shared-module_selected__r6FXS"};
+styleInject(css$f);
 
 function Option(_a) {
   var children = _a.children,
@@ -2770,7 +3474,7 @@ function Option(_a) {
     borderRadius: "361px",
     padding: "4px 12px",
     backgroundColor: Color$1.highlightGrey,
-    transition: transition
+    transition: transition$1
   };
   var color;
 
@@ -2792,7 +3496,7 @@ function Option(_a) {
   }
 
   return React.createElement(Buttons.Blank, {
-    className: styles$6.focusable + " " + (selected ? styles$6.selected : "") + " w-100 flex justify-center items-center",
+    className: styles$9.focusable + " " + (selected ? styles$9.selected : "") + " w-100 flex justify-center items-center",
     style: style,
     onClick: function (e) {
       refObj.current && refObj.current.blur();
@@ -3034,7 +3738,7 @@ function Day(_a) {
     }
   };
 
-  var classes = styles$6.focusable + " " + (selected ? styles$6.selected : "") + " flex justify-center items-center";
+  var classes = styles$9.focusable + " " + (selected ? styles$9.selected : "") + " flex justify-center items-center";
   return React.createElement("div", {
     className: "flex justify-center items-center"
   }, React.createElement(Buttons.Blank, {
@@ -3042,7 +3746,7 @@ function Day(_a) {
     style: __assign({}, size(25), {
       borderRadius: "50%",
       backgroundColor: selected ? Color$1.green400 : "transparent",
-      transition: transition
+      transition: transition$1
     }),
     onClick: function () {
       buttonRef.current && buttonRef.current.blur();
@@ -3288,9 +3992,9 @@ function generateListOfYears(_a, _b) {
   return buildYearList();
 }
 
-var css$d = ".SectionNavigation-module_action__wr6E9 {\n  position: relative; }\n\n.SectionNavigation-module_action__wr6E9:before {\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 1px;\n  bottom: -0.1em;\n  left: 0;\n  background-color: currentcolor;\n  visibility: hidden;\n  transform: scaleX(0);\n  transition: all 200ms ease-in-out 0s;\n  transition-duration: 200ms; }\n\n.SectionNavigation-module_active__3scI6:before {\n  visibility: visible;\n  height: 1px;\n  transform: scaleX(1); }\n";
-var styles$7 = {"action":"SectionNavigation-module_action__wr6E9","active":"SectionNavigation-module_active__3scI6"};
-styleInject(css$d);
+var css$g = ".SectionNavigation-module_action__wr6E9 {\n  position: relative; }\n\n.SectionNavigation-module_action__wr6E9:before {\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 1px;\n  bottom: -0.1em;\n  left: 0;\n  background-color: currentcolor;\n  visibility: hidden;\n  transform: scaleX(0);\n  transition: all 200ms ease-in-out 0s;\n  transition-duration: 200ms; }\n\n.SectionNavigation-module_active__3scI6:before {\n  visibility: visible;\n  height: 1px;\n  transform: scaleX(1); }\n";
+var styles$a = {"action":"SectionNavigation-module_action__wr6E9","active":"SectionNavigation-module_active__3scI6"};
+styleInject(css$g);
 
 function DateHeader(_a) {
   var picker = _a.picker,
@@ -3382,7 +4086,7 @@ function DateUnitButton(_a) {
   return React.createElement(Buttons.Blank, {
     tabIndex: -1,
     onClick: onClick,
-    className: styles$7.action + " " + (active ? styles$7.active : "")
+    className: styles$a.action + " " + (active ? styles$a.active : "")
   }, React.createElement(Typography, {
     bold: true
   }, children));
@@ -3409,7 +4113,7 @@ function Picker(props) {
     height: height,
     easing: "ease-in",
     "data-testid": "pickerContainer"
-  }, React.createElement(Segment$1, {
+  }, React.createElement(Segment, {
     style: {
       position: "relative",
       display: "inline-block"
@@ -3483,9 +4187,9 @@ function getOffset(picker) {
   return stepIndex * sectionSize;
 }
 
-var css$e = ".LowLevelDatePicker-module_input__JwcFZ {\n  border: none;\n  background-color: transparent; }\n";
-var styles$8 = {"input":"LowLevelDatePicker-module_input__JwcFZ"};
-styleInject(css$e);
+var css$h = ".LowLevelDatePicker-module_input__JwcFZ {\n  border: none;\n  background-color: transparent; }\n";
+var styles$b = {"input":"LowLevelDatePicker-module_input__JwcFZ"};
+styleInject(css$h);
 
 function useAttentionWithin(ref, lostAttention) {
   var _a = useState(false),
@@ -3651,7 +4355,7 @@ function LowLevelDatePicker(props) {
     ref: thisRef
   }, React.createElement(NumberFormat, _extends({}, restProps, {
     value: inputValue,
-    className: "LowLevelDatePickerInput " + styles$8.input,
+    className: "LowLevelDatePickerInput " + styles$b.input,
     displayType: "input",
     format: "##-##-####",
     mask: ["M", "M", "D", "D", "Y", "Y", "Y", "Y"],
@@ -4062,8 +4766,8 @@ var Date$2 = function (_a) {
   }));
 };
 
-var css$f = ".CohubMoneyInput input {\n  border: none; }\n";
-styleInject(css$f);
+var css$i = ".CohubMoneyInput input {\n  border: none; }\n";
+styleInject(css$i);
 
 var MoneyInput =
 /** @class */
@@ -4122,8 +4826,8 @@ function (_super) {
   return MoneyInput;
 }(PureComponent);
 
-var css$g = ".MultiselectField {\n  position: relative;\n  width: 100%; }\n  .MultiselectField.GenericInput > div {\n    background: none;\n    color: var(--black-500);\n    display: block;\n    width: 100%;\n    border-radius: 4px;\n    border: 1px solid var(--grey-200);\n    height: 100%; }\n  .MultiselectField.ContrastInput > div {\n    background: none;\n    color: var(--black-500);\n    display: block;\n    width: 100%;\n    border-radius: 4px;\n    border: 1px solid var(--grey-200);\n    height: 100%;\n    min-height: 49px; }\n";
-styleInject(css$g);
+var css$j = ".MultiselectField {\n  position: relative;\n  width: 100%; }\n  .MultiselectField.GenericInput > div {\n    background: none;\n    color: var(--black-500);\n    display: block;\n    width: 100%;\n    border-radius: 4px;\n    border: 1px solid var(--grey-200);\n    height: 100%; }\n  .MultiselectField.ContrastInput > div {\n    background: none;\n    color: var(--black-500);\n    display: block;\n    width: 100%;\n    border-radius: 4px;\n    border: 1px solid var(--grey-200);\n    height: 100%;\n    min-height: 49px; }\n";
+styleInject(css$j);
 
 function Multiselect(_a) {
   var options = _a.options,
@@ -4188,7 +4892,7 @@ function Multiselect(_a) {
     return allowCreate ? React.createElement(Select$1, _extends({}, selectConfig, componentProps)) : React.createElement(Creatable, _extends({}, selectConfig, componentProps));
   });
 }
-var styles$9 = {
+var styles$c = {
   container: {
     height: "100%"
   },
@@ -4231,16 +4935,16 @@ var styles$9 = {
 var getSelectStyles = function (controlStyles) {
   return {
     control: function (style) {
-      return __assign({}, style, styles$9.control, controlStyles);
+      return __assign({}, style, styles$c.control, controlStyles);
     },
     container: function (style) {
-      return __assign({}, style, styles$9.container);
+      return __assign({}, style, styles$c.container);
     },
     input: function (style) {
-      return __assign({}, style, styles$9.input);
+      return __assign({}, style, styles$c.input);
     },
     menu: function (style) {
-      return __assign({}, style, styles$9.menu);
+      return __assign({}, style, styles$c.menu);
     },
     option: function (style, _a) {
       var isFocused = _a.isFocused;
@@ -4252,19 +4956,19 @@ var getSelectStyles = function (controlStyles) {
       });
     },
     dropdownIndicator: function () {
-      return styles$9.dropdownIndicator;
+      return styles$c.dropdownIndicator;
     },
     indicatorSeparator: function () {
-      return styles$9.indicatorSeparator;
+      return styles$c.indicatorSeparator;
     },
     multiValue: function (style) {
-      return __assign({}, style, styles$9.multiValue);
+      return __assign({}, style, styles$c.multiValue);
     },
     multiValueLabel: function (style) {
-      return __assign({}, style, styles$9.multiValueLabel);
+      return __assign({}, style, styles$c.multiValueLabel);
     },
     multiValueRemove: function (style) {
-      return __assign({}, style, styles$9.multiValueRemove, {
+      return __assign({}, style, styles$c.multiValueRemove, {
         ":hover": {
           backgroundColor: "var(--admin-grey)",
           borderRadius: "11px"
@@ -4272,13 +4976,13 @@ var getSelectStyles = function (controlStyles) {
       });
     },
     clearIndicator: function (style) {
-      return __assign({}, style, styles$9.clearIndicator);
+      return __assign({}, style, styles$c.clearIndicator);
     }
   };
 };
 
-var css$h = ".SelectField {\n  position: relative;\n  cursor: pointer;\n  width: 100%; }\n  .SelectField > div {\n    background: none;\n    color: var(--grey-800);\n    display: block;\n    width: 100%;\n    border-radius: 4px;\n    border: 1px solid var(--border);\n    min-height: 49px; }\n";
-styleInject(css$h);
+var css$k = ".SelectField {\n  position: relative;\n  cursor: pointer;\n  width: 100%; }\n  .SelectField > div {\n    background: none;\n    color: var(--grey-800);\n    display: block;\n    width: 100%;\n    border-radius: 4px;\n    border: 1px solid var(--border);\n    min-height: 49px; }\n";
+styleInject(css$k);
 
 var Select =
 /** @class */
@@ -4351,7 +5055,7 @@ function (_super) {
 
   return Select;
 }(React.Component);
-var styles$a = {
+var styles$d = {
   singleValue: {
     color: Color$1.black
   },
@@ -4385,20 +5089,20 @@ var styles$a = {
 };
 var selectStyles = {
   control: function (style) {
-    return __assign({}, style, styles$a.control);
+    return __assign({}, style, styles$d.control);
   },
   input: function (style) {
-    return __assign({}, style, styles$a.input);
+    return __assign({}, style, styles$d.input);
   },
   menu: function (style) {
-    return __assign({}, style, styles$a.menu);
+    return __assign({}, style, styles$d.menu);
   },
   menuList: function (style) {
-    return __assign({}, style, styles$a.menuList);
+    return __assign({}, style, styles$d.menuList);
   },
   option: function (style, _a) {
     var isFocused = _a.isFocused;
-    return __assign({}, style, styles$a.option, {
+    return __assign({}, style, styles$d.option, {
       backgroundColor: isFocused ? Color$1.grey300 : Color$1.trueWhite,
       color: isFocused ? Color$1.black : Color$1.black,
       ":hover": {
@@ -4408,13 +5112,13 @@ var selectStyles = {
     });
   },
   dropdownIndicator: function () {
-    return styles$a.dropdownIndicator;
+    return styles$d.dropdownIndicator;
   },
   indicatorSeparator: function () {
-    return styles$a.indicatorSeparator;
+    return styles$d.indicatorSeparator;
   },
   singleValue: function (style) {
-    return __assign({}, style, styles$a.singleValue);
+    return __assign({}, style, styles$d.singleValue);
   }
 };
 
@@ -4443,8 +5147,8 @@ function Text$1(props) {
   })));
 }
 
-var css$i = ".ui.form .GenericTextArea input,\n.GenericTextArea {\n  font-family: var(--default-font-family) !important;\n  font-size: var(--default-font-size);\n  font-weight: var(--default-font-weight);\n  transition: all 100ms ease; }\n";
-styleInject(css$i);
+var css$l = ".ui.form .GenericTextArea input,\n.GenericTextArea {\n  font-family: var(--default-font-family) !important;\n  font-size: var(--default-font-size);\n  font-weight: var(--default-font-weight);\n  transition: all 100ms ease; }\n";
+styleInject(css$l);
 
 var TextArea =
 /** @class */
@@ -4469,7 +5173,7 @@ function (_super) {
       ref: this.inputRef
     }, restOfProps, {
       className: "GenericTextArea border bd-radius " + className,
-      style: __assign({}, styles$b.input, TextArea.defaultProps.style, style)
+      style: __assign({}, styles$e.input, TextArea.defaultProps.style, style)
     }));
   };
 
@@ -4482,16 +5186,16 @@ function (_super) {
   };
   return TextArea;
 }(Component);
-var styles$b = {
+var styles$e = {
   input: {
     padding: "10px 12px",
     outline: "none"
   }
 };
 
-var css$j = ".Toggle-module_labelContainer__6R_gw, .Toggle-module_labelContainerLeft__jyqAv, .Toggle-module_labelContainerRight__3t8zx, .Toggle-module_labelContainerTop__2824a, .Toggle-module_labelContainerBottom__1g9y_ {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content; }\n  .Toggle-module_labelContainer__6R_gw:focus, .Toggle-module_labelContainerLeft__jyqAv:focus, .Toggle-module_labelContainerRight__3t8zx:focus, .Toggle-module_labelContainerTop__2824a:focus, .Toggle-module_labelContainerBottom__1g9y_:focus {\n    -webkit-filter: brightness(90%);\n            filter: brightness(90%); }\n\n.Toggle-module_labelContainerLeft__jyqAv span {\n  margin-right: 0.5rem; }\n\n.Toggle-module_labelContainerRight__3t8zx {\n  flex-direction: row-reverse; }\n  .Toggle-module_labelContainerRight__3t8zx span {\n    margin-left: 0.5rem; }\n\n.Toggle-module_labelContainerTop__2824a {\n  flex-direction: column;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerTop__2824a span {\n    margin-bottom: 0.5rem; }\n\n.Toggle-module_labelContainerBottom__1g9y_ {\n  flex-direction: column-reverse;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerBottom__1g9y_ span {\n    margin-top: 0.5rem; }\n\n.Toggle-module_container__3DMtn, .Toggle-module_containerActive__1jtDw, .Toggle-module_containerInactive__3RAMH {\n  width: 40px;\n  height: 20px;\n  border-radius: 10px; }\n\n.Toggle-module_containerActive__1jtDw {\n  background-color: var(--green-300); }\n\n.Toggle-module_containerInactive__3RAMH {\n  background-color: var(--grey-300); }\n\n.Toggle-module_toggle__1BLbN, .Toggle-module_toggleActive__33s_R, .Toggle-module_toggleInactive__1lJfx {\n  position: -webkit-sticky;\n  position: sticky;\n  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);\n  width: 20px;\n  height: 20px;\n  border-radius: 50%; }\n\n.Toggle-module_toggleActive__33s_R {\n  transform: translate(20px);\n  background-color: var(--green-500); }\n\n.Toggle-module_toggleInactive__1lJfx {\n  background-color: var(--grey-600); }\n";
-var styles$c = {"labelContainer":"Toggle-module_labelContainer__6R_gw","labelContainerLeft":"Toggle-module_labelContainerLeft__jyqAv","labelContainerRight":"Toggle-module_labelContainerRight__3t8zx","labelContainerTop":"Toggle-module_labelContainerTop__2824a","labelContainerBottom":"Toggle-module_labelContainerBottom__1g9y_","container":"Toggle-module_container__3DMtn","containerActive":"Toggle-module_containerActive__1jtDw","containerInactive":"Toggle-module_containerInactive__3RAMH","toggle":"Toggle-module_toggle__1BLbN","toggleActive":"Toggle-module_toggleActive__33s_R","toggleInactive":"Toggle-module_toggleInactive__1lJfx"};
-styleInject(css$j);
+var css$m = ".Toggle-module_labelContainer__6R_gw, .Toggle-module_labelContainerLeft__jyqAv, .Toggle-module_labelContainerRight__3t8zx, .Toggle-module_labelContainerTop__2824a, .Toggle-module_labelContainerBottom__1g9y_ {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content; }\n  .Toggle-module_labelContainer__6R_gw:focus, .Toggle-module_labelContainerLeft__jyqAv:focus, .Toggle-module_labelContainerRight__3t8zx:focus, .Toggle-module_labelContainerTop__2824a:focus, .Toggle-module_labelContainerBottom__1g9y_:focus {\n    -webkit-filter: brightness(90%);\n            filter: brightness(90%); }\n\n.Toggle-module_labelContainerLeft__jyqAv span {\n  margin-right: 0.5rem; }\n\n.Toggle-module_labelContainerRight__3t8zx {\n  flex-direction: row-reverse; }\n  .Toggle-module_labelContainerRight__3t8zx span {\n    margin-left: 0.5rem; }\n\n.Toggle-module_labelContainerTop__2824a {\n  flex-direction: column;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerTop__2824a span {\n    margin-bottom: 0.5rem; }\n\n.Toggle-module_labelContainerBottom__1g9y_ {\n  flex-direction: column-reverse;\n  align-items: flex-start; }\n  .Toggle-module_labelContainerBottom__1g9y_ span {\n    margin-top: 0.5rem; }\n\n.Toggle-module_container__3DMtn, .Toggle-module_containerActive__1jtDw, .Toggle-module_containerInactive__3RAMH {\n  width: 40px;\n  height: 20px;\n  border-radius: 10px; }\n\n.Toggle-module_containerActive__1jtDw {\n  background-color: var(--green-300); }\n\n.Toggle-module_containerInactive__3RAMH {\n  background-color: var(--grey-300); }\n\n.Toggle-module_toggle__1BLbN, .Toggle-module_toggleActive__33s_R, .Toggle-module_toggleInactive__1lJfx {\n  position: -webkit-sticky;\n  position: sticky;\n  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);\n  width: 20px;\n  height: 20px;\n  border-radius: 50%; }\n\n.Toggle-module_toggleActive__33s_R {\n  transform: translate(20px);\n  background-color: var(--green-500); }\n\n.Toggle-module_toggleInactive__1lJfx {\n  background-color: var(--grey-600); }\n";
+var styles$f = {"labelContainer":"Toggle-module_labelContainer__6R_gw","labelContainerLeft":"Toggle-module_labelContainerLeft__jyqAv","labelContainerRight":"Toggle-module_labelContainerRight__3t8zx","labelContainerTop":"Toggle-module_labelContainerTop__2824a","labelContainerBottom":"Toggle-module_labelContainerBottom__1g9y_","container":"Toggle-module_container__3DMtn","containerActive":"Toggle-module_containerActive__1jtDw","containerInactive":"Toggle-module_containerInactive__3RAMH","toggle":"Toggle-module_toggle__1BLbN","toggleActive":"Toggle-module_toggleActive__33s_R","toggleInactive":"Toggle-module_toggleInactive__1lJfx"};
+styleInject(css$m);
 
 var Toggle =
 /** @class */
@@ -4525,23 +5229,23 @@ function (_super) {
 
     switch (labelPosition) {
       case "left":
-        containerClass = styles$c.labelContainerLeft;
+        containerClass = styles$f.labelContainerLeft;
         break;
 
       case "right":
-        containerClass = styles$c.labelContainerRight;
+        containerClass = styles$f.labelContainerRight;
         break;
 
       case "top":
-        containerClass = styles$c.labelContainerTop;
+        containerClass = styles$f.labelContainerTop;
         break;
 
       case "bottom":
-        containerClass = styles$c.labelContainerBottom;
+        containerClass = styles$f.labelContainerBottom;
         break;
 
       default:
-        containerClass = styles$c.labelContainerLeft;
+        containerClass = styles$f.labelContainerLeft;
     }
 
     return React.createElement("div", {
@@ -4552,9 +5256,9 @@ function (_super) {
     }, label && React.createElement(Typography, {
       color: Color$1.grey700
     }, label), React.createElement("div", {
-      className: checked ? styles$c.containerActive : styles$c.containerInactive
+      className: checked ? styles$f.containerActive : styles$f.containerInactive
     }, React.createElement("div", {
-      className: checked ? styles$c.toggleActive : styles$c.toggleInactive
+      className: checked ? styles$f.toggleActive : styles$f.toggleInactive
     })));
   };
 
@@ -4577,28 +5281,6 @@ var Inputs = {
   TextArea: TextArea,
   Toggle: Toggle
 };
-
-function Divider(props) {
-  var _a = props.marginSize,
-      marginSize = _a === void 0 ? 2 : _a,
-      _b = props.marginTop,
-      marginTop = _b === void 0 ? marginSize : _b,
-      _c = props.marginBottom,
-      marginBottom = _c === void 0 ? marginSize : _c,
-      _d = props.showDividerLine,
-      showDividerLine = _d === void 0 ? true : _d,
-      className = props.className,
-      style = props.style;
-  return React.createElement("div", {
-    className: className,
-    style: __assign({
-      borderTop: showDividerLine ? "1px solid var(--border)" : undefined,
-      marginTop: (marginTop || 0) + "rem",
-      marginBottom: (marginBottom || 0) + "rem",
-      width: "100%"
-    }, style)
-  });
-}
 
 var Base$2 =
 /** @class */
@@ -4659,8 +5341,8 @@ var Muted = (function (_a) {
   }, children));
 });
 
-var css$k = "a.cohub-link {\n  position: relative;\n  text-decoration: none; }\n  a.cohub-link:before {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    height: 1px;\n    bottom: -0.1em;\n    left: 0;\n    background-color: currentcolor;\n    visibility: hidden;\n    transform: scaleX(0);\n    transition: all 0.2s ease-in-out 0s;\n    transition-delay: 0.2s; }\n  a.cohub-link:hover:before {\n    visibility: visible;\n    height: 1px;\n    transform: scaleX(1); }\n";
-styleInject(css$k);
+var css$n = "a.cohub-link {\n  position: relative;\n  text-decoration: none; }\n  a.cohub-link:before {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    height: 1px;\n    bottom: -0.1em;\n    left: 0;\n    background-color: currentcolor;\n    visibility: hidden;\n    transform: scaleX(0);\n    transition: all 0.2s ease-in-out 0s;\n    transition-delay: 0.2s; }\n  a.cohub-link:hover:before {\n    visibility: visible;\n    height: 1px;\n    transform: scaleX(1); }\n";
+styleInject(css$n);
 
 var Link =
 /** @class */
@@ -4682,130 +5364,6 @@ function (_super) {
   };
   return Link;
 }(React.Component);
-
-var css$l = ".FormGroup-module_base__3hXvl, .FormGroup-module_horizontal__M22Uj, .FormGroup-module_vertical__3U51_ {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n  width: 100%; }\n\n.FormGroup-module_horizontal__M22Uj > div {\n  margin-left: 0.5rem;\n  margin-right: 0.5rem; }\n\n.FormGroup-module_horizontal__M22Uj > :first-child {\n  margin-left: 0; }\n\n.FormGroup-module_horizontal__M22Uj > :last-child {\n  margin-right: 0; }\n\n.FormGroup-module_vertical__3U51_ {\n  flex-direction: column; }\n  .FormGroup-module_vertical__3U51_ > div {\n    margin-bottom: 1rem; }\n  .FormGroup-module_vertical__3U51_ > :last-child {\n    margin-bottom: 0; }\n";
-var styles$d = {"base":"FormGroup-module_base__3hXvl","horizontal":"FormGroup-module_horizontal__M22Uj","vertical":"FormGroup-module_vertical__3U51_"};
-styleInject(css$l);
-
-var FormGroup =
-/** @class */
-function (_super) {
-  __extends(FormGroup, _super);
-
-  function FormGroup() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  FormGroup.prototype.render = function () {
-    var _a = this.props,
-        children = _a.children,
-        direction = _a.direction,
-        restProps = __rest(_a, ["children", "direction"]);
-
-    return React.createElement("div", _extends({
-      className: direction === "horizontal" ? styles$d.horizontal : styles$d.vertical
-    }, restProps), children);
-  };
-
-  FormGroup.defaultProps = {
-    direction: "horizontal"
-  };
-  return FormGroup;
-}(React.PureComponent);
-
-var css$m = ".CohubBackdrop {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center; }\n  .CohubBackdrop .modal {\n    background-color: transparent;\n    padding: 0;\n    box-shadow: none; }\n  .CohubBackdrop .closeButton {\n    top: -25px;\n    right: -37px;\n    cursor: pointer; }\n";
-styleInject(css$m);
-
-var Backdrop =
-/** @class */
-function (_super) {
-  __extends(Backdrop, _super);
-
-  function Backdrop() {
-    var _this = _super !== null && _super.apply(this, arguments) || this;
-
-    _this.appRoot = document.getElementById("root");
-
-    _this.setBlurState = function () {
-      var open = _this.props.open;
-      open ? _this.addBlurClass() : _this.removeBlurClass();
-    };
-
-    _this.addBlurClass = function () {
-      _this.appRoot && _this.appRoot.classList.add("blurred");
-    };
-
-    _this.removeBlurClass = function () {
-      _this.appRoot && _this.appRoot.classList.remove("blurred");
-    };
-
-    return _this;
-  }
-
-  Backdrop.prototype.componentDidMount = function () {
-    this.setBlurState();
-  };
-
-  Backdrop.prototype.componentDidUpdate = function () {
-    this.setBlurState();
-  };
-
-  Backdrop.prototype.componentWillUnmount = function () {
-    this.removeBlurClass();
-  };
-
-  Backdrop.prototype.render = function () {
-    var _a = this.props,
-        children = _a.children,
-        onClose = _a.onClose,
-        showCloseIcon = _a.showCloseIcon,
-        _b = _a.containerClass,
-        containerClass = _b === void 0 ? "" : _b,
-        style = _a.style,
-        rest = __rest(_a, ["children", "onClose", "showCloseIcon", "containerClass", "style"]);
-
-    return React.createElement(ReactResponsiveModal, _extends({
-      closeOnEsc: true,
-      closeOnOverlayClick: true
-    }, rest, {
-      classNames: {
-        overlay: "CohubBackdrop " + containerClass,
-        modal: "modal",
-        closeButton: "closeButton"
-      },
-      showCloseIcon: showCloseIcon,
-      onClose: onClose,
-      onOverlayClick: onClose,
-      onEscKeyDown: onClose,
-      closeIconSvgPath: CloseIcon,
-      styles: {
-        overlay: style
-      }
-    }), children);
-  };
-
-  Backdrop.defaultProps = {
-    showCloseIcon: false,
-    containerClass: "",
-    onClose: function () {
-      return undefined;
-    },
-    focusTrapped: true,
-    open: true
-  };
-  return Backdrop;
-}(PureComponent);
-var iconSize = 44;
-var CloseIcon = React.createElement("svg", {
-  width: iconSize,
-  height: iconSize,
-  viewBox: "0 0 24 24",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, React.createElement("path", {
-  d: "M12 0.974332L11.025 0L6.00034 5.02532L0.975021 0L0 0.974332L5.02532 5.99966L0 11.025L0.975021 11.9993L6.00034 6.97399L11.025 11.9993L12 11.025L6.97468 5.99966L12 0.974332Z",
-  fill: Color$1.trueWhite
-}));
 
 /////////////// LOW LEVEL TRANSITION WRAPPER ////////////////////
 
@@ -5012,8 +5570,8 @@ var Toggle$1 = function (_a) {
 }; /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
-var css$n = "@-webkit-keyframes hop-lock-and-drop {\n  40% {\n    transform: translateY(-6px); }\n  90% {\n    transform: none;\n    transform: initial; } }\n@keyframes hop-lock-and-drop {\n  40% {\n    transform: translateY(-6px); }\n  90% {\n    transform: none;\n    transform: initial; } }\n";
-styleInject(css$n);
+var css$o = "@-webkit-keyframes hop-lock-and-drop {\n  40% {\n    transform: translateY(-6px); }\n  90% {\n    transform: none;\n    transform: initial; } }\n@keyframes hop-lock-and-drop {\n  40% {\n    transform: translateY(-6px); }\n  90% {\n    transform: none;\n    transform: initial; } }\n";
+styleInject(css$o);
 
 var Loader =
 /** @class */
@@ -5094,608 +5652,47 @@ var GreenDot = function (_a) {
   });
 };
 
-var css$o = ".Avatar-module_Avatar__Irl8C {\n  border-radius: 50%;\n  position: relative; }\n\n.Avatar-module_Avatar__Irl8C::after {\n  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);\n  border-radius: 50%;\n  content: '';\n  display: block;\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0; }\n";
-var styles$e = {"Avatar":"Avatar-module_Avatar__Irl8C"};
-styleInject(css$o);
-
-var Avatar =
-/** @class */
-function (_super) {
-  __extends(Avatar, _super);
-
-  function Avatar() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Avatar.prototype.render = function () {
-    var _a = this.props,
-        src = _a.src,
-        name = _a.name,
-        size = _a.size,
-        className = _a.className;
-    var avatarStyle = {
-      borderRadius: "50%",
-      backgroundColor: "var(--bf-green)",
-      width: "100%",
-      height: "100%",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
-    };
-
-    if (src) {
-      return React.createElement("div", {
-        className: styles$e.Avatar + " " + className,
-        style: {
-          width: size,
-          height: size
-        }
-      }, React.createElement("img", {
-        src: src,
-        style: avatarStyle
-      }));
-    } else if (name) {
-      var firstInitial = void 0;
-      var lastInital = void 0;
-
-      var _b = name.split(" "),
-          firstName = _b[0],
-          lastName = _b[1];
-
-      if (firstName) {
-        firstInitial = firstName.substring(0, 1);
-      }
-
-      if (lastName) {
-        lastInital = lastName.substring(0, 1);
-      }
-
-      var style = __assign({}, avatarStyle, {
-        fontWeight: 400
-      });
-
-      return React.createElement("div", {
-        className: className,
-        style: style
-      }, React.createElement("div", null, firstInitial, lastInital));
-    } else {
-      return React.createElement("div", {
-        className: className
-      }, React.createElement(Icon.User, {
-        size: size
-      }));
-    }
-  };
-
-  Avatar.defaultProps = {
-    size: 50
-  };
-  return Avatar;
-}(PureComponent);
-
-var css$p = ".Horizontal-module_CardHorizontal__2b_IU {\n  padding: 1rem;\n  background-color: var(--true-white);\n  width: 350px;\n  border-radius: var(--default-border-radius); }\n\n.Horizontal-module_CardHorizontalImage__3qOPi {\n  max-width: 150px;\n  max-height: 150px; }\n\n.Horizontal-module_CardAction__3GXRa {\n  transition: 100ms ease-in; }\n  .Horizontal-module_CardAction__3GXRa:hover {\n    color: var(--grey-800); }\n  .Horizontal-module_CardAction__3GXRa:not(:last-of-type) {\n    margin-right: 0.5rem; }\n";
-var styles$f = {"CardHorizontal":"Horizontal-module_CardHorizontal__2b_IU","CardHorizontalImage":"Horizontal-module_CardHorizontalImage__3qOPi","CardAction":"Horizontal-module_CardAction__3GXRa"};
+var css$p = ".ProgressBar-module_Bar__357tf {\n  width: 100%;\n  border-radius: 361px; }\n\n.ProgressBar-module_Progress__FcFUX {\n  position: relative;\n  top: 0;\n  height: 100%;\n  border-radius: 361px;\n  max-width: 100%; }\n";
+var styles$g = {"Bar":"ProgressBar-module_Bar__357tf","Progress":"ProgressBar-module_Progress__FcFUX"};
 styleInject(css$p);
 
-var Horizontal =
+var ProgressBar =
 /** @class */
 function (_super) {
-  __extends(Horizontal, _super);
+  __extends(ProgressBar, _super);
 
-  function Horizontal() {
+  function ProgressBar() {
     return _super !== null && _super.apply(this, arguments) || this;
   }
 
-  Horizontal.prototype.render = function () {
+  ProgressBar.prototype.render = function () {
     var _a = this.props,
-        title = _a.title,
-        subtitle = _a.subtitle,
-        meta = _a.meta,
-        titleLink = _a.titleLink,
-        imageUrl = _a.imageUrl,
-        avatar = _a.avatar,
-        actions = _a.actions,
-        className = _a.className,
-        style = _a.style,
-        children = _a.children,
-        elevation = _a.elevation;
-    var dpLevel = "dp" + elevation;
-    var actionList;
-
-    if (actions) {
-      actionList = actions.map(function (a) {
-        return React.createElement(Buttons.Text, {
-          className: styles$f.CardAction,
-          key: a.name,
-          onClick: function () {
-            return a.action();
-          },
-          fontSize: 12,
-          color: Color$1.iconGrey
-        }, a.name);
-      });
-    }
-
-    var titleLinkElement = function () {
-      if (titleLink) {
-        return React.createElement(Link$1, {
-          to: titleLink
-        }, React.createElement(Typography.HeadingTiny, {
-          block: true
-        }, title));
-      } else {
-        return React.createElement(Typography.HeadingTiny, {
-          block: true
-        }, title);
-      }
-    };
-
-    var cardContent = React.createElement(React.Fragment, null, React.createElement("div", {
-      className: "flex w-100"
-    }, avatar && React.createElement(Avatar, {
-      size: 50,
-      src: imageUrl
-    }), !avatar && imageUrl && React.createElement("div", null, React.createElement("img", {
-      src: imageUrl,
-      className: styles$f.CardHorizontalImage
-    })), React.createElement("div", {
-      className: "flex w-100 ml-1"
-    }, React.createElement("div", {
-      className: "ml-1 w-100"
-    }, titleLinkElement(), React.createElement(Typography, {
-      block: true
-    }, subtitle), meta && React.createElement(Typography.Small, {
-      muted: true
-    }, meta), children && children))));
+        barHeight = _a.barHeight,
+        barColor = _a.barColor,
+        progressColor = _a.progressColor,
+        progress = _a.progress;
     return React.createElement("div", {
-      className: styles$f.CardHorizontal + " " + className,
-      style: __assign({}, style, {
-        boxShadow: BoxShadow$1[dpLevel] || BoxShadow$1.dp1
-      })
-    }, cardContent, actions && React.createElement("div", {
-      className: "flex justify-end items-center mt-05"
-    }, actionList));
-  };
-
-  Horizontal.defaultProps = {
-    elevation: 1
-  };
-  return Horizontal;
-}(PureComponent);
-
-var css$q = ".Vertical-module_CardVertical__elna1 {\n  display: flex;\n  flex-direction: column;\n  background-color: var(--true-white);\n  max-width: 250px;\n  width: 250px;\n  border-radius: var(--default-border-radius); }\n  .Vertical-module_CardVertical__elna1 img {\n    border-top-left-radius: var(--default-border-radius);\n    border-top-right-radius: var(--default-border-radius); }\n\n.Vertical-module_CardAction__1QIBH {\n  color: var(--grey-600);\n  text-transform: uppercase;\n  letter-spacing: 0.05rem;\n  font-weight: 400;\n  font-size: 12px;\n  cursor: pointer;\n  transition: 100ms ease-in; }\n  .Vertical-module_CardAction__1QIBH:hover {\n    color: var(--grey-800); }\n  .Vertical-module_VerticalCard__qsJ7L .Vertical-module_CardAction__1QIBH {\n    margin-right: 1rem; }\n";
-var styles$g = {"CardVertical":"Vertical-module_CardVertical__elna1","CardAction":"Vertical-module_CardAction__1QIBH","VerticalCard":"Vertical-module_VerticalCard__qsJ7L"};
-styleInject(css$q);
-
-var Vertical =
-/** @class */
-function (_super) {
-  __extends(Vertical, _super);
-
-  function Vertical() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Vertical.prototype.render = function () {
-    var _a = this.props,
-        title = _a.title,
-        centered = _a.centered,
-        titleLink = _a.titleLink,
-        subtitle = _a.subtitle,
-        meta = _a.meta,
-        actions = _a.actions,
-        imageUrl = _a.imageUrl,
-        avatar = _a.avatar,
-        className = _a.className,
-        style = _a.style,
-        children = _a.children,
-        elevation = _a.elevation;
-    var dpLevel = "dp" + elevation;
-    var actionList;
-
-    if (actions) {
-      actionList = actions.map(function (a) {
-        return React.createElement("div", {
-          className: styles$g.CardAction,
-          key: a.name,
-          onClick: function () {
-            return a.action();
-          }
-        }, a.name);
-      });
-    }
-
-    var titleLinkElement = function () {
-      if (titleLink) {
-        return React.createElement(Link$1, {
-          to: titleLink
-        }, React.createElement(Typography.Large, {
-          block: true,
-          className: centered ? "text-center" : ""
-        }, title));
-      } else {
-        return React.createElement(Typography.Large, {
-          block: true,
-          className: centered ? "text-center" : ""
-        }, title);
-      }
-    };
-
-    var cardContent = React.createElement(React.Fragment, null, React.createElement("div", {
-      className: "m-auto block"
-    }, avatar && React.createElement(Avatar, {
-      size: 150,
-      src: imageUrl,
-      className: "mt-1"
-    }), !avatar && imageUrl && React.createElement("div", null, React.createElement("img", {
-      src: imageUrl,
-      className: "p-1"
-    }))), React.createElement("div", {
-      className: "mx-1 mt-05"
-    }, titleLinkElement(), React.createElement(Typography.Small, {
-      block: true,
-      className: (centered ? "text-center" : "") + " mt-025"
-    }, subtitle), meta && React.createElement(Typography.Tiny, {
-      muted: true,
-      block: true,
-      className: (centered ? "text-center" : "") + " mt-025"
-    }, meta), children && React.createElement("div", {
-      className: "mt-1"
-    }, children), actions && React.createElement("div", {
-      className: "flex justify-evenly mt-1"
-    }, actionList)));
-    return React.createElement("div", {
-      className: styles$g.CardVertical + " " + className + " pb-1",
-      style: __assign({}, style, {
-        boxShadow: BoxShadow$1[dpLevel] || BoxShadow$1.dp1
-      })
-    }, cardContent);
-  };
-
-  Vertical.defaultProps = {
-    elevation: 1
-  };
-  return Vertical;
-}(PureComponent);
-
-var Card = {
-  Horizontal: Horizontal,
-  Vertical: Vertical
-};
-
-var transition$1 = "0.2s ease-in-out";
-
-var btnInputStyle = __assign({}, size(26), {
-  outline: "none",
-  borderRadius: "50%",
-  padding: 10,
-  transition: transition$1
-});
-
-var expandedInputStyles = {
-  outline: "none",
-  height: 28,
-  width: 120,
-  borderRadius: 32,
-  padding: "3px 9px",
-  transition: transition$1
-};
-var defaultState = {
-  expanded: false
-};
-
-var AddChipInput =
-/** @class */
-function (_super) {
-  __extends(AddChipInput, _super);
-
-  function AddChipInput(props) {
-    var _this = _super.call(this, props) || this;
-
-    _this.state = defaultState;
-
-    _this.toggleState = function () {
-      _this.setState(function (_a) {
-        var expanded = _a.expanded;
-        return {
-          expanded: !expanded
-        };
-      });
-    };
-
-    _this._input = React.createRef();
-    return _this;
-  }
-
-  AddChipInput.prototype.render = function () {
-    var _this = this;
-
-    var _a = this.props,
-        className = _a.className,
-        _b = _a.style,
-        style = _b === void 0 ? {} : _b,
-        restProps = __rest(_a, ["className", "style"]);
-
-    var expanded = this.state.expanded;
-    var defaultIconStyle = {
-      position: "absolute",
-      cursor: "pointer",
-      height: 13,
-      transition: transition$1
-    };
-    var iconStyles = expanded ? __assign({}, defaultIconStyle, {
-      left: 49,
-      top: 6,
-      transform: "translate(50px, 0) rotate(45deg)"
-    }) : __assign({}, defaultIconStyle, {
-      left: 5.3,
-      top: 5.4
-    });
-    var inputRef = this._input.current;
-
-    if (inputRef) {
-      expanded ? inputRef.focus() : inputRef.blur();
-    }
-
-    var onBlur = restProps.onBlur,
-        onFocus = restProps.onFocus,
-        inputProps = __rest(restProps, ["onBlur", "onFocus"]);
-
-    return React.createElement("div", {
-      style: __assign({}, style, {
-        position: "relative"
-      }),
-      className: className
-    }, React.createElement("input", _extends({}, inputProps, {
-      className: "border",
-      style: expanded ? expandedInputStyles : btnInputStyle,
-      ref: this._input,
-      onFocus: function (e) {
-        onFocus && onFocus(e);
-
-        _this.setState({
-          expanded: true
-        });
-      },
-      onBlur: function (e) {
-        onBlur && onBlur(e);
-
-        _this.setState({
-          expanded: false
-        });
-      }
-    })), React.createElement(Icon.Add, {
-      size: 16.5,
-      onClick: this.toggleState,
-      style: iconStyles
-    }));
-  };
-
-  return AddChipInput;
-}(React.Component);
-
-var css$r = ".CohubChip {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  .CohubChip .clickable:hover, .CohubChip .clickable:focus {\n    transform: translate(0, -1px) !important; }\n  .CohubChip .clickable:focus {\n    background-color: inherit !important; }\n";
-styleInject(css$r);
-
-var Chip =
-/** @class */
-function (_super) {
-  __extends(Chip, _super);
-
-  function Chip() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Chip.prototype.render = function () {
-    var _a = this.props,
-        children = _a.children,
-        label = _a.label,
-        onClick = _a.onClick,
-        onDelete = _a.onDelete,
-        checked = _a.checked,
-        _b = _a.className,
-        className = _b === void 0 ? "" : _b,
-        backgroundColor = _a.backgroundColor,
-        style = _a.style,
-        size = _a.size;
-    var name = label || children;
-    var clickable = !!onClick;
-    var clickableClass = clickable ? "clickable" : "";
-    var iconName;
-
-    if (checked) {
-      iconName = "checkmark";
-    } else if (onDelete) {
-      iconName = "close";
-    }
-
-    var padding = size / 2 + "px " + size + "px";
-    return React.createElement("div", {
-      className: "CohubChip " + clickableClass + " " + className,
-      style: __assign({
-        backgroundColor: backgroundColor,
-        borderRadius: "361px",
-        display: "inline-block",
-        padding: padding
-      }, style),
-      onClick: onClick,
-      tabIndex: clickable ? 0 : undefined
-    }, React.createElement("div", {
-      className: "flex justify-center items-center h-100",
+      className: styles$g.Bar,
       style: {
-        cursor: clickable ? "pointer" : "inherit"
+        backgroundColor: barColor,
+        height: barHeight + "px"
       }
-    }, React.createElement(Typography.Small, null, name), iconName && React.createElement(Icon, {
-      onClick: function (e) {
-        return onDelete && onDelete(e);
-      },
-      size: 16,
-      name: iconName,
-      className: "ml-05",
-      color: Color$1.grey800
-    })));
-  };
-
-  Chip.Add = AddChipInput;
-  Chip.defaultProps = {
-    size: 12,
-    backgroundColor: Color$1.grey300
-  };
-  return Chip;
-}(Component);
-
-var FormatMoney =
-/** @class */
-function (_super) {
-  __extends(FormatMoney, _super);
-
-  function FormatMoney() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  FormatMoney.prototype.render = function () {
-    var _a = this.props,
-        value = _a.value,
-        extendedPrecision = _a.extendedPrecision,
-        dataQa = _a["data-qa"];
-    var decimals = ("" + value).split(".")[1];
-    return React.createElement("span", {
-      "data-qa": dataQa
-    }, React.createElement(NumberFormat, {
-      value: value,
-      displayType: "text",
-      prefix: "$",
-      thousandSeparator: true,
-      fixedDecimalScale: true,
-      decimalScale: extendedPrecision && decimals && decimals.length > 2 ? decimals.length : 2
+    }, React.createElement("div", {
+      className: styles$g.Progress,
+      style: {
+        backgroundColor: progressColor,
+        width: progress + "%"
+      }
     }));
   };
 
-  FormatMoney.defaultProps = {
-    extendedPrecision: true
+  ProgressBar.defaultProps = {
+    barHeight: 8,
+    barColor: Color$1.green200,
+    progressColor: Color$1.primaryGreen
   };
-  return FormatMoney;
-}(PureComponent);
-
-var FormatNumber =
-/** @class */
-function (_super) {
-  __extends(FormatNumber, _super);
-
-  function FormatNumber() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  FormatNumber.prototype.render = function () {
-    var _a = this.props,
-        value = _a.value,
-        rest = __rest(_a, ["value"]);
-
-    return React.createElement(NumberFormat, _extends({
-      value: value,
-      displayType: "text"
-    }, rest));
-  };
-
-  FormatNumber.defaultProps = {
-    thousandSeparator: true
-  };
-  return FormatNumber;
-}(React.Component);
-
-var FormatPercent =
-/** @class */
-function (_super) {
-  __extends(FormatPercent, _super);
-
-  function FormatPercent() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  FormatPercent.prototype.render = function () {
-    var value = this.props.value;
-    var percentValue = value * 100;
-    return React.createElement(NumberFormat, {
-      value: percentValue,
-      displayType: "text",
-      thousandSeparator: true,
-      decimalScale: 2,
-      suffix: "%"
-    });
-  };
-
-  FormatPercent.defaultProps = {
-    thousandSeparator: false
-  };
-  return FormatPercent;
-}(React.Component);
-
-var AttributeList =
-/** @class */
-function (_super) {
-  __extends(AttributeList, _super);
-
-  function AttributeList() {
-    var _this = _super !== null && _super.apply(this, arguments) || this;
-
-    _this.formattedValue = function (value, format) {
-      switch (format) {
-        case "money":
-          return React.createElement(FormatMoney, {
-            value: value
-          });
-
-        case "number":
-          return React.createElement(FormatNumber, {
-            value: value
-          });
-
-        case "percentage":
-          return React.createElement(FormatPercent, {
-            value: value
-          });
-
-        case "text":
-          return value;
-
-        default:
-          return React.createElement(FormatNumber, {
-            value: value
-          });
-      }
-    };
-
-    return _this;
-  }
-
-  AttributeList.prototype.render = function () {
-    var _this = this;
-
-    var _a = this.props,
-        header = _a.header,
-        items = _a.items,
-        contrast = _a.contrast,
-        className = _a.className;
-    var attributes = items.map(function (i) {
-      return React.createElement("div", {
-        className: "flex justify-between items-center mb-1 " + className,
-        key: i.attribute
-      }, React.createElement(Typography, null, i.attribute), React.createElement(Typography, null, _this.formattedValue(i.value, i.format)));
-    });
-    return React.createElement(Segment$1, {
-      className: "flex flex-column",
-      contrast: contrast,
-      padded: contrast ? true : false
-    }, React.createElement(Typography.Small, {
-      muted: true,
-      weight: 500,
-      uppercase: true,
-      className: "mb-1"
-    }, header), attributes);
-  };
-
-  return AttributeList;
-}(PureComponent);
+  return ProgressBar;
+}(React.PureComponent);
 
 var truncateString = function (length, separator) {
   if (separator === void 0) {
@@ -5832,15 +5829,15 @@ function Text$2(props) {
 
 
 var StoryCmpts = /*#__PURE__*/Object.freeze({
-    Margin: Margin,
-    StateContainer: StateContainer,
-    StateCtrl: StateCtrl,
-    Text: Text$2
+  Margin: Margin,
+  StateContainer: StateContainer,
+  StateCtrl: StateCtrl,
+  Text: Text$2
 });
 
 // Components
 var InputValidations = InputValidationsToExport; // Storybook
 var StoryHelpers = StoryCmpts;
 
-export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, Base, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FloatingActionButton, FormGroup, Grow, Icon, InputValidations, Inputs, Link, Loader, ProgressBar, Scale, Segment$1 as Segment, Split as SplitButton, StoryHelpers, Toggle$1 as Toggle, Tooltip, Typography, childIsVisible, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
+export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FormGroup, FormatMoney, FormatNumber, FormatPercent, Grow, Icon, InputValidations, Inputs, Link, Loader, ProgressBar, Scale, ScrollIntoView, Segment, StoryHelpers, Toggle$1 as Toggle, Tooltip, Transition, Typography, childIsVisible, iconNames, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
 //# sourceMappingURL=index.js.map

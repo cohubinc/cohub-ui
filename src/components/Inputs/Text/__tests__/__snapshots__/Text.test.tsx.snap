@@ -1,15 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text Input renders without crashing 1`] = `
-<Text
-  meta={Object {}}
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
-  type="text"
->
+<Text$1>
   <div
     style={
       Object {
@@ -67,58 +59,6 @@ exports[`Text Input renders without crashing 1`] = `
         </div>
       </FloatingLabelWrapper>
     </Base>
-    <Fade>
-      <Transition
-        entered={
-          Object {
-            "opacity": 1,
-          }
-        }
-        entering={
-          Object {
-            "opacity": 0,
-          }
-        }
-        show={true}
-        start={
-          Object {
-            "opacity": 0,
-          }
-        }
-        transitionProperty="opacity"
-      >
-        <Transition
-          appear={true}
-          enter={true}
-          exit={true}
-          in={true}
-          mountOnEnter={true}
-          onEnter={[Function]}
-          onEntered={[Function]}
-          onEntering={[Function]}
-          onExit={[Function]}
-          onExited={[Function]}
-          onExiting={[Function]}
-          timeout={300}
-          unmountOnExit={true}
-        >
-          <Component
-            error={true}
-            key="0/.0"
-            style={
-              Object {
-                "bottom": -15,
-                "left": 1,
-                "opacity": 0,
-                "position": "absolute",
-                "transition": "all 300ms ease-in-out",
-                "transitionProperty": "opacity",
-              }
-            }
-          />
-        </Transition>
-      </Transition>
-    </Fade>
   </div>
-</Text>
+</Text$1>
 `;

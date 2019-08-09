@@ -33,6 +33,7 @@ exports[`Money renders Money without crashing 1`] = `
         >
           <NumberFormat
             allowEmptyFormatting={false}
+            allowLeadingZeros={false}
             allowNegative={true}
             aria-invalid={false}
             decimalScale={2}
