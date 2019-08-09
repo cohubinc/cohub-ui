@@ -1,5 +1,5 @@
 import { LinkProps as ReactRouterLinkProps } from "react-router-dom";
-import { DetailedHTMLProps, AnchorHTMLAttributes, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 interface ILinkProps {
   /** External hyperlink reference */

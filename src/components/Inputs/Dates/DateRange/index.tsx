@@ -9,8 +9,8 @@ type Props = FieldRenderProps<Val, HTMLInputElement> &
     DateRangeBaseProps,
     "value" | "onChange" | "onFocus" | "onBlur" | "error"
   >;
-const Date = ({ input, meta: { touched, error }, ...rest }: Props) => (
+const DateRange = ({ input, meta: { touched, error }, ...rest }: Props) => (
   <DateRangeBase {...input} {...rest} error={touched && !!error} />
 );
 
-export default Date;
+export default DateRange;

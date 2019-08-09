@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
+import React from "react";
 import Icon, { IProps as IIconProps } from "../../Icon";
 import Color from "src/definitions/enums/Color";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";

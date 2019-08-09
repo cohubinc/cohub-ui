@@ -11,19 +11,19 @@ import Info from "./Info";
 import Cancel from "./Cancel";
 import Dropdown from "./Dropdown/index";
 import FloatingActionButton from "./FloatingActionButton";
+import Split from "./Split";
 
 export default class Buttons extends Component<IBaseButtonProps> {
+  static Base = Button;
   static Primary = Primary;
   static Secondary = Secondary;
   static Info = Info;
   static Cancel = Cancel;
-  static Base = Button;
-
   static Outline = OutlineButton;
-
   static Ghost = Ghost;
   static PrimaryGhost = PrimaryGhostButton;
   static CancelGhost = CancelGhostButton;
+
   static Dropdown = Dropdown;
 
   static Text = Text;
@@ -31,6 +31,8 @@ export default class Buttons extends Component<IBaseButtonProps> {
   static Blank = Blank;
 
   static FloatingAction = FloatingActionButton;
+
+  static Split = Split;
 
   render() {
     return <Buttons.Secondary {...this.props} />;

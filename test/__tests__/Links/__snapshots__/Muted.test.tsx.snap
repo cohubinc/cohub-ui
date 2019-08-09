@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Muted renders without crashing 1`] = `
+<Base
+  styled={false}
+  to="/custom/path"
+>
+  <Typography
+    muted={true}
+  />
+</Base>
+`;

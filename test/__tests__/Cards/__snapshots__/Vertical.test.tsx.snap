@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vertical renders without crashing 1`] = `
+<Vertical
+  elevation={1}
+  title="test"
+>
+  <div
+    className="Vertical-module_CardVertical__elna1 undefined pb-1"
+    style={
+      Object {
+        "boxShadow": "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)",
+      }
+    }
+  >
+    <div
+      className="m-auto block"
+    />
+    <div
+      className="mx-1 mt-05"
+    >
+      <Component
+        block={true}
+        className=""
+      >
+        <span
+          className=""
+          data-qa="text"
+          style={
+            Object {
+              "color": "hsl(0, 2%, 22%)",
+              "display": "block",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": 400,
+              "textAlign": "initial",
+              "textTransform": "initial",
+            }
+          }
+        >
+          test
+        </span>
+      </Component>
+      <Component
+        block={true}
+        className=" mt-025"
+      />
+    </div>
+  </div>
+</Vertical>
+`;

@@ -37,6 +37,7 @@ export default {
       typescript: ttypescript
     }),
     babel({
+      babelrc: false,
       extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       exclude: "node_modules/**",
       presets: ["@babel/preset-react"],

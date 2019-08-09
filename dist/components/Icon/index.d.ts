@@ -2,7 +2,6 @@ import React, { MouseEvent, PureComponent } from "react";
 import Color from "../../definitions/enums/Color";
 import { IconName as IconNameUnion } from "./Icons";
 export declare type IconName = IconNameUnion;
-import "./Icon.scss";
 export interface IProps {
     name: IconName;
     size?: number;
