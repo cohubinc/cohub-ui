@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Alert>
+  <ScrollIntoView
+    className=""
+    scroll={true}
+    scrollOpts={Object {}}
+    traceProp=" Some Alert "
+  >
+    <div
+      className=" w-100"
+    >
+      <Fade
+        duration={150}
+      >
+        <Transition
+          duration={150}
+          entered={
+            Object {
+              "opacity": 1,
+            }
+          }
+          entering={
+            Object {
+              "opacity": 0,
+            }
+          }
+          show={true}
+          start={
+            Object {
+              "opacity": 0,
+            }
+          }
+          transitionProperty="opacity"
+        >
+          <Transition
+            appear={true}
+            enter={true}
+            exit={true}
+            in={true}
+            mountOnEnter={true}
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={150}
+            unmountOnExit={true}
+          >
+            <div
+              key="0/.0"
+              style={
+                Object {
+                  "backgroundColor": "#f8f8f9",
+                  "border": "none",
+                  "borderRadius": 4,
+                  "boxShadow": "inherit",
+                  "fontSize": "12px",
+                  "opacity": 0,
+                  "padding": "16px 20px",
+                  "transition": "all 150ms ease-in-out",
+                  "transitionProperty": "opacity",
+                }
+              }
+            >
+              <div
+                className=""
+              >
+                <Component
+                  style={
+                    Object {
+                      "color": "rgba(0,0,0,.87)",
+                    }
+                  }
+                >
+                  <span
+                    className=""
+                    data-qa="text"
+                    style={
+                      Object {
+                        "color": "rgba(0,0,0,.87)",
+                        "fontFamily": "Inter",
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "textAlign": "initial",
+                        "textTransform": "initial",
+                      }
+                    }
+                  >
+                     Some Alert 
+                  </span>
+                </Component>
+              </div>
+            </div>
+          </Transition>
+        </Transition>
+      </Fade>
+    </div>
+  </ScrollIntoView>
+</Alert>
+`;

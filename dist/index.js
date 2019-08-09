@@ -1,4 +1,5 @@
-import React, { PureComponent, Component, useState, useRef, useEffect, useMemo, Children, cloneElement, Fragment } from 'react';
+import React, { Component, Children, cloneElement, PureComponent, useState, useRef, useEffect, useMemo, Fragment } from 'react';
+import ReactTransition from 'react-transition-group/Transition';
 import NumberFormat from 'react-number-format';
 import ReactResponsiveModal from 'react-responsive-modal';
 import lowerFirst from 'lodash/lowerFirst';
@@ -18,35 +19,26 @@ import rangeRight from 'lodash/rangeRight';
 import Select$1 from 'react-select';
 import Creatable from 'react-select/creatable';
 import { uniqBy } from 'lodash';
-import ReactTransition from 'react-transition-group/Transition';
 import { push } from 'connected-react-router';
 import { useDispatch } from 'react-redux';
 
-var AnimatedCheckmark = function (_a) {
-  var _b = _a.size,
-      size = _b === void 0 ? '100%' : _b;
-  return React.createElement("div", {
-    style: {
-      height: size,
-      width: size,
-      borderRadius: '50%'
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
     }
-  }, React.createElement("svg", {
-    className: "AnimatedCheckmark",
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 52 52"
-  }, React.createElement("circle", {
-    className: "checkmark__circle",
-    cx: "52",
-    cy: "52",
-    r: "1000",
-    fill: "none"
-  }), React.createElement("path", {
-    className: "checkmark__check",
-    fill: "none",
-    d: "M14.1 27.2l7.1 7.2 16.7-16.8"
-  })));
-};
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -100,37 +92,278 @@ function __rest(s, e) {
     return t;
 }
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+var defaultScrollOpts = {
+  behavior: "smooth",
+  block: "center"
+};
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
+var ScrollIntoView =
+/** @class */
+function (_super) {
+  __extends(ScrollIntoView, _super);
 
-    return target;
+  function ScrollIntoView(props) {
+    var _this = _super.call(this, props) || this;
+
+    _this.selfRef = React.createRef();
+    return _this;
+  }
+
+  ScrollIntoView.prototype.componentDidMount = function () {
+    this.scrollIntoView();
   };
 
-  return _extends.apply(this, arguments);
-}
+  ScrollIntoView.prototype.componentDidUpdate = function (oldProps) {
+    var _a = this.props,
+        scroll = _a.scroll,
+        traceProp = _a.traceProp; // if new props are different, trigger scrollInto view again
 
-var BoxShadow;
+    if (oldProps.traceProp !== traceProp || oldProps.scroll !== scroll) {
+      this.scrollIntoView();
+    }
+  };
 
-(function (BoxShadow) {
-  BoxShadow["dp0"] = "";
-  BoxShadow["dp1"] = "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)";
-  BoxShadow["dp2"] = "0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp3"] = "0px 1px 8px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14)";
-  BoxShadow["dp8"] = "0px 5px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp16"] = "0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12)";
-  BoxShadow["dp24"] = "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)";
-})(BoxShadow || (BoxShadow = {}));
+  ScrollIntoView.prototype.render = function () {
+    var _a = this.props,
+        style = _a.style,
+        className = _a.className,
+        children = _a.children;
+    return React.createElement("div", {
+      ref: this.selfRef,
+      style: style,
+      className: className + " w-100"
+    }, children);
+  };
 
-var BoxShadow$1 = BoxShadow;
+  ScrollIntoView.prototype.scrollIntoView = function () {
+    var _a = this.props,
+        scroll = _a.scroll,
+        scrollOpts = _a.scrollOpts;
+    var self = this.selfRef.current;
+    scroll && self && self.scrollIntoView(__assign({}, defaultScrollOpts, scrollOpts));
+  };
+
+  ScrollIntoView.defaultProps = {
+    scroll: true,
+    scrollOpts: {},
+    className: ""
+  };
+  return ScrollIntoView;
+}(Component);
+
+/////////////// LOW LEVEL TRANSITION WRAPPER ////////////////////
+
+var defaultDuration = 300;
+
+var defaultTransition = function (ms) {
+  return {
+    transition: "all " + ms + "ms ease-in-out"
+  };
+}; // The Transition component is used to pass transition styles into it's children cmpts and control the state of those transitions.
+// Any children passed MUST ACCEPT A STYLE PROP
+// This component expects a start OR entering Style, an entered Style, and a show prop. All others props are optional and will generate sensible defaults
+// Set the appear prop to false if you DON'T want the transition to play on initial render / page load
+// You can see examples of the Cmpt being used lower in this file for reference.
+// If you need more granular control please see the docs for react-transition-group Transition cmpt here -> https://reactcommunity.org/react-transition-group/transition
+
+
+var Transition = function (_a) {
+  var _b = _a.show,
+      show = _b === void 0 ? true : _b,
+      start = _a.start,
+      transition = _a.transition,
+      _c = _a.transitionProperty,
+      transitionProperty = _c === void 0 ? "all" : _c,
+      entering = _a.entering,
+      entered = _a.entered,
+      exiting = _a.exiting,
+      exited = _a.exited,
+      _d = _a.duration,
+      duration = _d === void 0 ? defaultDuration : _d,
+      _e = _a.appear,
+      appear = _e === void 0 ? true : _e,
+      children = _a.children;
+  var initialStyle = start || entering || {};
+  var transitionStyles = {
+    entering: entering,
+    entered: entered,
+    exiting: exiting || initialStyle,
+    exited: exited || initialStyle
+  };
+  var transitionStyle = transition ? {
+    transition: transition
+  } : defaultTransition(duration);
+
+  var generateStyles = function (state) {
+    return __assign({}, initialStyle, transitionStyle, transitionStyles[state] || {}, {
+      transitionProperty: transitionProperty
+    });
+  };
+
+  return React.createElement(ReactTransition, {
+    in: show,
+    timeout: duration,
+    appear: appear,
+    mountOnEnter: true,
+    unmountOnExit: true
+  }, function (state) {
+    return Children.map(children, function (child, i) {
+      var _a = child.props,
+          style = _a.style,
+          key = _a.key;
+      return cloneElement(child, {
+        style: __assign({}, style || {}, generateStyles(state)),
+        key: key || i
+      });
+    });
+  });
+};
+var Fade = function (_a) {
+  var _b = _a.show,
+      show = _b === void 0 ? true : _b,
+      children = _a.children,
+      _c = _a.start,
+      start = _c === void 0 ? {} : _c,
+      duration = _a.duration,
+      appear = _a.appear,
+      _d = _a.transitionProperty,
+      transitionProperty = _d === void 0 ? "opacity" : _d;
+  return React.createElement(Transition, _extends({
+    start: __assign({
+      opacity: 0
+    }, start),
+    entering: {
+      opacity: 0
+    },
+    entered: {
+      opacity: 1
+    }
+  }, {
+    transitionProperty: transitionProperty,
+    appear: appear,
+    duration: duration,
+    show: show
+  }), children);
+};
+var Expand = function (_a) {
+  var _b = _a.show,
+      show = _b === void 0 ? true : _b,
+      children = _a.children,
+      duration = _a.duration,
+      appear = _a.appear,
+      _c = _a.width,
+      width = _c === void 0 ? "100%" : _c;
+  return React.createElement(Transition, {
+    show: show,
+    duration: duration,
+    start: {
+      width: 0,
+      opacity: 1,
+      overflow: "hidden"
+    },
+    entered: {
+      width: width,
+      opacity: 1
+    },
+    appear: appear
+  }, children);
+};
+var Scale = function (_a) {
+  var _b = _a.show,
+      show = _b === void 0 ? true : _b,
+      children = _a.children,
+      duration = _a.duration,
+      appear = _a.appear;
+  return React.createElement(Transition, {
+    show: show,
+    duration: duration,
+    start: {
+      transform: "scale(0)"
+    },
+    entered: {
+      transform: "scale(1)"
+    },
+    appear: appear
+  }, children);
+};
+var Grow = function (_a) {
+  var _b = _a.show,
+      show = _b === void 0 ? true : _b,
+      children = _a.children,
+      _c = _a.height,
+      height = _c === void 0 ? "100%" : _c,
+      duration = _a.duration,
+      appear = _a.appear;
+  return React.createElement(Transition, {
+    show: show,
+    duration: duration,
+    start: {
+      height: 0,
+      overflow: "hidden",
+      opacity: 0
+    },
+    entered: {
+      height: height,
+      opacity: "inherit",
+      overflow: "inherit"
+    },
+    appear: appear
+  }, children);
+};
+var Toggle = function (_a) {
+  var size = _a.size,
+      showFirstChild = _a.showFirstChild,
+      height = _a.height,
+      width = _a.width,
+      appear = _a.appear,
+      children = _a.children;
+
+  var _b = React.Children.toArray(children),
+      firstChild = _b[0],
+      secondChild = _b[1],
+      rest = _b.slice(2);
+
+  if (!firstChild || !secondChild || rest.length > 0) {
+    throw new Error("You can only pass two children to the Toggle component");
+  }
+
+  if (!(size || width && height)) {
+    throw new Error("You really should pass size or width and height to the Toggle component");
+  }
+
+  return React.createElement("div", {
+    className: "flex items-center",
+    style: {
+      position: "relative",
+      height: height || size,
+      width: width || size
+    }
+  }, React.createElement(Fade, {
+    start: {
+      position: "absolute",
+      zIndex: showFirstChild ? 2 : 1
+    },
+    show: showFirstChild,
+    appear: appear
+  }, firstChild), React.createElement(Fade, {
+    start: {
+      position: "absolute",
+      zIndex: showFirstChild ? 1 : 2
+    },
+    show: !showFirstChild,
+    appear: appear
+  }, secondChild));
+}; /////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+var Font;
+
+(function (Font) {
+  Font["defaultFontFamily"] = "Inter";
+  Font["defaultFontSize"] = "14px";
+})(Font || (Font = {}));
+
+var Font$1 = Font;
 
 var _a;
 
@@ -331,87 +564,6 @@ _a[BaseColor.grey200] = BaseColor.grey800, _a[BaseColor.grey300] = BaseColor.gre
 _a[BaseColor.black200] = BaseColor.grey300, _a[BaseColor.black500] = BaseColor.grey300, _a[BaseColor.black800] = BaseColor.grey300, _a);
 var Color$1 = Color;
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css = ".Segment-module_CohubSegment__3MMwJ {\n  background-color: var(--true-white);\n  border-radius: var(--default-border-radius);\n  transition: 100ms ease-in; }\n\n.Segment-module_padded__39Fvk {\n  padding: 1rem; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNlZ21lbnQubW9kdWxlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxtQ0FBbUM7RUFDbkMsMkNBQTJDO0VBQzNDLHlCQUF5QixFQUFFOztBQUU3QjtFQUNFLGFBQWEsRUFBRSIsImZpbGUiOiJTZWdtZW50Lm1vZHVsZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLkNvaHViU2VnbWVudCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXRydWUtd2hpdGUpO1xuICBib3JkZXItcmFkaXVzOiB2YXIoLS1kZWZhdWx0LWJvcmRlci1yYWRpdXMpO1xuICB0cmFuc2l0aW9uOiAxMDBtcyBlYXNlLWluOyB9XG5cbi5wYWRkZWQge1xuICBwYWRkaW5nOiAxcmVtOyB9XG4iXX0= */";
-var styles = {"CohubSegment":"Segment-module_CohubSegment__3MMwJ","padded":"Segment-module_padded__39Fvk"};
-styleInject(css);
-
-var Segment =
-/** @class */
-function (_super) {
-  __extends(Segment, _super);
-
-  function Segment() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Segment.prototype.render = function () {
-    var _a = this.props,
-        className = _a.className,
-        elevation = _a.elevation,
-        style = _a.style,
-        children = _a.children,
-        padded = _a.padded,
-        contrast = _a.contrast,
-        bordered = _a.bordered,
-        rest = __rest(_a, ["className", "elevation", "style", "children", "padded", "contrast", "bordered"]);
-
-    var dpLevel = contrast || bordered ? "dp0" : "dp" + elevation;
-    var classes = styles.CohubSegment + " " + (padded ? styles.padded : "") + " " + className;
-    return React.createElement("div", _extends({}, rest, {
-      className: classes,
-      style: __assign({
-        boxShadow: BoxShadow$1[dpLevel],
-        border: bordered ? "1px solid var(--border)" : "",
-        backgroundColor: contrast ? Color$1.grey200 : Color$1.trueWhite
-      }, style)
-    }), children);
-  };
-
-  Segment.defaultProps = {
-    elevation: 1,
-    padded: true,
-    className: "",
-    bordered: false
-  };
-  return Segment;
-}(PureComponent);
-
-var Font;
-
-(function (Font) {
-  Font["defaultFontFamily"] = "Inter";
-  Font["defaultFontSize"] = "14px";
-})(Font || (Font = {}));
-
-var Font$1 = Font;
-
 function typographyFactory(defaultProps) {
   return function (props) {
     var factoryStyle = defaultProps.style;
@@ -581,6 +733,180 @@ function (_super) {
   Typography.Tiny = Tiny;
   return Typography;
 }(Component);
+
+var Alert =
+/** @class */
+function (_super) {
+  __extends(Alert, _super);
+
+  function Alert() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Alert.prototype.render = function () {
+    var _a = this.props,
+        style = _a.style,
+        error = _a.error,
+        children = _a.children,
+        traceProp = _a.traceProp,
+        success = _a.success,
+        info = _a.info,
+        centerAlign = _a.centerAlign,
+        rest = __rest(_a, ["style", "error", "children", "traceProp", "success", "info", "centerAlign"]);
+
+    var backgroundColor = "#f8f8f9";
+    var color = "rgba(0,0,0,.87)";
+
+    if (error) {
+      color = Color$1.red800;
+      backgroundColor = Color$1.red100;
+    } else if (success) {
+      color = Color$1.green900;
+      backgroundColor = Color$1.green100;
+    } else if (info) {
+      color = Color$1.blue800;
+      backgroundColor = Color$1.blue100;
+    }
+
+    var classes = centerAlign ? "flex justify-center align-items-center" : "";
+    return React.createElement(ScrollIntoView, {
+      traceProp: traceProp || children
+    }, React.createElement(Fade, {
+      duration: 150
+    }, React.createElement("div", _extends({
+      style: __assign({
+        boxShadow: "inherit",
+        padding: "16px 20px",
+        border: "none",
+        borderRadius: 4,
+        fontSize: "12px",
+        backgroundColor: backgroundColor
+      }, style)
+    }, __assign({
+      error: error
+    }, rest)), React.createElement("div", {
+      className: classes
+    }, React.createElement(Typography.Small, {
+      style: {
+        color: color
+      }
+    }, children)))));
+  };
+
+  return Alert;
+}(PureComponent);
+
+var AnimatedCheckmark = function (_a) {
+  var _b = _a.size,
+      size = _b === void 0 ? '100%' : _b;
+  return React.createElement("div", {
+    style: {
+      height: size,
+      width: size,
+      borderRadius: '50%'
+    }
+  }, React.createElement("svg", {
+    className: "AnimatedCheckmark",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 52 52"
+  }, React.createElement("circle", {
+    className: "checkmark__circle",
+    cx: "52",
+    cy: "52",
+    r: "1000",
+    fill: "none"
+  }), React.createElement("path", {
+    className: "checkmark__check",
+    fill: "none",
+    d: "M14.1 27.2l7.1 7.2 16.7-16.8"
+  })));
+};
+
+var BoxShadow;
+
+(function (BoxShadow) {
+  BoxShadow["dp0"] = "";
+  BoxShadow["dp1"] = "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)";
+  BoxShadow["dp2"] = "0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp3"] = "0px 1px 8px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14)";
+  BoxShadow["dp8"] = "0px 5px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp16"] = "0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12)";
+  BoxShadow["dp24"] = "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)";
+})(BoxShadow || (BoxShadow = {}));
+
+var BoxShadow$1 = BoxShadow;
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css = ".Segment-module_CohubSegment__3MMwJ {\n  background-color: var(--true-white);\n  border-radius: var(--default-border-radius);\n  transition: 100ms ease-in; }\n\n.Segment-module_padded__39Fvk {\n  padding: 1rem; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNlZ21lbnQubW9kdWxlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxtQ0FBbUM7RUFDbkMsMkNBQTJDO0VBQzNDLHlCQUF5QixFQUFFOztBQUU3QjtFQUNFLGFBQWEsRUFBRSIsImZpbGUiOiJTZWdtZW50Lm1vZHVsZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLkNvaHViU2VnbWVudCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXRydWUtd2hpdGUpO1xuICBib3JkZXItcmFkaXVzOiB2YXIoLS1kZWZhdWx0LWJvcmRlci1yYWRpdXMpO1xuICB0cmFuc2l0aW9uOiAxMDBtcyBlYXNlLWluOyB9XG5cbi5wYWRkZWQge1xuICBwYWRkaW5nOiAxcmVtOyB9XG4iXX0= */";
+var styles = {"CohubSegment":"Segment-module_CohubSegment__3MMwJ","padded":"Segment-module_padded__39Fvk"};
+styleInject(css);
+
+var Segment =
+/** @class */
+function (_super) {
+  __extends(Segment, _super);
+
+  function Segment() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Segment.prototype.render = function () {
+    var _a = this.props,
+        className = _a.className,
+        elevation = _a.elevation,
+        style = _a.style,
+        children = _a.children,
+        padded = _a.padded,
+        contrast = _a.contrast,
+        bordered = _a.bordered,
+        rest = __rest(_a, ["className", "elevation", "style", "children", "padded", "contrast", "bordered"]);
+
+    var dpLevel = contrast || bordered ? "dp0" : "dp" + elevation;
+    var classes = styles.CohubSegment + " " + (padded ? styles.padded : "") + " " + className;
+    return React.createElement("div", _extends({}, rest, {
+      className: classes,
+      style: __assign({
+        boxShadow: BoxShadow$1[dpLevel],
+        border: bordered ? "1px solid var(--border)" : "",
+        backgroundColor: contrast ? Color$1.grey200 : Color$1.trueWhite
+      }, style)
+    }), children);
+  };
+
+  Segment.defaultProps = {
+    elevation: 1,
+    padded: true,
+    className: "",
+    bordered: false
+  };
+  return Segment;
+}(PureComponent);
 
 var FormatMoney =
 /** @class */
@@ -3001,6 +3327,32 @@ function Divider(props) {
   });
 }
 
+var FormatWeight =
+/** @class */
+function (_super) {
+  __extends(FormatWeight, _super);
+
+  function FormatWeight() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FormatWeight.prototype.render = function () {
+    var value = this.props.value;
+    return React.createElement(NumberFormat, {
+      value: value,
+      displayType: "text",
+      thousandSeparator: true,
+      decimalScale: 2,
+      suffix: " lbs."
+    });
+  };
+
+  FormatWeight.defaultProps = {
+    thousandSeparator: false
+  };
+  return FormatWeight;
+}(React.Component);
+
 var css$c = ".FormGroup-module_base__3hXvl, .FormGroup-module_horizontal__M22Uj, .FormGroup-module_vertical__3U51_ {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n  width: 100%; }\n\n.FormGroup-module_horizontal__M22Uj > div {\n  margin-left: 0.5rem;\n  margin-right: 0.5rem; }\n\n.FormGroup-module_horizontal__M22Uj > :first-child {\n  margin-left: 0; }\n\n.FormGroup-module_horizontal__M22Uj > :last-child {\n  margin-right: 0; }\n\n.FormGroup-module_vertical__3U51_ {\n  flex-direction: column; }\n  .FormGroup-module_vertical__3U51_ > div {\n    margin-bottom: 1rem; }\n  .FormGroup-module_vertical__3U51_ > :last-child {\n    margin-bottom: 0; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZvcm1Hcm91cC5tb2R1bGUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7RUFDYiw4QkFBOEI7RUFDOUIsbUJBQW1CO0VBQ25CLFdBQVcsRUFBRTs7QUFFZjtFQUNFLG1CQUFtQjtFQUNuQixvQkFBb0IsRUFBRTs7QUFFeEI7RUFDRSxjQUFjLEVBQUU7O0FBRWxCO0VBQ0UsZUFBZSxFQUFFOztBQUVuQjtFQUNFLHNCQUFzQixFQUFFO0VBQ3hCO0lBQ0UsbUJBQW1CLEVBQUU7RUFDdkI7SUFDRSxnQkFBZ0IsRUFBRSIsImZpbGUiOiJGb3JtR3JvdXAubW9kdWxlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmFzZSwgLmhvcml6b250YWwsIC52ZXJ0aWNhbCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogMXJlbTtcbiAgd2lkdGg6IDEwMCU7IH1cblxuLmhvcml6b250YWwgPiBkaXYge1xuICBtYXJnaW4tbGVmdDogMC41cmVtO1xuICBtYXJnaW4tcmlnaHQ6IDAuNXJlbTsgfVxuXG4uaG9yaXpvbnRhbCA+IDpmaXJzdC1jaGlsZCB7XG4gIG1hcmdpbi1sZWZ0OiAwOyB9XG5cbi5ob3Jpem9udGFsID4gOmxhc3QtY2hpbGQge1xuICBtYXJnaW4tcmlnaHQ6IDA7IH1cblxuLnZlcnRpY2FsIHtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgfVxuICAudmVydGljYWwgPiBkaXYge1xuICAgIG1hcmdpbi1ib3R0b206IDFyZW07IH1cbiAgLnZlcnRpY2FsID4gOmxhc3QtY2hpbGQge1xuICAgIG1hcmdpbi1ib3R0b206IDA7IH1cbiJdfQ== */";
 var styles$7 = {"base":"FormGroup-module_base__3hXvl","horizontal":"FormGroup-module_horizontal__M22Uj","vertical":"FormGroup-module_vertical__3U51_"};
 styleInject(css$c);
@@ -3801,65 +4153,6 @@ var getMonthData = function (month, year) {
     daysInPreviousMonth: daysInPreviousMonth
   };
 };
-
-var defaultScrollOpts = {
-  behavior: "smooth",
-  block: "center"
-};
-
-var ScrollIntoView =
-/** @class */
-function (_super) {
-  __extends(ScrollIntoView, _super);
-
-  function ScrollIntoView(props) {
-    var _this = _super.call(this, props) || this;
-
-    _this.selfRef = React.createRef();
-    return _this;
-  }
-
-  ScrollIntoView.prototype.componentDidMount = function () {
-    this.scrollIntoView();
-  };
-
-  ScrollIntoView.prototype.componentDidUpdate = function (oldProps) {
-    var _a = this.props,
-        scroll = _a.scroll,
-        traceProp = _a.traceProp; // if new props are different, trigger scrollInto view again
-
-    if (oldProps.traceProp !== traceProp || oldProps.scroll !== scroll) {
-      this.scrollIntoView();
-    }
-  };
-
-  ScrollIntoView.prototype.render = function () {
-    var _a = this.props,
-        style = _a.style,
-        className = _a.className,
-        children = _a.children;
-    return React.createElement("div", {
-      ref: this.selfRef,
-      style: style,
-      className: className + " w-100"
-    }, children);
-  };
-
-  ScrollIntoView.prototype.scrollIntoView = function () {
-    var _a = this.props,
-        scroll = _a.scroll,
-        scrollOpts = _a.scrollOpts;
-    var self = this.selfRef.current;
-    scroll && self && self.scrollIntoView(__assign({}, defaultScrollOpts, scrollOpts));
-  };
-
-  ScrollIntoView.defaultProps = {
-    scroll: true,
-    scrollOpts: {},
-    className: ""
-  };
-  return ScrollIntoView;
-}(Component);
 
 function YearPicker(_a) {
   var onChange = _a.onChange,
@@ -5205,7 +5498,7 @@ var css$n = ".Toggle-module_labelContainer__6R_gw, .Toggle-module_labelContainer
 var styles$f = {"labelContainer":"Toggle-module_labelContainer__6R_gw","labelContainerLeft":"Toggle-module_labelContainerLeft__jyqAv","labelContainerRight":"Toggle-module_labelContainerRight__3t8zx","labelContainerTop":"Toggle-module_labelContainerTop__2824a","labelContainerBottom":"Toggle-module_labelContainerBottom__1g9y_","container":"Toggle-module_container__3DMtn","containerActive":"Toggle-module_containerActive__1jtDw","containerInactive":"Toggle-module_containerInactive__3RAMH","toggle":"Toggle-module_toggle__1BLbN","toggleActive":"Toggle-module_toggleActive__33s_R","toggleInactive":"Toggle-module_toggleInactive__1lJfx"};
 styleInject(css$n);
 
-var Toggle =
+var Toggle$1 =
 /** @class */
 function (_super) {
   __extends(Toggle, _super);
@@ -5287,7 +5580,7 @@ var Inputs = {
   Select: Select,
   Text: Text$1,
   TextArea: TextArea,
-  Toggle: Toggle
+  Toggle: Toggle$1
 };
 
 var Base$2 =
@@ -5372,211 +5665,6 @@ function (_super) {
   };
   return Link;
 }(React.Component);
-
-/////////////// LOW LEVEL TRANSITION WRAPPER ////////////////////
-
-var defaultDuration = 300;
-
-var defaultTransition = function (ms) {
-  return {
-    transition: "all " + ms + "ms ease-in-out"
-  };
-}; // The Transition component is used to pass transition styles into it's children cmpts and control the state of those transitions.
-// Any children passed MUST ACCEPT A STYLE PROP
-// This component expects a start OR entering Style, an entered Style, and a show prop. All others props are optional and will generate sensible defaults
-// Set the appear prop to false if you DON'T want the transition to play on initial render / page load
-// You can see examples of the Cmpt being used lower in this file for reference.
-// If you need more granular control please see the docs for react-transition-group Transition cmpt here -> https://reactcommunity.org/react-transition-group/transition
-
-
-var Transition = function (_a) {
-  var _b = _a.show,
-      show = _b === void 0 ? true : _b,
-      start = _a.start,
-      transition = _a.transition,
-      _c = _a.transitionProperty,
-      transitionProperty = _c === void 0 ? "all" : _c,
-      entering = _a.entering,
-      entered = _a.entered,
-      exiting = _a.exiting,
-      exited = _a.exited,
-      _d = _a.duration,
-      duration = _d === void 0 ? defaultDuration : _d,
-      _e = _a.appear,
-      appear = _e === void 0 ? true : _e,
-      children = _a.children;
-  var initialStyle = start || entering || {};
-  var transitionStyles = {
-    entering: entering,
-    entered: entered,
-    exiting: exiting || initialStyle,
-    exited: exited || initialStyle
-  };
-  var transitionStyle = transition ? {
-    transition: transition
-  } : defaultTransition(duration);
-
-  var generateStyles = function (state) {
-    return __assign({}, initialStyle, transitionStyle, transitionStyles[state] || {}, {
-      transitionProperty: transitionProperty
-    });
-  };
-
-  return React.createElement(ReactTransition, {
-    in: show,
-    timeout: duration,
-    appear: appear,
-    mountOnEnter: true,
-    unmountOnExit: true
-  }, function (state) {
-    return Children.map(children, function (child, i) {
-      var _a = child.props,
-          style = _a.style,
-          key = _a.key;
-      return cloneElement(child, {
-        style: __assign({}, style || {}, generateStyles(state)),
-        key: key || i
-      });
-    });
-  });
-};
-var Fade = function (_a) {
-  var _b = _a.show,
-      show = _b === void 0 ? true : _b,
-      children = _a.children,
-      _c = _a.start,
-      start = _c === void 0 ? {} : _c,
-      duration = _a.duration,
-      appear = _a.appear,
-      _d = _a.transitionProperty,
-      transitionProperty = _d === void 0 ? "opacity" : _d;
-  return React.createElement(Transition, _extends({
-    start: __assign({
-      opacity: 0
-    }, start),
-    entering: {
-      opacity: 0
-    },
-    entered: {
-      opacity: 1
-    }
-  }, {
-    transitionProperty: transitionProperty,
-    appear: appear,
-    duration: duration,
-    show: show
-  }), children);
-};
-var Expand = function (_a) {
-  var _b = _a.show,
-      show = _b === void 0 ? true : _b,
-      children = _a.children,
-      duration = _a.duration,
-      appear = _a.appear,
-      _c = _a.width,
-      width = _c === void 0 ? "100%" : _c;
-  return React.createElement(Transition, {
-    show: show,
-    duration: duration,
-    start: {
-      width: 0,
-      opacity: 1,
-      overflow: "hidden"
-    },
-    entered: {
-      width: width,
-      opacity: 1
-    },
-    appear: appear
-  }, children);
-};
-var Scale = function (_a) {
-  var _b = _a.show,
-      show = _b === void 0 ? true : _b,
-      children = _a.children,
-      duration = _a.duration,
-      appear = _a.appear;
-  return React.createElement(Transition, {
-    show: show,
-    duration: duration,
-    start: {
-      transform: "scale(0)"
-    },
-    entered: {
-      transform: "scale(1)"
-    },
-    appear: appear
-  }, children);
-};
-var Grow = function (_a) {
-  var _b = _a.show,
-      show = _b === void 0 ? true : _b,
-      children = _a.children,
-      _c = _a.height,
-      height = _c === void 0 ? "100%" : _c,
-      duration = _a.duration,
-      appear = _a.appear;
-  return React.createElement(Transition, {
-    show: show,
-    duration: duration,
-    start: {
-      height: 0,
-      overflow: "hidden",
-      opacity: 0
-    },
-    entered: {
-      height: height,
-      opacity: "inherit",
-      overflow: "inherit"
-    },
-    appear: appear
-  }, children);
-};
-var Toggle$1 = function (_a) {
-  var size = _a.size,
-      showFirstChild = _a.showFirstChild,
-      height = _a.height,
-      width = _a.width,
-      appear = _a.appear,
-      children = _a.children;
-
-  var _b = React.Children.toArray(children),
-      firstChild = _b[0],
-      secondChild = _b[1],
-      rest = _b.slice(2);
-
-  if (!firstChild || !secondChild || rest.length > 0) {
-    throw new Error("You can only pass two children to the Toggle component");
-  }
-
-  if (!(size || width && height)) {
-    throw new Error("You really should pass size or width and height to the Toggle component");
-  }
-
-  return React.createElement("div", {
-    className: "flex items-center",
-    style: {
-      position: "relative",
-      height: height || size,
-      width: width || size
-    }
-  }, React.createElement(Fade, {
-    start: {
-      position: "absolute",
-      zIndex: showFirstChild ? 2 : 1
-    },
-    show: showFirstChild,
-    appear: appear
-  }, firstChild), React.createElement(Fade, {
-    start: {
-      position: "absolute",
-      zIndex: showFirstChild ? 1 : 2
-    },
-    show: !showFirstChild,
-    appear: appear
-  }, secondChild));
-}; /////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
 
 var css$p = "@-webkit-keyframes hop-lock-and-drop {\n  40% {\n    transform: translateY(-6px); }\n  90% {\n    transform: none;\n    transform: initial; } }\n@keyframes hop-lock-and-drop {\n  40% {\n    transform: translateY(-6px); }\n  90% {\n    transform: none;\n    transform: initial; } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvYWRlci5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7SUFDRSwyQkFBMkIsRUFBRTtFQUMvQjtJQUNFLGVBQWtCO0lBQWxCLGtCQUFrQixFQUFFLEVBQUU7QUFKMUI7RUFDRTtJQUNFLDJCQUEyQixFQUFFO0VBQy9CO0lBQ0UsZUFBa0I7SUFBbEIsa0JBQWtCLEVBQUUsRUFBRSIsImZpbGUiOiJsb2FkZXIuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBrZXlmcmFtZXMgaG9wLWxvY2stYW5kLWRyb3Age1xuICA0MCUge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNnB4KTsgfVxuICA5MCUge1xuICAgIHRyYW5zZm9ybTogaW5pdGlhbDsgfSB9XG4iXX0= */";
 styleInject(css$p);
@@ -6041,7 +6129,7 @@ function StateCtrl(props) {
       return clearInterval(intervalId);
     };
   }, []);
-  return React.createElement(Fragment, null, !toggleInterval && React.createElement("div", null, React.createElement(Toggle, {
+  return React.createElement(Fragment, null, !toggleInterval && React.createElement("div", null, React.createElement(Toggle$1, {
     label: "Toggle " + label,
     input: {
       onChange: function () {
@@ -6101,5 +6189,5 @@ var StoryCmpts = /*#__PURE__*/Object.freeze({
 var InputValidations = InputValidationsToExport; // Storybook
 var StoryHelpers = StoryCmpts;
 
-export { AnimatedCheckmark, AttributeList, Avatar, Backdrop, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FormGroup, FormatMoney, FormatNumber, FormatPercent, Grow, Icon, InputValidations, Inputs, Link, Loader, Modal, ProgressBar, Scale, ScrollIntoView, Segment, Statistic, StoryHelpers, Tabs, Toggle$1 as Toggle, Tooltip, Transition, Typography, childIsVisible, iconNames, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
+export { Alert, AnimatedCheckmark, AttributeList, Avatar, Backdrop, BoxShadow$1 as BoxShadow, Buttons, Card, Chip, Color$1 as Color, CssVariables as CssFramework, Divider, Expand, Fade, FormGroup, FormatMoney, FormatNumber, FormatPercent, FormatWeight, Grow, Icon, InputValidations, Inputs, Link, Loader, Modal, ProgressBar, Scale, ScrollIntoView, Segment, Statistic, StoryHelpers, Tabs, Toggle, Tooltip, Transition, Typography, childIsVisible, iconNames, marginHorizontal, marginVertical, paddingHorizontal, paddingVertical, renderDate, size, stringifiedObjectValues, truncateString };
 //# sourceMappingURL=index.js.map

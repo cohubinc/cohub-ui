@@ -1,4 +1,5 @@
 // Components
+export { default as Alert } from "src/components/Alert";
 export { default as AnimatedCheckmark } from "src/components/AnimatedCheckmark";
 export { default as AttributeList } from "src/components/AttributeList";
 export { default as Avatar } from "src/components/Avatar";
@@ -13,6 +14,7 @@ export { default as Divider } from "src/components/Divider";
 export { default as FormatMoney } from "src/components/FormatMoney";
 export { default as FormatNumber } from "src/components/FormatNumber";
 export { default as FormatPercent } from "src/components/FormatPercent";
+export { default as FormatWeight } from "src/components/FormatWeight";
 export { default as FormGroup } from "src/components/Form/FormGroup";
 export { default as Icon } from "src/components/Icon";
 export { iconNames } from "src/components/Icon/Icons";

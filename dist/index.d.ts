@@ -1,3 +1,4 @@
+export { default as Alert } from "./components/Alert";
 export { default as AnimatedCheckmark } from "./components/AnimatedCheckmark";
 export { default as AttributeList } from "./components/AttributeList";
 export { default as Avatar } from "./components/Avatar";
@@ -12,6 +13,7 @@ export { default as Divider } from "./components/Divider";
 export { default as FormatMoney } from "./components/FormatMoney";
 export { default as FormatNumber } from "./components/FormatNumber";
 export { default as FormatPercent } from "./components/FormatPercent";
+export { default as FormatWeight } from "./components/FormatWeight";
 export { default as FormGroup } from "./components/Form/FormGroup";
 export { default as Icon } from "./components/Icon";
 export { iconNames } from "./components/Icon/Icons";
