@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Fragment>
+  <div
+    className="Tabs flex"
+  >
+    <Tab
+      title="test"
+    />
+    <Tab
+      title="Test 2"
+    />
+  </div>
+  <div
+    className="Tabs-Content"
+  />
+</Fragment>
+`;

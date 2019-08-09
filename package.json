@@ -36,12 +36,14 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push-msg": "echo 'Building dist. You will likely need to amend your previous commit and force push the changes to dist.' && exit 0",
-      "pre-push": "yarn test --no-watch && yarn build"
+      "pre-push": "yarn test --no-watch"
     }
   },
   "dependencies": {
     "@tippy.js/react": "^2.2.2",
     "@types/enzyme": "^3.10.3",
+    "@types/react-redux": "^7.1.1",
+    "connected-react-router": "^6.5.2",
     "final-form": "^4.18.2",
     "lodash": "^4.0.0",
     "moment": "^2.23.0",
@@ -50,6 +52,7 @@
     "react-dom": "^16.0.0",
     "react-final-form": "^6.3.0",
     "react-number-format": "^4.1.1",
+    "react-redux": "^7.1.0",
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.0.1",
     "react-select": "3.0.4",

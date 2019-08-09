@@ -1,0 +1,53 @@
+import { action } from "@storybook/addon-actions";
+import { Story, Meta, Props } from "@storybook/addon-docs/blocks";
+
+import { StateContainer } from "src/story-helpers";
+import Tabs from "src/components/Tabs";
+import Tab from "src/components/Tabs/Tab";
+import Segment from "src/components/Segment/index.tsx";
+
+<Meta title="Components|Tabs" />
+
+# Tabs
+
+These are Tabs.
+
+<Story name="Tabs">
+  <StateContainer initialState={0}>
+    {({ state, setState }) => {
+      const Container = ({ children, ...props }) => (
+        <Segment
+          className="flex justify-center items-center"
+          style={{ height: "90vh" }}
+          {...props}
+        >
+          <h1>{children}</h1>
+        </Segment>
+      );
+      return (
+        <Tabs>
+          <Tab
+            title="Tab 1"
+            onClick={() => setState(0)}
+            active={state === 0}
+            component={<Container>One</Container>}
+          />
+          <Tab
+            title="Tab 2"
+            onClick={() => setState(1)}
+            active={state === 1}
+            component={<Container>Two</Container>}
+          />
+          <Tab
+            title="Tab 3"
+            onClick={() => setState(2)}
+            active={state === 2}
+            component={<Container>Three</Container>}
+          />
+        </Tabs>
+      );
+    }}
+  </StateContainer>
+</Story>
+
+<Props of={Tab} />
