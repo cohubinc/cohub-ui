@@ -1,5 +1,5 @@
 {
-  "name": "@cohubinc/coub-ui",
+  "name": "@cohubinc/cohub-ui",
   "version": "0.1.0",
   "description": "Sharable UI components",
   "main": "dist/index.js",
