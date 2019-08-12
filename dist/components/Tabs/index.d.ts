@@ -1,11 +1,17 @@
-import { Component } from "react";
+import { ReactElement } from "react";
+import { IProps as TabProps } from "./Tab";
 import "./Tabs.scss";
-import Tab from "./Tab";
 interface IProps {
-    children: Array<JSX.Element | false | null>;
+    children: Array<ReactElement<TabProps>>;
+    /**
+     * If using this component in an app that doesnt use connected-react-router
+     * this must be set to false
+     * @defaultValue true
+     */
+    useRedux?: boolean;
 }
-export default class Tabs extends Component<IProps> {
-    static Tab: typeof Tab;
-    render(): JSX.Element;
+declare function Tabs(props: IProps): JSX.Element;
+declare namespace Tabs {
+    var Tab: Pick<(props: TabProps) => JSX.Element, never>;
 }
-export {};
+export default Tabs;

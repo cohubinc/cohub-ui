@@ -1,4 +1,4 @@
-import { CSSProperties, Component } from "react";
+import { CSSProperties } from "react";
 import Color from "../../../definitions/enums/Color";
 interface IProps {
     labels: string[];
@@ -9,8 +9,5 @@ interface IProps {
     style?: CSSProperties;
     className?: string;
 }
-export default class Split extends Component<IProps> {
-    static Primary: ({ color, ...rest }: IProps) => JSX.Element;
-    render(): JSX.Element;
-}
+export default function SplitButton(props: IProps): JSX.Element;
 export {};

@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ReactElement, ElementType } from "react";
 import style from "./Tab.module.scss";
 import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
 import NumberFormat from "react-number-format";
 
-interface IProps {
+export interface IProps {
   title: string;
   active?: boolean;
   path?: string;
@@ -17,7 +17,7 @@ interface IProps {
   useRedux?: boolean;
 }
 
-export default function Tab(props: IProps) {
+function Tab(props: IProps) {
   const {
     title,
     path,
@@ -62,3 +62,5 @@ export default function Tab(props: IProps) {
     </div>
   );
 }
+
+export default Tab as Omit<typeof Tab, "useRedux">;

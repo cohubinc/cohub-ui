@@ -5,7 +5,7 @@ import { Tabs } from "dist";
 
 it("renders without crashing", async () => {
   const wrapper = shallow(
-    <Tabs>
+    <Tabs useRedux={false}>
       <Tabs.Tab title="test" />
       <Tabs.Tab title="Test 2" />
     </Tabs>

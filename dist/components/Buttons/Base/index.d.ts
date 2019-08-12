@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import Color from "../../../definitions/enums/Color";
 import TIconName from "../../../definitions/types/TIconName";
 import "./Base.scss";

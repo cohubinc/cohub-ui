@@ -11,7 +11,7 @@ interface IProps {
   style?: CSSProperties;
   className?: string;
 }
-const DefaultSplitButtons = (props: IProps) => {
+export default function SplitButton(props: IProps) {
   const {
     labels,
     style,
@@ -19,7 +19,7 @@ const DefaultSplitButtons = (props: IProps) => {
     segmentStyle,
     onChange,
     selectedIndex,
-    color
+    color = Color.primary
   } = props;
 
   const numBtns = labels.length;
@@ -45,16 +45,4 @@ const DefaultSplitButtons = (props: IProps) => {
       ))}
     </div>
   );
-};
-
-const PrimarySplitButtons = ({ color, ...rest }: IProps) => (
-  <DefaultSplitButtons color={color || Color.primary} {...rest} />
-);
-
-export default class Split extends Component<IProps> {
-  static Primary = PrimarySplitButtons;
-
-  render() {
-    return <DefaultSplitButtons {...this.props} />;
-  }
 }
