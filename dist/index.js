@@ -5857,7 +5857,7 @@ function (_super) {
   return Modal;
 }(PureComponent);
 
-var css$r = ".ProgressBar-module_Bar__357tf {\n  width: 100%;\n  border-radius: 361px; }\n\n.ProgressBar-module_Progress__FcFUX {\n  position: relative;\n  top: 0;\n  height: 100%;\n  border-radius: 361px;\n  max-width: 100%; }\n";
+var css$r = ".ProgressBar-module_Bar__357tf {\n  width: 100%;\n  border-radius: 361px; }\n\n.ProgressBar-module_Progress__FcFUX {\n  position: relative;\n  top: 0;\n  height: 100%;\n  border-radius: 361px;\n  max-width: 100%;\n  transition: width 250ms ease-out; }\n";
 var styles$g = {"Bar":"ProgressBar-module_Bar__357tf","Progress":"ProgressBar-module_Progress__FcFUX"};
 styleInject(css$r);
 
