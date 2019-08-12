@@ -23,7 +23,7 @@ Sharable UI components for react web apps
 > watches for changes in the `./src` directory and builds the app bundle into `./dist`
 
 ```bash
-> yarn build:watch
+> yarn watch
 ```
 
 ## Adding new components or updating existing ones
@@ -62,7 +62,7 @@ Story's are written in [**MDX**](https://mdxjs.com/) and should generally be co-
 3. Reference the already created stories for examples on how these should be written
 
 4. From the project root start the Storybook server and open the stories in your browser
-   > Make sure your project build process is running in a separate tab (yarn build:watch)
+   > Make sure your project build process is running in a separate tab (yarn watch)
 
 ```bash
 > yarn storybook
