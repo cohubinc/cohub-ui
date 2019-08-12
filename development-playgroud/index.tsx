@@ -6,7 +6,9 @@ import {
   Buttons,
   Inputs,
   InputValidations,
-  Segment
+  Segment,
+  Icon,
+  Avatar
 } from "../dist/";
 import { Form, Field } from "react-final-form";
 
@@ -27,6 +29,9 @@ const App = () => {
                   render={props => <Inputs.Password {...props} />}
                   validate={composeValidators(required, minLength(2))}
                 />
+                <Icon.ArrowDown />
+                <Avatar />
+                <Buttons.Primary>Push Me</Buttons.Primary>
               </React.Fragment>
             );
           }}

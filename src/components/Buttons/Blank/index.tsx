@@ -1,8 +1,4 @@
-import React, {
-  DetailedHTMLProps,
-  ButtonHTMLAttributes,
-  LegacyRef
-} from "react";
+import React, { LegacyRef } from "react";
 import pick from "lodash/pick";
 
 import Typography from "src/components/Typography";
@@ -12,10 +8,8 @@ import styles from "./Blank.module.scss";
 // If it's clickable it should probably be a button or a link
 export type Props = {
   nativeElRef?: LegacyRef<HTMLButtonElement>;
-} & DetailedHTMLProps<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->;
+} & JSX.IntrinsicElements["button"];
+
 const Blank = ({
   className = "",
   children,

@@ -1,8 +1,7 @@
-import React from "react";
 import Color from "../../../definitions/enums/Color";
 import TIconName from "../../../definitions/types/TIconName";
 import "./Base.scss";
-export declare type TRootElementProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+export declare type TRootElementProps = JSX.IntrinsicElements["button"];
 export interface IBaseButtonProps extends TRootElementProps {
     /** Shows success checkmark animation */
     success?: boolean;

@@ -1,4 +1,4 @@
-import React, { ReactNode, Component } from "react";
+import React, { ReactNode } from "react";
 import style from "./Tab.module.scss";
 import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";

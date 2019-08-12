@@ -9,10 +9,7 @@ import TIconName from "src/definitions/types/TIconName";
 
 import "./Base.scss";
 
-export type TRootElementProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->;
+export type TRootElementProps = JSX.IntrinsicElements["button"];
 
 export interface IBaseButtonProps extends TRootElementProps {
   /** Shows success checkmark animation */
