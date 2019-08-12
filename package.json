@@ -1,6 +1,6 @@
 {
-  "name": "coub-ui",
-  "version": "1.0.0",
+  "name": "@cohubinc/coub-ui",
+  "version": "0.0.9",
   "description": "Sharable UI components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,6 @@
   ],
   "author": "Cohub",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "build:stories": "NODE_ENV=storybook rollup -c",
@@ -115,5 +114,13 @@
     "typescript": "3.5.3",
     "typescript-transform-paths": "1.1.8",
     "webpack": "^4.39.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cohubinc/cohub-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cohubinc/cohub-ui/issues"
+  },
+  "homepage": "https://github.com/cohubinc/cohub-ui#readme"
 }
