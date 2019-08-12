@@ -5,7 +5,8 @@ import {
   Color,
   Buttons,
   Inputs,
-  InputValidations
+  InputValidations,
+  Segment
 } from "../dist/";
 import { Form, Field } from "react-final-form";
 
@@ -13,29 +14,25 @@ const App = () => {
   const { required, composeValidators, minLength } = InputValidations;
 
   return (
-    <div className="flex justify-center items-center h-100">
+    <React.Fragment>
       <CssFramework />
-      <Buttons.FloatingAction
-        icon={"back"}
-        iconColor={Color.green500}
-        size={50}
-        backgroundColor={Color.green100}
-        elevation={24}
-        type="submit"
-      />
-      <Form
-        onSubmit={values => alert(JSON.stringify(values))}
-        render={() => {
-          return (
-            <Field
-              name="name"
-              render={props => <Inputs.Text {...props} />}
-              validate={composeValidators(required, minLength(2))}
-            />
-          );
-        }}
-      />
-    </div>
+      <Segment>
+        <Form
+          onSubmit={values => alert(JSON.stringify(values))}
+          render={() => {
+            return (
+              <React.Fragment>
+                <Field
+                  name="name"
+                  render={props => <Inputs.Password {...props} />}
+                  validate={composeValidators(required, minLength(2))}
+                />
+              </React.Fragment>
+            );
+          }}
+        />
+      </Segment>
+    </React.Fragment>
   );
 };
 

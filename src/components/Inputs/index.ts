@@ -5,6 +5,7 @@ import Date from "./Dates/Date";
 import DateRange from "./Dates/DateRange";
 import Money from "./Money";
 import MultiSelect from "./MultiSelect";
+import Password from "./Password";
 import Select from "./Select";
 import Text from "./Text";
 import TextArea from "./TextArea";
@@ -18,6 +19,7 @@ const Inputs = {
   DateRange,
   Money,
   MultiSelect,
+  Password,
   Select,
   Text,
   TextArea,
