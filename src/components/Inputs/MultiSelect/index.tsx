@@ -11,7 +11,7 @@ import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 
-import "./Multiselect.scss";
+import "./MultiSelect.scss";
 
 interface IOption {
   label: string;
@@ -29,7 +29,7 @@ interface IProps {
 export type MultiSelectProps = IProps &
   FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
 
-export default function Multiselect({
+export default function MultiSelect({
   options,
   label,
   allowCreate,
@@ -65,7 +65,7 @@ export default function Multiselect({
   }
 
   const contrastPadding =
-    appearance === "contrast" ? { paddingTop: "1rem" } : {};
+    appearance === "contrast" ? { paddingTop: "0.5rem" } : {};
 
   const selectConfig: SelectComponentsProps = {
     options,

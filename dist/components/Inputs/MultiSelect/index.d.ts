@@ -1,6 +1,6 @@
 import { OptionsType } from "react-select/src/types";
 import { FieldRenderProps } from "react-final-form";
-import "./Multiselect.scss";
+import "./MultiSelect.scss";
 interface IOption {
     label: string;
     value: string;
@@ -13,5 +13,5 @@ interface IProps {
     appearance?: "contrast" | "inverted";
 }
 export declare type MultiSelectProps = IProps & FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
-export default function Multiselect({ options, label, allowCreate, loading, input, appearance }: MultiSelectProps): JSX.Element;
+export default function MultiSelect({ options, label, allowCreate, loading, input, appearance }: MultiSelectProps): JSX.Element;
 export {};

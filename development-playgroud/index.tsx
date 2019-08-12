@@ -16,28 +16,50 @@ const App = () => {
   const { required, composeValidators, minLength } = InputValidations;
 
   return (
-    <React.Fragment>
+    <div
+      style={{
+        maxWidth: "500px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
       <CssFramework />
-      <Segment>
-        <Form
-          onSubmit={values => alert(JSON.stringify(values))}
-          render={() => {
-            return (
-              <React.Fragment>
-                <Field
-                  name="name"
-                  render={props => <Inputs.Password {...props} />}
-                  validate={composeValidators(required, minLength(2))}
-                />
-                <Icon.ArrowDown />
-                <Avatar />
-                <Buttons.Primary>Push Me</Buttons.Primary>
-              </React.Fragment>
-            );
-          }}
-        />
-      </Segment>
-    </React.Fragment>
+      <Form
+        onSubmit={values => alert(JSON.stringify(values))}
+        render={() => {
+          return (
+            <React.Fragment>
+              <Field
+                name="states"
+                render={props => (
+                  <Inputs.MultiSelect
+                    label="Status"
+                    appearance="contrast"
+                    {...props}
+                    options={[
+                      { value: "pending", label: "Pending" },
+                      { value: "placed", label: "Placed" },
+                      { value: "completed", label: "Completed" }
+                    ]}
+                  />
+                )}
+              />
+              <Field
+                name="states"
+                render={props => (
+                  <Inputs.Text
+                    label="Status"
+                    appearance="contrast"
+                    {...props}
+                  />
+                )}
+              />
+            </React.Fragment>
+          );
+        }}
+      />
+    </div>
   );
 };
 
