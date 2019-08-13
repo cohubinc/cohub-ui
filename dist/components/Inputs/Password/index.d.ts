@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { FieldRenderProps } from "react-final-form";
 import TInputElementProps from "../definitions/TInputElementProps";
 declare type FieldProps = FieldRenderProps<string, HTMLInputElement>;

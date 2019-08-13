@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import TPicker from "../../definitions/types/TPicker";
 interface IProps {
     onChange: (year: string) => void;

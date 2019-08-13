@@ -5,7 +5,7 @@ import { addDecorator } from "@storybook/react";
 import { addParameters, configure } from "@storybook/react";
 import { DocsPage } from "@storybook/addon-docs/blocks";
 
-import { CssFramework } from "../dist";
+import { CssFramework } from "dist/index.esm.js";
 
 import "./custom-styles.scss";
 

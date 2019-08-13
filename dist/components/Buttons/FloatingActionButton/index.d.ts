@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { IProps as IIconProps } from "../../Icon";
 import Color from "../../../definitions/enums/Color";
 import { ElevationLevel } from "../../../definitions/enums/BoxShadow";

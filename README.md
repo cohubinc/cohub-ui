@@ -61,8 +61,10 @@ Story's are written in [**MDX**](https://mdxjs.com/) and should generally be co-
 
 3. Reference the already created stories for examples on how these should be written
 
-4. From the project root start the Storybook server and open the stories in your browser @ http://localhost:6007
-   > Make sure your project build process is running in a separate tab (yarn watch)
+4. Start the build process `> yarn watch:stories`. **(the regular yarn watch will not work)**
+
+5. From the project root start the Storybook server and open the stories in your browser @ http://localhost:6007
+   > Make sure your project build process is running in a separate tab
 
 ```bash
 > yarn storybook

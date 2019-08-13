@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import TInputElementProps from "../definitions/TInputElementProps";
 import OnChangeEvent from "./OnChangeEvent";
 import IRenderProps from "./IRenderProps";

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { OptionsType } from "react-select/src/types";
 import { FieldRenderProps } from "react-final-form";
 import "./Multiselect.scss";

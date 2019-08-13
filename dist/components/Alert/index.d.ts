@@ -1,14 +1,10 @@
-import { PureComponent } from "react";
-import HTMLElementProps from "../../definitions/types/HtmlElementProps";
-interface IProps extends Omit<HTMLElementProps, "ref"> {
+/// <reference types="react" />
+interface IProps extends Partial<JSX.IntrinsicElements["div"]> {
     traceProp?: any;
     centerAlign?: boolean;
     info?: boolean;
     success?: boolean;
     error?: boolean;
 }
-declare type Props = IProps;
-export default class Alert extends PureComponent<Props> {
-    render(): JSX.Element;
-}
+export default function Alert(props: IProps): JSX.Element;
 export {};
