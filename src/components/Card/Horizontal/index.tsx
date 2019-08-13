@@ -80,11 +80,11 @@ export default class Horizontal extends PureComponent<IProps> {
       if (titleLink) {
         return (
           <Link to={titleLink}>
-            <Typography.HeadingTiny block>{title}</Typography.HeadingTiny>
+            <Typography.Large block>{title}</Typography.Large>
           </Link>
         );
       } else {
-        return <Typography.HeadingTiny block>{title}</Typography.HeadingTiny>;
+        return <Typography.Large block>{title}</Typography.Large>;
       }
     };
 
