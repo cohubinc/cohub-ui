@@ -8,6 +8,7 @@ import HtmlElementProps from "src/definitions/types/HtmlElementProps";
 import AddChipInput from "./AddChipInput";
 
 import "./Chip.scss";
+import AvatarChip from "./AvatarChip";
 
 interface IChipProps {
   label?: string;
@@ -23,6 +24,7 @@ export type TChipProps = IChipProps &
 
 export default class Chip extends Component<TChipProps> {
   static Add = AddChipInput;
+  static Avatar = AvatarChip;
 
   static defaultProps: Partial<TChipProps> = {
     size: 12,

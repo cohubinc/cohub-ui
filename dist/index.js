@@ -3212,6 +3212,28 @@ function (_super) {
 var css$b = ".CohubChip {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  .CohubChip .clickable:hover, .CohubChip .clickable:focus {\n    transform: translate(0, -1px) !important; }\n  .CohubChip .clickable:focus {\n    background-color: inherit !important; }\n";
 styleInject(css$b);
 
+function AvatarChip(props) {
+  var name = props.name,
+      avatarUrl = props.avatarUrl,
+      rest = __rest(props, ["name", "avatarUrl"]);
+
+  return React__default.createElement(Chip, _extends({
+    style: {
+      paddingTop: "4px",
+      paddingBottom: "4px",
+      marginRight: "4px"
+    },
+    dark: true,
+    className: "mb-1"
+  }, rest), React__default.createElement("div", {
+    className: "flex items-center"
+  }, React__default.createElement(Avatar, {
+    size: 20,
+    src: avatarUrl,
+    className: "mr-05"
+  }), React__default.createElement(Typography.Small, null, name)));
+}
+
 var Chip =
 /** @class */
 function (_super) {
@@ -3272,6 +3294,7 @@ function (_super) {
   };
 
   Chip.Add = AddChipInput;
+  Chip.Avatar = AvatarChip;
   Chip.defaultProps = {
     size: 12,
     backgroundColor: Color$1.grey300
