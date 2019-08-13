@@ -54,7 +54,7 @@ export default class Chip extends Component<TProps> {
       iconName = "close";
     }
 
-    const padding = `${size! / 2}px ${size}px`;
+    const padding = `${size! / 2.5}px ${size}px`;
 
     return (
       <div

@@ -122,10 +122,14 @@ const styles: IStyleContainer = {
   multiValue: {
     backgroundColor: Color.grey200 as any,
     borderRadius: "11px",
-    paddingLeft: "6px"
+    paddingLeft: "6px",
+    marginTop: "6px",
+    marginBottom: "0"
   },
   multiValueLabel: {
-    color: Color.black as any
+    color: Color.black as any,
+    padding: "1px",
+    paddingLeft: "6px"
   },
   multiValueRemove: {
     cursor: "pointer",
