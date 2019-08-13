@@ -31,6 +31,16 @@ const App = () => {
           return (
             <React.Fragment>
               <Field
+                name="otp_enabled"
+                render={props => (
+                  <Inputs.Toggle
+                    label="2FA Enabled"
+                    labelPosition="top"
+                    {...props}
+                  />
+                )}
+              />
+              <Field
                 name="states"
                 render={props => (
                   <Inputs.MultiSelect
