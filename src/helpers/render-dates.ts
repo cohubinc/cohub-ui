@@ -1,6 +1,6 @@
 import moment from "moment";
 
-type TFormat =
+export type TDateFormat =
   | "monthDayYear"
   | "monthDayYearShort"
   | "dateWithTime"
@@ -11,15 +11,15 @@ type TFormat =
   | "input";
 
 // Use like -> renderDate("dateWithTimeShort")(item.created_at)
-const renderDate = (format: TFormat) => (dateTime?: string) => {
+const renderDate = (format: TDateFormat) => (dateTime?: string) => {
   if (!dateTime) return "";
 
   return moment(dateTime).format(formatMap[format]);
 };
 export default renderDate;
 
-type TFormatMap = { [Key in TFormat]: string };
-const formatMap: TFormatMap = {
+type TDateFormatMap = { [Key in TDateFormat]: string };
+const formatMap: TDateFormatMap = {
   monthDayYear: "MMM Do[,] YYYY",
   monthDayYearShort: "MMM D[,] YYYY",
   dateWithTime: "MMM Do[,] YYYY [at] h:mma",

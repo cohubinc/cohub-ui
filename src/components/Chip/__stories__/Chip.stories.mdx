@@ -9,7 +9,42 @@ import { Chip, StoryHelpers } from "dist/index.esm.js";
 This is a Chip.
 
 <Story name="Chip">
-  <Chip className="mr-05">Text</Chip>
+  <div>
+    <Chip className="mr-05">Text Is</Chip>
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateContainer initialState="">
+      {({ state, setState }) => (
+        <Chip.Add
+          name="tag"
+          value={state}
+          onChange={setState}
+          onBlur={() => setState("")}
+        />
+      )}
+    </StoryHelpers.StateContainer>
+  </div>
 </Story>
+
+## Example usage
+
+```jsx
+<Chip className="mr-05">Text</Chip>
+
+<Chip>Text</Chip>
+
+<Chip label="Label Prop" />
+
+<Chip dark label="Dark" />
+
+<Chip green label="Green" />
+
+<Chip onClick={() => null}>Clickable</Chip>
+
+<Chip onDelete={() => null}>Deletable</Chip>
+
+<Chip checked>Checked</Chip>
+
+<Chip.Add name="tag" value={value} onChange={setState} onBlur={() => setState("")} />
+```
 
 <Props of={Chip} />

@@ -8,21 +8,32 @@ import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
 
 <Story name="FloatingAction">
   <div>
-    <Buttons.FloatingAction
-      icon="back"
-      backgroundColor={Color.iconGrey}
-      onClick={() => console.log("click click")}
-    />
-    <StoryHelpers.Margin />
-    {/* <StoryHelpers.StateCtrl label="raised" defaultState={true}>
+    <StoryHelpers.StateCtrl label="Elevation" defaultState={true}>
       {({ state }) => (
-        <Buttons.FloatingAction raised={state}>Raised</Buttons.FloatingAction>
+        <Buttons.FloatingAction
+          icon="add"
+          size={55}
+          elevation={state ? 3 : 0}
+        />
       )}
-    </StoryHelpers.StateCtrl> */}
+    </StoryHelpers.StateCtrl>
   </div>
 </Story>
 
 <StoryHelpers.Margin showDividerLine marginBottom={0} />
+
+## Example usage
+
+```jsx
+<Buttons.FloatingAction
+  icon="back"
+  backgroundColor={Color.iconGrey}
+  iconColor={Color.black}
+  size={55}
+  elevation={3}
+  onClick={() => "..."}
+/>
+```
 
 FloatingAction only excepts the **raised** and **backgroundColor** props
 

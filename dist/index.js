@@ -3136,17 +3136,21 @@ function (_super) {
 
     var onBlur = restProps.onBlur,
         onFocus = restProps.onFocus,
-        inputProps = __rest(restProps, ["onBlur", "onFocus"]);
+        onChange = restProps.onChange,
+        rest = __rest(restProps, ["onBlur", "onFocus", "onChange"]);
 
     return React__default.createElement("div", {
       style: __assign({}, style, {
         position: "relative"
       }),
       className: className
-    }, React__default.createElement("input", _extends({}, inputProps, {
+    }, React__default.createElement("input", _extends({}, rest, {
       className: "border",
       style: expanded ? expandedInputStyles : btnInputStyle,
       ref: this._input,
+      onChange: function (e) {
+        return onChange(e.target.value);
+      },
       onFocus: function (e) {
         onFocus && onFocus(e);
 

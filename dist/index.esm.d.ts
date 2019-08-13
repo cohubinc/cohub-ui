@@ -32,7 +32,7 @@ export { default as Typography } from "./components/Typography";
 export { default as Transition } from "./components/Transition";
 export * from "./components/Transition";
 export * from "./helpers/guid";
-export { default as renderDate } from "./helpers/render-dates";
+export { default as renderDate, TDateFormat } from "./helpers/render-dates";
 export * from "./helpers/style-utils";
 export * from "./helpers/ui";
 import * as InputValidationsToExport from "./helpers/input-validations";

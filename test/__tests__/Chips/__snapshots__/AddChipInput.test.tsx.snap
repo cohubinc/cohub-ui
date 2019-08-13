@@ -11,6 +11,7 @@ exports[`renders AddChipInput without crashing 1`] = `
   <input
     className="border"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     style={
       Object {

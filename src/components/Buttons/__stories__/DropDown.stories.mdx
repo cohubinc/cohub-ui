@@ -78,4 +78,21 @@ import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
   </div>
 </Story>
 
+## Example usage
+
+```jsx
+<Buttons.Dropdown
+  options={[
+    {
+      onClick: () => console.log("Up click"),
+      label: "Up"
+    },
+    {
+      onClick: () => console.log("Down click"),
+      label: "Down"
+    }
+  ]}
+/>
+```
+
 <Props of={Buttons.Dropdown} />
