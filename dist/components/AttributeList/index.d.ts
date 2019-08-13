@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-interface IProps {
+export interface IAttributeListProps {
     items: Array<{
         attribute: string;
         value: any;
@@ -9,8 +9,7 @@ interface IProps {
     contrast?: boolean;
     className?: string;
 }
-export default class AttributeList extends PureComponent<IProps> {
+export default class AttributeList extends PureComponent<IAttributeListProps> {
     formattedValue: (value: any, format: any) => any;
     render(): JSX.Element;
 }
-export {};

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import Base from "./Base";
 import Checkbox from "./Checkbox";
 import Decimal from "./Decimal";

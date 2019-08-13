@@ -6,11 +6,11 @@ interface IProps {
   direction: "horizontal" | "vertical";
 }
 
-type TProps = IProps &
+export type TFormGroupProps = IProps &
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-export default class FormGroup extends React.PureComponent<TProps> {
-  static defaultProps: Partial<TProps> = {
+export default class FormGroup extends React.PureComponent<TFormGroupProps> {
+  static defaultProps: Partial<TFormGroupProps> = {
     direction: "horizontal"
   };
 

@@ -6,7 +6,7 @@ import Base from "../Base";
 
 type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
-interface IProps {
+interface ITextInputProps {
   label?: string;
   appearance?: "contrast" | "inverted";
   msgPosition?: {
@@ -17,9 +17,10 @@ interface IProps {
   meta?: FieldProps["meta"];
 }
 
-type TProps = IProps & Omit<TInputElementProps, "onChange" | "value">;
+type TTextInputProps = ITextInputProps &
+  Omit<TInputElementProps, "onChange" | "value">;
 
-export default function Text(props: TProps) {
+export default function Text(props: TTextInputProps) {
   const {
     input,
     meta,

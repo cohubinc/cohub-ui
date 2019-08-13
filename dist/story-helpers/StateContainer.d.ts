@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface IRenderProps<T = string> {
     state?: T;
     setState: (state: any) => void;

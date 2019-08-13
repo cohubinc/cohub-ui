@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-interface IProps {
+export interface IStatisticProps {
     size?: "tiny" | "small" | "regular" | "large" | "xlarge" | "huge";
     /**
      * The formatting that should be applied to the Statistics value
@@ -8,11 +8,10 @@ interface IProps {
     label: string;
     value: number | string;
 }
-export default class Statistic extends PureComponent<IProps> {
+export default class Statistic extends PureComponent<IStatisticProps> {
     static defaultProps: {
         size: string;
     };
     formattedValue: (value: any, format: any) => any;
     render(): JSX.Element;
 }
-export {};

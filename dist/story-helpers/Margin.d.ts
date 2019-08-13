@@ -1,4 +1,5 @@
-import { IProps as IDividerProps, TMargin } from "../components/Divider";
+/// <reference types="react" />
+import { IDividerProps, TMargin } from "../components/Divider";
 interface IProps extends Omit<IDividerProps, "marginSize"> {
     /**
      * Margin as rems used on Y axis of element

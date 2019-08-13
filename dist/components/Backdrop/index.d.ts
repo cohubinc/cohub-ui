@@ -1,17 +1,17 @@
 import { PureComponent, CSSProperties } from "react";
 import "./Backdrop.scss";
-export interface IProps {
+export interface IBackdropProps {
     open: boolean;
     onClose?: () => void;
     showCloseIcon?: boolean;
     containerClass?: string;
     style?: CSSProperties;
 }
-declare type TProps = IProps & {
+export declare type TBackdropProps = IBackdropProps & {
     focusTrapped: boolean;
 };
-export default class Backdrop extends PureComponent<TProps> {
-    static defaultProps: Partial<TProps>;
+export default class Backdrop extends PureComponent<TBackdropProps> {
+    static defaultProps: Partial<TBackdropProps>;
     appRoot: HTMLElement | null;
     componentDidMount(): void;
     componentDidUpdate(): void;
@@ -21,4 +21,3 @@ export default class Backdrop extends PureComponent<TProps> {
     private addBlurClass;
     private removeBlurClass;
 }
-export {};

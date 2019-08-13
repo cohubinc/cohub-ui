@@ -1,11 +1,10 @@
 import React from "react";
-interface IProps {
+export interface IFormatWeightProps {
     value: number;
 }
-export default class FormatWeight extends React.Component<IProps> {
+export default class FormatWeight extends React.Component<IFormatWeightProps> {
     static defaultProps: {
         thousandSeparator: boolean;
     };
     render(): JSX.Element;
 }
-export {};

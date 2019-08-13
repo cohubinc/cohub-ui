@@ -1,12 +1,12 @@
 import React from "react";
 import NumberFormat from "react-number-format";
 
-interface IProps {
+export interface IFormatNumberProps {
   value: number;
   thousandSeparator?: boolean;
 }
 
-export default class FormatNumber extends React.Component<IProps> {
+export default class FormatNumber extends React.Component<IFormatNumberProps> {
   static defaultProps = {
     thousandSeparator: true
   };

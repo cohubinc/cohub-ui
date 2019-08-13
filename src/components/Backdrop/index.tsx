@@ -5,7 +5,7 @@ import Color from "src/definitions/enums/Color";
 
 import "./Backdrop.scss";
 
-export interface IProps {
+export interface IBackdropProps {
   open: boolean;
   onClose?: () => void;
   showCloseIcon?: boolean;
@@ -13,10 +13,10 @@ export interface IProps {
   style?: CSSProperties;
 }
 
-type TProps = IProps & { focusTrapped: boolean };
+export type TBackdropProps = IBackdropProps & { focusTrapped: boolean };
 
-export default class Backdrop extends PureComponent<TProps> {
-  static defaultProps: Partial<TProps> = {
+export default class Backdrop extends PureComponent<TBackdropProps> {
+  static defaultProps: Partial<TBackdropProps> = {
     showCloseIcon: false,
     containerClass: "",
     onClose: () => undefined,

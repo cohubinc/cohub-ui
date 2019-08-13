@@ -3,7 +3,7 @@ import React from "react";
 import Color from "src/definitions/enums/Color";
 
 import IconWrapper from "../../IconWrapper";
-import { IProps } from "../../index";
+import { IIconProps as IProps } from "../../index";
 
 const CircleRemove = (props: IProps) => (
   <IconWrapper {...props} defaultColor={Color.black}>

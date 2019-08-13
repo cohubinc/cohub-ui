@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-interface IProps {
+export interface ITabProps {
     title: string;
     active?: boolean;
     path?: string;
@@ -11,5 +11,4 @@ interface IProps {
     children?: ReactNode;
     useRedux?: boolean;
 }
-export default function Tab(props: IProps): JSX.Element;
-export {};
+export default function Tab(props: ITabProps): JSX.Element;

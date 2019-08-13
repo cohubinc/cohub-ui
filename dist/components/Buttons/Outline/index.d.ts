@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import Color from "../../../definitions/enums/Color";
 import { IBaseButtonProps } from "../Base";
 export interface IProps {

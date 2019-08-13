@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-interface IProps {
+export interface ITransitionProps {
     show: boolean;
     entered?: CSSProperties;
     start?: CSSProperties;
@@ -15,7 +15,7 @@ interface IProps {
     appear?: boolean;
     children: any;
 }
-declare const Transition: ({ show, start, transition, transitionProperty, entering, entered, exiting, exited, duration, appear, children }: IProps) => JSX.Element;
+declare const Transition: ({ show, start, transition, transitionProperty, entering, entered, exiting, exited, duration, appear, children }: ITransitionProps) => JSX.Element;
 export default Transition;
 interface ITransProps {
     show?: boolean | undefined;

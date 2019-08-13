@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-interface IProps {
+export interface IScrollIntoViewProps {
     children: JSX.Element[] | JSX.Element;
     traceProp?: any;
     scroll?: boolean;
@@ -7,13 +7,12 @@ interface IProps {
     className?: string;
     scrollOpts?: ScrollIntoViewOptions;
 }
-export default class ScrollIntoView extends Component<IProps> {
+export default class ScrollIntoView extends Component<IScrollIntoViewProps> {
     selfRef: React.RefObject<HTMLDivElement>;
-    static defaultProps: Partial<IProps>;
-    constructor(props: IProps);
+    static defaultProps: Partial<IScrollIntoViewProps>;
+    constructor(props: IScrollIntoViewProps);
     componentDidMount(): void;
-    componentDidUpdate(oldProps: IProps): void;
+    componentDidUpdate(oldProps: IScrollIntoViewProps): void;
     render(): JSX.Element;
     scrollIntoView(): void;
 }
-export {};

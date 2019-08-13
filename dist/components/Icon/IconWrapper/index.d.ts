@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 import Color from "../../../definitions/enums/Color";
-import { IProps as IParentProps } from "../index";
+import { IIconProps as IParentProps } from "../index";
 interface IProps {
     children: (props: {
         color: Color;

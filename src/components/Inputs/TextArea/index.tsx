@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import "./TextArea.scss";
 
-interface IProps {
+interface ITextAreaProps {
   readOnly?: boolean;
 }
 
-type TProps = IProps &
+export type TTextAreaProps = ITextAreaProps &
   Omit<
     React.DetailedHTMLProps<
       React.TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -15,8 +15,8 @@ type TProps = IProps &
     "ref"
   >;
 
-export default class TextArea extends Component<TProps> {
-  static defaultProps: Partial<TProps> = {
+export default class TextArea extends Component<TTextAreaProps> {
+  static defaultProps: Partial<TTextAreaProps> = {
     className: "",
     style: {
       width: "100%",
@@ -26,7 +26,7 @@ export default class TextArea extends Component<TProps> {
 
   inputRef: React.RefObject<HTMLTextAreaElement>;
 
-  constructor(props: TProps) {
+  constructor(props: TTextAreaProps) {
     super(props);
     this.inputRef = React.createRef();
   }

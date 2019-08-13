@@ -19,7 +19,7 @@ interface IInputProp {
   value: FinalFormInputProp["value"];
 }
 
-interface IProps extends TInputElementProps {
+export interface IMoneyInputProps extends TInputElementProps {
   /**
    * Use to extend decimal precision
    */
@@ -31,8 +31,8 @@ interface IProps extends TInputElementProps {
   "data-qa"?: string;
 }
 
-class MoneyInput extends PureComponent<IProps> {
-  static defaultProps: Partial<IProps> = {
+class MoneyInput extends PureComponent<IMoneyInputProps> {
+  static defaultProps: Partial<IMoneyInputProps> = {
     extendedPrecision: false
   };
 

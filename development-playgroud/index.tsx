@@ -25,7 +25,8 @@ const App = () => {
       }}
     >
       <CssFramework />
-      <Form
+      <Icon.Add />
+      {/* <Form
         onSubmit={values => alert(JSON.stringify(values))}
         render={() => {
           return (
@@ -68,7 +69,7 @@ const App = () => {
             </React.Fragment>
           );
         }}
-      />
+      /> */}
     </div>
   );
 };

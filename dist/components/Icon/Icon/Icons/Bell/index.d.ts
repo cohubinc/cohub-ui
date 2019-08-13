@@ -1,3 +1,3 @@
-import { IProps } from "../../index";
+import { IIconProps as IProps } from "../../index";
 declare const Bell: (props: IProps) => JSX.Element;
 export default Bell;
