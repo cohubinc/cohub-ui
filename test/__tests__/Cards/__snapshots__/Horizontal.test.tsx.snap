@@ -27,13 +27,13 @@ exports[`Horizontal renders without crashing 1`] = `
           >
             <span
               className=""
-              data-qa="heading-tiny"
+              data-qa="text"
               style={
                 Object {
                   "color": "hsl(0, 2%, 22%)",
                   "display": "block",
                   "fontFamily": "Inter",
-                  "fontSize": 18,
+                  "fontSize": 16,
                   "fontWeight": 400,
                   "textAlign": "initial",
                   "textTransform": "initial",

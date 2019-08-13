@@ -2901,11 +2901,11 @@ function (_super) {
       if (titleLink) {
         return React__default.createElement(reactRouterDom.Link, {
           to: titleLink
-        }, React__default.createElement(Typography.HeadingTiny, {
+        }, React__default.createElement(Typography.Large, {
           block: true
         }, title));
       } else {
-        return React__default.createElement(Typography.HeadingTiny, {
+        return React__default.createElement(Typography.Large, {
           block: true
         }, title);
       }
