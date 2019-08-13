@@ -3,7 +3,7 @@
   width: 100%;
 
   &.GenericInput {
-    >div {
+    > div {
       background: none;
       color: var(--black-500);
       display: block;
@@ -15,7 +15,7 @@
   }
 
   &.ContrastInput {
-    >div {
+    > div {
       background: none;
       color: var(--black-500);
       display: block;
@@ -23,7 +23,6 @@
       border-radius: 4px;
       border: 1px solid var(--grey-200);
       height: 100%;
-      min-height: 49px;
     }
   }
 }

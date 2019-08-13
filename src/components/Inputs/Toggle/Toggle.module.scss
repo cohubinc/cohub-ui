@@ -53,10 +53,11 @@
   width: 40px;
   height: 20px;
   border-radius: 10px;
+  padding: 2px;
 }
 
 .containerActive {
-  background-color: var(--green-300);
+  background-color: var(--green-200);
   @extend .container;
 }
 
@@ -68,8 +69,8 @@
 .toggle {
   position: sticky;
   transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
 }
 
