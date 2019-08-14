@@ -63,4 +63,4 @@ function Tab(props: ITabProps) {
   );
 }
 
-export default Tab as Omit<typeof Tab, "useRedux">;
+export default Tab;
