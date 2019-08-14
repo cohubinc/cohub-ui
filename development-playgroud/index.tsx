@@ -8,7 +8,8 @@ import {
   InputValidations,
   Segment,
   Icon,
-  Avatar
+  Avatar,
+  AnimatedCheckmark
 } from "../dist/";
 import { Form, Field } from "react-final-form";
 
@@ -55,6 +56,7 @@ const App = () => {
                   />
                 )}
               /> */}
+              <AnimatedCheckmark color={Color.red500} size={100} />
               <div>
                 <Field
                   name="states"

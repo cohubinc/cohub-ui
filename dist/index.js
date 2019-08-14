@@ -830,17 +830,18 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".AnimatedCheckmark {\n  color: rgba(0, 0, 0, 0.07);\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  display: block;\n  stroke-width: 2;\n  stroke: #fff;\n  stroke-miterlimit: 10;\n  box-shadow: inset 0px 0px 0px currentcolor;\n  -webkit-animation: fill 0.4s ease-in-out 0.4s forwards;\n          animation: fill 0.4s ease-in-out 0.4s forwards;\n  scale: 0.3s ease-in-out 0.9s both; }\n\n.checkmark__crcle {\n  stroke-dasharray: 166;\n  stroke-dashoffset: 166;\n  stroke-width: 100;\n  stroke-miterlimit: 100;\n  stroke: currentcolor;\n  fill: currentcolor;\n  -webkit-animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;\n          animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }\n\n.checkmark__check {\n  transform-origin: 50% 50%;\n  stroke-dasharray: 48;\n  stroke-dashoffset: 48;\n  -webkit-animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;\n          animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }\n\n@-webkit-keyframes fullpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fullpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@-webkit-keyframes quarterpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0.25; }\n  100% {\n    opacity: 1; } }\n\n@keyframes quarterpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0.25; }\n  100% {\n    opacity: 1; } }\n\n@-webkit-keyframes stroke {\n  100% {\n    stroke-dashoffset: 0; } }\n\n@keyframes stroke {\n  100% {\n    stroke-dashoffset: 0; } }\n\n@-webkit-keyframes scale {\n  0%,\n  100% {\n    transform: none; }\n  50% {\n    transform: scale3d(1.1, 1.1, 1); } }\n\n@keyframes scale {\n  0%,\n  100% {\n    transform: none; }\n  50% {\n    transform: scale3d(1.1, 1.1, 1); } }\n\n@-webkit-keyframes fill {\n  100% {\n    box-shadow: inset 0px 0px 0px 30px currentcolor; } }\n\n@keyframes fill {\n  100% {\n    box-shadow: inset 0px 0px 0px 30px currentcolor; } }\n";
+var css = ".AnimatedCheckmark {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  display: block;\n  stroke-width: 2;\n  stroke: #fff;\n  stroke-miterlimit: 10;\n  box-shadow: inset 0px 0px 0px currentcolor;\n  -webkit-animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;\n          animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both; }\n\n.checkmark__circle {\n  stroke-dasharray: 166;\n  stroke-dashoffset: 166;\n  stroke-width: 100;\n  stroke-miterlimit: 100;\n  stroke: currentcolor;\n  fill: currentcolor;\n  -webkit-animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;\n          animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }\n\n.checkmark__check {\n  transform-origin: 50% 50%;\n  stroke-dasharray: 48;\n  stroke-dashoffset: 48;\n  -webkit-animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;\n          animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }\n\n@-webkit-keyframes fullpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fullpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@-webkit-keyframes quarterpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0.25; }\n  100% {\n    opacity: 1; } }\n\n@keyframes quarterpulse {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0.25; }\n  100% {\n    opacity: 1; } }\n\n@-webkit-keyframes stroke {\n  100% {\n    stroke-dashoffset: 0; } }\n\n@keyframes stroke {\n  100% {\n    stroke-dashoffset: 0; } }\n\n@-webkit-keyframes scale {\n  0%,\n  100% {\n    transform: none; }\n  50% {\n    transform: scale3d(1.1, 1.1, 1); } }\n\n@keyframes scale {\n  0%,\n  100% {\n    transform: none; }\n  50% {\n    transform: scale3d(1.1, 1.1, 1); } }\n\n@-webkit-keyframes fill {\n  100% {\n    box-shadow: inset 0px 0px 0px 30px currentcolor; } }\n\n@keyframes fill {\n  100% {\n    box-shadow: inset 0px 0px 0px 30px currentcolor; } }\n";
 styleInject(css);
 
 var AnimatedCheckmark = function (_a) {
   var _b = _a.size,
-      size = _b === void 0 ? "100%" : _b;
+      size = _b === void 0 ? "100%" : _b,
+      color = _a.color;
   return React__default.createElement("div", {
     style: {
       height: size,
       width: size,
-      borderRadius: "50%"
+      color: color
     }
   }, React__default.createElement("svg", {
     className: "AnimatedCheckmark",
@@ -2364,7 +2365,8 @@ function Base(props) {
       bottom: -0.5
     }
   }, React__default.createElement(AnimatedCheckmark, {
-    size: "1.25rem"
+    size: "1.25rem",
+    color: color
   })), React__default.createElement(Typography.Small, {
     uppercase: true,
     color: color,
