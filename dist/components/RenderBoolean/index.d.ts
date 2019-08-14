@@ -1,5 +1,6 @@
-interface IProps {
+/// <reference types="react" />
+export interface IRenderBooleanProps {
     value: any;
 }
-declare const RenderBoolean: ({ value }: IProps) => JSX.Element;
+declare const RenderBoolean: ({ value }: IRenderBooleanProps) => JSX.Element;
 export default RenderBoolean;

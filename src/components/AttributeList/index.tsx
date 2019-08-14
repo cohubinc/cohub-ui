@@ -6,14 +6,14 @@ import FormatMoney from "../FormatMoney";
 import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
 
-interface IProps {
+export interface IAttributeListProps {
   items: Array<{ attribute: string; value: any; format: any }>;
   header?: string;
   contrast?: boolean;
   className?: string;
 }
 
-export default class AttributeList extends PureComponent<IProps> {
+export default class AttributeList extends PureComponent<IAttributeListProps> {
   formattedValue = (value: any, format: any) => {
     switch (format) {
       case "money":

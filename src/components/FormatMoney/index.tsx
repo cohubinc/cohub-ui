@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import CurrencyFormat from "react-number-format";
 
-interface IProps {
+export interface IFormatMoneyProps {
   value: number;
   /**
    * Use to extend decimal precision
@@ -10,8 +10,8 @@ interface IProps {
   "data-qa"?: string;
 }
 
-class FormatMoney extends PureComponent<IProps> {
-  static defaultProps: Partial<IProps> = {
+class FormatMoney extends PureComponent<IFormatMoneyProps> {
+  static defaultProps: Partial<IFormatMoneyProps> = {
     extendedPrecision: true
   };
 

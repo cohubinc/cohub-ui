@@ -1,7 +1,7 @@
 import React, { CSSProperties } from "react";
 
 export type TMargin = 0.5 | 1 | 1.5 | 2 | 3 | 4 | 5 | 6;
-export interface IProps {
+export interface IDividerProps {
   /**
    * Margin, as rems, used on Y axis of element
    * @defaultValue 2
@@ -26,7 +26,7 @@ export interface IProps {
   style?: CSSProperties;
 }
 
-export default function Divider(props: IProps) {
+export default function Divider(props: IDividerProps) {
   const {
     marginSize = 2,
     marginTop = marginSize,

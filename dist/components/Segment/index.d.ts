@@ -1,6 +1,6 @@
 import { CSSProperties, PureComponent } from "react";
 import { ElevationLevel } from "../../definitions/enums/BoxShadow";
-interface IProps {
+export interface ISegmentProps {
     style?: CSSProperties;
     className?: string;
     /**
@@ -20,8 +20,8 @@ interface IProps {
      */
     bordered?: boolean;
 }
-declare class Segment extends PureComponent<IProps> {
-    static defaultProps: IProps;
+declare class Segment extends PureComponent<ISegmentProps> {
+    static defaultProps: ISegmentProps;
     render(): JSX.Element;
 }
 export default Segment;

@@ -1,3 +1,4 @@
-import { IProps } from "../../index";
-declare const ArrowDown: (props: IProps) => JSX.Element;
+/// <reference types="react" />
+import { IIconProps } from "../../index";
+declare const ArrowDown: (props: IIconProps) => JSX.Element;
 export default ArrowDown;

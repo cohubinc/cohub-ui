@@ -7,7 +7,7 @@ import icons, { IconName as IconNameUnion } from "./Icons";
 
 export type IconName = IconNameUnion;
 
-export interface IProps {
+export interface IIconProps {
   name: IconName;
   size?: number;
   color?: Color;
@@ -17,7 +17,7 @@ export interface IProps {
   disabled?: boolean;
 }
 
-const DefaultIcon = (props: IProps) => {
+const DefaultIcon = (props: IIconProps) => {
   const Ico = icons[props.name];
 
   if (!Ico) {
@@ -28,11 +28,11 @@ const DefaultIcon = (props: IProps) => {
   return <Ico {...props} />;
 };
 
-const buildIcon = (name: IconName) => (props: Omit<IProps, "name">) => (
+const buildIcon = (name: IconName) => (props: Omit<IIconProps, "name">) => (
   <DefaultIcon name={name} {...props} />
 );
 
-export default class Icon extends PureComponent<IProps> {
+export default class Icon extends PureComponent<IIconProps> {
   static Add = buildIcon("add");
   static ArrowDown = buildIcon("arrowDown");
   static ArrowUp = buildIcon("arrowUp");

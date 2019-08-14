@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-// import "./AnimatedCheckmark.scss";
+import "./AnimatedCheckmark.scss";
 
-interface IProps {
+export interface IAnimatedCheckmarkProps {
   size?: string | number;
 }
-const AnimatedCheckmark = ({ size = '100%' }: IProps) => (
+const AnimatedCheckmark = ({ size = "100%" }: IAnimatedCheckmarkProps) => (
   <div
     style={{
       height: size,
       width: size,
-      borderRadius: '50%',
+      borderRadius: "50%"
     }}
   >
     <svg

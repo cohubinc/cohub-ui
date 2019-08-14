@@ -13,6 +13,6 @@ interface IProps {
     loading?: boolean;
     appearance?: "contrast" | "inverted";
 }
-export declare type MultiSelectProps = IProps & FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
-export default function MultiSelect({ options, label, allowCreate, loading, input, appearance }: MultiSelectProps): JSX.Element;
+export declare type TMultiSelectProps = IProps & FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
+export default function MultiSelect({ options, label, allowCreate, loading, input, appearance }: TMultiSelectProps): JSX.Element;
 export {};

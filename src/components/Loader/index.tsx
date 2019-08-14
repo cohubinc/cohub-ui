@@ -7,7 +7,7 @@ import { Fade } from "src/components/Transition";
 
 import "./loader.scss";
 
-interface IProps {
+export interface ILoaderProps {
   /**
    * The loader can take up the whole screen inside of the Backdrop overlay
    */
@@ -25,8 +25,8 @@ interface IProps {
   style?: CSSProperties;
 }
 
-export default class Loader extends PureComponent<IProps> {
-  static defaultProps: IProps = {
+export default class Loader extends PureComponent<ILoaderProps> {
+  static defaultProps: ILoaderProps = {
     show: true
   };
 

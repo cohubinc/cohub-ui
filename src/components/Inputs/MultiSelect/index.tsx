@@ -26,7 +26,7 @@ interface IProps {
   appearance?: "contrast" | "inverted";
 }
 
-export type MultiSelectProps = IProps &
+export type TMultiSelectProps = IProps &
   FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
 
 export default function MultiSelect({
@@ -36,7 +36,7 @@ export default function MultiSelect({
   loading,
   input,
   appearance
-}: MultiSelectProps) {
+}: TMultiSelectProps) {
   const onChange = (selectedOption: ValueType<IOption>) => {
     if (!selectedOption) {
       return;

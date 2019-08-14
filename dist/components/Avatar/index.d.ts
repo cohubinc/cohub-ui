@@ -1,12 +1,11 @@
 import { PureComponent } from "react";
-interface IProps {
+export interface IAvatarProps {
     src: string | null | undefined;
     className?: string;
     name?: string | null;
     size?: number;
 }
-export default class Avatar extends PureComponent<IProps> {
-    static defaultProps: Partial<IProps>;
+export default class Avatar extends PureComponent<IAvatarProps> {
+    static defaultProps: Partial<IAvatarProps>;
     render(): JSX.Element;
 }
-export {};

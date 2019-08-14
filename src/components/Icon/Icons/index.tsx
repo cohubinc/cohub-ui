@@ -39,7 +39,7 @@ import triangle from "./Triangle";
 import tripleDotsVertical from "./TripleDotsVertical";
 import userGroup from "./UserGroup";
 import user from "./User";
-import { IProps } from "../index";
+import { IIconProps } from "../index";
 export type IconName =
   | "add"
   | "arrowDown"
@@ -83,7 +83,7 @@ export type IconName =
   | "userGroup"
   | "user";
 
-type TIconMap = { [key in IconName]: (props: IProps) => JSX.Element };
+type TIconMap = { [key in IconName]: (props: IIconProps) => JSX.Element };
 const icons: TIconMap = {
   add,
   arrowDown,

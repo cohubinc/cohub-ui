@@ -1,3 +1,3 @@
-import { IProps } from "../../index";
+import { IIconProps as IProps } from "../../index";
 declare const CircleRemove: (props: IProps) => JSX.Element;
 export default CircleRemove;

@@ -8,7 +8,7 @@ import Icon from "src/components/Icon";
 
 type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
-interface IProps {
+interface IPasswordInputProps {
   label?: string;
   appearance?: "contrast" | "inverted";
   msgPosition?: {
@@ -19,9 +19,10 @@ interface IProps {
   meta?: FieldProps["meta"];
 }
 
-type TProps = IProps & Omit<TInputElementProps, "onChange" | "value">;
+export type TPasswordInputProps = IPasswordInputProps &
+  Omit<TInputElementProps, "onChange" | "value">;
 
-export default function Password(props: TProps) {
+export default function Password(props: TPasswordInputProps) {
   const {
     input,
     meta,

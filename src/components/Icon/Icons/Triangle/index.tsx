@@ -1,7 +1,7 @@
 import React from "react";
 
 import IconWrapper from "../../IconWrapper";
-import { IProps } from "../../index";
+import { IIconProps as IProps } from "../../index";
 import Color from "src/definitions/enums/Color";
 
 const Triangle = (props: IProps) => (

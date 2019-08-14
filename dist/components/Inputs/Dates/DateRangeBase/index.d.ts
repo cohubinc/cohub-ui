@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { IProps as ILowLevelDatePickerProps } from "../LowLevelDatePicker";
 import { IFloatingLabelWrapperProps } from "../../FloatingLabelWrapper";
 export declare type InheritedProps = Omit<ILowLevelDatePickerProps, "setRangeError" | "rangeError" | "onChange" | "setHasValue" | "value"> & Pick<IFloatingLabelWrapperProps, "label" | "error" | "appearance" | "value">;

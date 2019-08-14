@@ -4,16 +4,17 @@ import styles from "./Toggle.module.scss";
 import Typography from "src/components/Typography";
 import Color from "src/definitions/enums/Color";
 
-interface IProps {
+interface IToggleProps {
   label?: string;
   labelPosition: "top" | "bottom" | "left" | "right";
   className?: string;
 }
 
-type TProps = IProps & FieldRenderProps<boolean | string, HTMLInputElement>;
+type TToggleProps = IToggleProps &
+  FieldRenderProps<boolean | string, HTMLInputElement>;
 
-export default class Toggle extends React.Component<TProps> {
-  static defaultProps: Partial<IProps> = {
+export default class Toggle extends React.Component<TToggleProps> {
+  static defaultProps: Partial<TToggleProps> = {
     labelPosition: "right"
   };
 

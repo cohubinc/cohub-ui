@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { FieldRenderProps } from "react-final-form";
 import TInputElementProps from "../definitions/TInputElementProps";
 declare type InputValue = number | undefined;
@@ -9,7 +10,7 @@ interface IInputProp {
     onFocus?: FinalFormInputProp["onFocus"];
     value: FinalFormInputProp["value"];
 }
-interface IProps {
+interface IDecimalInputProps {
     /**
      * Use to extend decimal precision
      */
@@ -21,6 +22,6 @@ interface IProps {
     appearance?: "contrast" | "inverted";
     "data-qa"?: string;
 }
-declare type TProps = IProps & TInputElementProps;
-export default function DecimalInput({ input, meta, label, "data-qa": dataQa, appearance, extendedPrecision, integer, ...spanProps }: TProps): JSX.Element;
+export declare type TDecimalInputProps = IDecimalInputProps & TInputElementProps;
+export default function DecimalInput({ input, meta, label, "data-qa": dataQa, appearance, extendedPrecision, integer, ...spanProps }: TDecimalInputProps): JSX.Element;
 export {};
