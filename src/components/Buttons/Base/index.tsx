@@ -82,7 +82,7 @@ export default function Base(props: IBaseButtonProps) {
             className="flex justify-center items-center absolute w-100"
             style={{ zIndex: 2, bottom: -0.5 }}
           >
-            <AnimatedCheckmark size="1.25rem" />
+            <AnimatedCheckmark size="1.25rem" color={color} />
           </div>
         )}
 
