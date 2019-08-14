@@ -1,11 +1,6 @@
 import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import {
-  Buttons,
-  StoryHelpers,
-  Color,
-  ProgressBar
-} from "dist/index.esm.js";
+import { Buttons, StoryHelpers, Color, ProgressBar } from "dist/index.esm.js";
 
 <Meta title="Components|ProgressBars" />
 
@@ -16,8 +11,10 @@ import {
 ## A bar for showing progress, visually
 
 <Story name="ProgressBar">
-  <div className="flex w-100 h-100">
-    <ProgressBar progress={88} />
+  <div>
+    <StoryHelpers.StateSlider label="ProgressBar" defaultState={50}>
+      {({ rangeLevel }) => <ProgressBar progress={rangeLevel} />}
+    </StoryHelpers.StateSlider>
   </div>
 </Story>
 
