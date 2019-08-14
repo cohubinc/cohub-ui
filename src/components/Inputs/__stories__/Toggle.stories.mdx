@@ -9,7 +9,7 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
 <StoryHelpers.Margin />
 
 <Story name="Toggle">
-  <StoryHelpers.StateContainer initialState={true}>
+  <StoryHelpers.StateContainer defaultState={true}>
     {({ state, setState }) => (
       <Inputs.Toggle
         label="Toggle Input"
