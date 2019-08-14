@@ -11,7 +11,7 @@ interface IInputProp {
     onFocus?: FinalFormInputProp["onFocus"];
     value: FinalFormInputProp["value"];
 }
-interface IProps extends TInputElementProps {
+export interface IMoneyInputProps extends TInputElementProps {
     /**
      * Use to extend decimal precision
      */
@@ -22,8 +22,8 @@ interface IProps extends TInputElementProps {
     appearance?: "contrast" | "inverted";
     "data-qa"?: string;
 }
-declare class MoneyInput extends PureComponent<IProps> {
-    static defaultProps: Partial<IProps>;
+declare class MoneyInput extends PureComponent<IMoneyInputProps> {
+    static defaultProps: Partial<IMoneyInputProps>;
     render(): JSX.Element;
 }
 export default MoneyInput;

@@ -5,7 +5,7 @@ import Color from "src/definitions/enums/Color";
 
 import styles from "./Segment.module.scss";
 
-interface IProps {
+export interface ISegmentProps {
   style?: CSSProperties;
   className?: string;
   /**
@@ -26,8 +26,8 @@ interface IProps {
   bordered?: boolean;
 }
 
-class Segment extends PureComponent<IProps> {
-  static defaultProps: IProps = {
+class Segment extends PureComponent<ISegmentProps> {
+  static defaultProps: ISegmentProps = {
     elevation: 1,
     padded: true,
     className: "",

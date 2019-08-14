@@ -11,7 +11,7 @@ import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 
-import "./Multiselect.scss";
+import "./MultiSelect.scss";
 
 interface IOption {
   label: string;
@@ -26,17 +26,17 @@ interface IProps {
   appearance?: "contrast" | "inverted";
 }
 
-export type MultiSelectProps = IProps &
+export type TMultiSelectProps = IProps &
   FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
 
-export default function Multiselect({
+export default function MultiSelect({
   options,
   label,
   allowCreate,
   loading,
   input,
   appearance
-}: MultiSelectProps) {
+}: TMultiSelectProps) {
   const onChange = (selectedOption: ValueType<IOption>) => {
     if (!selectedOption) {
       return;
@@ -65,7 +65,7 @@ export default function Multiselect({
   }
 
   const contrastPadding =
-    appearance === "contrast" ? { paddingTop: "1rem" } : {};
+    appearance === "contrast" ? { paddingTop: "0.5rem" } : {};
 
   const selectConfig: SelectComponentsProps = {
     options,
@@ -122,10 +122,14 @@ const styles: IStyleContainer = {
   multiValue: {
     backgroundColor: Color.grey200 as any,
     borderRadius: "11px",
-    paddingLeft: "6px"
+    paddingLeft: "6px",
+    marginTop: "6px",
+    marginBottom: "0"
   },
   multiValueLabel: {
-    color: Color.black as any
+    color: Color.black as any,
+    padding: "1px",
+    paddingLeft: "6px"
   },
   multiValueRemove: {
     cursor: "pointer",

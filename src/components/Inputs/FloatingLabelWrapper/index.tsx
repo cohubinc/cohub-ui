@@ -175,10 +175,10 @@ export default function FloatingLabelWrapper<T = any>({
           className={labelFloated ? "FloatedLabel" : ""}
           style={{
             backgroundColor: error
-              ? (Color.red200 as any)
+              ? (Color.red100 as any)
               : inputBackgroundColor,
             color: error
-              ? ContrastColor[Color.red200]
+              ? ContrastColor[Color.red100]
               : (labelTextColor as any),
             cursor,
             width: labelFloated ? undefined : "80%"

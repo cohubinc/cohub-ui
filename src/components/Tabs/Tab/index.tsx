@@ -4,7 +4,7 @@ import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
 import NumberFormat from "react-number-format";
 
-export interface IProps {
+export interface ITabProps {
   title: string;
   active?: boolean;
   path?: string;
@@ -17,7 +17,7 @@ export interface IProps {
   useRedux?: boolean;
 }
 
-function Tab(props: IProps) {
+function Tab(props: ITabProps) {
   const {
     title,
     path,

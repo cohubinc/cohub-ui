@@ -4,13 +4,14 @@ import "./Checkbox.scss";
 import Icon from "src/components/Icon";
 import Color from "src/definitions/enums/Color";
 
-interface IProps {
+interface ICheckboxProps {
   label: string;
 }
 
-type TProps = IProps & FieldRenderProps<boolean | string, HTMLInputElement>;
+export type TCheckboxProps = ICheckboxProps &
+  FieldRenderProps<boolean | string, HTMLInputElement>;
 
-export default class Checkbox extends React.Component<TProps> {
+export default class Checkbox extends React.Component<TCheckboxProps> {
   render() {
     const { label, input } = this.props;
 

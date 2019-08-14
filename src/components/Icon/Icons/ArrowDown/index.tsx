@@ -1,10 +1,10 @@
 import React from "react";
 
 import IconWrapper from "../../IconWrapper";
-import { IProps } from "../../index";
+import { IIconProps } from "../../index";
 import Color from "src/definitions/enums/Color";
 
-const ArrowDown = (props: IProps) => (
+const ArrowDown = (props: IIconProps) => (
   <IconWrapper {...props} defaultColor={Color.primaryRed}>
     {({ color, size }) => (
       <svg

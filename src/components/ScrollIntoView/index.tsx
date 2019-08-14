@@ -4,7 +4,7 @@ const defaultScrollOpts: ScrollIntoViewOptions = {
   behavior: "smooth",
   block: "center"
 };
-interface IProps {
+export interface IScrollIntoViewProps {
   children: JSX.Element[] | JSX.Element;
   traceProp?: any;
   scroll?: boolean;
@@ -12,15 +12,16 @@ interface IProps {
   className?: string;
   scrollOpts?: ScrollIntoViewOptions;
 }
-export default class ScrollIntoView extends Component<IProps> {
+
+export default class ScrollIntoView extends Component<IScrollIntoViewProps> {
   selfRef: React.RefObject<HTMLDivElement>;
-  static defaultProps: Partial<IProps> = {
+  static defaultProps: Partial<IScrollIntoViewProps> = {
     scroll: true,
     scrollOpts: {},
     className: ""
   };
 
-  constructor(props: IProps) {
+  constructor(props: IScrollIntoViewProps) {
     super(props);
     this.selfRef = React.createRef();
   }
@@ -29,7 +30,7 @@ export default class ScrollIntoView extends Component<IProps> {
     this.scrollIntoView();
   }
 
-  componentDidUpdate(oldProps: IProps) {
+  componentDidUpdate(oldProps: IScrollIntoViewProps) {
     const { scroll, traceProp } = this.props;
     // if new props are different, trigger scrollInto view again
     if (oldProps.traceProp !== traceProp || oldProps.scroll !== scroll) {

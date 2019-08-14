@@ -1,8 +1,5 @@
 import React from "react";
-import Divider, {
-  IProps as IDividerProps,
-  TMargin
-} from "src/components/Divider";
+import Divider, { IDividerProps, TMargin } from "src/components/Divider";
 
 interface IProps extends Omit<IDividerProps, "marginSize"> {
   /**

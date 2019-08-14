@@ -5,7 +5,7 @@ import Segment from "src/components/Segment";
 
 import "./Modal.scss";
 
-export interface IProps {
+export interface IModalProps {
   open: boolean;
   onClose?: () => void;
   className?: string;
@@ -13,8 +13,8 @@ export interface IProps {
   size?: "xsmall" | "small" | "medium" | "large" | "xlarge" | number;
 }
 
-export default class Modal extends PureComponent<IProps> {
-  static defaultProps: Partial<IProps> = {
+export default class Modal extends PureComponent<IModalProps> {
+  static defaultProps: Partial<IModalProps> = {
     className: "",
     open: true,
     size: "medium"

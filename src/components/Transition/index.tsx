@@ -15,7 +15,7 @@ const defaultTransition = (ms: any) => ({
   transition: `all ${ms}ms ease-in-out`
 });
 
-interface IProps {
+export interface ITransitionProps {
   show: boolean;
   entered?: CSSProperties;
   start?: CSSProperties;
@@ -49,7 +49,7 @@ const Transition = ({
   duration = defaultDuration,
   appear = true,
   children
-}: IProps) => {
+}: ITransitionProps) => {
   const initialStyle = start || entering || {};
   const transitionStyles = {
     entering,

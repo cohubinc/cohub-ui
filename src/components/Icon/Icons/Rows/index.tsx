@@ -1,7 +1,7 @@
 import React from "react";
 
 import IconWrapper from "../../IconWrapper";
-import { IProps } from "../../index";
+import { IIconProps as IProps } from "../../index";
 
 const Rows = (props: IProps) => (
   <IconWrapper {...props}>

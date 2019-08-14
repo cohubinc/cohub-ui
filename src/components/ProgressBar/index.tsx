@@ -3,15 +3,17 @@ import Color from "src/definitions/enums/Color";
 
 import styles from "./ProgressBar.module.scss";
 
-interface IProps {
+export interface IProgressBarProps {
   barHeight: number;
   barColor: Color;
   progressColor: Color;
   progress: number;
 }
 
-export default class ProgressBar extends React.PureComponent<IProps> {
-  static defaultProps: Partial<IProps> = {
+export default class ProgressBar extends React.PureComponent<
+  IProgressBarProps
+> {
+  static defaultProps: Partial<IProgressBarProps> = {
     barHeight: 8,
     barColor: Color.green200 as any,
     progressColor: Color.primaryGreen as any

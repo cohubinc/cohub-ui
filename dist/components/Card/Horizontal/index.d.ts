@@ -1,6 +1,6 @@
 import React, { CSSProperties, PureComponent, ReactNode } from "react";
 import { ElevationLevel } from "../../../definitions/enums/BoxShadow";
-interface IProps {
+export default interface IHorizontalCardProps {
     /**
      * The main identifying text
      */
@@ -31,8 +31,7 @@ interface IProps {
      */
     elevation?: ElevationLevel;
 }
-export default class Horizontal extends PureComponent<IProps> {
-    static defaultProps: Partial<IProps>;
+export default class Horizontal extends PureComponent<IHorizontalCardProps> {
+    static defaultProps: Partial<IHorizontalCardProps>;
     render(): JSX.Element;
 }
-export {};

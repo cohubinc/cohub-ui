@@ -2,7 +2,7 @@
 import { FieldRenderProps } from "react-final-form";
 import TInputElementProps from "../definitions/TInputElementProps";
 declare type FieldProps = FieldRenderProps<string, HTMLInputElement>;
-interface IProps {
+interface IPasswordInputProps {
     label?: string;
     appearance?: "contrast" | "inverted";
     msgPosition?: {
@@ -12,6 +12,6 @@ interface IProps {
     input?: Partial<FieldProps["input"]>;
     meta?: FieldProps["meta"];
 }
-declare type TProps = IProps & Omit<TInputElementProps, "onChange" | "value">;
-export default function Password(props: TProps): JSX.Element;
+export declare type TPasswordInputProps = IPasswordInputProps & Omit<TInputElementProps, "onChange" | "value">;
+export default function Password(props: TPasswordInputProps): JSX.Element;
 export {};

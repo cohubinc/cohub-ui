@@ -4,7 +4,7 @@ import FormatMoney from "../FormatMoney";
 import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
 
-interface IProps {
+export interface IStatisticProps {
   size?: "tiny" | "small" | "regular" | "large" | "xlarge" | "huge";
   /**
    * The formatting that should be applied to the Statistics value
@@ -14,7 +14,7 @@ interface IProps {
   value: number | string;
 }
 
-export default class Statistic extends PureComponent<IProps> {
+export default class Statistic extends PureComponent<IStatisticProps> {
   static defaultProps = {
     size: "regular"
   };

@@ -4,7 +4,7 @@ import { Fade } from "src/components/Transition";
 import Typography from "src/components/Typography";
 import Color from "src/definitions/enums/Color";
 
-interface IProps extends Partial<JSX.IntrinsicElements["div"]> {
+export interface IAlertProps extends Partial<JSX.IntrinsicElements["div"]> {
   traceProp?: any;
   centerAlign?: boolean;
   info?: boolean;
@@ -12,7 +12,7 @@ interface IProps extends Partial<JSX.IntrinsicElements["div"]> {
   error?: boolean;
 }
 
-export default function Alert(props: IProps) {
+export default function Alert(props: IAlertProps) {
   const {
     style,
     error,

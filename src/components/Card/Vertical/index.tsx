@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Avatar from "src/components/Avatar";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 
-interface IProps {
+export default interface IVerticalCardProps {
   /**
    * The main identifying text
    */
@@ -41,8 +41,8 @@ interface IProps {
   elevation?: ElevationLevel;
 }
 
-export default class Vertical extends PureComponent<IProps> {
-  static defaultProps: Partial<IProps> = {
+export default class Vertical extends PureComponent<IVerticalCardProps> {
+  static defaultProps: Partial<IVerticalCardProps> = {
     elevation: 1
   };
 

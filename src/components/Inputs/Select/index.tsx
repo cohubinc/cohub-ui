@@ -15,7 +15,7 @@ interface IOption {
   value: string;
 }
 
-interface IProps {
+interface ISelectProps {
   label: string;
   options: OptionsType<IOption>;
   allowCreate?: boolean;
@@ -23,10 +23,10 @@ interface IProps {
   appearance?: "contrast" | "inverted";
 }
 
-export type SelectProps = IProps &
+export type TSelectProps = ISelectProps &
   FieldRenderProps<IOption["value"] | Array<IOption["value"]>, HTMLElement>;
 
-export default class Select extends React.Component<SelectProps> {
+export default class Select extends React.Component<TSelectProps> {
   onChange = (
     selectedOption: ValueType<{
       label: string;

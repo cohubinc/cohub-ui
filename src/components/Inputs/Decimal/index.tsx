@@ -18,7 +18,7 @@ interface IInputProp {
   value: FinalFormInputProp["value"];
 }
 
-interface IProps {
+interface IDecimalInputProps {
   /**
    * Use to extend decimal precision
    */
@@ -31,7 +31,7 @@ interface IProps {
   "data-qa"?: string;
 }
 
-type TProps = IProps & TInputElementProps;
+export type TDecimalInputProps = IDecimalInputProps & TInputElementProps;
 
 export default function DecimalInput({
   input,
@@ -42,7 +42,7 @@ export default function DecimalInput({
   extendedPrecision = false,
   integer = false,
   ...spanProps
-}: TProps) {
+}: TDecimalInputProps) {
   const showError = !!(meta && meta.touched && meta.error);
 
   return (

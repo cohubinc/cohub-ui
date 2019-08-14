@@ -1,11 +1,13 @@
 import React from "react";
 import NumberFormat from "react-number-format";
 
-interface IProps {
+export interface IFormatPercentProps {
   value: number;
 }
 
-export default class FormatPercent extends React.Component<IProps> {
+export default class FormatPercent extends React.Component<
+  IFormatPercentProps
+> {
   static defaultProps = {
     thousandSeparator: false
   };

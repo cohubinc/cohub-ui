@@ -1,11 +1,11 @@
 import React, { Children, ReactElement } from "react";
 
-import Tab, { IProps as TabProps } from "./Tab";
+import Tab, { ITabProps } from "./Tab";
 
 import "./Tabs.scss";
 
-interface IProps {
-  children: Array<ReactElement<TabProps>>;
+export interface ITabsProps {
+  children: Array<ReactElement<ITabProps>>;
   /**
    * If using this component in an app that doesnt use connected-react-router
    * this must be set to false
@@ -14,7 +14,7 @@ interface IProps {
   useRedux?: boolean;
 }
 
-export default function Tabs(props: IProps) {
+export default function Tabs(props: ITabsProps) {
   const { children, useRedux = true } = props;
 
   const activeChild = children.find(child => {

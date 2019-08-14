@@ -1,8 +1,8 @@
 import { ReactElement } from "react";
-import { IProps as TabProps } from "./Tab";
+import { ITabProps } from "./Tab";
 import "./Tabs.scss";
-interface IProps {
-    children: Array<ReactElement<TabProps>>;
+export interface ITabsProps {
+    children: Array<ReactElement<ITabProps>>;
     /**
      * If using this component in an app that doesnt use connected-react-router
      * this must be set to false
@@ -10,8 +10,8 @@ interface IProps {
      */
     useRedux?: boolean;
 }
-declare function Tabs(props: IProps): JSX.Element;
+declare function Tabs(props: ITabsProps): JSX.Element;
 declare namespace Tabs {
-    var Tab: Pick<(props: TabProps) => JSX.Element, never>;
+    var Tab: Pick<(props: ITabProps) => JSX.Element, never>;
 }
 export default Tabs;

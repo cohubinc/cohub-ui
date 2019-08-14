@@ -7,7 +7,7 @@ import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import Buttons from "src/components/Buttons";
 import Color from "src/definitions/enums/Color";
 
-interface IProps {
+export default interface IHorizontalCardProps {
   /**
    * The main identifying text
    */
@@ -36,8 +36,8 @@ interface IProps {
   elevation?: ElevationLevel;
 }
 
-export default class Horizontal extends PureComponent<IProps> {
-  static defaultProps: Partial<IProps> = {
+export default class Horizontal extends PureComponent<IHorizontalCardProps> {
+  static defaultProps: Partial<IHorizontalCardProps> = {
     elevation: 1
   };
 
@@ -80,11 +80,11 @@ export default class Horizontal extends PureComponent<IProps> {
       if (titleLink) {
         return (
           <Link to={titleLink}>
-            <Typography.HeadingTiny block>{title}</Typography.HeadingTiny>
+            <Typography.Large block>{title}</Typography.Large>
           </Link>
         );
       } else {
-        return <Typography.HeadingTiny block>{title}</Typography.HeadingTiny>;
+        return <Typography.Large block>{title}</Typography.Large>;
       }
     };
 

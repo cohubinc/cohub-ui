@@ -2,14 +2,15 @@ import React, { MouseEventHandler, Component } from "react";
 
 import Color from "src/definitions/enums/Color";
 import Text from "src/components/Typography";
-import Icon, { IProps as IconProps } from "src/components/Icon";
+import Icon, { IIconProps } from "src/components/Icon";
 import HtmlElementProps from "src/definitions/types/HtmlElementProps";
 
 import AddChipInput from "./AddChipInput";
 
 import "./Chip.scss";
+import AvatarChip from "./AvatarChip";
 
-interface IProps {
+interface IChipProps {
   label?: string;
   onDelete?: MouseEventHandler<HTMLElement>;
   checked?: boolean;
@@ -18,13 +19,14 @@ interface IProps {
   size?: number;
 }
 
-export type TProps = IProps &
+export type TChipProps = IChipProps &
   Pick<HtmlElementProps, "onClick" | "className" | "style">;
 
-export default class Chip extends Component<TProps> {
+export default class Chip extends Component<TChipProps> {
   static Add = AddChipInput;
+  static Avatar = AvatarChip;
 
-  static defaultProps: Partial<TProps> = {
+  static defaultProps: Partial<TChipProps> = {
     size: 12,
     backgroundColor: Color.grey300 as any
   };
@@ -47,14 +49,14 @@ export default class Chip extends Component<TProps> {
 
     const clickableClass = clickable ? "clickable" : "";
 
-    let iconName: IconProps["name"] | undefined;
+    let iconName: IIconProps["name"] | undefined;
     if (checked) {
       iconName = "checkmark";
     } else if (onDelete) {
       iconName = "close";
     }
 
-    const padding = `${size! / 2}px ${size}px`;
+    const padding = `${size! / 2.5}px ${size}px`;
 
     return (
       <div

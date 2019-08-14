@@ -1,7 +1,7 @@
 import React from "react";
 import { Placement } from "tippy.js";
 import "./Tooltip.scss";
-interface IProps {
+export interface ITooltipProps {
     children: any;
     content: any;
     arrow?: boolean;
@@ -14,8 +14,7 @@ interface IProps {
     className?: string;
     visible?: boolean;
 }
-export default class Tooltip extends React.Component<IProps> {
-    static defaultProps: Partial<IProps>;
+export default class Tooltip extends React.Component<ITooltipProps> {
+    static defaultProps: Partial<ITooltipProps>;
     render(): JSX.Element;
 }
-export {};

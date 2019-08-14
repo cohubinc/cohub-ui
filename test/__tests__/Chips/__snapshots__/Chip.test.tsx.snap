@@ -12,7 +12,7 @@ exports[`renders internal Link without crashing 1`] = `
         "backgroundColor": "hsl(0, 0%, 96%)",
         "borderRadius": "361px",
         "display": "inline-block",
-        "padding": "6px 12px",
+        "padding": "4.8px 12px",
       }
     }
   >

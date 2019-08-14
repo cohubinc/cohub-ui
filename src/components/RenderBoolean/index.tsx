@@ -1,9 +1,9 @@
 import React from "react";
 
-interface IProps {
+export interface IRenderBooleanProps {
   value: any;
 }
-const RenderBoolean = ({ value }: IProps) => (
+const RenderBoolean = ({ value }: IRenderBooleanProps) => (
   <span>{value ? "Yes" : "No"}</span>
 );
 

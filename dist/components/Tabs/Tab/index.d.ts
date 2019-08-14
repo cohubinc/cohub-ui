@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-export interface IProps {
+export interface ITabProps {
     title: string;
     active?: boolean;
     path?: string;
@@ -11,6 +11,6 @@ export interface IProps {
     children?: ReactNode;
     useRedux?: boolean;
 }
-declare function Tab(props: IProps): JSX.Element;
+declare function Tab(props: ITabProps): JSX.Element;
 declare const _default: Pick<typeof Tab, never>;
 export default _default;

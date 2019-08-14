@@ -1,6 +1,6 @@
 import React from "react";
 import TInputElementProps from "../definitions/TInputElementProps";
-export interface IProps {
+export interface IBaseInputProps {
     /**
      * Floating label for the input
      */
@@ -19,12 +19,12 @@ export interface IProps {
      */
     "data-qa-label"?: string;
 }
-declare type TProps = IProps & TInputElementProps;
+export declare type TBaseInputProps = IBaseInputProps & TInputElementProps;
 interface IState {
     hasFocus: boolean;
 }
-export default class Base extends React.PureComponent<TProps, IState> {
-    static defaultProps: Partial<TProps>;
+export default class Base extends React.PureComponent<TBaseInputProps, IState> {
+    static defaultProps: Partial<TBaseInputProps>;
     render(): JSX.Element;
 }
 export {};

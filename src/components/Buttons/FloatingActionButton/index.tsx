@@ -1,9 +1,9 @@
 import React from "react";
-import Icon, { IProps as IIconProps } from "../../Icon";
+import Icon, { IIconProps } from "../../Icon";
 import Color from "src/definitions/enums/Color";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import Buttons from "..";
-import { Props } from "src/components/Buttons/Blank";
+import { TBlankButtonProps } from "src/components/Buttons/Blank";
 
 interface IProps {
   icon: IIconProps["name"];
@@ -13,7 +13,7 @@ interface IProps {
   elevation: ElevationLevel;
 }
 
-type TProps = IProps & Props;
+type TProps = IProps & TBlankButtonProps;
 
 export default function FloatingActionButton({
   icon,
