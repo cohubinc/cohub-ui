@@ -18,10 +18,10 @@ const App = () => {
   return (
     <div
       style={{
-        maxWidth: "500px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
+        maxWidth: "500px"
+        // display: "flex",
+        // justifyContent: "center",
+        // alignItems: "center"
       }}
     >
       <CssFramework />
@@ -30,7 +30,7 @@ const App = () => {
         render={() => {
           return (
             <React.Fragment>
-              <Field
+              {/* <Field
                 name="otp_enabled"
                 render={props => (
                   <Inputs.Toggle
@@ -54,16 +54,26 @@ const App = () => {
                     ]}
                   />
                 )}
-              />
+              /> */}
+              <div>
+                <Field
+                  name="states"
+                  validate={required}
+                  render={props => (
+                    <Inputs.Password
+                      label="Password"
+                      appearance="contrast"
+                      {...props}
+                    />
+                  )}
+                />
+              </div>
+              <br />
               <Field
                 name="states"
                 validate={required}
                 render={props => (
-                  <Inputs.Text
-                    label="Status"
-                    appearance="contrast"
-                    {...props}
-                  />
+                  <Inputs.Text label="Text" appearance="contrast" {...props} />
                 )}
               />
             </React.Fragment>
