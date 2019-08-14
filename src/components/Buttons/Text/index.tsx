@@ -11,9 +11,9 @@ interface IProps {
   block?: boolean;
 }
 
-type TProps = IProps & Omit<TBlankButtonProps, "color">;
+export type TTextButtonProps = IProps & Omit<TBlankButtonProps, "color">;
 
-export default class Text extends PureComponent<TProps> {
+export default class Text extends PureComponent<TTextButtonProps> {
   static defaultProps: Partial<IProps> = {
     color: Color.iconGrey,
     fontSize: "12px"

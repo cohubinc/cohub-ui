@@ -10,7 +10,7 @@ interface IToggleProps {
   className?: string;
 }
 
-type TToggleProps = IToggleProps &
+export type TToggleProps = IToggleProps &
   FieldRenderProps<boolean | string, HTMLInputElement>;
 
 export default class Toggle extends React.Component<TToggleProps> {

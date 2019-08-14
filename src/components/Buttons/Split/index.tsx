@@ -2,7 +2,7 @@ import React, { CSSProperties, Component } from "react";
 import Color from "src/definitions/enums/Color";
 import Segment from "./Segment";
 
-interface IProps {
+export interface ISplitButtonProps {
   labels: string[];
   selectedIndex?: number;
   onChange: (index: number) => void;
@@ -11,7 +11,8 @@ interface IProps {
   style?: CSSProperties;
   className?: string;
 }
-export default function SplitButton(props: IProps) {
+
+export default function SplitButton(props: ISplitButtonProps) {
   const {
     labels,
     style,

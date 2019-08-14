@@ -13,7 +13,7 @@ interface IProps {
   elevation: ElevationLevel;
 }
 
-type TProps = IProps & TBlankButtonProps;
+export type TFloatingActionButtonProps = IProps & TBlankButtonProps;
 
 export default function FloatingActionButton({
   icon,
@@ -22,7 +22,7 @@ export default function FloatingActionButton({
   size = 24,
   elevation = 0,
   ...rest
-}: TProps) {
+}: TFloatingActionButtonProps) {
   const dpLevel = `dp${elevation}`;
 
   return (

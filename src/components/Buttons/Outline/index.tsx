@@ -7,13 +7,14 @@ export interface IProps {
   light?: boolean;
 }
 
-type TProps = IProps & Omit<IBaseButtonProps, "raised" | "color">;
+export type TOutlineButtonProps = IProps &
+  Omit<IBaseButtonProps, "raised" | "color">;
 
 const OutlineButtonBase = ({
   style,
   color = Color.darkBlack,
   ...rest
-}: TProps) => (
+}: TOutlineButtonProps) => (
   <Button
     raised={false}
     backgroundColor={Color.trueWhite}
@@ -22,7 +23,7 @@ const OutlineButtonBase = ({
   />
 );
 
-export const Outline = ({ light, color, ...props }: TProps) => {
+export const Outline = ({ light, color, ...props }: TOutlineButtonProps) => {
   if (light) {
     color = Color.grey700;
   }

@@ -13,6 +13,14 @@ import Dropdown from "./Dropdown/index";
 import FloatingActionButton from "./FloatingActionButton";
 import Split from "./Split";
 
+export { TBlankButtonProps } from "./Blank";
+export { TOutlineButtonProps } from "./Outline";
+export { TGhostButtonProps } from "./Ghost";
+export { TTextButtonProps } from "./Text";
+export { IDropdownButtonProps } from "./Dropdown";
+export { TFloatingActionButtonProps } from "./FloatingActionButton";
+export { ISplitButtonProps } from "./Split";
+
 export default class Buttons extends Component<IBaseButtonProps> {
   static Base = Button;
   static Primary = Primary;

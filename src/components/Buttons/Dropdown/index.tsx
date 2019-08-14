@@ -12,7 +12,7 @@ interface IOption {
   onClick: () => void;
   label: string;
 }
-interface IProps {
+export interface IDropdownButtonProps {
   options: IOption[];
   style?: CSSProperties;
   className?: string;
@@ -20,7 +20,7 @@ interface IProps {
   buttonType?: ButtonType;
 }
 
-export default function Dropdown(props: IProps) {
+export default function Dropdown(props: IDropdownButtonProps) {
   const {
     options,
     style,

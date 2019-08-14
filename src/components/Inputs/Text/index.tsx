@@ -17,7 +17,7 @@ interface ITextInputProps {
   meta?: FieldProps["meta"];
 }
 
-type TTextInputProps = ITextInputProps &
+export type TTextInputProps = ITextInputProps &
   Omit<TInputElementProps, "onChange" | "value">;
 
 export default function Text(props: TTextInputProps) {

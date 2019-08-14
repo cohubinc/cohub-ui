@@ -12,6 +12,7 @@ export { default as Avatar, IAvatarProps } from "src/components/Avatar";
 export { default as Backdrop, IBackdropProps } from "src/components/Backdrop";
 export { default as BoxShadow } from "src/definitions/enums/BoxShadow";
 export { default as Buttons } from "src/components/Buttons";
+export * from "src/components/Buttons";
 export {
   default as Card,
   IVerticalCardProps,
@@ -44,6 +45,7 @@ export {
 export { default as Icon, IIconProps } from "src/components/Icon";
 export { iconNames } from "src/components/Icon/Icons";
 export { default as Inputs } from "src/components/Inputs";
+export * from "src/components/Inputs";
 export { default as Link } from "src/components/Link";
 export { default as Loader, ILoaderProps } from "src/components/Loader";
 export { default as Modal, IModalProps } from "src/components/Modal";

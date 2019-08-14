@@ -8,17 +8,21 @@ export interface IProps {
   light?: boolean;
 }
 
-type TProps = IProps & Omit<IBaseButtonProps, "raised" | "color">;
+export type TGhostButtonProps = IProps &
+  Omit<IBaseButtonProps, "raised" | "color">;
 
-export const Ghost = ({ color = Color.invertedText, ...props }: TProps) => (
+export const Ghost = ({
+  color = Color.invertedText,
+  ...props
+}: TGhostButtonProps) => (
   <OutlineButton backgroundColor={Color.black500} color={color} {...props} />
 );
 
-export const PrimaryGhostButton = (props: TProps) => (
+export const PrimaryGhostButton = (props: TGhostButtonProps) => (
   <Ghost color={Color.primary as any} {...props} />
 );
 
-export const CancelGhostButton = (props: TProps) => (
+export const CancelGhostButton = (props: TGhostButtonProps) => (
   <Ghost color={Color.red500} {...props} />
 );
 

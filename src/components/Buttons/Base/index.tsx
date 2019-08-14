@@ -9,9 +9,9 @@ import Icon from "src/components/Icon";
 import "./Base.scss";
 import { TIconName } from "src/components/Icon/Icons";
 
-export type TRootElementProps = JSX.IntrinsicElements["button"];
+type TRootButtonProps = JSX.IntrinsicElements["button"];
 
-export interface IBaseButtonProps extends TRootElementProps {
+export interface IBaseButtonProps extends TRootButtonProps {
   /** Shows success checkmark animation */
   success?: boolean;
   /** Shows error color */
