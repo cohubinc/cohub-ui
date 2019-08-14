@@ -1,3 +1,6 @@
-node_modules
 .cache
-dist
+test
+.rpt2_cache
+development-playground
+yarn-error.log
+
