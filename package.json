@@ -20,7 +20,7 @@
     "pre-push-test": "yarn test --no-watch",
     "lint": "tslint --project tsconfig.json",
     "lint-fix": "tslint --fix --project tsconfig.json",
-    "test": "yarn checkTypes && yarn jest",
+    "test": "yarn checkTypes && yarn build && yarn jest",
     "test:watch": "yarn test --watch ",
     "test:coverage": "yarn test --coverage",
     "checkTypes": "yarn tsc --noEmit"
@@ -36,7 +36,7 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push-msg": "echo 'Building dist. You will likely need to amend your previous commit and force push the changes to dist.' && exit 0",
-      "pre-push": "yarn test --no-watch"
+      "pre-push": "yarn build && yarn test --no-watch"
     }
   },
   "dependencies": {
