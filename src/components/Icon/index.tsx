@@ -3,12 +3,10 @@ import React, { MouseEvent, PureComponent } from "react";
 import Color from "src/definitions/enums/Color";
 import logError from "src/utils/logError";
 
-import icons, { IconName as IconNameUnion } from "./Icons";
-
-export type IconName = IconNameUnion;
+import icons, { TIconName } from "./Icons";
 
 export interface IIconProps {
-  name: IconName;
+  name: TIconName;
   size?: number;
   color?: Color;
   className?: string;
@@ -28,7 +26,7 @@ const DefaultIcon = (props: IIconProps) => {
   return <Ico {...props} />;
 };
 
-const buildIcon = (name: IconName) => (props: Omit<IIconProps, "name">) => (
+const buildIcon = (name: TIconName) => (props: Omit<IIconProps, "name">) => (
   <DefaultIcon name={name} {...props} />
 );
 

@@ -40,7 +40,7 @@ import tripleDotsVertical from "./TripleDotsVertical";
 import userGroup from "./UserGroup";
 import user from "./User";
 import { IIconProps } from "../index";
-export type IconName =
+export type TIconName =
   | "add"
   | "arrowDown"
   | "arrowUp"
@@ -83,7 +83,7 @@ export type IconName =
   | "userGroup"
   | "user";
 
-type TIconMap = { [key in IconName]: (props: IIconProps) => JSX.Element };
+type TIconMap = { [key in TIconName]: (props: IIconProps) => JSX.Element };
 const icons: TIconMap = {
   add,
   arrowDown,
@@ -129,4 +129,4 @@ const icons: TIconMap = {
 };
 export default icons;
 // For generating examples in Docz
-export const iconNames = Object.keys(icons) as IconName[];
+export const iconNames = Object.keys(icons) as TIconName[];

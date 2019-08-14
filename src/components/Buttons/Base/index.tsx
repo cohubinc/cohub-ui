@@ -5,9 +5,9 @@ import AnimatedCheckmark from "src/components/AnimatedCheckmark";
 import Typography from "src/components/Typography";
 import { getInsetColor } from "./getInsetColor";
 import Icon from "src/components/Icon";
-import TIconName from "src/definitions/types/TIconName";
 
 import "./Base.scss";
+import { TIconName } from "src/components/Icon/Icons";
 
 export type TRootElementProps = JSX.IntrinsicElements["button"];
 
