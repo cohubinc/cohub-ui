@@ -1,0 +1,29 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { Buttons, StoryHelpers, Color, Loader } from "dist/index.esm.js";
+
+<Meta title="Components|Loaders" />
+
+# Loader
+
+<StoryHelpers.Margin />
+
+## A loader
+
+<Story name="Loader">
+  <div>
+    <div>
+      <StoryHelpers.StateCtrl label="Toggle Loader">
+        {({ state }) => <Loader show={state} />}
+      </StoryHelpers.StateCtrl>
+    </div>
+    <StoryHelpers.Margin />
+    <div>
+      <StoryHelpers.StateCtrl label="Toggle Fullscreen Loader">
+        {({ state }) => <Loader fullScreen show={state} />}
+      </StoryHelpers.StateCtrl>
+    </div>
+  </div>
+</Story>
+
+<Props of={Loader} />
