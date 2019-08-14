@@ -46,6 +46,7 @@ export default function Password(props: TPasswordInputProps) {
         style: {
           display: "flex",
           alignItems: "center",
+          width: "calc(100% + 24px)",
           ...style
         }
       }}
@@ -61,7 +62,7 @@ export default function Password(props: TPasswordInputProps) {
       <Icon.Eye
         size={24}
         color={Color.grey600}
-        style={{ position: "absolute", right: "36px" }}
+        style={{ position: "relative", right: "36px" }}
         className="pointer"
         onClick={() => setVisible(!visible)}
       />
