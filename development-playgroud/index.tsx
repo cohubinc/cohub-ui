@@ -25,8 +25,7 @@ const App = () => {
       }}
     >
       <CssFramework />
-      <Icon.Add />
-      {/* <Form
+      <Form
         onSubmit={values => alert(JSON.stringify(values))}
         render={() => {
           return (
@@ -58,6 +57,7 @@ const App = () => {
               />
               <Field
                 name="states"
+                validate={required}
                 render={props => (
                   <Inputs.Text
                     label="Status"
@@ -69,7 +69,7 @@ const App = () => {
             </React.Fragment>
           );
         }}
-      /> */}
+      />
     </div>
   );
 };
