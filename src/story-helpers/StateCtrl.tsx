@@ -18,6 +18,16 @@ export default function StateCtrl(props: IProps) {
 
   const [on, setOn] = useState(defaultState);
 
+  useEffect(() => {
+    const upHandler = ({ key }: any) => {
+      if (key === "Escape") {
+        setOn(false);
+      }
+    };
+    window.addEventListener("keyup", upHandler);
+    return () => window.removeEventListener("keyup", upHandler);
+  }, []);
+
   // If toggleInterval prop, toggle the state every X milliseconds
   useEffect(() => {
     if (!toggleInterval) return;
