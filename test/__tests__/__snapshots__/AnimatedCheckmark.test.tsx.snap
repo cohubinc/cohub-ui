@@ -5,7 +5,7 @@ exports[`AnimatedCheckmark renders without crashing 1`] = `
   <div
     style={
       Object {
-        "borderRadius": "50%",
+        "color": undefined,
         "height": "100%",
         "width": "100%",
       }
