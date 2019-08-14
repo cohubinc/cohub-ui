@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ReactElement, ElementType } from "react";
 import style from "./Tab.module.scss";
 import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
@@ -17,7 +17,7 @@ export interface ITabProps {
   useRedux?: boolean;
 }
 
-export default function Tab(props: ITabProps) {
+function Tab(props: ITabProps) {
   const {
     title,
     path,
@@ -62,3 +62,5 @@ export default function Tab(props: ITabProps) {
     </div>
   );
 }
+
+export default Tab as Omit<typeof Tab, "useRedux">;

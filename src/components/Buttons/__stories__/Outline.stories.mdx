@@ -1,6 +1,6 @@
 import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import { Buttons, Margin, StoryHelpers } from "../../../../dist/index.js";
+import { Buttons, Margin, StoryHelpers } from "dist/index.esm.js";
 
 <Meta title="Components|Buttons|Outline" />
 
@@ -17,6 +17,12 @@ import { Buttons, Margin, StoryHelpers } from "../../../../dist/index.js";
     </div>
   </div>
 </Story>
+
+## Example usage
+
+```jsx
+<Buttons.Outline light>Light Outline</Buttons.Outline>
+```
 
 <Props of={Buttons.Base} />
 

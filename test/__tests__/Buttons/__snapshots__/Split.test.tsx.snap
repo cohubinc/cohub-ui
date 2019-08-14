@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Split renders without crashing 1`] = `
-<Split
+<SplitButton
   labels={
     Array [
       "one",
@@ -11,125 +11,116 @@ exports[`Split renders without crashing 1`] = `
   onChange={[Function]}
   selectedIndex={1}
 >
-  <DefaultSplitButtons
-    labels={
-      Array [
-        "one",
-        "two",
-      ]
-    }
-    onChange={[Function]}
-    selectedIndex={1}
-  >
-    <div
-      style={
-        Object {
-          "display": "inline-grid",
-          "gridTemplateColumns": "repeat(2, 1fr)",
-        }
+  <div
+    style={
+      Object {
+        "display": "inline-grid",
+        "gridTemplateColumns": "repeat(2, 1fr)",
       }
+    }
+  >
+    <Segment
+      color="hsl(114, 35%, 52%)"
+      key="one"
+      onClick={[Function]}
+      selected={false}
     >
-      <Segment
-        key="one"
+      <button
+        className="Segment-module_SplitButtonSegment__ArSv1"
         onClick={[Function]}
-        selected={false}
-      >
-        <button
-          className="Segment-module_SplitButtonSegment__ArSv1"
-          onClick={[Function]}
-          style={
-            Object {
-              "backgroundColor": "hsl(0, 0%, 100%)",
-              "border": "1px solid hsl(0, 3%, 7%)",
-              "cursor": "pointer",
-              "filter": "none",
-              "fontFamily": "Akkurat-Mono",
-              "fontWeight": "lighter",
-              "minWidth": 75,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": "1em",
-              "transition": "all 65ms ease-in-out",
-            }
+        style={
+          Object {
+            "backgroundColor": "hsl(0, 0%, 100%)",
+            "border": "1px solid hsl(114, 35%, 52%)",
+            "cursor": "pointer",
+            "filter": "none",
+            "fontFamily": "Akkurat-Mono",
+            "fontWeight": "lighter",
+            "minWidth": 75,
+            "outline": "none",
+            "overflow": "hidden",
+            "padding": "1em",
+            "transition": "all 65ms ease-in-out",
           }
+        }
+      >
+        <Typography
+          color="hsl(114, 35%, 52%)"
         >
-          <Typography
-            color="hsl(0, 3%, 7%)"
+          <Component
+            color="hsl(114, 35%, 52%)"
           >
-            <Component
-              color="hsl(0, 3%, 7%)"
-            >
-              <span
-                className=""
-                data-qa="text"
-                style={
-                  Object {
-                    "color": "hsl(0, 3%, 7%)",
-                    "fontFamily": "Inter",
-                    "fontSize": "14px",
-                    "fontWeight": 400,
-                    "textAlign": "initial",
-                    "textTransform": "initial",
-                  }
+            <span
+              className=""
+              data-qa="text"
+              style={
+                Object {
+                  "color": "hsl(114, 35%, 52%)",
+                  "fontFamily": "Inter",
+                  "fontSize": "14px",
+                  "fontWeight": 400,
+                  "textAlign": "initial",
+                  "textTransform": "initial",
                 }
-              >
-                one
-              </span>
-            </Component>
-          </Typography>
-        </button>
-      </Segment>
-      <Segment
-        key="two"
+              }
+            >
+              one
+            </span>
+          </Component>
+        </Typography>
+      </button>
+    </Segment>
+    <Segment
+      color="hsl(114, 35%, 52%)"
+      key="two"
+      onClick={[Function]}
+      selected={true}
+    >
+      <button
+        className="Segment-module_SplitButtonSegment__ArSv1"
         onClick={[Function]}
-        selected={true}
-      >
-        <button
-          className="Segment-module_SplitButtonSegment__ArSv1"
-          onClick={[Function]}
-          style={
-            Object {
-              "backgroundColor": "hsl(0, 3%, 7%)",
-              "border": "1px solid hsl(0, 3%, 7%)",
-              "cursor": "pointer",
-              "filter": "none",
-              "fontFamily": "Akkurat-Mono",
-              "fontWeight": "lighter",
-              "minWidth": 75,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": "1em",
-              "transition": "all 65ms ease-in-out",
-            }
+        style={
+          Object {
+            "backgroundColor": "hsl(114, 35%, 52%)",
+            "border": "1px solid hsl(114, 35%, 52%)",
+            "cursor": "pointer",
+            "filter": "none",
+            "fontFamily": "Akkurat-Mono",
+            "fontWeight": "lighter",
+            "minWidth": 75,
+            "outline": "none",
+            "overflow": "hidden",
+            "padding": "1em",
+            "transition": "all 65ms ease-in-out",
           }
+        }
+      >
+        <Typography
+          color="hsl(0, 0%, 100%)"
         >
-          <Typography
+          <Component
             color="hsl(0, 0%, 100%)"
           >
-            <Component
-              color="hsl(0, 0%, 100%)"
-            >
-              <span
-                className=""
-                data-qa="text"
-                style={
-                  Object {
-                    "color": "hsl(0, 0%, 100%)",
-                    "fontFamily": "Inter",
-                    "fontSize": "14px",
-                    "fontWeight": 400,
-                    "textAlign": "initial",
-                    "textTransform": "initial",
-                  }
+            <span
+              className=""
+              data-qa="text"
+              style={
+                Object {
+                  "color": "hsl(0, 0%, 100%)",
+                  "fontFamily": "Inter",
+                  "fontSize": "14px",
+                  "fontWeight": 400,
+                  "textAlign": "initial",
+                  "textTransform": "initial",
                 }
-              >
-                two
-              </span>
-            </Component>
-          </Typography>
-        </button>
-      </Segment>
-    </div>
-  </DefaultSplitButtons>
-</Split>
+              }
+            >
+              two
+            </span>
+          </Component>
+        </Typography>
+      </button>
+    </Segment>
+  </div>
+</SplitButton>
 `;

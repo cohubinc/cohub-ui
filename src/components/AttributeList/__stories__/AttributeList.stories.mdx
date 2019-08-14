@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 import { Story, Meta, Props } from "@storybook/addon-docs/blocks";
-import { AttributeList, StoryHelpers } from "../../../../dist/index.js";
+import { AttributeList, StoryHelpers } from "dist/index.esm.js";
 
 <Meta title="Components|AttributeList" />
 
@@ -18,5 +18,18 @@ Welcome to the future of Storybook!
     ]}
   />
 </Story>
+
+## Example usage
+
+```jsx
+<AttributeList
+  header="Money"
+  contrast
+  items={[
+    { attribute: "Price", value: 100, format: "money" },
+    { attribute: "Cost", value: 10, format: "money" }
+  ]}
+/>
+```
 
 <Props of={AttributeList} />

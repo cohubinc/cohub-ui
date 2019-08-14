@@ -10,6 +10,7 @@ import replace from "rollup-plugin-replace";
 import commonjs from "rollup-plugin-commonjs";
 import docGenPlugin from "babel-plugin-react-docgen-typescript";
 import ttypescript from "ttypescript";
+import execute from "rollup-plugin-execute";
 
 import pkg from "./package.json";
 
@@ -20,11 +21,18 @@ const isStoryBuild = NODE_ENV === "storybook";
 
 export default {
   input: "src/index.ts",
-  output: {
-    file: pkg.main,
-    format: "cjs",
-    sourcemap: true
-  },
+  output: [
+    {
+      file: pkg.main,
+      format: "cjs",
+      sourcemap: true
+    },
+    {
+      file: "dist/index.esm.js",
+      format: "esm",
+      sourcemap: true
+    }
+  ],
   external: dependencies,
   plugins: [
     replace({
@@ -45,6 +53,7 @@ export default {
           docGenPlugin,
           {
             docgenCollectionName: "STORYBOOK_REACT_CLASSES",
+            // TODO: Look into this -> May be able to speed up the build if we limit the included files
             include: "components.*\\.tsx$",
             exclude: "stories\\.tsx$"
           }
@@ -73,6 +82,7 @@ export default {
       extract: false,
       autoModules: true
     }),
-    commonjs()
+    commonjs(),
+    execute("cp ./dist/index.d.ts ./dist/index.esm.d.ts")
   ]
 };

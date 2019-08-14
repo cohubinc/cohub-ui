@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 import { Story, Meta, Props } from "@storybook/addon-docs/blocks";
-import { StoryHelpers, Avatar } from "../../../../dist/index.js";
+import { StoryHelpers, Avatar } from "dist/index.esm.js";
 
 <Meta title="Components|Avatar" />
 
@@ -11,5 +11,11 @@ Avatars should be used when showing a user profile photo, customer profile photo
 <Story name="Avatar">
   <Avatar src="https://picsum.photos/id/815/300/300" name="Avatar" />
 </Story>
+
+## Example usage
+
+```jsx
+<Avatar src="https://picsum.photos/id/815/300/300" name="Avatar" />
+```
 
 <Props of={Avatar} />

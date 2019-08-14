@@ -78,7 +78,7 @@ export * from "src/components/Transition";
 
 // Helpers
 export * from "src/helpers/guid";
-export { default as renderDate } from "src/helpers/render-dates";
+export { default as renderDate, TDateFormat } from "src/helpers/render-dates";
 export * from "src/helpers/style-utils";
 export * from "src/helpers/ui";
 import * as InputValidationsToExport from "src/helpers/input-validations";

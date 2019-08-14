@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-import { Card, StoryHelpers } from "../../../../dist/index.js";
+import { Card, StoryHelpers } from "dist/index.esm.js";
 
 <Meta title="Components|Cards|Vertical" />
 
@@ -37,5 +37,23 @@ This is a Vertical Card.
     </Card.Vertical>
   </div>
 </Story>
+
+## Example usage
+
+```jsx
+<Card.Vertical
+  title="Title"
+  subtitle="Subtitle"
+  meta="Meta"
+  imageUrl="https://picsum.photos/id/1062/5092/3395"
+  avatar
+  actions={[
+    { name: "Action 1", action: () => null },
+    { name: "Action 2", action: () => null }
+  ]}
+>
+  <div>Card Body</div>
+</Card.Vertical>
+```
 
 <Props of={Card.Vertical} />

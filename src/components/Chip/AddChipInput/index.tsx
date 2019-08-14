@@ -70,14 +70,15 @@ export default class AddChipInput extends React.Component<
       expanded ? inputRef.focus() : inputRef.blur();
     }
 
-    const { onBlur, onFocus, ...inputProps } = restProps;
+    const { onBlur, onFocus, onChange, ...rest } = restProps;
     return (
       <div style={{ ...style, position: "relative" }} className={className}>
         <input
-          {...inputProps}
+          {...rest}
           className="border"
           style={expanded ? expandedInputStyles : btnInputStyle}
           ref={this._input}
+          onChange={e => onChange(e.target.value)}
           onFocus={e => {
             onFocus && onFocus(e);
             this.setState({ expanded: true });

@@ -11,7 +11,7 @@ import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 
-import "./MultiSelect.scss";
+import "./Multiselect.scss";
 
 interface IOption {
   label: string;

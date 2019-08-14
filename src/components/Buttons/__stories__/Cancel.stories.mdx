@@ -1,6 +1,6 @@
 import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 
-import { Buttons, StoryHelpers } from "../../../../dist/index.js";
+import { Buttons, StoryHelpers } from "dist/index.esm.js";
 
 <Meta title="Components|Buttons|Cancel" />
 
@@ -21,5 +21,18 @@ import { Buttons, StoryHelpers } from "../../../../dist/index.js";
 Cancel only excepts the **raised** and **backgroundColor** props
 
 <Props of={Buttons.Base} />
+
+## Example usage
+
+```jsx
+<Buttons.Cancel>Cancel</Buttons.Cancel>
+
+<Buttons.Cancel
+  icon="chevronDown"
+  iconPosition="right"
+>
+  Push Me
+</Buttons.Cancel>
+```
 
 **Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

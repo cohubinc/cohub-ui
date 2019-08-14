@@ -1,10 +1,7 @@
 import { action } from "@storybook/addon-actions";
 import { Story, Meta, Props } from "@storybook/addon-docs/blocks";
 
-import { StateContainer } from "src/story-helpers";
-import Tabs from "src/components/Tabs";
-import Tab from "src/components/Tabs/Tab";
-import Segment from "src/components/Segment/index.tsx";
+import { StoryHelpers, Tabs, Segment } from "dist/index.esm.js";
 
 <Meta title="Components|Tabs" />
 
@@ -13,7 +10,7 @@ import Segment from "src/components/Segment/index.tsx";
 These are Tabs.
 
 <Story name="Tabs">
-  <StateContainer initialState={0}>
+  <StoryHelpers.StateContainer initialState={0}>
     {({ state, setState }) => {
       const Container = ({ children, ...props }) => (
         <Segment
@@ -25,20 +22,20 @@ These are Tabs.
         </Segment>
       );
       return (
-        <Tabs>
-          <Tab
+        <Tabs useRedux={false}>
+          <Tabs.Tab
             title="Tab 1"
             onClick={() => setState(0)}
             active={state === 0}
             component={<Container>One</Container>}
           />
-          <Tab
+          <Tabs.Tab
             title="Tab 2"
             onClick={() => setState(1)}
             active={state === 1}
             component={<Container>Two</Container>}
           />
-          <Tab
+          <Tabs.Tab
             title="Tab 3"
             onClick={() => setState(2)}
             active={state === 2}
@@ -47,7 +44,65 @@ These are Tabs.
         </Tabs>
       );
     }}
-  </StateContainer>
+  </StoryHelpers.StateContainer>
 </Story>
 
-<Props of={Tab} />
+## Route based Tabs example
+
+```jsx
+<Tabs>
+  <Tab
+    title="Essentials"
+    path="product/22"
+    component={<EssentialsTab product={product} />}
+  />
+  <Tab
+    title="Inventory Flow"
+    path="product/22/inventory"
+    component={<Segment>...</Segment>}
+  />
+  <Tab
+    title="Analytics"
+    path="product/22/analytics"
+    component={<Segment>Charts and stuff</Segment>}
+  />
+  <Tab
+    title="Website"
+    path={Urls.productWebsitePath(product.id)}
+    component={<Segment>Charts and stuff</Segment>}
+  />
+</Tabs>
+```
+
+## Tabs as controlled compoents example
+
+```jsx
+<Tabs useRedux={false}>
+  <Tabs.Tab
+    title="Tab 1"
+    onClick={() => setState(0)}
+    active={state === 0}
+    component={<Container>One</Container>}
+  />
+  <Tabs.Tab
+    title="Tab 2"
+    onClick={() => setState(1)}
+    active={state === 1}
+    component={<Container>Two</Container>}
+  />
+  <Tabs.Tab
+    title="Tab 3"
+    onClick={() => setState(2)}
+    active={state === 2}
+    component={<Container>Three</Container>}
+  />
+</Tabs>
+```
+
+## Tabs Props
+
+<Props of={Tabs} />
+
+## Tab Props
+
+<Props of={Tabs.Tab} />

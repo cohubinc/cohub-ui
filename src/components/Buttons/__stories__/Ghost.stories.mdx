@@ -1,5 +1,5 @@
 import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-import { Buttons, StoryHelpers, Color } from "../../../../dist/index.js";
+import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
 
 <Meta title="Components|Buttons|Ghost" />
 
@@ -27,6 +27,16 @@ import { Buttons, StoryHelpers, Color } from "../../../../dist/index.js";
     </StoryHelpers.StateCtrl>
   </div>
 </Story>
+
+## Example usage
+
+```jsx
+<Buttons.Ghost>Default 👻</Buttons.Ghost>
+
+<Buttons.PrimaryGhost>Primary</Buttons.PrimaryGhost>
+
+<Buttons.CancelGhost>Cancel</Buttons.CancelGhost>
+```
 
 <Props of={Buttons.Base} />
 
