@@ -64,7 +64,7 @@ export {
   default as Statistic,
   IStatisticProps
 } from "src/components/Statistic";
-export { default as Tabs, ITabsProps } from "src/components/Tabs";
+// export { default as Tabs, ITabsProps } from "src/components/Tabs";
 export { default as Tooltip, ITooltipProps } from "src/components/Tooltip";
 export {
   default as Typography,
