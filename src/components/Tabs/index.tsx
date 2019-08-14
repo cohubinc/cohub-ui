@@ -14,32 +14,33 @@ export interface ITabsProps {
   useRedux?: boolean;
 }
 
-export default function Tabs(props: ITabsProps) {
-  const { children, useRedux = true } = props;
+export default class Tabs extends React.Component<ITabsProps> {
+  static Tab = Tab;
 
-  const activeChild = children.find(child => {
-    if (!child || !child.props) {
-      return false;
-    }
+  render() {
+    const { children, useRedux = true } = this.props;
 
+    const activeChild = children.find(child => {
+      if (!child || !child.props) {
+        return false;
+      }
+
+      return (
+        (child as any).props.active ||
+        window.location.pathname === (child as any).props.path
+      );
+    }) as JSX.Element;
     return (
-      (child as any).props.active ||
-      window.location.pathname === (child as any).props.path
+      <React.Fragment>
+        <div className="Tabs flex">
+          {Children.map(children, (tab: ReactElement<ITabProps>) => {
+            return React.cloneElement(tab, { useRedux });
+          })}
+        </div>
+        <div className="Tabs-Content">
+          {activeChild && activeChild.props.component}
+        </div>
+      </React.Fragment>
     );
-  }) as JSX.Element;
-
-  return (
-    <React.Fragment>
-      <div className="Tabs flex">
-        {Children.map(children, tab => {
-          return React.cloneElement(tab, { useRedux });
-        })}
-      </div>
-      <div className="Tabs-Content">
-        {activeChild && activeChild.props.component}
-      </div>
-    </React.Fragment>
-  );
+  }
 }
-
-Tabs.Tab = Tab;
