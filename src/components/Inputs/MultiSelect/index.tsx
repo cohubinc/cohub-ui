@@ -120,7 +120,7 @@ const styles: IStyleContainer = {
     display: "none"
   },
   multiValue: {
-    backgroundColor: Color.grey200 as any,
+    backgroundColor: Color.white500 as any,
     borderRadius: "11px",
     paddingLeft: "6px",
     marginTop: "6px",

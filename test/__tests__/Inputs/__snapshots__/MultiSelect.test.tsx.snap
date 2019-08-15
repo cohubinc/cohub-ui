@@ -1069,7 +1069,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                       innerProps={
                                         Object {
-                                          "className": "css-1t5q36e-multiValue",
+                                          "className": "css-16vg1z0-multiValue",
                                         }
                                       }
                                       selectProps={
@@ -1173,7 +1173,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                     >
                                       <div
-                                        className="css-1t5q36e-multiValue"
+                                        className="css-16vg1z0-multiValue"
                                       >
                                         <MultiValueGeneric
                                           data={
@@ -1649,7 +1649,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                       innerProps={
                                         Object {
-                                          "className": "css-1t5q36e-multiValue",
+                                          "className": "css-16vg1z0-multiValue",
                                         }
                                       }
                                       selectProps={
@@ -1753,7 +1753,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                     >
                                       <div
-                                        className="css-1t5q36e-multiValue"
+                                        className="css-16vg1z0-multiValue"
                                       >
                                         <MultiValueGeneric
                                           data={
