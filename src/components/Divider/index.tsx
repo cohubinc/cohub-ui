@@ -1,4 +1,5 @@
 import React, { CSSProperties } from "react";
+import Color from "src/definitions/enums/Color";
 
 export type TMargin = 0.5 | 1 | 1.5 | 2 | 3 | 4 | 5 | 6;
 export interface IDividerProps {
@@ -40,7 +41,7 @@ export default function Divider(props: IDividerProps) {
     <div
       className={className}
       style={{
-        borderTop: showDividerLine ? "1px solid var(--border)" : undefined,
+        borderTop: showDividerLine ? `1px solid ${Color.border}` : undefined,
         marginTop: `${marginTop || 0}rem`,
         marginBottom: `${marginBottom || 0}rem`,
         width: "100%",

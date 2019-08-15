@@ -11,7 +11,7 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
 <Story name="Text">
   <StoryHelpers.StateCtrl label="Error State">
     {({ state: error }) => (
-      <StoryHelpers.StateContainer initialState="">
+      <StoryHelpers.StateContainer defaultState="">
         {({ state, setState }) => (
           <Inputs.Text
             label="Text Input"

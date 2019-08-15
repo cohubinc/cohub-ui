@@ -1,0 +1,41 @@
+import { action } from "@storybook/addon-actions";
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Tooltip } from "dist/index.esm.js";
+
+<Meta title="Components|Tooltips" />
+
+# Tooltip
+
+<Story name="Tooltip">
+  <div>
+    <Tooltip
+      content="Tooltip Content"
+      placement="left-end"
+      theme="dark"
+      arrow={false}
+      duration={200}
+      delay={[100, 300]}
+      interactive={true}
+    >
+      <button>Hover Me</button>
+    </Tooltip>
+  </div>
+</Story>
+
+<Props of={Tooltip} />
+
+## Usage
+
+```jsx
+<Tooltip
+  content="Tooltip Content"
+  placement="left-end"
+  theme="light"
+  arrow={false}
+  duration={200}
+  delay={[100, 300]}
+  interactive={true}
+>
+  <button>Hover Me</button>
+</Tooltip>
+```

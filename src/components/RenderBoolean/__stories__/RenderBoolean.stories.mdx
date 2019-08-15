@@ -1,0 +1,31 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { Buttons, StoryHelpers, Color, RenderBoolean } from "dist/index.esm.js";
+
+<Meta title="Components|RenderBooleans" />
+
+# RenderBoolean
+
+<StoryHelpers.Margin />
+
+## A method for displaying a boolean value
+
+<Story name="RenderBoolean">
+  <div>
+    <StoryHelpers.StateCtrl label="RenderBoolean">
+      {({ state }) => <RenderBoolean value={state} className="mt-05" />}
+    </StoryHelpers.StateCtrl>
+  </div>
+</Story>
+
+## Example usage
+
+```jsx
+  <RenderBoolean value={true} />
+  <RenderBoolean value={false} />
+  <RenderBoolean value={"truthy"} />
+  <RenderBoolean value={0} />
+  <RenderBoolean value={1} />
+```
+
+<Props of={RenderBoolean} />

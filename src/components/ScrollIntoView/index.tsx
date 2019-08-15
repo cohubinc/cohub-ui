@@ -50,9 +50,11 @@ export default class ScrollIntoView extends Component<IScrollIntoViewProps> {
   scrollIntoView() {
     const { scroll, scrollOpts } = this.props;
     const self = this.selfRef.current;
-
-    scroll &&
-      self &&
-      self.scrollIntoView({ ...defaultScrollOpts, ...scrollOpts });
+    if (scroll && self) {
+      setTimeout(
+        () => self.scrollIntoView({ ...defaultScrollOpts, ...scrollOpts }),
+        100
+      );
+    }
   }
 }

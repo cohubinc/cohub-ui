@@ -1,0 +1,28 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { FormGroup, StoryHelpers, Color, Inputs } from "dist/index.esm.js";
+
+<Meta title="Components|FormGroups" />
+
+# FormGroup
+
+<StoryHelpers.Margin />
+
+## A way to group sections of a form
+
+<Story name="FormGroup">
+  <div>
+    <StoryHelpers.StateCtrl label="Direction" defaultState={true}>
+      {({ state }) => {
+        return (
+          <FormGroup direction={state ? "horizontal" : "vertical"}>
+            <Inputs.Text label="First Name" />
+            <Inputs.Text label="Last Name" />
+          </FormGroup>
+        );
+      }}
+    </StoryHelpers.StateCtrl>
+  </div>
+</Story>
+
+<Props of={FormGroup} />

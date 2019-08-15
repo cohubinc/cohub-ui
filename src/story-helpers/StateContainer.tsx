@@ -5,14 +5,14 @@ interface IRenderProps<T = string> {
   setState: (state: any) => void;
 }
 interface IProps<T = string> {
-  initialState?: T;
+  defaultState?: T;
   children: (props: IRenderProps<T>) => JSX.Element;
 }
 export default function StateContainer<T>({
-  initialState,
+  defaultState,
   children
 }: IProps<T>) {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState(defaultState);
 
   return children({ state, setState });
 }

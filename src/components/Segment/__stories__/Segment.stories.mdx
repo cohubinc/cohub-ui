@@ -2,7 +2,7 @@ import { action } from "@storybook/addon-actions";
 import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
 import { Segment } from "dist/index.esm.js";
 
-<Meta title="Components|Segment" />
+<Meta title="Components|Segments" />
 
 # Segment
 
@@ -15,3 +15,25 @@ Segments are used to group related content together. Segments should never be ne
 </Story>
 
 <Props of={Segment} />
+
+## More Examples
+
+<Segment className="mt-3" elevation={2}>
+  <span>Elevation - 2</span>
+</Segment>
+
+<Segment className="mt-3" elevation={3}>
+  <span>Elevation - 3</span>
+</Segment>
+
+<Segment className="mt-3" elevation={8}>
+  <span>Elevation - 8</span>
+</Segment>
+
+<Segment className="mt-3" elevation={16}>
+  <span>Elevation - 16</span>
+</Segment>
+
+<Segment className="mt-3" elevation={24}>
+  <span>Elevation - 24</span>
+</Segment>

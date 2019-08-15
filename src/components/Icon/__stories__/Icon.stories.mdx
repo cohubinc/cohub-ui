@@ -1,0 +1,43 @@
+import { action } from "@storybook/addon-actions";
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Icon, Color, StoryHelpers } from "dist/index.esm.js";
+
+<Meta title="Components|Icons" />
+
+# Icon
+
+<Story name="Icon">
+  <div className="flex">
+    <span className="mr-1">
+      <Icon.TagDollar />
+    </span>
+    <span>
+      <Icon.Calculator />
+    </span>
+  </div>
+</Story>
+
+## Example Usage
+
+```jsx
+<Icon.TagDollar />
+```
+
+<StoryHelpers.Margin />
+
+```jsx
+<Icon name="tagDollar" />
+```
+
+<StoryHelpers.Margin />
+
+```jsx
+<Icon.Calculator
+  size={44}
+  color={Color.primary}
+  className="mg-l"
+  style={{ alignSelf: "flex-end" }}
+/>
+```
+
+<Props of={Icon} />

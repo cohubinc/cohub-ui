@@ -1,0 +1,31 @@
+import { action } from "@storybook/addon-actions";
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Link } from "dist/index.esm.js";
+import { MemoryRouter } from "react-router";
+
+<Meta title="Components|Links" />
+
+# Link
+
+<Story name="Link">
+  <div>
+    <MemoryRouter>
+      <div className="mb-1">
+        <Link to="/some/internal/route">Internal Link</Link>
+      </div>
+      <div className="mb-1">
+        <Link href="https://www.google.com/">External Link</Link>
+      </div>
+      <div className="mb-1">
+        <Link styled animated={false} href="https://www.google.com/">
+          Link with no animation
+        </Link>
+      </div>
+      <div className="mb-1">
+        <Link.Muted to="/some/internal/route">Muted Link</Link.Muted>
+      </div>
+    </MemoryRouter>
+  </div>
+</Story>
+
+<Props of={Link} />

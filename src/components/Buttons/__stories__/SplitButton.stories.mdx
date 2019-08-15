@@ -11,7 +11,7 @@ import { Buttons, Color, StoryHelpers } from "dist/index.esm.js";
 <Story name="SplitButtons">
   <div>
     <StoryHelpers.Text underlined>Default Split Buttons</StoryHelpers.Text>
-    <StoryHelpers.StateContainer initialState={0}>
+    <StoryHelpers.StateContainer defaultState={0}>
       {({ setState, state }) => (
         <Buttons.Split
           labels={["Brown", "Chicken", "BrownCow"]}
@@ -25,7 +25,7 @@ import { Buttons, Color, StoryHelpers } from "dist/index.esm.js";
     <StoryHelpers.Text italicize>
       Segments will always be the same size
     </StoryHelpers.Text>
-    <StoryHelpers.StateContainer initialState={1}>
+    <StoryHelpers.StateContainer defaultState={1}>
       {({ setState, state }) => (
         <Buttons.Split
           color={Color.teal500}

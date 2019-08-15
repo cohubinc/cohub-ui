@@ -1,0 +1,34 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import {
+  Buttons,
+  StoryHelpers,
+  Color,
+  ScrollIntoView
+} from "dist/index.esm.js";
+
+<Meta title="Components|ScrollIntoViews" />
+
+# ScrollIntoView
+
+<StoryHelpers.Margin />
+
+A component that when you pass a trace prop to will retrigger the scrollIntoView function anytime the trace prop changes
+
+<Story name="ScrollIntoView">
+  <StoryHelpers.StateCtrl label="ScrollIntoView">
+    {({ state }) => {
+      return (
+        <div style={{ marginTop: "140vh", marginBottom: "5vh" }}>
+          <ScrollIntoView traceProp={state}>
+            <div style={{ backgroundColor: Color.green200 }} className="p-1">
+              Hello, I just scrolled into view!
+            </div>
+          </ScrollIntoView>
+        </div>
+      );
+    }}
+  </StoryHelpers.StateCtrl>
+</Story>
+
+<Props of={ScrollIntoView} />
