@@ -28,16 +28,18 @@ exports[`Icon renders add without crashing 1`] = `
             className="flex justify-center items-center"
           >
             <svg
-              fill="none"
               height={24}
-              viewBox="0 0 14 14"
+              version="1.1"
+              viewBox="0 0 24 24"
               width={24}
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M0.0769043 6.99998H13.9231M6.99998 13.9231V0.0769043"
-                stroke="hsl(0, 2%, 88%)"
-                strokeWidth="0.75"
+                d="M19,13h-6v6h-2v-6h-6v-2h6v-6h2v6h6v2Z"
+                fill="hsl(0, 2%, 88%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
               />
             </svg>
           </div>

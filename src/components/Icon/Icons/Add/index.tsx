@@ -6,18 +6,9 @@ import { IIconProps as IProps } from "../../index";
 const Add = (props: IProps) => (
   <IconWrapper {...props}>
     {({ color, size }) => (
-      <svg
-        width={size}
-        height={size}
-        viewBox="0 0 14 14"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0.0769043 6.99998H13.9231M6.99998 13.9231V0.0769043"
-          stroke={color as any}
-          strokeWidth="0.75"
-        />
+      <svg version="1.1" viewBox="0 0 24 24" width={size} height={size}>
+        <path d="M19,13h-6v6h-2v-6h-6v-2h6v-6h2v6h6v2Z" fill={color as any} />
+        <path fill="none" d="M0,0h24v24h-24Z" />
       </svg>
     )}
   </IconWrapper>
