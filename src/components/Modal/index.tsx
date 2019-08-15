@@ -4,6 +4,8 @@ import Backdrop from "src/components/Backdrop";
 import Segment from "src/components/Segment";
 
 import "./Modal.scss";
+import Typography from "../Typography";
+import Divider from "../Divider";
 
 export interface IModalProps {
   open: boolean;
@@ -11,6 +13,7 @@ export interface IModalProps {
   className?: string;
   style?: CSSProperties;
   size?: "xsmall" | "small" | "medium" | "large" | "xlarge" | number;
+  title?: string;
 }
 
 export default class Modal extends PureComponent<IModalProps> {
@@ -21,7 +24,7 @@ export default class Modal extends PureComponent<IModalProps> {
   };
 
   render() {
-    const { children, className, size, ...rest } = this.props;
+    const { children, className, size, title, ...rest } = this.props;
 
     let modalSize;
 
@@ -56,6 +59,12 @@ export default class Modal extends PureComponent<IModalProps> {
           elevation={24}
           style={{ width: `${modalSize}px` }}
         >
+          {title && (
+            <React.Fragment>
+              <Typography.HeadingTiny>{title}</Typography.HeadingTiny>
+              <Divider marginSize={1} />
+            </React.Fragment>
+          )}
           {children}
         </Segment>
       </Backdrop>

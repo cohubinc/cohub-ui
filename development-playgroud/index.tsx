@@ -9,7 +9,9 @@ import {
   Segment,
   Icon,
   Avatar,
-  AnimatedCheckmark
+  AnimatedCheckmark,
+  Modal,
+  Typography
 } from "../dist/";
 import { Form, Field } from "react-final-form";
 
@@ -18,44 +20,24 @@ const App = () => {
 
   return (
     <div
-      style={{
-        maxWidth: "500px"
-        // display: "flex",
-        // justifyContent: "center",
-        // alignItems: "center"
-      }}
+      style={
+        {
+          // maxWidth: "500px"
+          // display: "flex",
+          // justifyContent: "center",
+          // alignItems: "center"
+        }
+      }
     >
       <CssFramework />
-      <Form
+      <Modal open size="large" title="New Thing">
+        <Typography>test</Typography>
+      </Modal>
+      {/* <Form
         onSubmit={values => alert(JSON.stringify(values))}
         render={() => {
           return (
             <React.Fragment>
-              {/* <Field
-                name="otp_enabled"
-                render={props => (
-                  <Inputs.Toggle
-                    label="2FA Enabled"
-                    labelPosition="top"
-                    {...props}
-                  />
-                )}
-              />
-              <Field
-                name="states"
-                render={props => (
-                  <Inputs.MultiSelect
-                    label="Status"
-                    appearance="contrast"
-                    {...props}
-                    options={[
-                      { value: "pending", label: "Pending" },
-                      { value: "placed", label: "Placed" },
-                      { value: "completed", label: "Completed" }
-                    ]}
-                  />
-                )}
-              /> */}
               <AnimatedCheckmark color={Color.red500} size={100} />
               <div>
                 <Field
@@ -81,7 +63,7 @@ const App = () => {
             </React.Fragment>
           );
         }}
-      />
+      /> */}
     </div>
   );
 };
