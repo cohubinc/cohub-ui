@@ -1,0 +1,34 @@
+import { action } from "@storybook/addon-actions";
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Modal, StoryHelpers } from "dist/index.esm.js";
+
+<Meta title="Components|Modals" />
+
+# Modal
+
+<Story name="Modal">
+  <div>
+    <StoryHelpers.StateCtrl>
+      {({ state, toggleOff }) => {
+        return (
+          <Modal open={state} onClose={toggleOff}>
+            <div>
+              <div className="text-center">Close by</div>
+              <ul style={{ listStylePosition: "inside", marginTop: 0 }}>
+                <li>clicking the backdrop</li>
+                <li>clicking the close button</li>
+                <li>clicking the close icon</li>
+                <li>or hitting esc on your keyboard</li>
+              </ul>
+              <button className="w-100" onClick={toggleOff}>
+                Close
+              </button>
+            </div>
+          </Modal>
+        );
+      }}
+    </StoryHelpers.StateCtrl>
+  </div>
+</Story>
+
+<Props of={Modal} />
