@@ -25,4 +25,19 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
   </StoryHelpers.StateContainer>
 </Story>
 
+## Usage
+
+```jsx
+<Inputs.Checkbox
+  label="Checkbox Input"
+  key="selected"
+  meta={{}}
+  input={{
+    name: "selected",
+    value: state,
+    onChange: () => setState(!state)
+  }}
+/>
+```
+
 <Props of={Inputs.Text} />

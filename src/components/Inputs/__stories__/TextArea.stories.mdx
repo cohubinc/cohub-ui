@@ -23,4 +23,17 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
   </StoryHelpers.StateContainer>
 </Story>
 
+## Usage
+
+```jsx
+<Inputs.TextArea
+  label="TextArea Input"
+  input={{
+    value: state,
+    onChange: ({ target }) => setState(target.value)
+  }}
+  style={{ width: 300 }}
+/>
+```
+
 <Props of={Inputs.TextArea} />

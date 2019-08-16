@@ -25,4 +25,17 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
   </StoryHelpers.StateContainer>
 </Story>
 
+## Usage
+
+```jsx
+<Inputs.Money
+  appearance="contrast"
+  label="Amount"
+  input={{
+    value: state,
+    onChange: value => setState(value)
+  }}
+/>
+```
+
 <Props of={Inputs.Money} />

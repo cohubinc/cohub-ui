@@ -29,4 +29,18 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
   </StoryHelpers.StateCtrl>
 </Story>
 
+## Usage
+
+````jsx
+<Inputs.Decimal
+  label="Decimal Input"
+  input={{
+    value: state,
+    onChange: value => setState(value)
+  }}
+  meta={{ touched: true, error }}
+/>
+```
+
 <Props of={Inputs.Decimal} />
+````
