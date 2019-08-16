@@ -56,10 +56,8 @@ class MoneyInput extends PureComponent<IMoneyInputProps> {
           label={label}
           error={showError}
           appearance={appearance}
-          children={({
-            componentProps: { onChange, value, ...rest },
-            setInputRef
-          }) => (
+        >
+          {({ componentProps: { onChange, value, ...rest }, setInputRef }) => (
             <NumberFormat
               {...rest}
               getInputRef={setInputRef}
@@ -73,7 +71,7 @@ class MoneyInput extends PureComponent<IMoneyInputProps> {
               thousandSeparator
             />
           )}
-        />
+        </FloatingLabelWrapper>
       </span>
     );
   }
