@@ -1,0 +1,37 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Form, Field } from "react-final-form";
+import { Inputs, StoryHelpers } from "dist/index.esm.js";
+
+<Meta title="Components|Inputs|Select" />
+
+# Select Input
+
+<StoryHelpers.Margin />
+
+<Story name="Select">
+  <div className="mb-3">
+    <Form
+      initialValues={{ select: "option1" }}
+      onSubmit={() => {}}
+      render={() => (
+        <Field
+          name="select"
+          render={props => (
+            <Inputs.Select
+              label="Select an option"
+              {...props}
+              options={[
+                { label: "Option 1", value: "option1" },
+                { label: "Option 2", value: "option2" },
+                { label: "Option 3", value: "option3" },
+                { label: "Option 4", value: "option4" }
+              ]}
+            />
+          )}
+        />
+      )}
+    />
+  </div>
+</Story>
+
+<Props of={Inputs.Select} />

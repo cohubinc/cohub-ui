@@ -1,0 +1,55 @@
+import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+
+import { Inputs, StoryHelpers } from "dist/index.esm.js";
+
+<Meta title="Components|Inputs|Base" />
+
+# Base Input
+
+<StoryHelpers.Margin />
+
+<Story name="Base">
+  <StoryHelpers.StateCtrl label="Error State">
+    {({ state: error }) => (
+      <StoryHelpers.StateContainer defaultState="">
+        {({ state, setState }) => (
+          <Inputs.Base
+            label="Base Input"
+            input={{
+              value: state,
+              onChange: ({ target }) => setState(target.value)
+            }}
+            meta={{ touched: true, error }}
+            style={{ width: 300 }}
+          />
+        )}
+      </StoryHelpers.StateContainer>
+    )}
+  </StoryHelpers.StateCtrl>
+</Story>
+
+## Usage
+
+```jsx
+<div className="mb-3">
+  <Inputs.Base label="Base Input" />
+</div>
+```
+
+<StoryHelpers.Margin />
+
+```jsx
+<div className="mb-3 p-1" style={{ backgroundColor: "var(--dark-black)" }}>
+  <Inputs.Base appearance="inverted" label="Inverted Input" />
+</div>
+```
+
+<StoryHelpers.Margin />
+
+```jsx
+<div className="mb-3">
+  <Inputs.Base appearance="contrast" label="Contrast Input" />
+</div>
+```
+
+<Props of={Inputs.Base} />
