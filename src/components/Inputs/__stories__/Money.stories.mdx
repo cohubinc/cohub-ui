@@ -12,10 +12,13 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
   <StoryHelpers.StateContainer defaultState="">
     {({ state, setState }) => (
       <div>
-        <MoneyInput
+        <Inputs.Money
           appearance="contrast"
           label="Amount"
-          input={{ state, onChange: ({ target }) => setState(target.value) }}
+          input={{
+            value: state,
+            onChange: value => setState(value)
+          }}
         />
       </div>
     )}

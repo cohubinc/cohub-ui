@@ -15,10 +15,8 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
         {({ state, setState }) => (
           <Inputs.Base
             label="Base Input"
-            input={{
-              value: state,
-              onChange: ({ target }) => setState(target.value)
-            }}
+            value={state}
+            onChange={({ target }) => setState(target.value)}
             meta={{ touched: true, error }}
             style={{ width: 300 }}
           />
