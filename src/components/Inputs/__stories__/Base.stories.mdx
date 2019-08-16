@@ -29,25 +29,13 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
 ## Usage
 
 ```jsx
-<div className="mb-3">
-  <Inputs.Base label="Base Input" />
-</div>
-```
-
-<StoryHelpers.Margin />
-
-```jsx
-<div className="mb-3 p-1" style={{ backgroundColor: "var(--dark-black)" }}>
-  <Inputs.Base appearance="inverted" label="Inverted Input" />
-</div>
-```
-
-<StoryHelpers.Margin />
-
-```jsx
-<div className="mb-3">
-  <Inputs.Base appearance="contrast" label="Contrast Input" />
-</div>
+<Inputs.Base
+  label="Base Input"
+  value={state}
+  onChange={({ target }) => setState(target.value)}
+  meta={{ touched: true, error }}
+  style={{ width: 300 }}
+/>
 ```
 
 <Props of={Inputs.Base} />
