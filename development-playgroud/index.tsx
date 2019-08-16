@@ -21,48 +21,45 @@ const App = () => {
 
   return (
     <div
-      style={
-        {
-          // maxWidth: "500px"
-          // display: "flex",
-          // justifyContent: "center",
-          // alignItems: "center"
-        }
-      }
+      style={{
+        maxWidth: "500px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
     >
       <CssFramework />
-      <Loader />
-      {/* <Form
+      <Form
         onSubmit={values => alert(JSON.stringify(values))}
         render={() => {
           return (
             <React.Fragment>
-              <AnimatedCheckmark color={Color.red500} size={100} />
               <div>
                 <Field
-                  name="states"
+                  name="text"
                   validate={required}
                   render={props => (
-                    <Inputs.Password
-                      label="Password"
+                    <Inputs.Text appearance="contrast" {...props} />
+                  )}
+                />
+              </div>
+              <div>
+                <Field
+                  name="text"
+                  validate={required}
+                  render={props => (
+                    <Inputs.Text
+                      label="Test"
                       appearance="contrast"
                       {...props}
                     />
                   )}
                 />
               </div>
-              <br />
-              <Field
-                name="states"
-                validate={required}
-                render={props => (
-                  <Inputs.Text label="Text" appearance="contrast" {...props} />
-                )}
-              />
             </React.Fragment>
           );
         }}
-      /> */}
+      />
     </div>
   );
 };

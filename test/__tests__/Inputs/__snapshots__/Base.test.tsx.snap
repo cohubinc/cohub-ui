@@ -26,7 +26,7 @@ exports[`Base Input renders with value without crashing 1`] = `
       }
     >
       <div
-        className="inputWrapper  bd-radius"
+        className="noLabelInputWrapper  bd-radius"
       >
         <input
           autoComplete="off"
@@ -78,7 +78,7 @@ exports[`Base Input renders without crashing 1`] = `
       }
     >
       <div
-        className="inputWrapper  bd-radius"
+        className="noLabelInputWrapper  bd-radius"
       >
         <input
           autoComplete="off"

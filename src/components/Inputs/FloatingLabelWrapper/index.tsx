@@ -162,7 +162,11 @@ export default function FloatingLabelWrapper<T = any>({
         ...style
       }}
     >
-      <div className={`inputWrapper ${error ? "error" : ""} bd-radius`}>
+      <div
+        className={`${label ? "inputWrapper" : "noLabelInputWrapper"} ${
+          error ? "error" : ""
+        } bd-radius`}
+      >
         {children({
           componentProps,
           setInputRef
