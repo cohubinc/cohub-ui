@@ -16,12 +16,12 @@
 
 .dot1 {
   background-color: hsl(114, 35%, 75%);
-  animation: 1500ms ease-in-out 750ms infinite grow-shrink;
+  animation: 1000ms ease-in-out 500ms infinite grow-shrink;
 }
 
 .dot2 {
   background-color: hsl(114, 35%, 52%);
-  animation: 1500ms ease-in-out infinite grow-shrink2;
+  animation: 1000ms ease-in-out infinite grow-shrink2;
   position: absolute;
 }
 

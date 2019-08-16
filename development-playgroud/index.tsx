@@ -29,6 +29,7 @@ const App = () => {
       }}
     >
       <CssFramework />
+      <Loader />
       <Form
         onSubmit={values => alert(JSON.stringify(values))}
         render={() => {
