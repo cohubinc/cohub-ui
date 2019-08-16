@@ -3,7 +3,6 @@
 exports[`Loader renders fullscreen version 1`] = `
 <Loader
   fullScreen={true}
-  show={true}
 >
   <Backdrop
     containerClass=""
@@ -80,16 +79,14 @@ exports[`Loader renders fullscreen version 1`] = `
               >
                 <div
                   class="flex justify-center items-center"
-                  style="height: 2em; width: 6em;"
                 >
-                  <span
-                    style="height: 12px; width: 12px; background-color: hsl(114, 35%, 52%); border-radius: 50%; animation: hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;"
+                  <div
+                    class="dot1"
+                    style="border-radius: 50%; width: 30px; height: 30px;"
                   />
-                  <span
-                    style="height: 12px; width: 12px; background-color: hsl(114, 35%, 52%); border-radius: 50%; animation: hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite; animation-delay: 0.1s; margin-left: 5px; margin-right: 5px;"
-                  />
-                  <span
-                    style="height: 12px; width: 12px; background-color: hsl(114, 35%, 52%); border-radius: 50%; animation: hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite; animation-delay: 0.2s;"
+                  <div
+                    class="dot2"
+                    style="border-radius: 50%; width: 30px; height: 30px;"
                   />
                 </div>
               </div>
@@ -141,75 +138,34 @@ exports[`Loader renders fullscreen version 1`] = `
                 onMouseUp={[Function]}
                 role="dialog"
               >
-                <HopDropsLoader>
+                <ShrinkGrowLoader
+                  size={30}
+                >
                   <div
                     className="flex justify-center items-center"
-                    style={
-                      Object {
-                        "height": "2em",
-                        "width": "6em",
-                      }
-                    }
                   >
-                    <GreenDot>
-                      <span
-                        style={
-                          Object {
-                            "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
-                            "backgroundColor": "hsl(114, 35%, 52%)",
-                            "borderRadius": "50%",
-                            "height": 12,
-                            "width": 12,
-                          }
-                        }
-                      />
-                    </GreenDot>
-                    <GreenDot
+                    <div
+                      className="dot1"
                       style={
                         Object {
-                          "animationDelay": "0.1s",
-                          "marginLeft": 5,
-                          "marginRight": 5,
+                          "borderRadius": "50%",
+                          "height": 30,
+                          "width": 30,
                         }
                       }
-                    >
-                      <span
-                        style={
-                          Object {
-                            "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
-                            "animationDelay": "0.1s",
-                            "backgroundColor": "hsl(114, 35%, 52%)",
-                            "borderRadius": "50%",
-                            "height": 12,
-                            "marginLeft": 5,
-                            "marginRight": 5,
-                            "width": 12,
-                          }
-                        }
-                      />
-                    </GreenDot>
-                    <GreenDot
+                    />
+                    <div
+                      className="dot2"
                       style={
                         Object {
-                          "animationDelay": "0.2s",
+                          "borderRadius": "50%",
+                          "height": 30,
+                          "width": 30,
                         }
                       }
-                    >
-                      <span
-                        style={
-                          Object {
-                            "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
-                            "animationDelay": "0.2s",
-                            "backgroundColor": "hsl(114, 35%, 52%)",
-                            "borderRadius": "50%",
-                            "height": 12,
-                            "width": 12,
-                          }
-                        }
-                      />
-                    </GreenDot>
+                    />
                   </div>
-                </HopDropsLoader>
+                </ShrinkGrowLoader>
               </div>
             </div>
           </Transition>
@@ -221,9 +177,7 @@ exports[`Loader renders fullscreen version 1`] = `
 `;
 
 exports[`Loader renders without crashing 1`] = `
-<Loader
-  show={true}
->
+<Loader>
   <Fade
     show={true}
   >
@@ -261,8 +215,9 @@ exports[`Loader renders without crashing 1`] = `
         timeout={300}
         unmountOnExit={true}
       >
-        <HopDropsLoader
+        <ShrinkGrowLoader
           key="0/.0"
+          size={30}
           style={
             Object {
               "opacity": 0,
@@ -273,75 +228,29 @@ exports[`Loader renders without crashing 1`] = `
         >
           <div
             className="flex justify-center items-center"
-            style={
-              Object {
-                "height": "2em",
-                "opacity": 0,
-                "transition": "all 300ms ease-in-out",
-                "transitionProperty": "opacity",
-                "width": "6em",
-              }
-            }
           >
-            <GreenDot>
-              <span
-                style={
-                  Object {
-                    "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
-                    "backgroundColor": "hsl(114, 35%, 52%)",
-                    "borderRadius": "50%",
-                    "height": 12,
-                    "width": 12,
-                  }
-                }
-              />
-            </GreenDot>
-            <GreenDot
+            <div
+              className="dot1"
               style={
                 Object {
-                  "animationDelay": "0.1s",
-                  "marginLeft": 5,
-                  "marginRight": 5,
+                  "borderRadius": "50%",
+                  "height": 30,
+                  "width": 30,
                 }
               }
-            >
-              <span
-                style={
-                  Object {
-                    "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
-                    "animationDelay": "0.1s",
-                    "backgroundColor": "hsl(114, 35%, 52%)",
-                    "borderRadius": "50%",
-                    "height": 12,
-                    "marginLeft": 5,
-                    "marginRight": 5,
-                    "width": 12,
-                  }
-                }
-              />
-            </GreenDot>
-            <GreenDot
+            />
+            <div
+              className="dot2"
               style={
                 Object {
-                  "animationDelay": "0.2s",
+                  "borderRadius": "50%",
+                  "height": 30,
+                  "width": 30,
                 }
               }
-            >
-              <span
-                style={
-                  Object {
-                    "animation": "hop-lock-and-drop 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
-                    "animationDelay": "0.2s",
-                    "backgroundColor": "hsl(114, 35%, 52%)",
-                    "borderRadius": "50%",
-                    "height": 12,
-                    "width": 12,
-                  }
-                }
-              />
-            </GreenDot>
+            />
           </div>
-        </HopDropsLoader>
+        </ShrinkGrowLoader>
       </Transition>
     </Transition>
   </Fade>

@@ -11,7 +11,8 @@ import {
   Avatar,
   AnimatedCheckmark,
   Modal,
-  Typography
+  Typography,
+  Loader
 } from "../dist/";
 import { Form, Field } from "react-final-form";
 
@@ -30,9 +31,7 @@ const App = () => {
       }
     >
       <CssFramework />
-      <Modal open size="large" title="New Thing">
-        <Typography>test</Typography>
-      </Modal>
+      <Loader fullScreen />
       {/* <Form
         onSubmit={values => alert(JSON.stringify(values))}
         render={() => {

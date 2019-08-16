@@ -23,44 +23,54 @@ export interface ILoaderProps {
    * Styles that will be applied to the root element
    */
   style?: CSSProperties;
+  size: number;
 }
 
-export default class Loader extends PureComponent<ILoaderProps> {
-  static defaultProps: ILoaderProps = {
-    show: true
-  };
+export default function Loader(props: ILoaderProps) {
+  const { fullScreen, show = true, asOverlay, style, size = 30 } = props;
 
-  render() {
-    const { fullScreen, show, asOverlay, style } = this.props;
+  if (fullScreen) {
+    return (
+      <Backdrop style={style} open={show} focusTrapped={false}>
+        <ShrinkGrowLoader size={size} />
+      </Backdrop>
+    );
+  }
 
-    if (fullScreen) {
-      return (
-        <Backdrop style={style} open={show} focusTrapped={false}>
-          <HopDropsLoader />
-        </Backdrop>
-      );
-    }
-
-    if (asOverlay) {
-      return (
-        <Fade show={show}>
-          <div
-            className="absolute flex justify-center items-center w-100 h-100"
-            style={{ background: Color.darkOverlay as any, ...style }}
-          >
-            <HopDropsLoader />
-          </div>
-        </Fade>
-      );
-    }
-
+  if (asOverlay) {
     return (
       <Fade show={show}>
-        <HopDropsLoader style={style} />
+        <div
+          className="absolute flex justify-center items-center w-100 h-100"
+          style={{ background: Color.darkOverlay as any, ...style }}
+        >
+          <ShrinkGrowLoader size={size} />
+        </div>
       </Fade>
     );
   }
+
+  return (
+    <Fade show={show}>
+      <ShrinkGrowLoader size={size} />
+    </Fade>
+  );
 }
+
+const ShrinkGrowLoader = ({ size }: { size: number }) => {
+  return (
+    <div className="flex justify-center items-center">
+      <div
+        className="dot1"
+        style={{ borderRadius: "50%", width: size, height: size }}
+      />
+      <div
+        className="dot2"
+        style={{ borderRadius: "50%", width: size, height: size }}
+      />
+    </div>
+  );
+};
 
 const HopDropsLoader = ({ style }: { style?: CSSProperties }) => (
   <div
