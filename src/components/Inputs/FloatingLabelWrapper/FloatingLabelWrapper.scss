@@ -23,7 +23,8 @@
 
   &.GenericInput,
   &.ContrastInput {
-    .inputWrapper {
+    .inputWrapper,
+    .noLabelInputWrapper {
       min-height: 40px;
 
       input {
