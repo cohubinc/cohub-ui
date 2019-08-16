@@ -31,7 +31,7 @@ const App = () => {
       }
     >
       <CssFramework />
-      <Loader fullScreen />
+      <Loader />
       {/* <Form
         onSubmit={values => alert(JSON.stringify(values))}
         render={() => {

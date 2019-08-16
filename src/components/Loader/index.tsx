@@ -17,18 +17,22 @@ export interface ILoaderProps {
   /**
    * To show or not to show
    */
-  show: boolean;
+  show?: boolean;
 
   /**
    * Styles that will be applied to the root element
    */
   style?: CSSProperties;
-  size: number;
+  size?: number;
 }
 
-export default function Loader(props: ILoaderProps) {
-  const { fullScreen, show = true, asOverlay, style, size = 30 } = props;
-
+export default function Loader({
+  fullScreen,
+  show = true,
+  asOverlay,
+  style,
+  size = 30
+}: ILoaderProps) {
   if (fullScreen) {
     return (
       <Backdrop style={style} open={show} focusTrapped={false}>
