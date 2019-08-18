@@ -16,17 +16,20 @@ export function composeValidators<T = any>(
 }
 
 export function required<T = string>(value?: T) {
+  const errMsg = "Required";
+
   if (typeof value === "undefined") {
-    return "Required";
+    return errMsg;
   }
-
-  let valid = !isEmpty(value);
-
-  if (valid && typeof value === "string") {
-    valid = value.trim().length > 0;
+  if (typeof value === "number" || typeof value === "boolean") {
+    return;
   }
-
-  return valid ? undefined : "Required";
+  if (typeof value === "string" && value.trim().length > 0) {
+    return;
+  }
+  if (isEmpty(value)) {
+    return errMsg;
+  }
 }
 
 export function minLength<T = number>(min: number) {

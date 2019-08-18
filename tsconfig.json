@@ -4,6 +4,11 @@
 ///////////////////////////////////////////////////////////
 
 {
+  "compilerOptions": {
+    "paths": {
+      "dist/*": ["dist/*"]
+    }
+  },
   "include": ["test", "src"],
   "exclude": ["node_modules"],
   "extends": "./tsconfig.build.json"

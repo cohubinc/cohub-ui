@@ -15,5 +15,5 @@ module.exports = {
   moduleFileExtensions: ["js", "ts", "tsx"],
   modulePaths: ["<rootDir>", "<rootDir>/dist/"],
   moduleDirectories: ["node_modules", "/dist"],
-  testMatch: ["<rootDir>/test/**/__tests__/**/*.{ts,tsx}"]
+  testMatch: ["**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)"]
 };
