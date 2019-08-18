@@ -84,7 +84,7 @@ export { default as renderDate, TDateFormat } from "src/helpers/render-dates";
 export * from "src/helpers/style-utils";
 export * from "src/helpers/ui";
 import * as InputValidationsToExport from "src/helpers/input-validations";
-export const InputValidations = InputValidationsToExport;
+export const inputValidations = InputValidationsToExport;
 
 // Storybook
 import * as StoryCmpts from "./story-helpers";

@@ -41,7 +41,8 @@ export default {
       exclude: "node_modules/**"
     }),
     typescriptPlugin({
-      typescript: ttypescript
+      typescript: ttypescript,
+      tsconfig: "./tsconfig.build.json"
     }),
     babel({
       babelrc: false,
