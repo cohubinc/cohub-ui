@@ -46,7 +46,7 @@ export default function DecimalInput({
   const showError = !!(meta && meta.touched && meta.error);
 
   return (
-    <span className={styles.input} data-qa={dataQa} {...spanProps}>
+    <div className={styles.input} data-qa={dataQa} {...spanProps}>
       <FloatingLabelWrapper
         {...input}
         label={label}
@@ -69,6 +69,6 @@ export default function DecimalInput({
           />
         )}
       />
-    </span>
+    </div>
   );
 }
