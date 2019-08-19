@@ -1,7 +1,7 @@
 import React, { MouseEvent, PureComponent } from "react";
 
 import Color from "src/definitions/enums/Color";
-import logError from "src/utils/logError";
+import logError from "src/helpers/logError";
 
 import icons, { TIconName } from "./Icons";
 

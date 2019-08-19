@@ -1,28 +1,15 @@
+///////////////////////////////////////////////////////////
+// ¡¡¡THIS FILE IS ONLY USED TO CONFIGURE YOUR EDITOR!!! //
+// ¡¡¡SEE <tsconfig.build.json> FOR THE BUILD CONFIG!!!  //
+///////////////////////////////////////////////////////////
+
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "target": "es5",
-    "module": "es6",
-    "declarationDir": "./dist",
-    "outDir": "./dist",
-    "sourceMap": true,
-    // "declarationMap": true,
-    "declaration": true,
-    "noImplicitAny": true,
-    "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "jsx": "preserve",
     "paths": {
-      "src/*": ["src/*"]
-    },
-    "plugins": [
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ]
+      "dist/*": ["dist/*"]
+    }
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": ["test", "src"],
+  "exclude": ["node_modules"],
+  "extends": "./tsconfig.build.json"
 }

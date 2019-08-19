@@ -8,7 +8,7 @@ import { DEFAULT_EXTENSIONS } from "@babel/core";
 import babel from "rollup-plugin-babel";
 import replace from "rollup-plugin-replace";
 import commonjs from "rollup-plugin-commonjs";
-import docGenPlugin from "babel-plugin-react-docgen-typescript";
+// import docGenPlugin from "babel-plugin-react-docgen-typescript";
 import ttypescript from "ttypescript";
 import execute from "rollup-plugin-execute";
 
@@ -37,11 +37,11 @@ export default {
   plugins: [
     replace({
       __DEV__,
-      "process.env.NODE_ENV": NODE_ENV,
       exclude: "node_modules/**"
     }),
     typescriptPlugin({
-      typescript: ttypescript
+      typescript: ttypescript,
+      tsconfig: "./tsconfig.build.json"
     }),
     babel({
       babelrc: false,

@@ -12,3 +12,4 @@ dist/
 development-playground/node_modules
 development-playgroud/dist
 development-playgroud/.cache
+.vscode

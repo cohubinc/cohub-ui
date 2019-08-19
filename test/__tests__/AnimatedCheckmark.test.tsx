@@ -5,7 +5,7 @@ import { AnimatedCheckmark } from "dist";
 
 describe("AnimatedCheckmark", () => {
   it("renders without crashing", async () => {
-    const wrapper = mount(<AnimatedCheckmark />);
+    const wrapper = mount(<AnimatedCheckmark color="currentcolor" />);
 
     expect(wrapper).toMatchSnapshot();
   });

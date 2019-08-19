@@ -1,6 +1,8 @@
 import isInteger from "lodash/isInteger";
 import isEmpty from "lodash/isEmpty";
-import isNumber from "lodash/isNumber";
+import toNumber from "lodash/toNumber";
+
+import logError from "src/helpers/logError";
 
 type TValidator<T> = (value?: T) => string | undefined;
 
@@ -16,79 +18,100 @@ export function composeValidators<T = any>(
 }
 
 export function required<T = string>(value?: T) {
+  const errMsg = "Required";
+
   if (typeof value === "undefined") {
-    return "Required";
+    return errMsg;
   }
-
-  let valid = !isEmpty(value);
-
-  if (valid && typeof value === "string") {
-    valid = value.trim().length > 0;
+  if (typeof value === "number" || typeof value === "boolean") {
+    return;
   }
-
-  return valid ? undefined : "Required";
+  if (typeof value === "string" && value.trim().length > 0) {
+    return;
+  }
+  if (isEmpty(value)) {
+    return errMsg;
+  }
 }
 
-export function minLength<T = number>(min: number) {
-  return (value?: T) =>
-    value && typeof value === "string" && value.length < min
-      ? `Should be at least ${min} characters long`
-      : undefined;
-}
+export function minLength(min: number) {
+  return (value?: string) => {
+    if (value === undefined) return;
 
-export function minValue<T = number>(min: number) {
-  return (value?: T) => {
-    if (typeof value === "string") {
-      return isNumber(value) ? undefined : "Not a number";
+    if (typeof value !== "string") {
+      logError(`Type Error - ${value} is not a string`);
     }
 
-    if (typeof value !== "number") {
-      return "Not a number";
-    }
-
-    return value >= min ? undefined : `Should be greater than ${min}`;
-  };
-}
-
-export function length<T = string>(valLength: number) {
-  return (value?: T) => {
-    if (value && typeof value === "string") {
-      return value.length === valLength
-        ? undefined
-        : `Should be ${valLength} characters long`;
-    }
-
-    return "Invalid length";
-  };
-}
-
-export const email = composeValidators(
-  (value: string | number | object | null = "") =>
-    typeof value === "string" && charsArePresent(value, "@", ".")
+    return value.length >= min
       ? undefined
-      : "Should be a valid email",
-  minLength(4)
-);
+      : `Should be at least ${min} characters long`;
+  };
+}
 
-export function isInt<T>(value?: T) {
-  if (!value) {
+export function minValue(min: number) {
+  return (value?: string | number) => {
+    if (value === undefined) return;
+
+    const errMsg = `Should be greater than ${min}`;
+
+    const float: number = toNumber(value);
+
+    if (isNaN(float)) return errMsg;
+
+    return value >= min ? undefined : errMsg;
+  };
+}
+
+export function length(valLength: number) {
+  return (value?: string) => {
+    if (value === undefined) return;
+
+    return value.length === valLength
+      ? undefined
+      : `Should be ${valLength} characters long`;
+  };
+}
+
+export const email = composeValidators((value?: string) => {
+  if (value === undefined) return;
+
+  const errMsg = "Should be a valid email";
+  if (typeof value !== "string" || hasWhiteSpace(value)) {
+    return errMsg;
+  }
+  if (charsArePresent(value, "@", ".")) {
     return undefined;
   }
 
-  if (isInteger(value)) {
-    return undefined;
+  return errMsg;
+}, minLength(4));
+
+/**
+ * Ensures that number or string is an integer
+ * isInt("22")   // true
+ * isInt("0.33") // false
+ * isInt(22)     // true
+ * isInt(0.33)   // false
+ */
+export function isInt<T>(value?: T) {
+  if (value === undefined || isInteger(value)) {
+    return;
   }
 
   if (typeof value === "string") {
-    const isNum = /^\d+$/.test(value);
+    const isNum = /^[\d -]+$/.test(value);
     const parsedVal = isNum && Number.parseFloat(value);
-    return parsedVal && Number.isInteger(parsedVal)
-      ? undefined
-      : "Not an integer";
+
+    if ((parsedVal || parsedVal === 0) && Number.isInteger(parsedVal)) return;
   }
 
   return "Not an integer";
 }
 
+/////////////////////// Private /////////////////////////////
+/////////////////////////////////////////////////////////////
+
 const charsArePresent = (string: string, ...chars: string[]) =>
   chars.every(char => string.includes(char));
+
+const hasWhiteSpace = (value: string) => /\s/.test(value);

@@ -6,9 +6,9 @@ import Icon, { IIconProps } from "src/components/Icon";
 import HtmlElementProps from "src/definitions/types/HtmlElementProps";
 
 import AddChipInput from "./AddChipInput";
+import AvatarChip from "./AvatarChip";
 
 import "./Chip.scss";
-import AvatarChip from "./AvatarChip";
 
 interface IChipProps {
   label?: string;

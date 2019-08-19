@@ -30,9 +30,8 @@ const App = () => {
     >
       <CssFramework />
       <Loader />
-      <Form
-        onSubmit={values => alert(JSON.stringify(values))}
-        render={() => {
+      <Form onSubmit={values => alert(JSON.stringify(values))}>
+        {() => {
           return (
             <React.Fragment>
               <div>
@@ -60,7 +59,7 @@ const App = () => {
             </React.Fragment>
           );
         }}
-      />
+      </Form>
     </div>
   );
 };

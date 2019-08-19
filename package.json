@@ -20,8 +20,8 @@
     "pre-push-test": "yarn test --no-watch",
     "lint": "tslint --project tsconfig.json",
     "lint-fix": "tslint --fix --project tsconfig.json",
-    "test": "yarn checkTypes && yarn build && yarn jest",
-    "test:watch": "yarn test --watch ",
+    "test": "NODE_ENV=testing yarn checkTypes && yarn build && yarn jest",
+    "test:watch": "NODE_ENV=testing yarn test --watch ",
     "test:coverage": "yarn test --coverage",
     "checkTypes": "yarn tsc --noEmit"
   },
@@ -40,6 +40,7 @@
     }
   },
   "dependencies": {
+    "@sentry/browser": "5.6.1",
     "@tippy.js/react": "^2.2.2",
     "@types/enzyme": "^3.10.3",
     "@types/react-redux": "^7.1.1",

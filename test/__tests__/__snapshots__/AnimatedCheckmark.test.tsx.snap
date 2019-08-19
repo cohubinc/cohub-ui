@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnimatedCheckmark renders without crashing 1`] = `
-<AnimatedCheckmark>
+<AnimatedCheckmark
+  color="currentcolor"
+>
   <div
     style={
       Object {
-        "color": undefined,
+        "color": "currentcolor",
         "height": "100%",
         "width": "100%",
       }

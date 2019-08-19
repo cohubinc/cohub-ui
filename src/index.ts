@@ -79,12 +79,13 @@ export {
 export * from "src/components/Transition";
 
 // Helpers
+export { default as logError } from "src/helpers/logError";
 export * from "src/helpers/guid";
 export { default as renderDate, TDateFormat } from "src/helpers/render-dates";
 export * from "src/helpers/style-utils";
 export * from "src/helpers/ui";
 import * as InputValidationsToExport from "src/helpers/input-validations";
-export const InputValidations = InputValidationsToExport;
+export const inputValidations = InputValidationsToExport;
 
 // Storybook
 import * as StoryCmpts from "./story-helpers";
