@@ -24,7 +24,7 @@
     "test:watch": "NODE_ENV=testing yarn test --watch ",
     "test:coverage": "yarn test --coverage",
     "checkTypes": "yarn tsc --noEmit",
-    "publish": "yarn build && npm publish"
+    "publish:npm": "yarn build && yarn publish"
   },
   "lint-staged": {
     "./src/*.{ts,tsx}": [
