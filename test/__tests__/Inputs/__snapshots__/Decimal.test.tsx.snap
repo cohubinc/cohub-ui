@@ -9,7 +9,7 @@ exports[`Decimal renders Decimal without crashing 1`] = `
     }
   }
 >
-  <span
+  <div
     className="styles-module_input__28syv"
   >
     <FloatingLabelWrapper
@@ -88,6 +88,6 @@ exports[`Decimal renders Decimal without crashing 1`] = `
         </div>
       </div>
     </FloatingLabelWrapper>
-  </span>
+  </div>
 </DecimalInput>
 `;
