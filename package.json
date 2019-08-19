@@ -23,7 +23,8 @@
     "test": "NODE_ENV=testing yarn checkTypes && yarn build && yarn jest",
     "test:watch": "NODE_ENV=testing yarn test --watch ",
     "test:coverage": "yarn test --coverage",
-    "checkTypes": "yarn tsc --noEmit"
+    "checkTypes": "yarn tsc --noEmit",
+    "publish": "yarn build && npm publish"
   },
   "lint-staged": {
     "./src/*.{ts,tsx}": [

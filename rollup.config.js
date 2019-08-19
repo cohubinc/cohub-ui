@@ -77,7 +77,7 @@ export default {
           stage: 3
         })
       ],
-      sourceMap: __DEV__,
+      sourceMap: true,
       // Automatically inject styles into document head at runtime. (Does not output a css bundle)
       extract: false,
       autoModules: true
