@@ -72,13 +72,19 @@ export function length(valLength: number) {
   };
 }
 
-export const email = composeValidators(
-  (value: string | number | object | null = "") =>
-    typeof value === "string" && charsArePresent(value, "@", ".")
-      ? undefined
-      : "Should be a valid email",
-  minLength(4)
-);
+export const email = composeValidators((value?: string) => {
+  if (value === undefined) return;
+
+  const errMsg = "Should be a valid email";
+  if (typeof value !== "string" || hasWhiteSpace(value)) {
+    return errMsg;
+  }
+  if (charsArePresent(value, "@", ".")) {
+    return undefined;
+  }
+
+  return errMsg;
+}, minLength(4));
 
 /**
  * Ensures that number or string is an integer
@@ -88,20 +94,15 @@ export const email = composeValidators(
  * isInt(0.33)   // false
  */
 export function isInt<T>(value?: T) {
-  if (!value) {
-    return undefined;
-  }
-
-  if (isInteger(value)) {
-    return undefined;
+  if (value === undefined || isInteger(value)) {
+    return;
   }
 
   if (typeof value === "string") {
-    const isNum = /^\d+$/.test(value);
+    const isNum = /^[\d -]+$/.test(value);
     const parsedVal = isNum && Number.parseFloat(value);
-    return parsedVal && Number.isInteger(parsedVal)
-      ? undefined
-      : "Not an integer";
+
+    if ((parsedVal || parsedVal === 0) && Number.isInteger(parsedVal)) return;
   }
 
   return "Not an integer";
@@ -112,3 +113,5 @@ export function isInt<T>(value?: T) {
 
 const charsArePresent = (string: string, ...chars: string[]) =>
   chars.every(char => string.includes(char));
+
+const hasWhiteSpace = (value: string) => /\s/.test(value);

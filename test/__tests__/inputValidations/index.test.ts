@@ -7,6 +7,8 @@ const {
   minLength,
   minValue,
   length,
+  email,
+  isInt,
   composeValidators
 } = inputValidations;
 
@@ -135,6 +137,64 @@ describe("Input validators", () => {
     });
     it("works when length is zero", () => {
       expect(lengthZero("")).toBeValid();
+    });
+  });
+
+  //// EMAIL /////
+  describe("email validator", () => {
+    test("white space chars are NOT valid", () => {
+      expect(email("brandon @mail.com")).not.toBeValid();
+      expect(email("bra ndon@mail.com")).not.toBeValid();
+    });
+    test("emails without a <@> character are NOT valid", () => {
+      expect(email("brandonmail.com")).not.toBeValid();
+    });
+
+    test("emails without a <.> character are NOT valid", () => {
+      expect(email("brandonmail@com")).not.toBeValid();
+    });
+
+    test("emails under four chars are NOT valid", () => {
+      expect(email("b.@")).not.toBeValid();
+    });
+
+    test("normal emails are valid", () => {
+      expect(email("brandon@cohub.com")).toBeValid();
+      expect(email("brandon+test@cohub.com")).toBeValid();
+    });
+    test("emails over four chars long with both required special chars are valid", () => {
+      expect(email("br.andonmail@com")).toBeValid();
+    });
+    test("emails that look nuts are still valid", () => {
+      expect(email("*&^%$#.)(:_-@87")).toBeValid();
+    });
+  });
+
+  //// isInt ////
+  describe("isInt validator", () => {
+    test("booleans are NOT valid", () => {
+      expect(isInt(false)).not.toBeValid();
+      expect(isInt(true)).not.toBeValid();
+    });
+    test("objects are NOT valid", () => {
+      expect(isInt({})).not.toBeValid();
+    });
+
+    test("whole numbers are valid", () => {
+      expect(isInt(22)).toBeValid();
+      expect(isInt(-22)).toBeValid();
+      expect(isInt(0)).toBeValid();
+    });
+
+    test("floats are  NOT valid", () => {
+      expect(isInt(2.2)).not.toBeValid();
+      expect(isInt(0.2)).not.toBeValid();
+    });
+
+    test("string whole numbers are valid", () => {
+      expect(isInt("22")).toBeValid();
+      expect(isInt("-3")).toBeValid();
+      expect(isInt(0)).toBeValid();
     });
   });
 

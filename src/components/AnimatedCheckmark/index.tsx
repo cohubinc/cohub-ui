@@ -4,7 +4,7 @@ import "./AnimatedCheckmark.scss";
 import Color from "src/definitions/enums/Color";
 
 export interface IAnimatedCheckmarkProps {
-  color?: string | Color;
+  color: string | Color;
   size?: string | number;
 }
 const AnimatedCheckmark = ({
