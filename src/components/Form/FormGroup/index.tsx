@@ -3,7 +3,7 @@ import styles from "./FormGroup.module.scss";
 
 interface IProps {
   children: any;
-  direction: "horizontal" | "vertical";
+  direction?: "horizontal" | "vertical";
 }
 
 export type TFormGroupProps = IProps &
