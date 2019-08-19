@@ -1,6 +1,8 @@
 import isInteger from "lodash/isInteger";
 import isEmpty from "lodash/isEmpty";
-import isNumber from "lodash/isNumber";
+import toNumber from "lodash/toNumber";
+
+import logError from "src/helpers/logError";
 
 type TValidator<T> = (value?: T) => string | undefined;
 
@@ -32,36 +34,41 @@ export function required<T = string>(value?: T) {
   }
 }
 
-export function minLength<T = number>(min: number) {
-  return (value?: T) =>
-    value && typeof value === "string" && value.length < min
-      ? `Should be at least ${min} characters long`
-      : undefined;
-}
+export function minLength(min: number) {
+  return (value?: string) => {
+    if (value === undefined) return;
 
-export function minValue<T = number>(min: number) {
-  return (value?: T) => {
-    if (typeof value === "string") {
-      return isNumber(value) ? undefined : "Not a number";
+    if (typeof value !== "string") {
+      logError(`Type Error - ${value} is not a string`);
     }
 
-    if (typeof value !== "number") {
-      return "Not a number";
-    }
-
-    return value >= min ? undefined : `Should be greater than ${min}`;
+    return value.length >= min
+      ? undefined
+      : `Should be at least ${min} characters long`;
   };
 }
 
-export function length<T = string>(valLength: number) {
-  return (value?: T) => {
-    if (value && typeof value === "string") {
-      return value.length === valLength
-        ? undefined
-        : `Should be ${valLength} characters long`;
-    }
+export function minValue(min: number) {
+  return (value?: string | number) => {
+    if (value === undefined) return;
 
-    return "Invalid length";
+    const errMsg = `Should be greater than ${min}`;
+
+    const float: number = toNumber(value);
+
+    if (isNaN(float)) return errMsg;
+
+    return value >= min ? undefined : errMsg;
+  };
+}
+
+export function length(valLength: number) {
+  return (value?: string) => {
+    if (value === undefined) return;
+
+    return value.length === valLength
+      ? undefined
+      : `Should be ${valLength} characters long`;
   };
 }
 
@@ -73,6 +80,13 @@ export const email = composeValidators(
   minLength(4)
 );
 
+/**
+ * Ensures that number or string is an integer
+ * isInt("22")   // true
+ * isInt("0.33") // false
+ * isInt(22)     // true
+ * isInt(0.33)   // false
+ */
 export function isInt<T>(value?: T) {
   if (!value) {
     return undefined;
@@ -92,6 +106,9 @@ export function isInt<T>(value?: T) {
 
   return "Not an integer";
 }
+
+/////////////////////// Private /////////////////////////////
+/////////////////////////////////////////////////////////////
 
 const charsArePresent = (string: string, ...chars: string[]) =>
   chars.every(char => string.includes(char));

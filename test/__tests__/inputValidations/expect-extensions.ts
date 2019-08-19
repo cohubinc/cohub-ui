@@ -26,13 +26,14 @@ expect.extend({
     if (isValid(received)) {
       return {
         pass: true,
-        message: () => `expected ${received} to NOT be invalid`
+        message: () =>
+          `expected a validation error message but got - ${received}`
       };
     }
 
     return {
       pass: false,
-      message: () => `expected ${received} to be valid, aka: undefined`
+      message: () => `expected undefined but got - ${received}`
     };
   }
 });

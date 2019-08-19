@@ -79,6 +79,7 @@ export {
 export * from "src/components/Transition";
 
 // Helpers
+export { default as logError } from "src/helpers/logError";
 export * from "src/helpers/guid";
 export { default as renderDate, TDateFormat } from "src/helpers/render-dates";
 export * from "src/helpers/style-utils";
