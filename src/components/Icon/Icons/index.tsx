@@ -20,6 +20,7 @@ import close from "./Close";
 import columns from "./Columns";
 import controlPanel from "./ControlPanel";
 import dashboard from "./Dashboard";
+import error from "./Error";
 import eye from "./Eye";
 import filter from "./Filter";
 import forward from "./Forward";
@@ -63,6 +64,7 @@ export type TIconName =
   | "columns"
   | "controlPanel"
   | "dashboard"
+  | "error"
   | "eye"
   | "filter"
   | "forward"
@@ -107,6 +109,7 @@ const icons: TIconMap = {
   columns,
   controlPanel,
   dashboard,
+  error,
   eye,
   filter,
   forward,

@@ -1,7 +1,9 @@
 import React from "react";
 import TInputElementProps from "../definitions/TInputElementProps";
 
-import FloatingLabelWrapper from "../FloatingLabelWrapper";
+import FloatingLabelWrapper, {
+  IFloatingLabelIconProps
+} from "../FloatingLabelWrapper";
 
 export interface IBaseInputProps {
   /**
@@ -25,6 +27,8 @@ export interface IBaseInputProps {
    * HTML attribute for debugging the label
    */
   "data-qa-label"?: string;
+
+  icon?: IFloatingLabelIconProps;
 }
 
 export type TBaseInputProps = IBaseInputProps & TInputElementProps;
@@ -54,6 +58,7 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
       onChange,
       value,
       error,
+      icon,
       ...restProps
     } = this.props;
 
@@ -69,6 +74,7 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
           onFocus,
           onBlur,
           onChange,
+          icon,
           value,
           error
         }}

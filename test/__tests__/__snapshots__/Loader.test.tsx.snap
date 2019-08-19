@@ -139,7 +139,7 @@ exports[`Loader renders fullscreen version 1`] = `
                 role="dialog"
               >
                 <ShrinkGrowLoader
-                  size={30}
+                  dotSize={30}
                 >
                   <div
                     className="flex justify-center items-center"
@@ -216,8 +216,8 @@ exports[`Loader renders without crashing 1`] = `
         unmountOnExit={true}
       >
         <ShrinkGrowLoader
+          dotSize={30}
           key="0/.0"
-          size={30}
           style={
             Object {
               "opacity": 0,

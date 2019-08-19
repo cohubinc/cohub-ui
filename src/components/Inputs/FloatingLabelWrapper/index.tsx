@@ -10,6 +10,8 @@ import "./FloatingLabelWrapper.scss";
 
 import isEmpty from "lodash/isEmpty";
 import isNumber from "lodash/isNumber";
+import Icon from "src/components/Icon";
+import { TIconName } from "src/components/Icon/Icons";
 
 export interface IFloatingLabelWrapperProps<T = any> {
   className?: string;
@@ -37,6 +39,8 @@ export interface IFloatingLabelWrapperProps<T = any> {
 
   floatLabel?: boolean;
 
+  icon?: IFloatingLabelIconProps;
+
   /**
    * HTML attribute for the label
    * It will be passed back through the render props as id for use with the native input element
@@ -57,7 +61,13 @@ export interface IFloatingLabelWrapperProps<T = any> {
   value?: T;
 }
 
-type TProps<T> = IFloatingLabelWrapperProps<T> &
+export interface IFloatingLabelIconProps {
+  name: TIconName;
+  color: Color;
+  onClick?: () => void;
+}
+
+type TFloatingLabelWrapperProps<T> = IFloatingLabelWrapperProps<T> &
   Omit<TInputElementProps, "onChange" | "value">;
 
 interface IState {
@@ -82,13 +92,14 @@ export default function FloatingLabelWrapper<T = any>({
   floatLabel,
   onFocus,
   onBlur,
+  icon,
   htmlFor,
   error,
   onChange,
   children,
   label,
   value
-}: TProps<T | undefined>) {
+}: TFloatingLabelWrapperProps<T | undefined>) {
   const [state, setState] = useState<IState>({
     hasFocus: false
   });
@@ -172,6 +183,34 @@ export default function FloatingLabelWrapper<T = any>({
           setInputRef
         })}
         <span className={`bar ${state.hasFocus ? "focused" : ""}`} />
+        {error && (
+          <Icon.Error
+            size={20}
+            color={Color.red400}
+            style={{
+              position: "absolute",
+              right: "8px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 2
+            }}
+          />
+        )}
+        {!error && icon && (
+          <Icon
+            name={icon.name}
+            size={20}
+            color={icon.color as any}
+            onClick={icon.onClick}
+            style={{
+              position: "absolute",
+              right: "8px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 2
+            }}
+          />
+        )}
       </div>
 
       {label && (

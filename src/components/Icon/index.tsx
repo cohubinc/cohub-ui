@@ -53,6 +53,7 @@ export default class Icon extends PureComponent<IIconProps> {
   static Columns = buildIcon("columns");
   static ControlPanel = buildIcon("controlPanel");
   static Dashboard = buildIcon("dashboard");
+  static Error = buildIcon("error");
   static Eye = buildIcon("eye");
   static Filter = buildIcon("filter");
   static Laptop = buildIcon("laptop");

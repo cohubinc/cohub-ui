@@ -4,7 +4,6 @@ import { FieldRenderProps } from "react-final-form";
 import TInputElementProps from "../definitions/TInputElementProps";
 import Base from "../Base";
 import Color from "src/definitions/enums/Color";
-import Icon from "src/components/Icon";
 
 type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
@@ -44,9 +43,7 @@ export default function Password(props: TPasswordInputProps) {
       {...{
         className,
         style: {
-          display: "flex",
-          alignItems: "center",
-          width: "calc(100% + 24px)",
+          position: "relative",
           ...style
         }
       }}
@@ -58,13 +55,11 @@ export default function Password(props: TPasswordInputProps) {
         data-qa={dataQa}
         type={visible ? "text" : "password"}
         style={{ width: "100%" }}
-      />
-      <Icon.Eye
-        size={24}
-        color={Color.grey600}
-        style={{ position: "relative", right: "36px" }}
-        className="pointer"
-        onClick={() => setVisible(!visible)}
+        icon={{
+          name: "eye",
+          color: Color.grey600,
+          onClick: () => setVisible(!visible)
+        }}
       />
     </div>
   );

@@ -5,7 +5,7 @@ import { FormGroup } from "dist";
 
 it("renders without crashing", async () => {
   const wrapper = mount(
-    <FormGroup>
+    <FormGroup direction="horizontal">
       <div>test</div>
     </FormGroup>
   );
