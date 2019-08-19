@@ -13,3 +13,4 @@ development-playground/node_modules
 development-playgroud/dist
 development-playgroud/.cache
 .vscode
+development-playgroud/index.tsx

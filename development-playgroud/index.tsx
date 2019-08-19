@@ -5,7 +5,7 @@ import {
   Color,
   Buttons,
   Inputs,
-  InputValidations,
+  inputValidations,
   Segment,
   Icon,
   Avatar,
@@ -20,17 +20,10 @@ import { Form, Field } from "react-final-form";
 import { Container, Row, Col } from "react-grid-system";
 
 const App = () => {
-  const { required, composeValidators, minLength } = InputValidations;
+  const { required, composeValidators, minLength } = inputValidations;
 
   return (
-    <div
-      style={{
-        maxWidth: "500px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
+    <React.Fragment>
       <CssFramework />
       <Container>
         <Row>
@@ -111,7 +104,7 @@ const App = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </React.Fragment>
   );
 };
 

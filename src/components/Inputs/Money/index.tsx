@@ -50,7 +50,7 @@ class MoneyInput extends PureComponent<IMoneyInputProps> {
     const showError = !!(meta.touched && meta.error);
 
     return (
-      <span className="CohubMoneyInput" data-qa={dataQa} {...spanProps}>
+      <div className="CohubMoneyInput" data-qa={dataQa} {...spanProps}>
         <FloatingLabelWrapper
           {...input}
           label={label}
@@ -72,7 +72,7 @@ class MoneyInput extends PureComponent<IMoneyInputProps> {
             />
           )}
         </FloatingLabelWrapper>
-      </span>
+      </div>
     );
   }
 }

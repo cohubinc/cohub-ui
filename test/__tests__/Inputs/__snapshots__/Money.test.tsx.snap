@@ -10,7 +10,7 @@ exports[`Money renders Money without crashing 1`] = `
     }
   }
 >
-  <span
+  <div
     className="CohubMoneyInput"
   >
     <FloatingLabelWrapper
@@ -89,6 +89,6 @@ exports[`Money renders Money without crashing 1`] = `
         </div>
       </div>
     </FloatingLabelWrapper>
-  </span>
+  </div>
 </MoneyInput>
 `;

@@ -9,23 +9,19 @@ interface IProps {
 export type TFormGroupProps = IProps &
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-export default class FormGroup extends React.PureComponent<TFormGroupProps> {
-  static defaultProps: Partial<TFormGroupProps> = {
-    direction: "horizontal"
-  };
-
-  render() {
-    const { children, direction, ...restProps } = this.props;
-
-    return (
-      <div
-        className={
-          direction === "horizontal" ? styles.horizontal : styles.vertical
-        }
-        {...restProps}
-      >
-        {children}
-      </div>
-    );
-  }
+export default function FormGroup({
+  children,
+  direction = "horizontal",
+  ...restProps
+}: TFormGroupProps) {
+  return (
+    <div
+      className={
+        direction === "horizontal" ? styles.horizontal : styles.vertical
+      }
+      {...restProps}
+    >
+      {children}
+    </div>
+  );
 }

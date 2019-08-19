@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import Toggle from "../components/Inputs/Toggle";
 
 interface IRenderProps {
   rangeLevel: number;

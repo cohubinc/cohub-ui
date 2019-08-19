@@ -1167,6 +1167,55 @@ exports[`Icon renders dashboard without crashing 1`] = `
 </Icon>
 `;
 
+exports[`Icon renders error without crashing 1`] = `
+<Icon
+  name="error"
+>
+  <DefaultIcon
+    name="error"
+  >
+    <Error$1
+      name="error"
+    >
+      <IconWrapper
+        name="error"
+      >
+        <div
+          className="CohubIcon errorIcon  "
+          style={
+            Object {
+              "height": 24,
+              "opacity": undefined,
+              "transition": "opacity 300ms ease-in 200ms",
+              "width": 24,
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+          >
+            <svg
+              height={24}
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
+              />
+              <path
+                d="M12,2c-5.52,0 -10,4.48 -10,10c0,5.52 4.48,10 10,10c5.52,0 10,-4.48 10,-10c0,-5.52 -4.48,-10 -10,-10Zm1,15h-2v-2h2v2Zm0,-4h-2v-6h2v6Z"
+                fill="hsl(0, 2%, 88%)"
+              />
+            </svg>
+          </div>
+        </div>
+      </IconWrapper>
+    </Error$1>
+  </DefaultIcon>
+</Icon>
+`;
+
 exports[`Icon renders eye without crashing 1`] = `
 <Icon
   name="eye"

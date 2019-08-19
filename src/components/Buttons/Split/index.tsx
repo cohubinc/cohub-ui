@@ -1,4 +1,4 @@
-import React, { CSSProperties, Component } from "react";
+import React, { CSSProperties } from "react";
 import Color from "src/definitions/enums/Color";
 import Segment from "./Segment";
 

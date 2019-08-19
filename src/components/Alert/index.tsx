@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import ScrollIntoView from "src/components/ScrollIntoView";
 import { Fade } from "src/components/Transition";
 import Typography from "src/components/Typography";
