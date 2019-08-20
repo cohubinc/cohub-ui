@@ -1,5 +1,6 @@
 import add from "./Add";
 import arrowDown from "./ArrowDown";
+import archive from "./Archive";
 import arrowUp from "./ArrowUp";
 import asterisk from "./Asterisk";
 import back from "./Back";
@@ -21,6 +22,7 @@ import close from "./Close";
 import columns from "./Columns";
 import controlPanel from "./ControlPanel";
 import dashboard from "./Dashboard";
+import edit from "./Edit";
 import error from "./Error";
 import eye from "./Eye";
 import filter from "./Filter";
@@ -44,6 +46,7 @@ import user from "./User";
 import { IIconProps } from "../index";
 export type TIconName =
   | "add"
+  | "archive"
   | "arrowDown"
   | "arrowUp"
   | "asterisk"
@@ -67,6 +70,7 @@ export type TIconName =
   | "controlPanel"
   | "dashboard"
   | "error"
+  | "edit"
   | "eye"
   | "filter"
   | "forward"
@@ -90,6 +94,7 @@ export type TIconName =
 type TIconMap = { [key in TIconName]: (props: IIconProps) => JSX.Element };
 const icons: TIconMap = {
   add,
+  archive,
   arrowDown,
   arrowUp,
   asterisk,
@@ -112,6 +117,7 @@ const icons: TIconMap = {
   columns,
   controlPanel,
   dashboard,
+  edit,
   error,
   eye,
   filter,
