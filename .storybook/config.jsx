@@ -4,6 +4,7 @@ import React from "react";
 import { addDecorator } from "@storybook/react";
 import { addParameters, configure } from "@storybook/react";
 import { DocsPage } from "@storybook/addon-docs/blocks";
+import CohubTheme from "./cohub_theme";
 
 import { CssFramework } from "dist/index.esm.js";
 
@@ -18,6 +19,11 @@ const Decorator = storyFn => (
 );
 
 addDecorator(Decorator);
+addParameters({
+  options: {
+    theme: CohubTheme
+  }
+});
 // addParameters({
 //   docs: DocsPage
 // });
