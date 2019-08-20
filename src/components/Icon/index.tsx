@@ -34,6 +34,7 @@ export default class Icon extends PureComponent<IIconProps> {
   static Add = buildIcon("add");
   static ArrowDown = buildIcon("arrowDown");
   static ArrowUp = buildIcon("arrowUp");
+  static Asterisk = buildIcon("asterisk");
   static Back = buildIcon("back");
   static Bell = buildIcon("bell");
   static BoxAdd = buildIcon("boxAdd");

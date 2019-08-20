@@ -59,6 +59,7 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
       value,
       error,
       icon,
+      required,
       ...restProps
     } = this.props;
 
@@ -76,7 +77,8 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
           onChange,
           icon,
           value,
-          error
+          error,
+          required
         }}
       >
         {({ componentProps }) => <input {...componentProps} {...restProps} />}

@@ -146,6 +146,56 @@ exports[`Icon renders arrowUp without crashing 1`] = `
 </Icon>
 `;
 
+exports[`Icon renders asterisk without crashing 1`] = `
+<Icon
+  name="asterisk"
+>
+  <DefaultIcon
+    name="asterisk"
+  >
+    <Asterisk
+      name="asterisk"
+    >
+      <IconWrapper
+        name="asterisk"
+      >
+        <div
+          className="CohubIcon asteriskIcon  "
+          style={
+            Object {
+              "height": 24,
+              "opacity": undefined,
+              "transition": "opacity 300ms ease-in 200ms",
+              "width": 24,
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+          >
+            <svg
+              fill="none"
+              height={24}
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
+              />
+              <path
+                d="M21,10h-5.535l2.767,-4.794l-3.463,-2l-2.769,4.794l-2.768,-4.794l-3.463,2l2.769,4.794h-5.538v4h5.537l-2.768,4.795l3.463,2l2.769,-4.797l2.768,4.795l3.463,-2l-2.767,-4.793h5.535Z"
+                fill="hsl(0, 2%, 88%)"
+              />
+            </svg>
+          </div>
+        </div>
+      </IconWrapper>
+    </Asterisk>
+  </DefaultIcon>
+</Icon>
+`;
+
 exports[`Icon renders back without crashing 1`] = `
 <Icon
   name="back"

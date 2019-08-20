@@ -1,6 +1,7 @@
 import add from "./Add";
 import arrowDown from "./ArrowDown";
 import arrowUp from "./ArrowUp";
+import asterisk from "./Asterisk";
 import back from "./Back";
 import bell from "./Bell";
 import boxAdd from "./BoxAdd/index";
@@ -45,6 +46,7 @@ export type TIconName =
   | "add"
   | "arrowDown"
   | "arrowUp"
+  | "asterisk"
   | "back"
   | "bell"
   | "boxAdd"
@@ -90,6 +92,7 @@ const icons: TIconMap = {
   add,
   arrowDown,
   arrowUp,
+  asterisk,
   bell,
   back,
   boxAdd,
