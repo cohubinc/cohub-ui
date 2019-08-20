@@ -58,6 +58,8 @@ export interface IFloatingLabelWrapperProps<T = any> {
   "data-qa-label"?: string;
 
   value?: T;
+
+  required?: boolean;
 }
 
 export interface IFloatingLabelIconProps {
@@ -97,7 +99,8 @@ export default function FloatingLabelWrapper<T = any>({
   onChange,
   children,
   label,
-  value
+  value,
+  required
 }: TFloatingLabelWrapperProps<T | undefined>) {
   const [state, setState] = useState<IState>({
     hasFocus: false
@@ -182,6 +185,19 @@ export default function FloatingLabelWrapper<T = any>({
           setInputRef
         })}
         <span className={`bar ${state.hasFocus ? "focused" : ""}`} />
+        {!error && required && (
+          <Icon.Asterisk
+            size={12}
+            color={Color.red300}
+            style={{
+              position: "absolute",
+              right: "4px",
+              top: "25%",
+              transform: "translateY(-50%)",
+              zIndex: 2
+            }}
+          />
+        )}
         {error && (
           <Icon.Error
             size={20}

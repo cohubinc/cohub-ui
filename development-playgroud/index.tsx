@@ -65,6 +65,7 @@ const App = () => {
                             label="Test"
                             appearance="contrast"
                             style={{ flex: 2 }}
+                            required
                             {...props}
                           />
                         )}
