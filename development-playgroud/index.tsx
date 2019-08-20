@@ -80,8 +80,27 @@ const App = () => {
                           />
                         )}
                       />
+                       */}
+                    </FormGroup>
+                    <FormGroup>
                       <Field
                         name="status"
+                        validate={required}
+                        render={props => (
+                          <Inputs.Select
+                            label="Status"
+                            appearance="contrast"
+                            {...props}
+                            options={[
+                              { value: "pending", label: "Pending" },
+                              { value: "placed", label: "Placed" },
+                              { value: "completed", label: "Completed" }
+                            ]}
+                          />
+                        )}
+                      />
+                      <Field
+                        name="state"
                         validate={required}
                         render={props => (
                           <Inputs.MultiSelect
@@ -95,7 +114,7 @@ const App = () => {
                             ]}
                           />
                         )}
-                      /> */}
+                      />
                     </FormGroup>
                   </React.Fragment>
                 );
