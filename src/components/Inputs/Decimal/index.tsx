@@ -16,6 +16,7 @@ interface IInputProp {
   onChange: (value: InputValue) => void;
   onFocus?: FinalFormInputProp["onFocus"];
   value: FinalFormInputProp["value"];
+  required?: boolean;
 }
 
 interface IDecimalInputProps {
@@ -41,6 +42,7 @@ export default function DecimalInput({
   appearance,
   extendedPrecision = false,
   integer = false,
+  required,
   ...spanProps
 }: TDecimalInputProps) {
   const showError = !!(meta && meta.touched && meta.error);
@@ -52,6 +54,7 @@ export default function DecimalInput({
         label={label}
         error={showError}
         appearance={appearance}
+        required={required}
         children={({
           componentProps: { onChange, value, ...rest },
           setInputRef

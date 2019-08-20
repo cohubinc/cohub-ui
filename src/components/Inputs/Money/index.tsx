@@ -17,6 +17,7 @@ interface IInputProp {
   onChange: (value: InputValue) => void;
   onFocus?: FinalFormInputProp["onFocus"];
   value: FinalFormInputProp["value"];
+  required?: boolean;
 }
 
 export interface IMoneyInputProps extends TInputElementProps {
@@ -44,6 +45,7 @@ class MoneyInput extends PureComponent<IMoneyInputProps> {
       label,
       "data-qa": dataQa,
       appearance,
+      required,
       ...spanProps
     } = this.props;
 
@@ -56,6 +58,7 @@ class MoneyInput extends PureComponent<IMoneyInputProps> {
           label={label}
           error={showError}
           appearance={appearance}
+          required={required}
         >
           {({ componentProps: { onChange, value, ...rest }, setInputRef }) => (
             <NumberFormat

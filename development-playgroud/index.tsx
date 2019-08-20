@@ -85,6 +85,34 @@ const App = () => {
                     </FormGroup>
                     <FormGroup>
                       <Field
+                        name="money"
+                        validate={required}
+                        render={props => (
+                          <Inputs.Money
+                            label="Money"
+                            appearance="contrast"
+                            style={{ flex: 2 }}
+                            required
+                            {...props}
+                          />
+                        )}
+                      />
+                      <Field
+                        name="decimal"
+                        validate={required}
+                        render={props => (
+                          <Inputs.Money
+                            label="Decimal"
+                            appearance="contrast"
+                            style={{ flex: 2 }}
+                            required
+                            {...props}
+                          />
+                        )}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Field
                         name="status"
                         validate={required}
                         render={props => (
