@@ -35,19 +35,12 @@ export default function MultiSelect({
   allowCreate,
   loading,
   input,
-  appearance
+  appearance,
+  meta
 }: TMultiSelectProps) {
-  const onChange = (selectedOption: ValueType<IOption>) => {
-    if (!selectedOption) {
-      return;
-    }
+  const { touched, error } = meta || ({} as any);
 
-    if ("value" in selectedOption) {
-      input.onChange(selectedOption.value);
-    } else {
-      input.onChange(selectedOption.map(opt => opt.value) as any);
-    }
-  };
+  const showError = !!(touched && error);
 
   let value = options.filter(o => input.value.includes(o.value));
 
@@ -72,7 +65,9 @@ export default function MultiSelect({
     isMulti: true,
     isLoading: loading,
     styles: getSelectStyles(contrastPadding),
-    placeholder: ""
+    placeholder: "",
+    isClearable: true,
+    classNamePrefix: "react-select"
   };
 
   return (
@@ -80,10 +75,25 @@ export default function MultiSelect({
       className="MultiselectField"
       onBlur={input.onBlur}
       onFocus={input.onFocus}
-      onChange={onChange}
+      onChange={(selectedOption: ValueType<IOption>, { action }: any) => {
+        if (!selectedOption && action === "remove-value") {
+          return input.onChange([]);
+        }
+
+        if (!selectedOption) {
+          return;
+        }
+
+        if ("value" in selectedOption) {
+          input.onChange(selectedOption.value);
+        } else {
+          input.onChange(selectedOption.map(opt => opt.value) as any);
+        }
+      }}
       label={label}
       value={value}
       appearance={appearance}
+      error={showError}
     >
       {({ componentProps }) => {
         return allowCreate ? (
@@ -97,9 +107,6 @@ export default function MultiSelect({
 }
 
 const styles: IStyleContainer = {
-  container: {
-    height: "100%"
-  },
   control: {
     backgroundColor: "transparent",
     border: "none",
@@ -111,13 +118,13 @@ const styles: IStyleContainer = {
     color: Color.black as any
   },
   menu: {
-    backgroundColor: Color.background as any
-  },
-  dropdownIndicator: {
-    display: "none"
+    backgroundColor: Color.trueWhite as any
   },
   indicatorSeparator: {
     display: "none"
+  },
+  dropdownIndicator: {
+    marginRight: "8px"
   },
   multiValue: {
     backgroundColor: Color.white500 as any,
@@ -146,13 +153,15 @@ const getSelectStyles = (controlStyles: CSSProperties): StylesConfig => {
     container: style => ({ ...style, ...styles.container }),
     input: style => ({ ...style, ...styles.input }),
     menu: style => ({ ...style, ...styles.menu }),
-    option: (style, { isFocused }) => ({
-      ...style,
-      backgroundColor: isFocused ? "var(--admin-grey)" : "var(--admin-bg)",
-      ":hover": {
-        backgroundColor: "var(--admin-grey)"
-      }
-    }),
+    option: (style, { isFocused }) =>
+      ({
+        ...style,
+        backgroundColor: isFocused ? Color.grey300 : Color.trueWhite,
+        ":hover": {
+          backgroundColor: Color.grey300,
+          color: Color.black
+        }
+      } as any),
     dropdownIndicator: () => styles.dropdownIndicator,
     indicatorSeparator: () => styles.indicatorSeparator,
     multiValue: style => ({ ...style, ...styles.multiValue }),
@@ -161,8 +170,10 @@ const getSelectStyles = (controlStyles: CSSProperties): StylesConfig => {
       ...style,
       ...styles.multiValueRemove,
       ":hover": {
-        backgroundColor: "var(--admin-grey)",
-        borderRadius: "11px"
+        backgroundColor: Color.red100,
+        color: Color.red400,
+        borderTopRightRadius: "11px",
+        borderBottomRightRadius: "11px"
       }
     }),
     clearIndicator: style => ({ ...style, ...styles.clearIndicator })

@@ -22,6 +22,7 @@ export { default as Chip, TChipProps } from "src/components/Chip";
 export { default as Color } from "src/definitions/enums/Color";
 export { default as CssFramework } from "src/components/CssFramework";
 export { default as Divider, IDividerProps } from "src/components/Divider";
+export { default as Expander, IExpanderProps } from "src/components/Expander";
 export {
   default as FormatMoney,
   IFormatMoneyProps

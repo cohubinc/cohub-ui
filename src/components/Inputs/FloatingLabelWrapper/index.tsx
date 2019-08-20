@@ -4,7 +4,6 @@ import Color, { ContrastColor } from "src/definitions/enums/Color";
 import TInputElementProps from "../definitions/TInputElementProps";
 
 import IComponentProps from "./IComponentProps";
-import OnChangeEvent from "./OnChangeEvent";
 import IRenderProps from "./IRenderProps";
 import "./FloatingLabelWrapper.scss";
 
@@ -35,7 +34,7 @@ export interface IFloatingLabelWrapperProps<T = any> {
   /** Render Props function */
   children: (props: IRenderProps<T>) => JSX.Element;
 
-  onChange?: OnChangeEvent;
+  onChange?: (...args: any[]) => void;
 
   floatLabel?: boolean;
 
