@@ -41,15 +41,27 @@ There are two options for developing components. You can use the Storybook serve
 > yarn install
 ```
 
-2. Start the playground server
+2. If you haven't already create this file `./development-playgroud/DevSandbox.tsx` and export a component. This is what will be rendered to the screen when you start the app.
+
+```
+import * as React from "react";
+
+import { Buttons } from "../dist";
+
+export default function DevSandbox() {
+  return <Buttons.FloatingAction icon="arrowDown" />;
+}
+```
+
+3. Start the playground server
 
 ```bash
 > yarn start
 ```
 
-3. Add your new component then import and use it in `development-playground/index.tsx`
+4. Add your new component then import and use it in `development-playground/index.tsx`
 
-4. Save the file and after the build completes the browser should update automatically
+5. Save the file and after the build completes the browser should update automatically
 
 ### Adding a Storybook story
 

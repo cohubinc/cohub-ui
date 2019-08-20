@@ -12,5 +12,5 @@ dist/
 development-playground/node_modules
 development-playgroud/dist
 development-playgroud/.cache
+development-playgroud/DevSandbox.tsx
 .vscode
-development-playgroud/index.tsx
