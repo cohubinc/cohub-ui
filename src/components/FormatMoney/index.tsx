@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import CurrencyFormat from "react-number-format";
 
 export interface IFormatMoneyProps {
-  value: number;
+  value: number | null | undefined;
   /**
    * Use to extend decimal precision
    */
@@ -23,7 +23,7 @@ class FormatMoney extends PureComponent<IFormatMoneyProps> {
     return (
       <span data-qa={dataQa}>
         <CurrencyFormat
-          value={value}
+          value={value || 0}
           displayType="text"
           prefix="$"
           thousandSeparator

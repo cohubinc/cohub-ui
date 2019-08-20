@@ -185,7 +185,7 @@ export default function FloatingLabelWrapper<T = any>({
           setInputRef
         })}
         <span className={`bar ${state.hasFocus ? "focused" : ""}`} />
-        {!error && required && (
+        {!error && !value && required && (
           <Icon.Asterisk
             size={12}
             color={Color.red300}
