@@ -32,6 +32,7 @@ const buildIcon = (name: TIconName) => (props: Omit<IIconProps, "name">) => (
 
 export default class Icon extends PureComponent<IIconProps> {
   static Add = buildIcon("add");
+  static Archive = buildIcon("archive");
   static ArrowDown = buildIcon("arrowDown");
   static ArrowUp = buildIcon("arrowUp");
   static Asterisk = buildIcon("asterisk");
@@ -54,6 +55,7 @@ export default class Icon extends PureComponent<IIconProps> {
   static Columns = buildIcon("columns");
   static ControlPanel = buildIcon("controlPanel");
   static Dashboard = buildIcon("dashboard");
+  static Edit = buildIcon("edit");
   static Error = buildIcon("error");
   static Eye = buildIcon("eye");
   static Filter = buildIcon("filter");

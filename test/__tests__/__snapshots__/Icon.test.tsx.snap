@@ -50,6 +50,57 @@ exports[`Icon renders add without crashing 1`] = `
 </Icon>
 `;
 
+exports[`Icon renders archive without crashing 1`] = `
+<Icon
+  name="archive"
+>
+  <DefaultIcon
+    name="archive"
+  >
+    <Archive
+      name="archive"
+    >
+      <IconWrapper
+        defaultColor="hsl(353, 66%, 55%)"
+        name="archive"
+      >
+        <div
+          className="CohubIcon archiveIcon  "
+          style={
+            Object {
+              "height": 24,
+              "opacity": undefined,
+              "transition": "opacity 300ms ease-in 200ms",
+              "width": 24,
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+          >
+            <svg
+              fill="none"
+              height={24}
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M20.54,5.23l-1.39,-1.68c-0.27,-0.34 -0.68,-0.55 -1.15,-0.55h-12c-0.47,0 -0.88,0.21 -1.16,0.55l-1.38,1.68c-0.29,0.34 -0.46,0.79 -0.46,1.27v12.5c0,1.1 0.9,2 2,2h14c1.1,0 2,-0.9 2,-2v-12.5c0,-0.48 -0.17,-0.93 -0.46,-1.27Zm-8.54,12.27l-5.5,-5.5h3.5v-2h4v2h3.5l-5.5,5.5Zm-6.88,-12.5l0.81,-1h12l0.94,1h-13.75Z"
+                fill="hsl(353, 66%, 55%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
+              />
+            </svg>
+          </div>
+        </div>
+      </IconWrapper>
+    </Archive>
+  </DefaultIcon>
+</Icon>
+`;
+
 exports[`Icon renders arrowDown without crashing 1`] = `
 <Icon
   name="arrowDown"
@@ -1213,6 +1264,55 @@ exports[`Icon renders dashboard without crashing 1`] = `
         </div>
       </IconWrapper>
     </Dashboard>
+  </DefaultIcon>
+</Icon>
+`;
+
+exports[`Icon renders edit without crashing 1`] = `
+<Icon
+  name="edit"
+>
+  <DefaultIcon
+    name="edit"
+  >
+    <Edit
+      name="edit"
+    >
+      <IconWrapper
+        name="edit"
+      >
+        <div
+          className="CohubIcon editIcon  "
+          style={
+            Object {
+              "height": 24,
+              "opacity": undefined,
+              "transition": "opacity 300ms ease-in 200ms",
+              "width": 24,
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+          >
+            <svg
+              height={24}
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M3,17.25v3.75h3.75l11.06,-11.06l-3.75,-3.75l-11.06,11.06Zm17.71,-10.21c0.39,-0.39 0.39,-1.02 0,-1.41l-2.34,-2.34c-0.39,-0.39 -1.02,-0.39 -1.41,0l-1.83,1.83l3.75,3.75l1.83,-1.83Z"
+                fill="hsl(0, 2%, 88%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
+              />
+            </svg>
+          </div>
+        </div>
+      </IconWrapper>
+    </Edit>
   </DefaultIcon>
 </Icon>
 `;
