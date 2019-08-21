@@ -15,7 +15,7 @@ interface IChipProps {
   onDelete?: MouseEventHandler<HTMLElement>;
   checked?: boolean;
   dark?: boolean;
-  backgroundColor: Color;
+  backgroundColor?: Color;
   size?: number;
   active?: boolean;
 }
@@ -68,10 +68,6 @@ export default class Chip extends Component<TChipProps> {
         return backgroundColor as Color;
       }
     };
-
-    console.log(backgroundColor);
-    console.log(setBackgroundColor());
-    console.log(ContrastColor[setBackgroundColor()]);
 
     return (
       <div

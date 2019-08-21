@@ -1,8 +1,6 @@
 import React, {
-  useRef,
   useImperativeHandle,
   forwardRef,
-  useEffect,
   useState
 } from "react";
 import Icon, { IIconProps } from "../../Icon";
