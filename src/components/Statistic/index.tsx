@@ -3,7 +3,7 @@ import Typography from "../Typography";
 import FormatMoney from "../FormatMoney";
 import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
-import { Color } from "src";
+import Color from "../../definitions/enums/Color";
 
 export interface IStatisticProps {
   size?: "small" | "regular" | "large" | "xlarge" | "huge";
