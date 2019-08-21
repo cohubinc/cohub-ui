@@ -119,6 +119,7 @@ const App = () => {
                           <Inputs.Select
                             label="Status"
                             appearance="contrast"
+                            style={{ flex: 3 }}
                             {...props}
                             options={[
                               { value: "pending", label: "Pending" },
@@ -135,6 +136,7 @@ const App = () => {
                           <Inputs.MultiSelect
                             label="Status"
                             appearance="contrast"
+                            style={{ flex: 2 }}
                             {...props}
                             options={[
                               { value: "pending", label: "Pending" },

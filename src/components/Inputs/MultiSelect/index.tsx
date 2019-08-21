@@ -24,6 +24,8 @@ interface IProps {
   allowCreate?: boolean;
   loading?: boolean;
   appearance?: "contrast" | "inverted";
+  clearable?: boolean;
+  style?: CSSProperties;
 }
 
 export type TMultiSelectProps = IProps &
@@ -36,6 +38,8 @@ export default function MultiSelect({
   loading,
   input,
   appearance,
+  clearable = false,
+  style,
   meta
 }: TMultiSelectProps) {
   const { touched, error } = meta || ({} as any);
@@ -66,7 +70,7 @@ export default function MultiSelect({
     isLoading: loading,
     styles: getSelectStyles(contrastPadding),
     placeholder: "",
-    isClearable: true,
+    isClearable: clearable,
     classNamePrefix: "react-select"
   };
 
@@ -94,6 +98,7 @@ export default function MultiSelect({
       value={value}
       appearance={appearance}
       error={showError}
+      style={style}
     >
       {({ componentProps }) => {
         return allowCreate ? (
