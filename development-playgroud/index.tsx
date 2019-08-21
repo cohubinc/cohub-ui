@@ -13,7 +13,8 @@ import {
   Modal,
   Typography,
   Loader,
-  FormGroup
+  FormGroup,
+  Statistic
 } from "../dist/";
 import { Form, Field } from "react-final-form";
 
@@ -28,6 +29,19 @@ const App = () => {
       <Container>
         <Row>
           <Col xs={6} offset={{ xs: 3 }}>
+            <Statistic size="huge" label="Stat" value={10000} format="number" />
+            <Statistic
+              size="xlarge"
+              label="Stat"
+              value={10000}
+              format="number"
+            />
+            <Statistic
+              size="large"
+              label="Stat"
+              value={10000}
+              format="number"
+            />
             <Form
               onSubmit={values => alert(JSON.stringify(values))}
               render={() => {
