@@ -37,7 +37,7 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push-msg": "echo 'Building dist. You will likely need to amend your previous commit and force push the changes to dist.' && exit 0",
-      "pre-push": "yarn test --no-watch"
+      "pre-push": "yarn storybook:build && yarn test --no-watch"
     }
   },
   "dependencies": {
