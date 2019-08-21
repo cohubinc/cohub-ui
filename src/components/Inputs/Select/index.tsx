@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import SelectField from "react-select";
 import "./Select.scss";
 import { FieldRenderProps } from "react-final-form";
@@ -20,6 +20,8 @@ interface ISelectProps {
   loading?: boolean;
   appearance?: "contrast" | "inverted";
   error?: boolean;
+  clearable?: boolean;
+  style?: CSSProperties;
 }
 
 export type TSelectProps = ISelectProps &
@@ -31,6 +33,8 @@ export default function Select({
   label,
   loading,
   appearance,
+  clearable = false,
+  style,
   meta
 }: TSelectProps) {
   let value = options.filter(o => input.value === o.value);
@@ -99,12 +103,13 @@ export default function Select({
       value={value}
       appearance={appearance}
       error={showError}
+      style={style}
     >
       {({ componentProps: { onChange, ...componentProps } }) => (
         <SelectField
           classNamePrefix="react-select"
           options={options}
-          isClearable={true}
+          isClearable={clearable}
           isLoading={loading}
           styles={selectStyles}
           onChange={(arg1: any, { action }: any) => {
