@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, Component } from "react";
 
-import Color from "src/definitions/enums/Color";
-import Text from "src/components/Typography";
+import Color, { ContrastColor } from "src/definitions/enums/Color";
+import Typography from "src/components/Typography";
 import Icon, { IIconProps } from "src/components/Icon";
 import HtmlElementProps from "src/definitions/types/HtmlElementProps";
 
@@ -15,8 +15,9 @@ interface IChipProps {
   onDelete?: MouseEventHandler<HTMLElement>;
   checked?: boolean;
   dark?: boolean;
-  backgroundColor?: string;
+  backgroundColor: Color;
   size?: number;
+  active?: boolean;
 }
 
 export type TChipProps = IChipProps &
@@ -28,7 +29,8 @@ export default class Chip extends Component<TChipProps> {
 
   static defaultProps: Partial<TChipProps> = {
     size: 12,
-    backgroundColor: Color.grey300 as any
+    backgroundColor: Color.grey300,
+    active: false
   };
 
   render() {
@@ -41,7 +43,8 @@ export default class Chip extends Component<TChipProps> {
       className = "",
       backgroundColor,
       style,
-      size
+      size,
+      active
     } = this.props;
 
     const name = label || children;
@@ -58,11 +61,23 @@ export default class Chip extends Component<TChipProps> {
 
     const padding = `${size! / 2.5}px ${size}px`;
 
+    const setBackgroundColor = () => {
+      if (active) {
+        return Color.green500;
+      } else {
+        return backgroundColor as Color;
+      }
+    };
+
+    console.log(backgroundColor);
+    console.log(setBackgroundColor());
+    console.log(ContrastColor[setBackgroundColor()]);
+
     return (
       <div
         className={`CohubChip ${clickableClass} ${className}`}
         style={{
-          backgroundColor,
+          backgroundColor: setBackgroundColor() as any,
           borderRadius: "361px",
           display: "inline-block",
           padding,
@@ -75,7 +90,9 @@ export default class Chip extends Component<TChipProps> {
           className="flex justify-center items-center h-100"
           style={{ cursor: clickable ? "pointer" : "inherit" }}
         >
-          <Text.Small>{name}</Text.Small>
+          <Typography.Small color={ContrastColor[setBackgroundColor()] as any}>
+            {name}
+          </Typography.Small>
 
           {iconName && (
             <Icon
@@ -83,7 +100,7 @@ export default class Chip extends Component<TChipProps> {
               size={16}
               name={iconName}
               className="ml-05"
-              color={Color.grey800}
+              color={ContrastColor[setBackgroundColor()] as any}
             />
           )}
         </div>

@@ -2,6 +2,7 @@
 
 exports[`renders internal Link without crashing 1`] = `
 <Chip
+  active={false}
   backgroundColor="hsl(0, 0%, 96%)"
   size={12}
 >
@@ -24,13 +25,15 @@ exports[`renders internal Link without crashing 1`] = `
         }
       }
     >
-      <Component>
+      <Component
+        color="hsl(212, 14%, 35%)"
+      >
         <span
           className=""
           data-qa="text"
           style={
             Object {
-              "color": "hsl(0, 2%, 22%)",
+              "color": "hsl(212, 14%, 35%)",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": 400,
