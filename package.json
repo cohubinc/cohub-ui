@@ -18,8 +18,8 @@
     "storybook:build": "yarn build:stories && build-storybook -c .storybook -o .storybook/stories-dist",
     "pre-push-msg": "echo 'Pre-push checks...' && exit 0",
     "pre-push-test": "yarn test --no-watch",
-    "lint": "tslint --project tsconfig.json",
-    "lint-fix": "tslint --fix --project tsconfig.json",
+    "lint": "tslint --project tsconfig.build.json",
+    "lint-fix": "tslint --fix --project tsconfig.build.json",
     "test": "NODE_ENV=testing yarn checkTypes && yarn build && yarn jest",
     "test:watch": "NODE_ENV=testing yarn test --watch ",
     "test:coverage": "yarn test --coverage",
@@ -28,7 +28,7 @@
   },
   "lint-staged": {
     "./src/*.{ts,tsx}": [
-      "tslint --fix --project tsconfig.json",
+      "tslint --fix --project tsconfig.build.json",
       "prettier --write",
       "git add"
     ]
@@ -55,6 +55,7 @@
     "react-final-form": "^6.3.0",
     "react-number-format": "^4.1.1",
     "react-redux": "^7.1.0",
+    "react-responsive": "^8.0.0-beta.1",
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.0.1",
     "react-select": "3.0.4",
@@ -79,6 +80,7 @@
     "@types/jest": "^24.0.17",
     "@types/lodash": "4.14.136",
     "@types/react": "16.8.25",
+    "@types/react-responsive": "^3.0.3",
     "@types/react-router-dom": "4.3.4",
     "@types/react-select": "3.0.2",
     "@types/webpack": "^4.32.1",

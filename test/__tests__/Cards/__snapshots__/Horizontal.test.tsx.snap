@@ -2,7 +2,6 @@
 
 exports[`Horizontal renders without crashing 1`] = `
 <Horizontal
-  elevation={1}
   title="test"
 >
   <div
@@ -10,14 +9,15 @@ exports[`Horizontal renders without crashing 1`] = `
     style={
       Object {
         "boxShadow": "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)",
+        "width": "360px",
       }
     }
   >
     <div
-      className="flex w-100"
+      className="flex"
     >
       <div
-        className="flex w-100 ml-1"
+        className="flex ml-1"
       >
         <div
           className="ml-1 w-100"

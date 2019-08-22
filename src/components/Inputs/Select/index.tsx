@@ -74,13 +74,13 @@ export default function Select({
   };
 
   const selectStyles: StylesConfig = {
-    control: style => ({ ...style, ...styles.control }),
-    input: style => ({ ...style, ...styles.input }),
-    menu: style => ({ ...style, ...styles.menu }),
-    menuList: style => ({ ...style, ...styles.menuList }),
-    option: (style, { isFocused }) =>
+    control: styling => ({ ...styling, ...styles.control }),
+    input: styling => ({ ...styling, ...styles.input }),
+    menu: styling => ({ ...styling, ...styles.menu }),
+    menuList: styling => ({ ...styling, ...styles.menuList }),
+    option: (styling, { isFocused }) =>
       ({
-        ...style,
+        ...styling,
         ...styles.option,
         backgroundColor: isFocused ? Color.grey300 : Color.trueWhite,
         color: isFocused ? Color.black : Color.black,
@@ -91,7 +91,7 @@ export default function Select({
       } as any),
     dropdownIndicator: () => styles.dropdownIndicator,
     indicatorSeparator: () => styles.indicatorSeparator,
-    singleValue: style => ({ ...style, ...styles.singleValue })
+    singleValue: styling => ({ ...styling, ...styles.singleValue })
   };
 
   return (

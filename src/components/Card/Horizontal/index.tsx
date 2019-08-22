@@ -1,4 +1,4 @@
-import React, { CSSProperties, PureComponent, ReactNode } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 import styles from "./Horizontal.module.scss";
 import Avatar from "src/components/Avatar";
 import Typography from "src/components/Typography";
@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import Buttons from "src/components/Buttons";
 import Color from "src/definitions/enums/Color";
+import { useMediaQuery } from "react-responsive";
+import MediaQuery from "src/definitions/enums/MediaQuery";
 
-export default interface IHorizontalCardProps {
+export interface IHorizontalCardProps {
   /**
    * The main identifying text
    */
@@ -36,91 +38,89 @@ export default interface IHorizontalCardProps {
   elevation?: ElevationLevel;
 }
 
-export default class Horizontal extends PureComponent<IHorizontalCardProps> {
-  static defaultProps: Partial<IHorizontalCardProps> = {
-    elevation: 1
+export default function Horizontal({
+  title,
+  subtitle,
+  meta,
+  titleLink,
+  actions,
+  avatar,
+  imageUrl,
+  className,
+  style,
+  children,
+  elevation = 1
+}: IHorizontalCardProps) {
+  const isMobile = useMediaQuery({ query: MediaQuery.mobileMediaQuery });
+
+  const cardWidth = isMobile ? "100%" : "360px";
+
+  const dpLevel = `dp${elevation}` as any;
+
+  let actionList;
+
+  if (actions) {
+    actionList = actions.map(a => {
+      return (
+        <Buttons.Text
+          className={styles.CardAction}
+          key={a.name}
+          onClick={() => a.action()}
+          fontSize={12}
+          color={Color.iconGrey as any}
+        >
+          {a.name}
+        </Buttons.Text>
+      );
+    });
+  }
+
+  const titleLinkElement = () => {
+    if (titleLink) {
+      return (
+        <Link to={titleLink}>
+          <Typography.Large block>{title}</Typography.Large>
+        </Link>
+      );
+    } else {
+      return <Typography.Large block>{title}</Typography.Large>;
+    }
   };
 
-  render() {
-    const {
-      title,
-      subtitle,
-      meta,
-      titleLink,
-      imageUrl,
-      avatar,
-      actions,
-      className,
-      style,
-      children,
-      elevation
-    } = this.props;
-
-    const dpLevel = `dp${elevation}` as any;
-
-    let actionList;
-
-    if (actions) {
-      actionList = actions.map(a => {
-        return (
-          <Buttons.Text
-            className={styles.CardAction}
-            key={a.name}
-            onClick={() => a.action()}
-            fontSize={12}
-            color={Color.iconGrey as any}
-          >
-            {a.name}
-          </Buttons.Text>
-        );
-      });
-    }
-
-    const titleLinkElement = () => {
-      if (titleLink) {
-        return (
-          <Link to={titleLink}>
-            <Typography.Large block>{title}</Typography.Large>
-          </Link>
-        );
-      } else {
-        return <Typography.Large block>{title}</Typography.Large>;
-      }
-    };
-
-    const cardContent = (
-      <React.Fragment>
-        <div className="flex w-100">
-          {avatar && <Avatar size={50} src={imageUrl} />}
-          {!avatar && imageUrl && (
-            <div>
-              <img src={imageUrl} className={styles.CardHorizontalImage} />
-            </div>
-          )}
-          <div className="flex w-100 ml-1">
-            <div className="ml-1 w-100">
-              {titleLinkElement()}
-              <Typography block>{subtitle}</Typography>
-              {meta && <Typography.Small muted>{meta}</Typography.Small>}
-              {children && children}
-            </div>
-          </div>
-        </div>
-      </React.Fragment>
-    );
-
-    return (
-      <div
-        className={`${styles.CardHorizontal} ${className}`}
-        style={{ ...style, boxShadow: BoxShadow[dpLevel] || BoxShadow.dp1 }}
-      >
-        {cardContent}
-        {actions && (
-          <div className="flex justify-end items-center mt-05">
-            {actionList}
+  const cardContent = (
+    <React.Fragment>
+      <div className="flex">
+        {avatar && <Avatar size={50} src={imageUrl} />}
+        {!avatar && imageUrl && (
+          <div>
+            <img src={imageUrl} className={styles.CardHorizontalImage} />
           </div>
         )}
+        <div className="flex ml-1">
+          <div className="ml-1 w-100">
+            {titleLinkElement()}
+            <Typography block>{subtitle}</Typography>
+            {meta && <Typography.Small muted>{meta}</Typography.Small>}
+            {children && children}
+          </div>
+        </div>
       </div>
-    );
-  }
+    </React.Fragment>
+  );
+
+  return (
+    <div
+      className={`${styles.CardHorizontal} ${className}`}
+      style={{
+        ...style,
+        boxShadow: BoxShadow[dpLevel] || BoxShadow.dp1,
+        width: cardWidth
+      }}
+    >
+      {cardContent}
+      {actions && (
+        <div className="flex justify-end items-center mt-05">{actionList}</div>
+      )}
+    </div>
+  );
 }

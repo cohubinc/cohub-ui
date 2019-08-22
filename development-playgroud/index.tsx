@@ -10,7 +10,7 @@ const App = () => {
       <CssFramework />
       <Container>
         <Row>
-          <Col xs={6} offset={{ xs: 3 }}>
+          <Col xs={12} sm={6} offset={{ sm: 3 }}>
             <DevSandbox />
           </Col>
         </Row>

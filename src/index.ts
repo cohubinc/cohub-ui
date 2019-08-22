@@ -51,6 +51,7 @@ export * from "src/components/Inputs";
 export { default as Link } from "src/components/Link";
 export { default as Loader, ILoaderProps } from "src/components/Loader";
 export { default as Modal, IModalProps } from "src/components/Modal";
+export { default as MediaQuery } from "src/definitions/enums/MediaQuery";
 export {
   default as ProgressBar,
   IProgressBarProps

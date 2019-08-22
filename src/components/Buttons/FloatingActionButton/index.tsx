@@ -52,7 +52,6 @@ const FloatingActionButton: React.RefForwardingComponent<
       }
     })
   );
-  console.log(shakeColor);
 
   const dpLevel = `dp${elevation}`;
 
