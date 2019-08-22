@@ -711,9 +711,12 @@ exports[`Icon renders chevronLeft without crashing 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M13 1L2 12.5L13 24"
-                stroke="hsl(0, 2%, 88%)"
-                strokeWidth="2"
+                d="M15.41,7.41l-1.41,-1.41l-6,6l6,6l1.41,-1.41l-4.58,-4.59Z"
+                fill="hsl(0, 2%, 88%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
               />
             </svg>
           </div>
@@ -759,9 +762,12 @@ exports[`Icon renders chevronRight without crashing 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1 24L12 12.5L1 1"
-                stroke="hsl(0, 2%, 88%)"
-                strokeWidth="2"
+                d="M10,6l-1.41,1.41l4.58,4.59l-4.58,4.59l1.41,1.41l6,-6Z"
+                fill="hsl(0, 2%, 88%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
               />
             </svg>
           </div>

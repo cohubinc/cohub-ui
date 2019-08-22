@@ -13,7 +13,11 @@ const ChevronLeft = (props: IProps) => (
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M13 1L2 12.5L13 24" stroke={color as any} strokeWidth="2" />
+        <path
+          d="M15.41,7.41l-1.41,-1.41l-6,6l6,6l1.41,-1.41l-4.58,-4.59Z"
+          fill={color as any}
+        />
+        <path fill="none" d="M0,0h24v24h-24Z"/>
       </svg>
     )}
   </IconWrapper>
