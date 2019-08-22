@@ -205,9 +205,9 @@ enum Color {
 export const ContrastColor: { [key: string]: BaseColor } = {
   // Greens
   [BaseColor.green100 as any]: BaseColor.green900,
-  [BaseColor.green200 as any]: BaseColor.green900,
-  [BaseColor.green300 as any]: BaseColor.green900,
-  [BaseColor.green400 as any]: BaseColor.green900,
+  [BaseColor.green200 as any]: BaseColor.green600,
+  [BaseColor.green300 as any]: BaseColor.green600,
+  [BaseColor.green400 as any]: BaseColor.green600,
   [BaseColor.green500 as any]: BaseColor.green100,
   [BaseColor.green600 as any]: BaseColor.green100,
   [BaseColor.green700 as any]: BaseColor.green100,

@@ -1,10 +1,6 @@
-import React, {
-  useImperativeHandle,
-  forwardRef,
-  useState
-} from "react";
+import React, { useImperativeHandle, forwardRef, useState } from "react";
 import Icon, { IIconProps } from "../../Icon";
-import Color from "src/definitions/enums/Color";
+import Color, { ContrastColor } from "src/definitions/enums/Color";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import Buttons from "..";
 import { TBlankButtonProps } from "src/components/Buttons/Blank";
@@ -35,18 +31,18 @@ const FloatingActionButton: React.RefForwardingComponent<
     iconColor,
     backgroundColor = Color.trueWhite,
     size = 24,
-    elevation = 0,
+    elevation = 8,
     ...rest
   } = props;
 
   const [shaking, setShaking] = useState(false);
-  const [shakeColor, setShakeColor] = useState<string | undefined>();
+  const [shakeColor, setShakeColor] = useState<Color | undefined>();
 
   useImperativeHandle(
     ref,
     (): IFabRefObject => ({
       shake: color => {
-        color && setShakeColor(color);
+        color && setShakeColor(color as any);
         setShaking(true);
 
         setTimeout(() => {
@@ -56,6 +52,7 @@ const FloatingActionButton: React.RefForwardingComponent<
       }
     })
   );
+  console.log(shakeColor);
 
   const dpLevel = `dp${elevation}`;
 
@@ -76,7 +73,15 @@ const FloatingActionButton: React.RefForwardingComponent<
       }}
       {...rest}
     >
-      <Icon name={icon} size={size / 1.5} color={iconColor} />
+      <Icon
+        name={icon}
+        size={size / 1.5}
+        color={
+          iconColor
+            ? iconColor
+            : (ContrastColor[shakeColor || backgroundColor] as any)
+        }
+      />
     </Buttons.Blank>
   );
 };
