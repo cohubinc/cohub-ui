@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Menu
+  appearance="light"
+  items={
+    Array [
+      Object {
+        "action": null,
+        "label": "Sales Orders",
+      },
+      Object {
+        "action": null,
+        "label": "Purchase Orders",
+      },
+    ]
+  }
+>
+  <div
+    className="p-05 flex MenuContainer flex-row justify-evenly items-center"
+    style={
+      Object {
+        "backgroundColor": "hsl(0, 0%, 98%)",
+        "borderRadius": "8px",
+      }
+    }
+  >
+    <div
+      className="px-05 py-05 pointer"
+      key="Sales Orders"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "hsla(0, 0%, 0%, 0%)",
+          "borderRadius": "4px",
+        }
+      }
+    >
+      <Typography
+        color="hsl(0, 2%, 22%)"
+      >
+        <Component
+          color="hsl(0, 2%, 22%)"
+        >
+          <span
+            className=""
+            data-qa="text"
+            style={
+              Object {
+                "color": "hsl(0, 2%, 22%)",
+                "fontFamily": "Inter",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "textAlign": "initial",
+                "textTransform": "initial",
+              }
+            }
+          >
+            Sales Orders
+          </span>
+        </Component>
+      </Typography>
+    </div>
+    <div
+      className="px-05 py-05 pointer"
+      key="Purchase Orders"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "hsla(0, 0%, 0%, 0%)",
+          "borderRadius": "4px",
+        }
+      }
+    >
+      <Typography
+        color="hsl(0, 2%, 22%)"
+      >
+        <Component
+          color="hsl(0, 2%, 22%)"
+        >
+          <span
+            className=""
+            data-qa="text"
+            style={
+              Object {
+                "color": "hsl(0, 2%, 22%)",
+                "fontFamily": "Inter",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "textAlign": "initial",
+                "textTransform": "initial",
+              }
+            }
+          >
+            Purchase Orders
+          </span>
+        </Component>
+      </Typography>
+    </div>
+  </div>
+</Menu>
+`;
