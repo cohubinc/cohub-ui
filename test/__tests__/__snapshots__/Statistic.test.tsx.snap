@@ -11,7 +11,7 @@ exports[`renders without crashing 1`] = `
   >
     <Component
       color="hsl(0, 2%, 12%)"
-      weight={600}
+      weight={500}
     >
       <span
         className=""
@@ -21,7 +21,7 @@ exports[`renders without crashing 1`] = `
             "color": "hsl(0, 2%, 12%)",
             "fontFamily": "Inter",
             "fontSize": 16,
-            "fontWeight": 600,
+            "fontWeight": 500,
             "textAlign": "initial",
             "textTransform": "initial",
           }
@@ -61,32 +61,27 @@ exports[`renders without crashing 1`] = `
         </FormatNumber>
       </span>
     </Component>
-    <Typography
+    <Component
       muted={true}
       uppercase={true}
     >
-      <Component
-        muted={true}
-        uppercase={true}
-      >
-        <span
-          className=""
-          data-qa="text"
-          style={
-            Object {
-              "color": "hsl(356, 3%, 59%)",
-              "fontFamily": "Inter",
-              "fontSize": "14px",
-              "fontWeight": 400,
-              "textAlign": "initial",
-              "textTransform": "uppercase",
-            }
+      <span
+        className=""
+        data-qa="text"
+        style={
+          Object {
+            "color": "hsl(356, 3%, 59%)",
+            "fontFamily": "Inter",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "textAlign": "initial",
+            "textTransform": "uppercase",
           }
-        >
-          test stat
-        </span>
-      </Component>
-    </Typography>
+        }
+      >
+        test stat
+      </span>
+    </Component>
   </div>
 </Statistic>
 `;

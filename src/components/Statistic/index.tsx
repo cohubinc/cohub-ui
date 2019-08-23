@@ -42,34 +42,34 @@ export default function Statistic({
     case "small":
       return (
         <div className="flex flex-column justify-center items-center">
-          <Typography.Small color={color} weight={600}>
+          <Typography.Small color={color} weight={400}>
             {formattedValue(value)}
           </Typography.Small>
-          <Typography.Small uppercase muted>
+          <Typography.Tiny uppercase muted>
             {label}
-          </Typography.Small>
+          </Typography.Tiny>
         </div>
       );
     case "regular":
       return (
         <div className="flex flex-column justify-center items-center">
-          <Typography.Large color={color} weight={600}>
+          <Typography.Large color={color} weight={500}>
             {formattedValue(value)}
           </Typography.Large>
-          <Typography uppercase muted>
+          <Typography.Small uppercase muted>
             {label}
-          </Typography>
+          </Typography.Small>
         </div>
       );
     case "large":
       return (
         <div className="flex flex-column justify-center items-center">
-          <Typography.HeadingTiny color={color} weight={600}>
+          <Typography.HeadingTiny color={color} weight={500}>
             {formattedValue(value)}
           </Typography.HeadingTiny>
-          <Typography.Large uppercase muted>
+          <Typography.Small uppercase muted>
             {label}
-          </Typography.Large>
+          </Typography.Small>
         </div>
       );
     case "xlarge":
@@ -78,9 +78,9 @@ export default function Statistic({
           <Typography.HeadingLarge weight={600} color={color}>
             {formattedValue(value)}
           </Typography.HeadingLarge>
-          <Typography.Large uppercase muted>
+          <Typography.Small uppercase muted>
             {label}
-          </Typography.Large>
+          </Typography.Small>
         </div>
       );
     case "huge":
@@ -89,9 +89,9 @@ export default function Statistic({
           <Typography.Subtitle weight={600} color={color}>
             {formattedValue(value)}
           </Typography.Subtitle>
-          <Typography.HeadingTiny uppercase muted>
+          <Typography uppercase muted>
             {label}
-          </Typography.HeadingTiny>
+          </Typography>
         </div>
       );
     default:
@@ -100,9 +100,9 @@ export default function Statistic({
           <Typography.Large color={color} weight={600}>
             {formattedValue(value)}
           </Typography.Large>
-          <Typography uppercase muted>
+          <Typography.Small uppercase muted>
             {label}
-          </Typography>
+          </Typography.Small>
         </div>
       );
   }
