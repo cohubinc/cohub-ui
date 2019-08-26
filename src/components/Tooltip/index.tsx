@@ -39,6 +39,7 @@ export default function Tooltip({
       theme={theme}
       interactive={interactive}
       visible={visible}
+      placement={placement}
       popperOptions={{
         modifiers: {
           preventOverflow: {
