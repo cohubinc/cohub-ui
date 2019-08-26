@@ -34,7 +34,7 @@ exports[`Text renders without crashing 1`] = `
               Object {
                 "color": "hsl(0, 2%, 22%)",
                 "fontFamily": "Inter",
-                "fontSize": "14px",
+                "fontSize": 14,
                 "fontWeight": 400,
                 "textAlign": "initial",
                 "textTransform": "initial",

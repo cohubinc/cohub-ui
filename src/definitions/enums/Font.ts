@@ -1,6 +1,6 @@
 enum Font {
   defaultFontFamily = "Inter",
-  defaultFontSize = "14px"
+  defaultFontSize = "16px"
 }
 
 export default Font;

@@ -34,7 +34,7 @@ export const HeadingTiny = typographyFactory({
 export const Large = typographyFactory({ style: { fontSize: 16 } });
 
 export const Regular = typographyFactory({
-  style: { fontSize: Font.defaultFontSize }
+  style: { fontSize: 14 }
 });
 
 export const Small = typographyFactory({ style: { fontSize: 12 } });

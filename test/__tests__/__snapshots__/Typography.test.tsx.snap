@@ -10,7 +10,7 @@ exports[`Typography renders Regular Text without crashing 1`] = `
         Object {
           "color": "hsl(0, 2%, 22%)",
           "fontFamily": "Inter",
-          "fontSize": "14px",
+          "fontSize": 14,
           "fontWeight": 400,
           "textAlign": "initial",
           "textTransform": "initial",
@@ -234,7 +234,7 @@ exports[`Typography renders bold Text without crashing 1`] = `
         Object {
           "color": "hsl(0, 2%, 22%)",
           "fontFamily": "Inter",
-          "fontSize": "14px",
+          "fontSize": 14,
           "fontWeight": 500,
           "textAlign": "initial",
           "textTransform": "initial",
@@ -261,7 +261,7 @@ exports[`Typography renders inverted Text without crashing 1`] = `
         Object {
           "color": "hsl(0, 0%, 98%)",
           "fontFamily": "Inter",
-          "fontSize": "14px",
+          "fontSize": 14,
           "fontWeight": 400,
           "textAlign": "initial",
           "textTransform": "initial",
@@ -288,7 +288,7 @@ exports[`Typography renders muted Text without crashing 1`] = `
         Object {
           "color": "hsl(356, 3%, 59%)",
           "fontFamily": "Inter",
-          "fontSize": "14px",
+          "fontSize": 14,
           "fontWeight": 400,
           "textAlign": "initial",
           "textTransform": "initial",

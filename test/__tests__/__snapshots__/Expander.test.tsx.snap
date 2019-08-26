@@ -28,7 +28,7 @@ exports[`renders without crashing 1`] = `
             Object {
               "color": "hsl(356, 3%, 59%)",
               "fontFamily": "Inter",
-              "fontSize": "14px",
+              "fontSize": 14,
               "fontWeight": 400,
               "textAlign": "initial",
               "textTransform": "initial",
