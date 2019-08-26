@@ -11,12 +11,14 @@ interface TMenuItem {
 export interface IMenuProps {
   orientation?: "horizontal" | "vertical";
   appearance?: "light" | "dark";
+  size?: "small" | "regular";
   items: TMenuItem[];
 }
 
 export default function Menu({
   orientation = "horizontal",
   appearance = "light",
+  size = "regular",
   items
 }: IMenuProps) {
   const [activeItem, setActiveItem] = useState<TMenuItem>();
@@ -36,19 +38,29 @@ export default function Menu({
       <div
         key={i.label}
         onClick={() => setActiveItem(i)}
-        className="px-05 py-05 pointer"
+        className="px-05 py-025 pointer"
         style={{ ...style, borderRadius: "4px" }}
       >
-        <Typography color={appearance === "light" ? Color.text : Color.grey200}>
-          {i.label}
-        </Typography>
+        {size === "small" ? (
+          <Typography.Small
+            color={appearance === "light" ? Color.text : Color.grey200}
+          >
+            {i.label}
+          </Typography.Small>
+        ) : (
+          <Typography
+            color={appearance === "light" ? Color.text : Color.grey200}
+          >
+            {i.label}
+          </Typography>
+        )}
       </div>
     );
   });
 
   return (
     <div
-      className={`p-05 flex MenuContainer ${
+      className={`p-025 flex MenuContainer ${
         orientation === "horizontal"
           ? "flex-row justify-evenly items-center"
           : "flex-column items-center"

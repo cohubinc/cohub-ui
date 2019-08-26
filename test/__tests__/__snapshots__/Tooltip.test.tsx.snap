@@ -2,19 +2,7 @@
 
 exports[`renders without crashing 1`] = `
 <Tooltip
-  arrow={true}
   content="test content"
-  delay={
-    Array [
-      100,
-      50,
-    ]
-  }
-  duration={250}
-  interactive={false}
-  placement="top"
-  theme="dark"
-  trigger="mouseenter"
 >
   <ForwardRef(TippyWrapper)
     animateFill={false}
@@ -28,7 +16,6 @@ exports[`renders without crashing 1`] = `
     }
     duration={250}
     interactive={false}
-    placement="top"
     popperOptions={
       Object {
         "modifiers": Object {
@@ -53,7 +40,6 @@ exports[`renders without crashing 1`] = `
       }
       duration={250}
       interactive={false}
-      placement="top"
       popperOptions={
         Object {
           "modifiers": Object {
