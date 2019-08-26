@@ -26,7 +26,7 @@ exports[`renders without crashing 1`] = `
     }
   >
     <div
-      className="px-05 py-025 pointer"
+      className="flex items-center px-05 py-025 pointer"
       key="Sales Orders"
       onClick={[Function]}
       style={
@@ -62,7 +62,7 @@ exports[`renders without crashing 1`] = `
       </Typography>
     </div>
     <div
-      className="px-05 py-025 pointer"
+      className="flex items-center px-05 py-025 pointer"
       key="Purchase Orders"
       onClick={[Function]}
       style={

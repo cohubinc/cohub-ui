@@ -38,7 +38,7 @@ export default function Menu({
       <div
         key={i.label}
         onClick={() => setActiveItem(i)}
-        className="px-05 py-025 pointer"
+        className="flex items-center px-05 py-025 pointer"
         style={{ ...style, borderRadius: "4px" }}
       >
         {size === "small" ? (
