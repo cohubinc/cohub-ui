@@ -1,16 +1,15 @@
 .GenericInput {
-
   input,
   textarea {
     position: relative;
     padding: 14px 12px;
     width: 100%;
-    font-size: var(--default-font-size);
+    font-size: 14px;
     display: block;
     border-radius: var(--default-border-radius);
     border: 1px solid var(--divider-grey);
 
-    &:focus~.bar:before {
+    &:focus ~ .bar:before {
       width: 100%;
     }
   }
@@ -62,19 +61,18 @@
 }
 
 .ContrastInput {
-
   input,
   textarea {
     position: relative;
     padding: 14px 12px;
     width: 100%;
     min-height: 40px;
-    font-size: var(--default-font-size);
+    font-size: 14px;
     display: block;
     border-radius: var(--default-border-radius);
     border: none;
 
-    &:focus~.bar:before {
+    &:focus ~ .bar:before {
       width: 100%;
     }
   }
