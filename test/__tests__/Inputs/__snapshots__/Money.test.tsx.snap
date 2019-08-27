@@ -2,7 +2,6 @@
 
 exports[`Money renders Money without crashing 1`] = `
 <MoneyInput
-  extendedPrecision={false}
   input={
     Object {
       "onChange": [Function],

@@ -18,6 +18,8 @@ export interface IBaseInputProps {
 
   appearance?: "contrast" | "inverted";
 
+  labelPosition?: "inside" | "outside" | "intersect";
+
   /**
    * HTML attribute for debugging the input
    */
@@ -60,6 +62,7 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
       error,
       icon,
       required,
+      labelPosition,
       ...restProps
     } = this.props;
 
@@ -78,6 +81,7 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
           icon,
           value,
           error,
+          labelPosition,
           required
         }}
       >

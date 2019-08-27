@@ -8,6 +8,7 @@ type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
 interface ITextInputProps {
   label?: string;
+  labelPosition?: "inside" | "outside" | "intersect";
   appearance?: "contrast" | "inverted";
   msgPosition?: {
     bottom: number;

@@ -1324,7 +1324,7 @@ exports[`DateRange matches snapshot 1`] = `
           />
         </div>
         <label
-          className="FloatedLabel"
+          className="FloatedLabel label-outside"
           data-qa="base-input-element-label"
           onClick={[Function]}
           style={

@@ -38,6 +38,8 @@ export interface IFloatingLabelWrapperProps<T = any> {
 
   floatLabel?: boolean;
 
+  labelPosition?: "inside" | "outside" | "intersect";
+
   icon?: IFloatingLabelIconProps;
 
   /**
@@ -91,6 +93,7 @@ export default function FloatingLabelWrapper<T = any>({
   "data-qa": dataQa = "base-input-element",
   "data-qa-label": dataQaLabel = "base-input-element-label",
   floatLabel,
+  labelPosition = "outside",
   onFocus,
   onBlur,
   icon,
@@ -166,6 +169,23 @@ export default function FloatingLabelWrapper<T = any>({
     value
   };
 
+  const labelPositionClass = () => {
+    switch (labelPosition) {
+      case "outside":
+        return "label-outside";
+      case "inside":
+        return "label-inside";
+      case "intersect":
+        if (appearance === "contrast") {
+          return "label-outside";
+        } else {
+          return "label-intersect";
+        }
+      default:
+        return "label-outside";
+    }
+  };
+
   return (
     <div
       className={`FloatingLabelWrapper ${inputClassName} ${className}`}
@@ -230,7 +250,9 @@ export default function FloatingLabelWrapper<T = any>({
 
       {label && (
         <label
-          className={labelFloated ? "FloatedLabel" : ""}
+          className={`${
+            labelFloated ? "FloatedLabel" : ""
+          } ${labelPositionClass()}`}
           style={{
             backgroundColor: error
               ? (Color.red100 as any)
