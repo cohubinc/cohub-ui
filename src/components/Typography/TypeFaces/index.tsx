@@ -1,4 +1,3 @@
-import Font from "../../../definitions/enums/Font";
 import { typographyFactory } from "./typographyFactory";
 
 export const SuperTitle = typographyFactory({

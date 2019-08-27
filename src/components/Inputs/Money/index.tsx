@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { FieldRenderProps } from "react-final-form";
 import NumberFormat from "react-number-format";
 
@@ -28,56 +28,52 @@ export interface IMoneyInputProps extends TInputElementProps {
   input: IInputProp;
   meta?: FormRenderProps["meta"];
   label?: string;
+  labelPosition?: "inside" | "outside" | "intersect";
   appearance?: "contrast" | "inverted";
   "data-qa"?: string;
 }
 
-class MoneyInput extends PureComponent<IMoneyInputProps> {
-  static defaultProps: Partial<IMoneyInputProps> = {
-    extendedPrecision: false
-  };
+export default function MoneyInput({
+  extendedPrecision = false,
+  input,
+  meta = {},
+  label,
+  labelPosition,
+  appearance,
+  required,
+  "data-qa": dataQa,
+  ...rest
+}: IMoneyInputProps) {
+  const showError = !!(meta.touched && meta.error);
 
-  render() {
-    const {
-      extendedPrecision,
-      input,
-      meta = {},
-      label,
-      "data-qa": dataQa,
-      appearance,
-      required,
-      ...spanProps
-    } = this.props;
-
-    const showError = !!(meta.touched && meta.error);
-
-    return (
-      <div className="CohubMoneyInput" data-qa={dataQa} {...spanProps}>
-        <FloatingLabelWrapper
-          {...input}
-          label={label}
-          error={showError}
-          appearance={appearance}
-          required={required}
-        >
-          {({ componentProps: { onChange, value, ...rest }, setInputRef }) => (
-            <NumberFormat
-              {...rest}
-              getInputRef={setInputRef}
-              value={value}
-              displayType="input"
-              prefix="$"
-              decimalScale={extendedPrecision ? 5 : 2}
-              onValueChange={({ floatValue }) => {
-                onChange!(floatValue);
-              }}
-              thousandSeparator
-            />
-          )}
-        </FloatingLabelWrapper>
-      </div>
-    );
-  }
+  return (
+    <div className="CohubMoneyInput" data-qa={dataQa} {...rest}>
+      <FloatingLabelWrapper
+        {...input}
+        label={label}
+        labelPosition={labelPosition}
+        error={showError}
+        appearance={appearance}
+        required={required}
+      >
+        {({
+          componentProps: { onChange, value, ...restComponentProps },
+          setInputRef
+        }) => (
+          <NumberFormat
+            {...restComponentProps}
+            getInputRef={setInputRef}
+            value={value}
+            displayType="input"
+            prefix="$"
+            decimalScale={extendedPrecision ? 5 : 2}
+            onValueChange={({ floatValue }) => {
+              onChange!(floatValue);
+            }}
+            thousandSeparator
+          />
+        )}
+      </FloatingLabelWrapper>
+    </div>
+  );
 }
-
-export default MoneyInput;

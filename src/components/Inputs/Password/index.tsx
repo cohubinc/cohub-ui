@@ -9,6 +9,7 @@ type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
 interface IPasswordInputProps {
   label?: string;
+  labelPosition?: "inside" | "outside" | "intersect";
   appearance?: "contrast" | "inverted";
   msgPosition?: {
     bottom: number;

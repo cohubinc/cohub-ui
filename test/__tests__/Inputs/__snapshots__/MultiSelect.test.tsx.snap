@@ -695,7 +695,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                             "height": "100%",
                             "justifyContent": "space-between",
                             "label": "control",
-                            "minHeight": 38,
+                            "minHeight": "32px",
                             "outline": "none",
                             "position": "relative",
                             "transition": "all 100ms",
@@ -705,7 +705,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                         onTouchEnd={[Function]}
                       >
                         <div
-                          className="react-select__control css-1w2ujoq-control"
+                          className="react-select__control css-2utfxe-control"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -1086,7 +1086,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                       innerProps={
                                         Object {
-                                          "className": "css-16vg1z0-multiValue react-select__multi-value",
+                                          "className": "css-68y0bp-multiValue react-select__multi-value",
                                         }
                                       }
                                       selectProps={
@@ -1192,7 +1192,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                     >
                                       <div
-                                        className="css-16vg1z0-multiValue react-select__multi-value"
+                                        className="css-68y0bp-multiValue react-select__multi-value"
                                       >
                                         <MultiValueGeneric
                                           data={
@@ -1674,7 +1674,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                       innerProps={
                                         Object {
-                                          "className": "css-16vg1z0-multiValue react-select__multi-value",
+                                          "className": "css-68y0bp-multiValue react-select__multi-value",
                                         }
                                       }
                                       selectProps={
@@ -1780,7 +1780,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                       }
                                     >
                                       <div
-                                        className="css-16vg1z0-multiValue react-select__multi-value"
+                                        className="css-68y0bp-multiValue react-select__multi-value"
                                       >
                                         <MultiValueGeneric
                                           data={
@@ -2918,7 +2918,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
         />
       </div>
       <label
-        className="FloatedLabel"
+        className="FloatedLabel label-outside"
         data-qa="base-input-element-label"
         onClick={[Function]}
         style={

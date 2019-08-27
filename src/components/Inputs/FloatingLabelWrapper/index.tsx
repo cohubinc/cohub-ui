@@ -176,7 +176,11 @@ export default function FloatingLabelWrapper<T = any>({
       case "inside":
         return "label-inside";
       case "intersect":
-        return "label-intersect";
+        if (appearance === "contrast") {
+          return "label-outside";
+        } else {
+          return "label-intersect";
+        }
       default:
         return "label-outside";
     }

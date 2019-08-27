@@ -61,8 +61,7 @@ export default function MultiSelect({
     value = uniqBy(value, "value");
   }
 
-  const contrastPadding =
-    appearance === "contrast" ? { paddingTop: "0.5rem" } : {};
+  const contrastPadding = appearance === "contrast" ? { paddingTop: 0 } : {};
 
   const selectConfig: SelectComponentsProps = {
     options,
@@ -117,7 +116,8 @@ const styles: IStyleContainer = {
     border: "none",
     outline: "none",
     boxShadow: "none",
-    height: "100%"
+    height: "100%",
+    minHeight: "32px"
   },
   input: {
     color: Color.black as any
@@ -135,7 +135,7 @@ const styles: IStyleContainer = {
     backgroundColor: Color.white500 as any,
     borderRadius: "11px",
     paddingLeft: "6px",
-    marginTop: "6px",
+    marginTop: "0",
     marginBottom: "0"
   },
   multiValueLabel: {

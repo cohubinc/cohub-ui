@@ -3,7 +3,7 @@ import Typography from "../Typography";
 import "./Menu.scss";
 import Color from "src/definitions/enums/Color";
 
-interface TMenuItem {
+interface IMenuItem {
   label: string;
   action: any;
 }
@@ -12,7 +12,7 @@ export interface IMenuProps {
   orientation?: "horizontal" | "vertical";
   appearance?: "light" | "dark";
   size?: "small" | "regular";
-  items: TMenuItem[];
+  items: IMenuItem[];
 }
 
 export default function Menu({
@@ -21,11 +21,11 @@ export default function Menu({
   size = "regular",
   items
 }: IMenuProps) {
-  const [activeItem, setActiveItem] = useState<TMenuItem>();
+  const [activeItem, setActiveItem] = useState<IMenuItem>();
 
   let style = {};
 
-  const itemList = items.map((i: TMenuItem) => {
+  const itemList = items.map((i: IMenuItem) => {
     if (appearance === "light" && activeItem === i) {
       style = { backgroundColor: Color.grey400 as any };
     } else if (appearance === "dark" && activeItem === i) {

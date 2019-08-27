@@ -46,7 +46,7 @@ export default function Select({
   const styles: IStyleContainer = {
     singleValue: {
       color: Color.black as any,
-      top: "70%"
+      top: "50%"
     },
     dropdownIndicator: {
       marginRight: "8px",
@@ -63,13 +63,14 @@ export default function Select({
     },
     input: {
       color: Color.black as any,
-      marginTop: "12px"
+      margin: 0
     },
     control: {
       backgroundColor: "transparent",
       border: "none",
       outline: "none",
-      boxShadow: "none"
+      boxShadow: "none",
+      minHeight: "32px"
     }
   };
 
