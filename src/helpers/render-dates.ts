@@ -11,7 +11,7 @@ export type TDateFormat =
   | "input";
 
 // Use like -> renderDate("dateWithTimeShort")(item.created_at)
-const renderDate = (format: TDateFormat) => (dateTime?: string) => {
+const renderDate = (format: TDateFormat) => (dateTime?: string | null) => {
   if (!dateTime) return "";
 
   return moment(dateTime).format(formatMap[format]);

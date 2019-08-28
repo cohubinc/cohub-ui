@@ -2,10 +2,8 @@
 
 exports[`Modal component renders 1`] = `
 <Modal
-  className=""
   onClose={[Function]}
   open={true}
-  size="medium"
 >
   <Backdrop
     containerClass="CohubModal"
@@ -82,7 +80,7 @@ exports[`Modal component renders 1`] = `
               >
                 <div>
                   <div
-                    class="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk modalBody "
+                    class="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk modalBody undefined"
                     style="box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14); background-color: hsl(0, 0%, 100%); width: 360px;"
                   >
                     <span>
@@ -177,7 +175,7 @@ exports[`Modal component renders 1`] = `
                   <div>
                     <Segment
                       bordered={false}
-                      className="modalBody "
+                      className="modalBody undefined"
                       elevation={24}
                       padded={true}
                       style={
@@ -187,7 +185,7 @@ exports[`Modal component renders 1`] = `
                       }
                     >
                       <div
-                        className="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk modalBody "
+                        className="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk modalBody undefined"
                         style={
                           Object {
                             "backgroundColor": "hsl(0, 0%, 100%)",

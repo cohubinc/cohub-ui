@@ -1,13 +1,13 @@
 import React, { CSSProperties, ReactNode } from "react";
-import styles from "./Horizontal.module.scss";
+import { Link } from "react-router-dom";
+
 import Avatar from "src/components/Avatar";
 import Typography from "src/components/Typography";
-import { Link } from "react-router-dom";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import Buttons from "src/components/Buttons";
 import Color from "src/definitions/enums/Color";
-import { useMediaQuery } from "react-responsive";
-import MediaQuery from "src/definitions/enums/MediaQuery";
+import useMediaQueries from "src/hooks/useMediaQueries";
+import styles from "./Horizontal.module.scss";
 
 export interface IHorizontalCardProps {
   /**
@@ -51,7 +51,7 @@ export default function Horizontal({
   children,
   elevation = 1
 }: IHorizontalCardProps) {
-  const isMobile = useMediaQuery({ query: MediaQuery.mobileMediaQuery });
+  const { isMobile } = useMediaQueries();
 
   const cardWidth = isMobile ? "100%" : "360px";
 

@@ -1,11 +1,11 @@
 import React, { CSSProperties, ReactNode } from "react";
-import styles from "./Vertical.module.scss";
-import Typography from "src/components/Typography";
 import { Link } from "react-router-dom";
+
+import Typography from "src/components/Typography";
 import Avatar from "src/components/Avatar";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
-import { useMediaQuery } from "react-responsive";
-import MediaQuery from "src/definitions/enums/MediaQuery";
+import useMediaQueries from "src/hooks/useMediaQueries";
+import styles from "./Vertical.module.scss";
 
 export interface IVerticalCardProps {
   /**
@@ -57,7 +57,7 @@ export default function Vertical({
   centered,
   elevation = 1
 }: IVerticalCardProps) {
-  const isMobile = useMediaQuery({ query: MediaQuery.mobileMediaQuery });
+  const { isMobile } = useMediaQueries();
 
   const cardWidth = isMobile ? "100%" : "240px";
 
@@ -103,7 +103,7 @@ export default function Vertical({
         {avatar && <Avatar size={150} src={imageUrl} className="mt-1" />}
         {!avatar && imageUrl && (
           <div>
-            <img src={imageUrl} className="p-1" />
+            <img style={{ maxWidth: "100%" }} src={imageUrl} className="p-1" />
           </div>
         )}
       </div>
