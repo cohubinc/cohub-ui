@@ -5,6 +5,7 @@ import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
 import Color from "../../definitions/enums/Color";
 
+type Value = number | string | undefined | null;
 export interface IStatisticProps {
   size?: "small" | "regular" | "large" | "xlarge" | "huge";
   /**
@@ -12,7 +13,7 @@ export interface IStatisticProps {
    */
   format: "money" | "number" | "percentage" | "text";
   label: string;
-  value: number | string;
+  value: Value;
   color?: Color;
 }
 
@@ -23,7 +24,7 @@ export default function Statistic({
   value,
   color = Color.black500
 }: IStatisticProps) {
-  const formattedValue = (val: any) => {
+  const formattedValue = (val: Value) => {
     switch (format) {
       case "money":
         return <FormatMoney value={val} />;

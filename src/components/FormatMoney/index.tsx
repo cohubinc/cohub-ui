@@ -1,42 +1,32 @@
 import React, { PureComponent } from "react";
-import CurrencyFormat from "react-number-format";
+import NumberFormat from "react-number-format";
 
 export interface IFormatMoneyProps {
-  value: number | null | undefined;
+  value: string | number | null | undefined;
   /**
    * Use to extend decimal precision
    */
   extendedPrecision?: boolean;
-  "data-qa"?: string;
 }
 
-class FormatMoney extends PureComponent<IFormatMoneyProps> {
-  static defaultProps: Partial<IFormatMoneyProps> = {
-    extendedPrecision: true
-  };
+export default function FormatMoney({
+  value,
+  extendedPrecision = true
+}: IFormatMoneyProps) {
+  const decimals = `${value}`.split(".")[1];
 
-  render() {
-    const { value, extendedPrecision, "data-qa": dataQa } = this.props;
-
-    const decimals = `${value}`.split(".")[1];
-
-    return (
-      <span data-qa={dataQa}>
-        <CurrencyFormat
-          value={value || 0}
-          displayType="text"
-          prefix="$"
-          thousandSeparator
-          fixedDecimalScale
-          decimalScale={
-            extendedPrecision && decimals && decimals.length > 2
-              ? decimals.length
-              : 2
-          }
-        />
-      </span>
-    );
-  }
+  return (
+    <NumberFormat
+      value={value || 0}
+      displayType="text"
+      prefix="$"
+      thousandSeparator
+      fixedDecimalScale
+      decimalScale={
+        extendedPrecision && decimals && decimals.length > 2
+          ? decimals.length
+          : 2
+      }
+    />
+  );
 }
-
-export default FormatMoney;

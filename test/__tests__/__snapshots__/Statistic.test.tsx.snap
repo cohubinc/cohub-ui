@@ -28,7 +28,6 @@ exports[`renders without crashing 1`] = `
         }
       >
         <FormatNumber
-          thousandSeparator={true}
           value={100}
         >
           <NumberFormat

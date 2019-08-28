@@ -2,18 +2,25 @@ import React from "react";
 import NumberFormat from "react-number-format";
 
 export interface IFormatNumberProps {
-  value: number;
+  value: string | number | null | undefined;
   thousandSeparator?: boolean;
 }
 
-export default class FormatNumber extends React.Component<IFormatNumberProps> {
-  static defaultProps = {
-    thousandSeparator: true
-  };
-
-  render() {
-    const { value, ...rest } = this.props;
-
-    return <NumberFormat value={value} displayType={"text"} {...rest} />;
+export default function FormatNumber({
+  value,
+  thousandSeparator = true,
+  ...rest
+}: IFormatNumberProps) {
+  if (typeof value === "string") {
+    value = parseFloat(value);
   }
+
+  return (
+    <NumberFormat
+      value={value || 0}
+      thousandSeparator={thousandSeparator}
+      displayType={"text"}
+      {...rest}
+    />
+  );
 }
