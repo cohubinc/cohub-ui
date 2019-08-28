@@ -103,7 +103,7 @@ export default function Vertical({
         {avatar && <Avatar size={150} src={imageUrl} className="mt-1" />}
         {!avatar && imageUrl && (
           <div>
-            <img src={imageUrl} className="p-1" />
+            <img style={{ maxWidth: "100%" }} src={imageUrl} className="p-1" />
           </div>
         )}
       </div>
