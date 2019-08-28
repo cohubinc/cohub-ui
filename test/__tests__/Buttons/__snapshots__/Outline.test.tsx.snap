@@ -25,7 +25,7 @@ exports[`Outline Button renders without crashing 1`] = `
         }
       >
         <div
-          className="button-text relative flex items-center"
+          className="button-text relative flex items-center justify-center"
         >
           <Component
             color="hsl(0, 3%, 7%)"

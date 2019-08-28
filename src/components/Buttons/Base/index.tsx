@@ -53,7 +53,7 @@ export default function Base(props: IBaseButtonProps) {
     disabled,
     error,
     icon,
-    iconPosition,
+    iconPosition = "left",
     iconSize,
     ...restOfProps
   } = props;
@@ -77,7 +77,7 @@ export default function Base(props: IBaseButtonProps) {
       disabled={disabled}
       {...restOfProps}
     >
-      <div className="button-text relative flex items-center">
+      <div className="button-text relative flex items-center justify-center">
         {success && (
           <div
             className="flex justify-center items-center absolute w-100"

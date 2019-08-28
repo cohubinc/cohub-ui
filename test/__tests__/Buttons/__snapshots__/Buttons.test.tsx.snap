@@ -22,7 +22,7 @@ exports[`Buttons renders 1`] = `
         }
       >
         <div
-          className="button-text relative flex items-center"
+          className="button-text relative flex items-center justify-center"
         >
           <Component
             color="hsl(212, 14%, 35%)"
