@@ -90,6 +90,7 @@ export * from "src/helpers/style-utils";
 export * from "src/helpers/ui";
 import * as InputValidationsToExport from "src/helpers/input-validations";
 export const inputValidations = InputValidationsToExport;
+export { default as useMediaQueries } from "src/hooks/useMediaQueries";
 
 // Storybook
 import * as StoryCmpts from "./story-helpers";
