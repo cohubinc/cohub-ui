@@ -567,7 +567,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                           "flexWrap": "wrap",
                           "justifyContent": "space-between",
                           "label": "control",
-                          "minHeight": 38,
+                          "minHeight": "32px",
                           "outline": "none",
                           "position": "relative",
                           "transition": "all 100ms",
@@ -577,7 +577,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                       onTouchEnd={[Function]}
                     >
                       <div
-                        className="react-select__control css-1tsqx6l-control"
+                        className="react-select__control css-1bbf34-control"
                         onMouseDown={[Function]}
                         onTouchEnd={[Function]}
                       >
@@ -921,14 +921,14 @@ exports[`Select Input renders checked without crashing 1`] = `
                                       "overflow": "hidden",
                                       "position": "absolute",
                                       "textOverflow": "ellipsis",
-                                      "top": "70%",
+                                      "top": "50%",
                                       "transform": "translateY(-50%)",
                                       "whiteSpace": "nowrap",
                                     }
                                   }
                                 >
                                   <div
-                                    className="react-select__single-value css-1xdm7eg-singleValue"
+                                    className="react-select__single-value css-frwv62-singleValue"
                                   >
                                     Option 1
                                   </div>
@@ -1077,8 +1077,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                     Object {
                                       "boxSizing": "border-box",
                                       "color": "hsl(0, 2%, 12%)",
-                                      "margin": 2,
-                                      "marginTop": "12px",
+                                      "margin": 0,
                                       "paddingBottom": 2,
                                       "paddingTop": 2,
                                       "visibility": "visible",
@@ -1086,7 +1085,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                   }
                                 >
                                   <div
-                                    className="css-1ktwubb"
+                                    className="css-cj7phe"
                                   >
                                     <AutosizeInput
                                       aria-autocomplete="list"
