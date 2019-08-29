@@ -25,10 +25,11 @@ export default class Tabs extends React.Component<ITabsProps> {
         return false;
       }
 
-      return (
-        (child as any).props.active ||
-        window.location.pathname === (child as any).props.path
-      );
+      const childPath = (child as any).props.path;
+      const windowPathIncludesChildPath =
+        !!childPath && window.location.pathname.includes(childPath);
+
+      return (child as any).props.active || windowPathIncludesChildPath;
     }) as JSX.Element;
     return (
       <React.Fragment>
