@@ -134,8 +134,8 @@ const styles: IStyleContainer = {
     backgroundColor: Color.white500 as any,
     borderRadius: "11px",
     paddingLeft: "6px",
-    marginTop: "0",
-    marginBottom: "0"
+    marginTop: "3px",
+    marginBottom: "3px"
   },
   multiValueLabel: {
     color: Color.black as any,
