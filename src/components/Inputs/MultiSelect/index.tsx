@@ -50,10 +50,9 @@ export default function MultiSelect({
 
   if (allowCreate && input.value.length) {
     const inputValues: IOption[] = input.value.map((val: string) => {
-      const selectedOption = options.find(opt => opt.value === val);
       return {
         value: val,
-        label: selectedOption && selectedOption.label
+        label: val
       } as IOption;
     });
 
@@ -101,9 +100,9 @@ export default function MultiSelect({
     >
       {({ componentProps }) => {
         return allowCreate ? (
-          <Select {...selectConfig} {...componentProps} />
-        ) : (
           <Creatable {...selectConfig} {...componentProps} />
+        ) : (
+          <Select {...selectConfig} {...componentProps} />
         );
       }}
     </FloatingLabelWrapper>
