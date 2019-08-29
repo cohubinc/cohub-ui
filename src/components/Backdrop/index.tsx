@@ -45,6 +45,7 @@ export default class Backdrop extends PureComponent<TBackdropProps> {
       showCloseIcon,
       containerClass = "",
       style,
+      focusTrapped,
       ...rest
     } = this.props;
 

@@ -14,17 +14,26 @@ export interface IModalProps {
   style?: CSSProperties;
   size?: "xsmall" | "small" | "medium" | "large" | "xlarge" | number;
   title?: string;
+  focusTrapped?: boolean;
 }
 
 export default class Modal extends PureComponent<IModalProps> {
   static defaultProps: Partial<IModalProps> = {
     className: "",
     open: true,
-    size: "medium"
+    size: "medium",
+    focusTrapped: true
   };
 
   render() {
-    const { children, className, size, title, ...rest } = this.props;
+    const {
+      children,
+      className,
+      size,
+      title,
+      focusTrapped,
+      ...rest
+    } = this.props;
 
     let modalSize;
 
@@ -53,7 +62,12 @@ export default class Modal extends PureComponent<IModalProps> {
     }
 
     return (
-      <Backdrop showCloseIcon containerClass="CohubModal" {...rest}>
+      <Backdrop
+        showCloseIcon
+        containerClass="CohubModal"
+        {...rest}
+        focusTrapped={focusTrapped}
+      >
         <Segment
           className={`modalBody ${className}`}
           elevation={24}
