@@ -6,6 +6,9 @@
 }
 
 .horizontal {
+  @extend .base;
+  margin-bottom: 2rem;
+
   & > div {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -18,11 +21,10 @@
   & > :last-child {
     margin-right: 0;
   }
-
-  @extend .base;
 }
 
 .vertical {
+  @extend .base;
   flex-direction: column;
 
   & > div {
@@ -32,6 +34,4 @@
   & > :last-child {
     margin-bottom: 0;
   }
-
-  @extend .base;
 }
