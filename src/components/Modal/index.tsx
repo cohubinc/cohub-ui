@@ -17,10 +17,18 @@ export interface IModalProps {
   size?: "xsmall" | "small" | "medium" | "large" | "xlarge" | number;
   title?: string;
   children: ReactNode;
+  focusTrapped?: boolean;
 }
 
 export default function Modal(props: IModalProps) {
-  const { children = "", className, size = "medium", title, ...rest } = props;
+  const {
+    children = "",
+    className,
+    size = "medium",
+    title,
+    focusTrapped = true,
+    ...rest
+  } = props;
 
   const { isMobile } = useMediaQueries();
 
@@ -51,7 +59,12 @@ export default function Modal(props: IModalProps) {
   }
 
   return (
-    <Backdrop showCloseIcon={!isMobile} containerClass="CohubModal" {...rest}>
+    <Backdrop
+      showCloseIcon={!isMobile}
+      focusTrapped={focusTrapped}
+      containerClass="CohubModal"
+      {...rest}
+    >
       <Segment
         className={`modalBody ${className}`}
         elevation={24}
