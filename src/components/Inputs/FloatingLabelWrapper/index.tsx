@@ -62,6 +62,8 @@ export interface IFloatingLabelWrapperProps<T = any> {
   value?: T;
 
   required?: boolean;
+
+  placeholder?: string;
 }
 
 export interface IFloatingLabelIconProps {
@@ -72,10 +74,6 @@ export interface IFloatingLabelIconProps {
 
 type TFloatingLabelWrapperProps<T> = IFloatingLabelWrapperProps<T> &
   Omit<TInputElementProps, "onChange" | "value">;
-
-interface IState {
-  hasFocus: boolean;
-}
 
 const defaultStyle = {
   color: Color.black as any,
@@ -105,9 +103,7 @@ export default function FloatingLabelWrapper<T = any>({
   value,
   required
 }: TFloatingLabelWrapperProps<T | undefined>) {
-  const [state, setState] = useState<IState>({
-    hasFocus: false
-  });
+  const [hasFocus, setHasFocus] = useState(false);
 
   const { cursor, textAlign } = style;
 
@@ -135,7 +131,7 @@ export default function FloatingLabelWrapper<T = any>({
 
   const labelFloated =
     floatLabel ||
-    state.hasFocus ||
+    hasFocus ||
     (inputRef.current && inputRef.current.value) ||
     isValidString ||
     isValidNumber ||
@@ -148,11 +144,11 @@ export default function FloatingLabelWrapper<T = any>({
   const componentProps: IComponentProps<typeof value | undefined> = {
     onFocus: (e: any) => {
       onFocus && onFocus(e);
-      setState({ hasFocus: true });
+      setHasFocus(true);
     },
     onBlur: (e: any) => {
       onBlur && onBlur(e);
-      setState({ hasFocus: false });
+      setHasFocus(false);
     },
     style: {
       ...defaultStyle,
@@ -204,7 +200,7 @@ export default function FloatingLabelWrapper<T = any>({
           componentProps,
           setInputRef
         })}
-        <span className={`bar ${state.hasFocus ? "focused" : ""}`} />
+        <span className={`bar ${hasFocus ? "focused" : ""}`} />
         {!error && !value && required && (
           <Icon.Asterisk
             size={12}

@@ -45,6 +45,7 @@ export default function DecimalInput({
   extendedPrecision = false,
   integer = false,
   required,
+  placeholder,
   ...rest
 }: TDecimalInputProps) {
   const showError = !!(meta && meta.touched && meta.error);
@@ -67,6 +68,7 @@ export default function DecimalInput({
             getInputRef={setInputRef}
             value={value}
             displayType="input"
+            placeholder={placeholder}
             decimalScale={integer ? 0 : extendedPrecision ? 5 : 2}
             onValueChange={({ floatValue }) => {
               onChange!(floatValue);

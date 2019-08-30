@@ -46,6 +46,12 @@ input {
   font-feature-settings: "tnum" 1;
 }
 
+::placeholder {
+  letter-spacing: initial;
+  font-weight: normal;
+  color: var(--grey-700);
+}
+
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }

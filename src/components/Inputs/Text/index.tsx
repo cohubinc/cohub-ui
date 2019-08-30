@@ -16,6 +16,7 @@ interface ITextInputProps {
   "data-qa"?: string;
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
+  placeholder?: string;
 }
 
 export type TTextInputProps = ITextInputProps &
@@ -35,6 +36,7 @@ export default function Text(props: TTextInputProps) {
   const { touched, error } = meta || ({} as any);
 
   const showError = !!(touched && error);
+  console.log(restProps.placeholder);
 
   return (
     <div {...{ className, style: { width: "100%", ...style } }}>

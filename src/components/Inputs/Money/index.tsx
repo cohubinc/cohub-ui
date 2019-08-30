@@ -42,6 +42,7 @@ export default function MoneyInput({
   appearance,
   required,
   "data-qa": dataQa,
+  placeholder,
   ...rest
 }: IMoneyInputProps) {
   const showError = !!(meta.touched && meta.error);
@@ -66,6 +67,7 @@ export default function MoneyInput({
             value={value}
             displayType="input"
             prefix="$"
+            placeholder={placeholder}
             decimalScale={extendedPrecision ? 5 : 2}
             onValueChange={({ floatValue }) => {
               onChange!(floatValue);

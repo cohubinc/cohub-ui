@@ -31,6 +31,8 @@ export interface IBaseInputProps {
   "data-qa-label"?: string;
 
   icon?: IFloatingLabelIconProps;
+
+  placeholder?: string;
 }
 
 export type TBaseInputProps = IBaseInputProps & TInputElementProps;
