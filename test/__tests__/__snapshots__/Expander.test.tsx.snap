@@ -12,7 +12,7 @@ exports[`renders without crashing 1`] = `
   labelPosition="center"
 >
   <div
-    className="flex items-center justify-center pointer w-100 mb-1"
+    className="flex items-center justify-center pointer w-100 mb-05"
     onClick={[Function]}
   >
     <Typography

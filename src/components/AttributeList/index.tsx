@@ -5,16 +5,26 @@ import Typography from "../Typography";
 import FormatMoney from "../FormatMoney";
 import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
+import Expander from "../Expander";
 
 export interface IAttributeListProps {
   items: Array<{ attribute: string; value: any; format: any }>;
   header?: string;
   contrast?: boolean;
   className?: string;
+  maxVisible?: number;
+  expandable?: boolean;
 }
 
-export default class AttributeList extends PureComponent<IAttributeListProps> {
-  formattedValue = (value: any, format: any) => {
+export default function AttributeList({
+  header,
+  items,
+  contrast,
+  className,
+  maxVisible,
+  expandable = false
+}: IAttributeListProps) {
+  const formattedValue = (value: any, format: any) => {
     switch (format) {
       case "money":
         return <FormatMoney value={value} />;
@@ -29,30 +39,41 @@ export default class AttributeList extends PureComponent<IAttributeListProps> {
     }
   };
 
-  render() {
-    const { header, items, contrast, className } = this.props;
+  let hiddenAttributes = null;
+  let visibleAttributes = items.map(i => (
+    <div
+      className={`flex justify-between items-center mb-1 ${className}`}
+      key={i.attribute}
+    >
+      <Typography>{i.attribute}</Typography>
+      <Typography>{formattedValue(i.value, i.format)}</Typography>
+    </div>
+  ));
 
-    const attributes = items.map(i => (
-      <div
-        className={`flex justify-between items-center mb-1 ${className}`}
-        key={i.attribute}
-      >
-        <Typography>{i.attribute}</Typography>
-        <Typography>{this.formattedValue(i.value, i.format)}</Typography>
-      </div>
-    ));
-
-    return (
-      <Segment
-        className="flex flex-column"
-        contrast={contrast}
-        padded={contrast ? true : false}
-      >
-        <Typography.Small muted weight={500} uppercase className="mb-1">
-          {header}
-        </Typography.Small>
-        {attributes}
-      </Segment>
-    );
+  if (maxVisible) {
+    hiddenAttributes = visibleAttributes.splice(maxVisible);
   }
+
+  return (
+    <Segment
+      className="flex flex-column"
+      contrast={contrast}
+      padded={contrast ? true : false}
+    >
+      <Typography.Small muted weight={500} uppercase className="mb-1">
+        {header}
+      </Typography.Small>
+      {visibleAttributes}
+      {expandable && (
+        <Expander
+          labelPosition="center"
+          expandElement={<Typography muted>More</Typography>}
+          expandElementPosition="below"
+          collapseElement={<Typography muted>Less</Typography>}
+        >
+          {hiddenAttributes}
+        </Expander>
+      )}
+    </Segment>
+  );
 }

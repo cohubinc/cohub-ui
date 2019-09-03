@@ -5,6 +5,8 @@ export interface IExpanderProps {
   children: ReactNode;
   duration?: number;
   expandElement: ReactNode;
+  collapseElement?: ReactNode;
+  expandElementPosition?: "above" | "below";
   labelPosition?: "left" | "center" | "right";
 }
 
@@ -12,6 +14,8 @@ export default function Expander({
   children,
   duration = 250,
   expandElement,
+  collapseElement,
+  expandElementPosition = "above",
   labelPosition = "left"
 }: IExpanderProps) {
   type THeight = 0 | "auto";
@@ -34,15 +38,26 @@ export default function Expander({
 
   return (
     <React.Fragment>
-      <div
-        className={`flex items-center ${positionClass()} pointer w-100 mb-1`}
-        onClick={() => toggleExpanded()}
-      >
-        {expandElement}
-      </div>
+      {expandElementPosition === "above" && (
+        <div
+          className={`flex items-center ${positionClass()} pointer w-100 mb-05`}
+          onClick={() => toggleExpanded()}
+        >
+          {expanded && collapseElement ? collapseElement : expandElement}
+        </div>
+      )}
+
       <AnimateHeight duration={duration} height={expanded}>
         <div style={{ width: "100%" }}>{children}</div>
       </AnimateHeight>
+      {expandElementPosition === "below" && (
+        <div
+          className={`flex items-center ${positionClass()} pointer w-100 mt-05`}
+          onClick={() => toggleExpanded()}
+        >
+          {expanded && collapseElement ? collapseElement : expandElement}
+        </div>
+      )}
     </React.Fragment>
   );
 }
