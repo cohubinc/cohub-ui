@@ -1,28 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, CSSProperties } from "react";
+import isEmpty from "lodash/isEmpty";
 
 import Color, { ContrastColor } from "src/definitions/enums/Color";
-import TInputElementProps from "../definitions/TInputElementProps";
-
-import IComponentProps from "./IComponentProps";
-import IRenderProps from "./IRenderProps";
-import "./FloatingLabelWrapper.scss";
-
-import isEmpty from "lodash/isEmpty";
-import isNumber from "lodash/isNumber";
 import Icon from "src/components/Icon";
 import { TIconName } from "src/components/Icon/Icons";
 
+import TInputElementProps from "../definitions/TInputElementProps";
+import IComponentProps from "./IComponentProps";
+import IRenderProps from "./IRenderProps";
+
+import "./FloatingLabelWrapper.scss";
+
 export interface IFloatingLabelWrapperProps<T = any> {
+  onChange?: (...args: any[]) => void;
+
+  value?: T;
+
   className?: string;
   /**
    * Floating label for the input
    */
   label?: string;
-
-  /**
-   * Read only text input
-   */
-  readOnly?: boolean;
 
   /**
    * Input is invalid
@@ -33,8 +31,6 @@ export interface IFloatingLabelWrapperProps<T = any> {
 
   /** Render Props function */
   children: (props: IRenderProps<T>) => JSX.Element;
-
-  onChange?: (...args: any[]) => void;
 
   floatLabel?: boolean;
 
@@ -59,8 +55,6 @@ export interface IFloatingLabelWrapperProps<T = any> {
    */
   "data-qa-label"?: string;
 
-  value?: T;
-
   required?: boolean;
 
   placeholder?: string;
@@ -73,61 +67,58 @@ export interface IFloatingLabelIconProps {
 }
 
 type TFloatingLabelWrapperProps<T> = IFloatingLabelWrapperProps<T> &
-  Omit<TInputElementProps, "onChange" | "value">;
+  Pick<TInputElementProps, "onBlur" | "onFocus" | "onClick" | "style">;
 
-const defaultStyle = {
+const defaultStyle: CSSProperties = {
   color: Color.black as any,
   cursor: "text"
 };
 
-export default function FloatingLabelWrapper<T = any>({
-  className = "",
-  appearance,
-  type = "text",
-  autoComplete = "off",
-  autoFocus = false,
-  onClick = () => null,
-  style = defaultStyle,
-  "data-qa": dataQa = "base-input-element",
-  "data-qa-label": dataQaLabel = "base-input-element-label",
-  floatLabel,
-  labelPosition = "outside",
-  onFocus,
-  onBlur,
-  icon,
-  htmlFor,
-  error,
-  onChange,
-  children,
-  label,
-  value,
-  required
-}: TFloatingLabelWrapperProps<T | undefined>) {
+export default function FloatingLabelWrapper<T = any>(
+  props: TFloatingLabelWrapperProps<T | undefined>
+) {
+  const {
+    className = "",
+    appearance,
+    onClick,
+    style = defaultStyle,
+    floatLabel,
+    labelPosition = "outside",
+    onFocus,
+    onBlur,
+    icon,
+    htmlFor,
+    error,
+    onChange,
+    children,
+    label,
+    value,
+    required,
+    "data-qa-label": dataQaLabel = "base-input-element-label"
+  } = props;
+
   const [hasFocus, setHasFocus] = useState(false);
 
   const { cursor, textAlign } = style;
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  let labelTextColor;
-  let inputBackgroundColor;
-  let inputClassName;
+  let labelTextColor = Color.grey700;
+  let inputClassName = "GenericInput";
 
-  if (appearance === "contrast") {
-    labelTextColor = Color.grey700;
-    inputClassName = "ContrastInput";
-  } else if (appearance === "inverted") {
-    labelTextColor = Color.trueWhite;
-    inputClassName = "GenericInput inverted";
-  } else {
-    labelTextColor = Color.grey700;
-    inputBackgroundColor = Color.trueWhite;
-    inputClassName = "GenericInput";
+  switch (appearance) {
+    case "contrast":
+      labelTextColor = Color.grey700;
+      inputClassName = "ContrastInput";
+      break;
+    case "inverted":
+      labelTextColor = Color.trueWhite;
+      inputClassName = "GenericInput inverted";
   }
 
-  const isValidString = value && typeof value === "string" && value.length > 0;
-  const isValidNumber = value && typeof value === "number" && isNumber(value);
-  const isValidOject = value && !isEmpty(value);
+  const isValidString = value && typeof value === "string" && !!value.length;
+  const isValidNumber = value && typeof value === "number";
+  const isValidObject = value && !isEmpty(value);
 
   const labelFloated =
     floatLabel ||
@@ -135,7 +126,7 @@ export default function FloatingLabelWrapper<T = any>({
     (inputRef.current && inputRef.current.value) ||
     isValidString ||
     isValidNumber ||
-    isValidOject;
+    isValidObject;
 
   const setInputRef = (element: HTMLInputElement) => {
     (inputRef.current as any) = element;
@@ -172,11 +163,7 @@ export default function FloatingLabelWrapper<T = any>({
       case "inside":
         return "label-inside";
       case "intersect":
-        if (appearance === "contrast") {
-          return "label-outside";
-        } else {
-          return "label-intersect";
-        }
+        return appearance === "contrast" ? "label-outside" : "label-intersect";
       default:
         return "label-outside";
     }
@@ -247,12 +234,10 @@ export default function FloatingLabelWrapper<T = any>({
       {label && (
         <label
           className={`${
-            labelFloated ? "FloatedLabel" : ""
+            labelFloated ? "floatedLabel" : ""
           } ${labelPositionClass()}`}
           style={{
-            backgroundColor: error
-              ? (Color.red100 as any)
-              : inputBackgroundColor,
+            backgroundColor: error ? (Color.red100 as any) : undefined,
             color: error
               ? ContrastColor[Color.red100]
               : (labelTextColor as any),
