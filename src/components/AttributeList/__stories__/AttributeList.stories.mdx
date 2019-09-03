@@ -9,14 +9,33 @@ import { AttributeList, StoryHelpers } from "dist/index.esm.js";
 Welcome to the future of Storybook!
 
 <Story name="AttributeList">
-  <AttributeList
-    header="Money"
-    contrast
-    items={[
-      { attribute: "Price", value: 100, format: "money" },
-      { attribute: "Cost", value: 10, format: "money" }
-    ]}
-  />
+  <div className="w-100 h-100 p-1">
+    <StoryHelpers.Text underlined>A standard AttributeList</StoryHelpers.Text>
+    <AttributeList
+      header="Money"
+      contrast
+      items={[
+        { attribute: "Price", value: 100, format: "money" },
+        { attribute: "Cost", value: 10, format: "money" }
+      ]}
+    />
+    <br />
+    <StoryHelpers.Text underlined>
+      An expandable AttributeList
+    </StoryHelpers.Text>
+    <AttributeList
+      header="Other"
+      contrast
+      maxVisible={2}
+      expandable={true}
+      items={[
+        { attribute: "Price", value: 100, format: "money" },
+        { attribute: "Cost", value: 10, format: "money" },
+        { attribute: "Net Cost", value: 20, format: "money" },
+        { attribute: "Margin", value: 10, format: "percentage" }
+      ]}
+    />
+  </div>
 </Story>
 
 ## Example usage
@@ -27,6 +46,18 @@ Welcome to the future of Storybook!
   contrast
   items={[
     { attribute: "Price", value: 100, format: "money" },
+    { attribute: "Cost", value: 10, format: "money" }
+  ]}
+/>
+<AttributeList
+  header="Other"
+  contrast
+  maxVisible={2}
+  expandable={true}
+  items={[
+    { attribute: "Price", value: 100, format: "money" },
+    { attribute: "Cost", value: 10, format: "money" },
+    { attribute: "Cost", value: 10, format: "money" },
     { attribute: "Cost", value: 10, format: "money" }
   ]}
 />

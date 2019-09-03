@@ -3,18 +3,22 @@ import NumberFormat from "react-number-format";
 
 export interface IFormatPercentProps {
   value: number | string | null | undefined;
+  shouldParse?: boolean;
 }
 
-export default function FormatPercent({ value }: IFormatPercentProps) {
+export default function FormatPercent({
+  value,
+  shouldParse = true
+}: IFormatPercentProps) {
   if (!value) {
     return null;
   }
 
   if (typeof value === "string") {
-    value = parseFloat(value) * 100;
+    value = shouldParse ? parseFloat(value) * 100 : parseFloat(value);
   }
 
-  const percentValue = value * 100;
+  const percentValue = shouldParse ? value * 100 : value;
 
   return (
     <NumberFormat
