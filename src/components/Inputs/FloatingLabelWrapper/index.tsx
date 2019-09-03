@@ -208,7 +208,7 @@ export default function FloatingLabelWrapper<T = any>({
             style={{
               position: "absolute",
               right: "4px",
-              top: "25%",
+              top: "30%",
               transform: "translateY(-50%)",
               zIndex: 2
             }}
