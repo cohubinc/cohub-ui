@@ -41,7 +41,6 @@ exports[`Text Input renders without crashing 1`] = `
               data-qa="base-input-element"
               data-qa-label="base-input-element-label"
               onBlur={[Function]}
-              onClick={[Function]}
               onFocus={[Function]}
               style={
                 Object {
