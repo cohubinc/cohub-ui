@@ -1,35 +1,42 @@
 import React, { CSSProperties } from "react";
 import SelectField from "react-select";
-import "./Select.scss";
-import { FieldRenderProps } from "react-final-form";
-import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
-import Color from "src/definitions/enums/Color";
-
-import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import { StylesConfig } from "react-select/src/styles";
 import { OptionsType } from "react-select/src/types";
+import { FieldRenderProps } from "react-final-form";
+
+import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
+import Color from "src/definitions/enums/Color";
+import FloatingLabelWrapper from "../FloatingLabelWrapper";
+
+import "./Select.scss";
 
 interface IOption {
   label: string;
   value: string;
 }
 
+type FieldProps = FieldRenderProps<
+  IOption["value"] | Array<IOption["value"]>,
+  HTMLElement
+>;
+
 interface ISelectProps {
-  label: string;
-  options: OptionsType<IOption>;
+  label?: string;
+  options?: OptionsType<IOption>;
   loading?: boolean;
   appearance?: "contrast" | "inverted";
   error?: boolean;
   clearable?: boolean;
   style?: CSSProperties;
+  input?: Partial<FieldProps["input"]>;
+  meta?: FieldProps["meta"];
 }
 
-export type TSelectProps = ISelectProps &
-  FieldRenderProps<IOption["value"] | Array<IOption["value"]>, HTMLElement>;
+export type TSelectProps = ISelectProps;
 
 export default function Select({
-  options,
-  input,
+  options = [],
+  input = {},
   label,
   loading,
   appearance,
@@ -106,7 +113,9 @@ export default function Select({
       error={showError}
       style={style}
     >
-      {({ componentProps: { onChange, ...componentProps } }) => (
+      {({
+        componentProps: { onChange: _, onBlur, onFocus, ...componentProps }
+      }) => (
         <SelectField
           classNamePrefix="react-select"
           options={options}
@@ -114,13 +123,25 @@ export default function Select({
           isLoading={loading}
           styles={selectStyles}
           onChange={(arg1: any, { action }: any) => {
-            if (action === "select-option") {
-              input.onChange(arg1.value);
-            } else if (action === "clear") {
-              input.onChange(null);
+            const { onChange } = input;
+            if (!onChange) return;
+
+            switch (action) {
+              case "select-option":
+                onChange(arg1.value);
+                break;
+              case "clear":
+                onChange(null);
             }
           }}
-          placeholder=""
+          onBlur={e => {
+            console.log("ON BLUR FIRE", onBlur);
+            onBlur && onBlur(e);
+          }}
+          onFocus={e => {
+            console.log("ON FOCUS FIRE", onFocus);
+            onFocus && onFocus(e);
+          }}
           {...componentProps}
         />
       )}
