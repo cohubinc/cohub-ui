@@ -2697,6 +2697,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                   className="react-select__indicator react-select__dropdown-indicator"
                                   css={
                                     Object {
+                                      "display": "flex",
                                       "marginRight": "8px",
                                     }
                                   }
@@ -2705,7 +2706,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                 >
                                   <div
                                     aria-hidden="true"
-                                    className="react-select__indicator react-select__dropdown-indicator css-12z0wuy"
+                                    className="react-select__indicator react-select__dropdown-indicator css-1ux2d3y"
                                     onMouseDown={[Function]}
                                     onTouchEnd={[Function]}
                                   >

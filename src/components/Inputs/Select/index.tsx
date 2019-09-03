@@ -50,7 +50,7 @@ export default function Select({
     },
     dropdownIndicator: {
       marginRight: "8px",
-      display: showError ? "none" : "block"
+      display: showError ? "none" : "flex"
     },
     menu: {
       backgroundColor: Color.trueWhite as any

@@ -128,7 +128,8 @@ const styles: IStyleContainer = {
     display: "none"
   },
   dropdownIndicator: {
-    marginRight: "8px"
+    marginRight: "8px",
+    display: "flex"
   },
   multiValue: {
     backgroundColor: Color.white500 as any,
