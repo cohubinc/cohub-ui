@@ -31,6 +31,7 @@ interface IProps {
   style?: CSSProperties;
   input?: Partial<Input>;
   meta?: FieldProps["meta"];
+  disabled?: boolean;
 }
 
 export type TMultiSelectProps = IProps;
@@ -44,7 +45,8 @@ export default function MultiSelect({
   appearance,
   clearable = false,
   style,
-  meta
+  meta,
+  disabled
 }: TMultiSelectProps) {
   const { touched, error } = meta || ({} as any);
 
@@ -108,10 +110,18 @@ export default function MultiSelect({
       style={style}
     >
       {({ componentProps }) => {
-        return allowCreate ? (
-          <Creatable {...selectConfig} {...componentProps} />
-        ) : (
-          <Select {...selectConfig} {...componentProps} />
+        if (allowCreate) {
+          return (
+            <Creatable
+              {...selectConfig}
+              {...componentProps}
+              isDisabled={disabled}
+            />
+          );
+        }
+
+        return (
+          <Select {...selectConfig} {...componentProps} isDisabled={disabled} />
         );
       }}
     </FloatingLabelWrapper>
