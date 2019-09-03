@@ -18,25 +18,29 @@ interface IOption {
   value: string;
 }
 
+type FieldProps = FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
+type Input = FieldProps["input"];
+
 interface IProps {
   label?: string;
-  options: OptionsType<IOption>;
+  options?: OptionsType<IOption>;
   allowCreate?: boolean;
   loading?: boolean;
   appearance?: "contrast" | "inverted";
   clearable?: boolean;
   style?: CSSProperties;
+  input?: Partial<Input>;
+  meta?: FieldProps["meta"];
 }
 
-export type TMultiSelectProps = IProps &
-  FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
+export type TMultiSelectProps = IProps;
 
 export default function MultiSelect({
-  options,
+  options = [],
+  input = {} as Input,
   label,
   allowCreate,
   loading,
-  input,
   appearance,
   clearable = false,
   style,
@@ -46,13 +50,15 @@ export default function MultiSelect({
 
   const showError = !!(touched && error);
 
-  let value = options.filter(o => input.value.includes(o.value));
+  const { value: values = [], onChange } = input;
 
-  if (allowCreate && input.value.length) {
-    const inputValues: IOption[] = input.value.map((val: string) => {
+  let value = options.filter(o => values.includes(o.value));
+
+  if (allowCreate && value.length) {
+    const inputValues: IOption[] = values.map((v: string) => {
       return {
-        value: val,
-        label: val
+        value: v,
+        label: v
       } as IOption;
     });
 
@@ -78,8 +84,11 @@ export default function MultiSelect({
       onBlur={input.onBlur}
       onFocus={input.onFocus}
       onChange={(selectedOption: ValueType<IOption>, { action }: any) => {
+        if (!onChange) return;
+
         if (!selectedOption && action === "remove-value") {
-          return input.onChange([]);
+          onChange([]);
+          return;
         }
 
         if (!selectedOption) {
@@ -87,9 +96,9 @@ export default function MultiSelect({
         }
 
         if ("value" in selectedOption) {
-          input.onChange(selectedOption.value);
+          onChange(selectedOption.value);
         } else {
-          input.onChange(selectedOption.map(opt => opt.value) as any);
+          onChange(selectedOption.map(opt => opt.value) as any);
         }
       }}
       label={label}
