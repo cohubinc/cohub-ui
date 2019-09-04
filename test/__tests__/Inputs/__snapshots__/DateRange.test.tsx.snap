@@ -75,7 +75,6 @@ exports[`DateRange matches snapshot 1`] = `
               }
               onBlur={[Function]}
               onChange={[Function]}
-              onClick={[Function]}
               onFocus={[Function]}
               rangeError={false}
               setHasValue={[Function]}
@@ -125,7 +124,6 @@ exports[`DateRange matches snapshot 1`] = `
                   }
                   onBlur={[Function]}
                   onChange={[Function]}
-                  onClick={[Function]}
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   onMouseUp={[Function]}
@@ -149,7 +147,6 @@ exports[`DateRange matches snapshot 1`] = `
                     data-testid="startDateInput"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     onMouseUp={[Function]}
@@ -722,7 +719,6 @@ exports[`DateRange matches snapshot 1`] = `
               minDate="1984-09-09"
               onBlur={[Function]}
               onChange={[Function]}
-              onClick={[Function]}
               onFocus={[Function]}
               rangeError={false}
               setHasValue={[Function]}
@@ -772,7 +768,6 @@ exports[`DateRange matches snapshot 1`] = `
                   }
                   onBlur={[Function]}
                   onChange={[Function]}
-                  onClick={[Function]}
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   onMouseUp={[Function]}
@@ -795,7 +790,6 @@ exports[`DateRange matches snapshot 1`] = `
                     data-testid="endDateInput"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     onMouseUp={[Function]}
@@ -1324,7 +1318,7 @@ exports[`DateRange matches snapshot 1`] = `
           />
         </div>
         <label
-          className="FloatedLabel label-outside"
+          className="floatedLabel label-outside"
           data-qa="base-input-element-label"
           onClick={[Function]}
           style={

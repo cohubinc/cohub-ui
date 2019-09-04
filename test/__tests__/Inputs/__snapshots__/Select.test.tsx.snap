@@ -66,7 +66,6 @@ exports[`Select Input renders checked without crashing 1`] = `
           isClearable={false}
           onBlur={[Function]}
           onChange={[Function]}
-          onClick={[Function]}
           onFocus={[Function]}
           options={
             Array [
@@ -88,7 +87,6 @@ exports[`Select Input renders checked without crashing 1`] = `
               },
             ]
           }
-          placeholder=""
           style={
             Object {
               "color": "hsl(0, 2%, 12%)",
@@ -151,7 +149,6 @@ exports[`Select Input renders checked without crashing 1`] = `
             noOptionsMessage={[Function]}
             onBlur={[Function]}
             onChange={[Function]}
-            onClick={[Function]}
             onFocus={[Function]}
             onInputChange={[Function]}
             onMenuClose={[Function]}
@@ -179,7 +176,7 @@ exports[`Select Input renders checked without crashing 1`] = `
               ]
             }
             pageSize={5}
-            placeholder=""
+            placeholder="Select..."
             screenReaderStatus={[Function]}
             style={
               Object {
@@ -284,7 +281,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                   "noOptionsMessage": [Function],
                   "onBlur": [Function],
                   "onChange": [Function],
-                  "onClick": [Function],
+                  "onClick": undefined,
                   "onFocus": [Function],
                   "onInputChange": [Function],
                   "onMenuClose": [Function],
@@ -310,7 +307,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                     },
                   ],
                   "pageSize": 5,
-                  "placeholder": "",
+                  "placeholder": "Select...",
                   "screenReaderStatus": [Function],
                   "style": Object {
                     "color": "hsl(0, 2%, 12%)",
@@ -461,7 +458,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                         "noOptionsMessage": [Function],
                         "onBlur": [Function],
                         "onChange": [Function],
-                        "onClick": [Function],
+                        "onClick": undefined,
                         "onFocus": [Function],
                         "onInputChange": [Function],
                         "onMenuClose": [Function],
@@ -487,7 +484,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                           },
                         ],
                         "pageSize": 5,
-                        "placeholder": "",
+                        "placeholder": "Select...",
                         "screenReaderStatus": [Function],
                         "style": Object {
                           "color": "hsl(0, 2%, 12%)",
@@ -647,7 +644,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                               "noOptionsMessage": [Function],
                               "onBlur": [Function],
                               "onChange": [Function],
-                              "onClick": [Function],
+                              "onClick": undefined,
                               "onFocus": [Function],
                               "onInputChange": [Function],
                               "onMenuClose": [Function],
@@ -673,7 +670,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                 },
                               ],
                               "pageSize": 5,
-                              "placeholder": "",
+                              "placeholder": "Select...",
                               "screenReaderStatus": [Function],
                               "style": Object {
                                 "color": "hsl(0, 2%, 12%)",
@@ -823,7 +820,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                     "noOptionsMessage": [Function],
                                     "onBlur": [Function],
                                     "onChange": [Function],
-                                    "onClick": [Function],
+                                    "onClick": undefined,
                                     "onFocus": [Function],
                                     "onInputChange": [Function],
                                     "onMenuClose": [Function],
@@ -849,7 +846,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                       },
                                     ],
                                     "pageSize": 5,
-                                    "placeholder": "",
+                                    "placeholder": "Select...",
                                     "screenReaderStatus": [Function],
                                     "style": Object {
                                       "color": "hsl(0, 2%, 12%)",
@@ -984,7 +981,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                     "noOptionsMessage": [Function],
                                     "onBlur": [Function],
                                     "onChange": [Function],
-                                    "onClick": [Function],
+                                    "onClick": undefined,
                                     "onFocus": [Function],
                                     "onInputChange": [Function],
                                     "onMenuClose": [Function],
@@ -1010,7 +1007,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                       },
                                     ],
                                     "pageSize": 5,
-                                    "placeholder": "",
+                                    "placeholder": "Select...",
                                     "screenReaderStatus": [Function],
                                     "style": Object {
                                       "color": "hsl(0, 2%, 12%)",
@@ -1242,7 +1239,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                               "noOptionsMessage": [Function],
                               "onBlur": [Function],
                               "onChange": [Function],
-                              "onClick": [Function],
+                              "onClick": undefined,
                               "onFocus": [Function],
                               "onInputChange": [Function],
                               "onMenuClose": [Function],
@@ -1268,7 +1265,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                 },
                               ],
                               "pageSize": 5,
-                              "placeholder": "",
+                              "placeholder": "Select...",
                               "screenReaderStatus": [Function],
                               "style": Object {
                                 "color": "hsl(0, 2%, 12%)",
@@ -1409,7 +1406,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                     "noOptionsMessage": [Function],
                                     "onBlur": [Function],
                                     "onChange": [Function],
-                                    "onClick": [Function],
+                                    "onClick": undefined,
                                     "onFocus": [Function],
                                     "onInputChange": [Function],
                                     "onMenuClose": [Function],
@@ -1435,7 +1432,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                       },
                                     ],
                                     "pageSize": 5,
-                                    "placeholder": "",
+                                    "placeholder": "Select...",
                                     "screenReaderStatus": [Function],
                                     "style": Object {
                                       "color": "hsl(0, 2%, 12%)",
@@ -1571,7 +1568,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                     "noOptionsMessage": [Function],
                                     "onBlur": [Function],
                                     "onChange": [Function],
-                                    "onClick": [Function],
+                                    "onClick": undefined,
                                     "onFocus": [Function],
                                     "onInputChange": [Function],
                                     "onMenuClose": [Function],
@@ -1597,7 +1594,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                       },
                                     ],
                                     "pageSize": 5,
-                                    "placeholder": "",
+                                    "placeholder": "Select...",
                                     "screenReaderStatus": [Function],
                                     "style": Object {
                                       "color": "hsl(0, 2%, 12%)",
@@ -1727,12 +1724,12 @@ exports[`Select Input renders checked without crashing 1`] = `
         />
       </div>
       <label
-        className="FloatedLabel label-outside"
+        className="floatedLabel label-outside"
         data-qa="base-input-element-label"
         onClick={[Function]}
         style={
           Object {
-            "backgroundColor": "hsl(0, 0%, 100%)",
+            "backgroundColor": undefined,
             "color": "hsl(356, 3%, 59%)",
             "cursor": "text",
             "width": undefined,

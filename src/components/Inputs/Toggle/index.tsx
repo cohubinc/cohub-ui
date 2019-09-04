@@ -1,74 +1,67 @@
 import React from "react";
 import { FieldRenderProps } from "react-final-form";
-import styles from "./Toggle.module.scss";
 import Typography from "src/components/Typography";
 import Color from "src/definitions/enums/Color";
+import styles from "./Toggle.module.scss";
 
+type FieldProps = FieldRenderProps<boolean | string, HTMLInputElement>;
 interface IToggleProps {
   label?: string;
-  labelPosition: "top" | "bottom" | "left" | "right";
+  labelPosition?: "top" | "bottom" | "left" | "right";
   className?: string;
+  input?: Partial<FieldProps["input"]>;
+  meta?: FieldProps["meta"];
 }
 
-export type TToggleProps = IToggleProps &
-  FieldRenderProps<boolean | string, HTMLInputElement>;
+export type TToggleProps = IToggleProps;
 
-export default class Toggle extends React.Component<TToggleProps> {
-  static defaultProps: Partial<TToggleProps> = {
-    labelPosition: "right"
+export default function Toggle(props: TToggleProps) {
+  const { label, input = {}, labelPosition = "right", className = "" } = props;
+
+  const checked = input.value === true || input.value === "true";
+
+  const toggle = () => {
+    input.onChange && input.onChange(!checked as any);
   };
 
-  render() {
-    const { label, input, labelPosition, className = "" } = this.props;
-
-    const checked = input.value === true || input.value === "true";
-
-    const toggle = () => {
-      input.onChange(!checked as any);
-    };
-
-    const keyDown = (evt: any) => {
-      if (evt.keyCode && evt.keyCode === 32) {
-        toggle();
-      }
-    };
-
-    let containerClass: string;
-    switch (labelPosition) {
-      case "left":
-        containerClass = styles.labelContainerLeft;
-        break;
-      case "right":
-        containerClass = styles.labelContainerRight;
-        break;
-      case "top":
-        containerClass = styles.labelContainerTop;
-        break;
-      case "bottom":
-        containerClass = styles.labelContainerBottom;
-        break;
-      default:
-        containerClass = styles.labelContainerLeft;
+  const keyDown = (evt: any) => {
+    if (evt.keyCode && evt.keyCode === 32) {
+      toggle();
     }
+  };
 
-    return (
+  return (
+    <div
+      className={`${className} ${deriveClass(labelPosition)} cursor-pointer `}
+      onClick={toggle}
+      onFocus={input.onFocus as any}
+      onBlur={input.onBlur as any}
+      tabIndex={0}
+      onKeyDown={keyDown}
+    >
+      {label && <Typography color={Color.grey700}>{label}</Typography>}
       <div
-        className={`${className} ${containerClass} cursor-pointer `}
-        onClick={toggle}
-        tabIndex={0}
-        onKeyDown={keyDown}
+        className={checked ? styles.containerActive : styles.containerInactive}
       >
-        {label && <Typography color={Color.grey700}>{label}</Typography>}
         <div
-          className={
-            checked ? styles.containerActive : styles.containerInactive
-          }
-        >
-          <div
-            className={checked ? styles.toggleActive : styles.toggleInactive}
-          />
-        </div>
+          className={checked ? styles.toggleActive : styles.toggleInactive}
+        />
       </div>
-    );
+    </div>
+  );
+}
+
+function deriveClass(labelPosition: IToggleProps["labelPosition"]) {
+  switch (labelPosition) {
+    case "left":
+      return styles.labelContainerLeft;
+    case "right":
+      return styles.labelContainerRight;
+    case "top":
+      return styles.labelContainerTop;
+    case "bottom":
+      return styles.labelContainerBottom;
+    default:
+      return styles.labelContainerLeft;
   }
 }

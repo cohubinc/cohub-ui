@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Toggle from "../components/Inputs/Toggle";
+import Toggle from "src/components/Inputs/Toggle";
 
 interface IRenderProps {
   state: boolean;

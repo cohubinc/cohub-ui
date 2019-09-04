@@ -32,18 +32,14 @@ function Tab(props: ITabProps) {
 
   const dispatch = useRedux ? useDispatch() : null;
 
-  const _clicked = () => {
-    if (onClick) {
-      onClick();
-    } else if (path) {
-      useRedux && dispatch!(push(path));
-    }
-  };
-
   return (
     <div
       className={`${style.Tab} ${isActive && style.TabActive} ${className}`}
-      onClick={_clicked}
+      onClick={() => {
+        onClick && onClick();
+        if (!path || !useRedux) return;
+        dispatch!(push(path));
+      }}
     >
       {title}
       {showCount && (

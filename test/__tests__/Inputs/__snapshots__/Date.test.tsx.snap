@@ -49,7 +49,6 @@ exports[`Date matches snapshot 1`] = `
           <LowLevelDatePicker
             onBlur={[Function]}
             onChange={[Function]}
-            onClick={[Function]}
             onFocus={[Function]}
             rangeError={false}
             setHasValue={[Function]}
@@ -103,7 +102,6 @@ exports[`Date matches snapshot 1`] = `
                 }
                 onBlur={[Function]}
                 onChange={[Function]}
-                onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 onMouseUp={[Function]}
@@ -120,7 +118,6 @@ exports[`Date matches snapshot 1`] = `
                   data-testid="LowLevelDatePickerInput"
                   onBlur={[Function]}
                   onChange={[Function]}
-                  onClick={[Function]}
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   onMouseUp={[Function]}
@@ -642,7 +639,7 @@ exports[`Date matches snapshot 1`] = `
           />
         </div>
         <label
-          className="FloatedLabel label-outside"
+          className="floatedLabel label-outside"
           data-qa="base-input-element-label"
           onClick={[Function]}
           style={

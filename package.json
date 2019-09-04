@@ -10,9 +10,9 @@
   "author": "Cohub",
   "license": "MIT",
   "scripts": {
+    "start": "NODE_ENV=development rollup -cw",
     "build": "NODE_ENV=production rollup -c",
     "build:stories": "NODE_ENV=storybook rollup -c",
-    "watch": "NODE_ENV=development rollup -cw",
     "watch:stories": "NODE_ENV=storybook rollup -cw",
     "storybook": "start-storybook -p 6007",
     "storybook:build": "yarn build:stories && build-storybook -c .storybook -o .storybook/stories-dist",

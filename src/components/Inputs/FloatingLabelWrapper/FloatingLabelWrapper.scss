@@ -71,9 +71,9 @@
   }
 
   &.GenericInput {
-    .inputWrapper {
-      $defaultBackground: var(--true-white);
+    $defaultBackground: var(--true-white);
 
+    .inputWrapper {
       position: relative;
       width: 100%;
       display: block;
@@ -112,8 +112,10 @@
 
     label {
       color: var(--grey-600);
+      background-color: $defaultBackground;
 
-      &.FloatedLabel {
+      &.floatedLabel {
+        top: 0;
         font-size: 12px;
         color: var(--grey-600);
         padding-left: 4px;
@@ -127,9 +129,9 @@
   }
 
   &.ContrastInput {
-    .inputWrapper {
-      $contrastBackground: var(--grey-300);
+    $contrastBackground: var(--grey-300);
 
+    .inputWrapper {
       position: relative;
 
       width: 100%;
@@ -148,8 +150,6 @@
     }
 
     .noLabelInputWrapper {
-      $contrastBackground: var(--grey-300);
-
       position: relative;
 
       width: 100%;
@@ -178,12 +178,12 @@
     }
 
     label {
-      background-color: transparent;
       color: var(--grey-800);
       top: 50%;
       transform: translateY(-50%);
+      background-color: $contrastBackground;
 
-      &.FloatedLabel {
+      &.floatedLabel {
         font-size: 12px;
         &.label-outside {
           top: -10px;
