@@ -11,12 +11,19 @@ interface IToggleProps {
   className?: string;
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
+  "data-qa"?: string;
 }
 
 export type TToggleProps = IToggleProps;
 
 export default function Toggle(props: TToggleProps) {
-  const { label, input = {}, labelPosition = "right", className = "" } = props;
+  const {
+    label,
+    input = {},
+    labelPosition = "right",
+    className = "",
+    "data-qa": dataQa = "toggle"
+  } = props;
 
   const checked = input.value === true || input.value === "true";
 
@@ -38,8 +45,14 @@ export default function Toggle(props: TToggleProps) {
       onBlur={input.onBlur as any}
       tabIndex={0}
       onKeyDown={keyDown}
+      data-qa={dataQa}
+      data-checked={checked}
     >
-      {label && <Typography color={Color.grey700}>{label}</Typography>}
+      {label && (
+        <label>
+          <Typography color={Color.grey700}>{label}</Typography>
+        </label>
+      )}
       <div
         className={checked ? styles.containerActive : styles.containerInactive}
       >

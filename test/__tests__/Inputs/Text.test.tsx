@@ -19,6 +19,8 @@ describe("Text Input", () => {
       <Inputs.Text data-qa="textInputId" />
     );
 
+    expect(getByTestId("textInputId")).toBeEmpty();
+
     userEvent.type(getByTestId("textInputId"), "Hello, World!");
 
     expect(getByTestId("textInputId")).toHaveValue("Hello, World!");
