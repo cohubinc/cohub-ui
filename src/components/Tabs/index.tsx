@@ -43,12 +43,12 @@ export default function Tabs(props: ITabsProps) {
     <React.Fragment>
       <div className="Tabs flex">
         {tabs.map(tab => {
-          const isTheActiveTab =
-            tab.props.active || tab.props.path === selectedTab.props.path;
+          const isTheActiveTab = tab.props.title === selectedTab.props.title;
 
           return React.cloneElement(tab, {
             useRedux,
-            showActiveStyles: !!isTheActiveTab
+            showActiveStyles: !!isTheActiveTab,
+            key: tab.props.title
           });
         })}
       </div>

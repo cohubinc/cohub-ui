@@ -5,15 +5,35 @@ import { useDispatch } from "react-redux";
 import NumberFormat from "react-number-format";
 
 export interface ITabProps {
+  /**
+   * Tab title
+   */
   title: string;
+  /**
+   * Weather or not the tab is active (selected)
+   */
   active?: boolean;
+  /**
+   * Url string used to determine weather or not the tab should be active
+   */
   path?: string;
+  /**
+   * Click handler
+   */
   onClick?: () => void;
+  /**
+   * The component that will be rendered when the tab is active
+   */
   component?: any;
+  /**
+   * Classes that gets applied to the container
+   */
   className?: string;
+  /**
+   * Weather or not to show the count
+   */
   showCount?: boolean;
   count?: number;
-  children?: ReactNode;
 }
 
 export interface IHiddenProps extends ITabProps {
@@ -30,7 +50,8 @@ function Tab(props: IHiddenProps) {
     count,
     onClick,
     useRedux = true,
-    showActiveStyles
+    showActiveStyles,
+    active
   } = props;
   const dispatch = useRedux ? useDispatch() : null;
 
