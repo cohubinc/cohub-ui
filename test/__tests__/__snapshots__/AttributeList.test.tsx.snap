@@ -22,7 +22,9 @@ exports[`renders without crashing 1`] = `
     <Typography>
       test
     </Typography>
-    <Typography>
+    <Typography
+      alignment="right"
+    >
       test
     </Typography>
   </div>

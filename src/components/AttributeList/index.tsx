@@ -46,7 +46,9 @@ export default function AttributeList({
       key={i.attribute}
     >
       <Typography>{i.attribute}</Typography>
-      <Typography>{formattedValue(i.value, i.format)}</Typography>
+      <Typography alignment="right">
+        {formattedValue(i.value, i.format)}
+      </Typography>
     </div>
   ));
 
