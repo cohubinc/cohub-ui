@@ -11,7 +11,10 @@ module.exports = {
     "^.+\\.(json)$"
   ],
   snapshotSerializers: ["enzyme-to-json/serializer"],
-  setupFilesAfterEnv: ["<rootDir>/test/setupEnzyme.ts"],
+  setupFilesAfterEnv: [
+    "<rootDir>/test/setupEnzyme.ts",
+    "@testing-library/jest-dom/extend-expect"
+  ],
   moduleFileExtensions: ["js", "ts", "tsx"],
   modulePaths: ["<rootDir>", "<rootDir>/dist/"],
   moduleDirectories: ["node_modules", "/dist"],
