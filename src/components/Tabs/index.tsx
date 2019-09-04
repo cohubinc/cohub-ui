@@ -24,7 +24,7 @@ export default function Tabs(props: ITabsProps) {
   const activeTab = children.find(child => child.props.active);
 
   const tabWithBestPathMatch = sortBy(children, ({ props: { path } }: TTab) =>
-    matchStrength(path || "", pathname)
+    matchStrength(pathname, path || "")
   ).pop()!;
 
   const renderedTab = activeTab ? activeTab : tabWithBestPathMatch;

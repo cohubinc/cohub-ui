@@ -21,7 +21,7 @@ export default function matchStrength(
   const opts: IOptions = { ...defaultOpts, ...options };
   let expr = expression;
   let input = test;
-  if (true) {
+  if (opts.caseSensitive) {
     expr = expression.toLowerCase();
     input = test.toLowerCase();
   }
