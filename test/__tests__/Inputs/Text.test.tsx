@@ -3,9 +3,6 @@ import { mount } from "enzyme";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Inputs } from "dist";
-import { configure } from "@testing-library/react";
-
-configure({ testIdAttribute: "data-qa" });
 
 describe("Text Input", () => {
   it("renders without crashing", async () => {
@@ -15,14 +12,14 @@ describe("Text Input", () => {
   });
 
   it("receives text", () => {
-    const { getByText, getByTestId, container, asFragment } = render(
-      <Inputs.Text data-qa="textInputId" />
+    const { getByLabelText } = render(
+      <Inputs.Text data-qa="textInputId" label="Text Label" id="a" />
     );
 
-    expect(getByTestId("textInputId")).toBeEmpty();
+    expect(getByLabelText("Text Label")).toBeEmpty();
 
-    userEvent.type(getByTestId("textInputId"), "Hello, World!");
+    userEvent.type(getByLabelText("Text Label"), "Hello, World!");
 
-    expect(getByTestId("textInputId")).toHaveValue("Hello, World!");
+    expect(getByLabelText("Text Label")).toHaveValue("Hello, World!");
   });
 });

@@ -53,6 +53,7 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
   render() {
     const {
       style,
+      id,
       className,
       appearance,
       label,
@@ -71,6 +72,7 @@ export default class Base extends React.PureComponent<TBaseInputProps, IState> {
     return (
       <FloatingLabelWrapper
         data-qa-label={this.props["data-qa-label"]}
+        htmlFor={id}
         {...{
           style,
           className,
