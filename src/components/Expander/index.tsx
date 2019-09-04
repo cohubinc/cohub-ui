@@ -1,10 +1,11 @@
 import React, { useState, ReactNode } from "react";
 import AnimateHeight from "react-animate-height";
+import { Typography } from "src";
 
 export interface IExpanderProps {
   children: ReactNode;
   duration?: number;
-  expandElement: ReactNode;
+  expandElement?: ReactNode;
   collapseElement?: ReactNode;
   expandElementPosition?: "above" | "below";
   labelPosition?: "left" | "center" | "right";
@@ -13,8 +14,8 @@ export interface IExpanderProps {
 export default function Expander({
   children,
   duration = 250,
-  expandElement,
-  collapseElement,
+  expandElement = <Typography muted>More</Typography>,
+  collapseElement = <Typography muted>Less</Typography>,
   expandElementPosition = "above",
   labelPosition = "left"
 }: IExpanderProps) {
