@@ -13,7 +13,7 @@ describe("Text Input", () => {
 
   it("receives text", () => {
     const { getByLabelText } = render(
-      <Inputs.Text data-qa="textInputId" label="Text Label" id="a" />
+      <Inputs.Text data-qa="textInputId" label="Text Label" id="text_input" />
     );
 
     expect(getByLabelText("Text Label")).toBeEmpty();

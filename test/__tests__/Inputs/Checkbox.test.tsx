@@ -12,7 +12,7 @@ describe("CheckBox Input", () => {
         label="checkBox"
         input={{ value: true } as any}
         meta={{}}
-        id="1"
+        id="checkbox_input"
       />
     );
 
@@ -25,7 +25,7 @@ describe("CheckBox Input", () => {
         label="checkBox"
         input={{ value: false } as any}
         meta={{}}
-        id="1"
+        id="checkbox_input"
       />
     );
 
@@ -39,7 +39,7 @@ describe("CheckBox Input", () => {
           <Inputs.Checkbox
             label="Checkbox Input"
             key="selected"
-            id="1"
+            id="checkbox_input"
             input={{
               name: "selected",
               value: state,
