@@ -5,17 +5,19 @@ import Icon from "src/components/Icon";
 import Color from "src/definitions/enums/Color";
 
 import "./Checkbox.scss";
+import guid from "src/helpers/guid";
 
 type FieldProps = FieldRenderProps<boolean | string, HTMLInputElement>;
 interface ICheckboxProps {
   label: string;
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
+  id?: string;
 }
 
 export type TCheckboxProps = ICheckboxProps;
 
-export default function({ label, input = {} }: TCheckboxProps) {
+export default function({ label, input = {}, id = guid() }: TCheckboxProps) {
   const checked =
     (input.value && input.value === true) || input.value === "true";
 
@@ -37,10 +39,12 @@ export default function({ label, input = {} }: TCheckboxProps) {
         tabIndex={0}
         onKeyDown={keyDown}
         onClick={toggle}
+        id={id}
+        data-checked={checked}
       >
         {checked && <Icon.Checkmark color={Color.primary} size={16} />}
       </div>
-      <label>{label}</label>
+      <label htmlFor={id}>{label}</label>
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 exports[`CheckBox Input renders checked without crashing 1`] = `
 <Checkbox
+  id="1"
   input={
     Object {
       "value": true,
@@ -15,6 +16,8 @@ exports[`CheckBox Input renders checked without crashing 1`] = `
   >
     <div
       className="CheckboxField mr-05"
+      data-checked={true}
+      id="1"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="checkbox"
@@ -72,7 +75,9 @@ exports[`CheckBox Input renders checked without crashing 1`] = `
         </DefaultIcon>
       </Component>
     </div>
-    <label>
+    <label
+      htmlFor="1"
+    >
       checkBox
     </label>
   </div>
@@ -81,6 +86,7 @@ exports[`CheckBox Input renders checked without crashing 1`] = `
 
 exports[`CheckBox Input renders un-checked without crashing 1`] = `
 <Checkbox
+  id="1"
   input={
     Object {
       "value": false,
@@ -94,12 +100,16 @@ exports[`CheckBox Input renders un-checked without crashing 1`] = `
   >
     <div
       className="CheckboxField mr-05"
+      data-checked={false}
+      id="1"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="checkbox"
       tabIndex={0}
     />
-    <label>
+    <label
+      htmlFor="1"
+    >
       checkBox
     </label>
   </div>
