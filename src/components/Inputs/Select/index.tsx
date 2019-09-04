@@ -135,11 +135,9 @@ export default function Select({
             }
           }}
           onBlur={e => {
-            console.log("ON BLUR FIRE", onBlur);
             onBlur && onBlur(e);
           }}
           onFocus={e => {
-            console.log("ON FOCUS FIRE", onFocus);
             onFocus && onFocus(e);
           }}
           {...componentProps}
