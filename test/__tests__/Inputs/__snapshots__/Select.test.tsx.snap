@@ -48,7 +48,6 @@ exports[`Select Input renders checked without crashing 1`] = `
       className="FloatingLabelWrapper GenericInput SelectField"
       style={
         Object {
-          "color": "hsl(0, 2%, 12%)",
           "cursor": "text",
           "position": "relative",
         }
@@ -1729,10 +1728,9 @@ exports[`Select Input renders checked without crashing 1`] = `
         onClick={[Function]}
         style={
           Object {
-            "backgroundColor": undefined,
+            "backgroundColor": "hsl(0, 0%, 100%)",
             "color": "hsl(356, 3%, 59%)",
             "cursor": "text",
-            "width": undefined,
           }
         }
       >

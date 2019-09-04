@@ -111,8 +111,8 @@
     }
 
     label {
-      color: var(--grey-600);
       background-color: $defaultBackground;
+      color: var(--grey-600);
 
       &.floatedLabel {
         top: 0;
@@ -120,6 +120,7 @@
         color: var(--grey-600);
         padding-left: 4px;
         padding-right: 4px;
+        padding-top: 1px;
 
         &.label-intersect {
           top: 0;
@@ -181,7 +182,6 @@
       color: var(--grey-800);
       top: 50%;
       transform: translateY(-50%);
-      background-color: $contrastBackground;
 
       &.floatedLabel {
         font-size: 12px;

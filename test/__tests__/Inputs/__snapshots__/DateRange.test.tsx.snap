@@ -51,7 +51,6 @@ exports[`DateRange matches snapshot 1`] = `
         className="FloatingLabelWrapper ContrastInput "
         style={
           Object {
-            "color": "hsl(0, 2%, 12%)",
             "cursor": "text",
             "position": "relative",
           }
@@ -1323,10 +1322,9 @@ exports[`DateRange matches snapshot 1`] = `
           onClick={[Function]}
           style={
             Object {
-              "backgroundColor": undefined,
+              "backgroundColor": "transparent",
               "color": "hsl(356, 3%, 59%)",
               "cursor": "text",
-              "width": undefined,
             }
           }
         >

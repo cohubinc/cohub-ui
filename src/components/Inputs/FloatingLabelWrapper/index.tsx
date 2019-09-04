@@ -69,8 +69,7 @@ export interface IFloatingLabelIconProps {
 type TFloatingLabelWrapperProps<T> = IFloatingLabelWrapperProps<T> &
   Pick<TInputElementProps, "onBlur" | "onFocus" | "onClick" | "style">;
 
-const defaultStyle: CSSProperties = {
-  color: Color.black as any,
+const baseStyle: CSSProperties = {
   cursor: "text"
 };
 
@@ -81,7 +80,7 @@ export default function FloatingLabelWrapper<T = any>(
     className = "",
     appearance,
     onClick,
-    style = defaultStyle,
+    style,
     floatLabel,
     labelPosition = "outside",
     onFocus,
@@ -99,21 +98,27 @@ export default function FloatingLabelWrapper<T = any>(
 
   const [hasFocus, setHasFocus] = useState(false);
 
-  const { cursor, textAlign } = style;
+  const combinedStyles = { ...baseStyle, ...style };
+
+  const { cursor, textAlign } = combinedStyles;
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   let labelTextColor = Color.grey700;
   let inputClassName = "GenericInput";
-
+  let labelBackground = Color.trueWhite;
+  let color: any = Color.black;
   switch (appearance) {
     case "contrast":
       labelTextColor = Color.grey700;
+      labelBackground = "transparent" as any;
       inputClassName = "ContrastInput";
       break;
     case "inverted":
       labelTextColor = Color.trueWhite;
+      labelBackground = Color.darkBlack;
       inputClassName = "GenericInput inverted";
+      color = Color.trueWhite;
   }
 
   const isValidString = value && typeof value === "string" && !!value.length;
@@ -142,11 +147,9 @@ export default function FloatingLabelWrapper<T = any>(
       setHasFocus(false);
     },
     style: {
-      ...defaultStyle,
-      ...{
-        cursor,
-        textAlign
-      }
+      color,
+      cursor,
+      textAlign
     },
     // So the label is associated with the input. Mostly for easier testing
     id: htmlFor,
@@ -168,14 +171,30 @@ export default function FloatingLabelWrapper<T = any>(
         return "label-outside";
     }
   };
+  let labelStyle = {
+    backgroundColor: labelBackground as any,
+    color: labelTextColor as any,
+    cursor
+  };
+
+  console.log({ error, labelBackground });
+  if (error) {
+    const errColor = Color.red100;
+
+    if (appearance === "inverted") {
+      labelStyle.color = Color.red400;
+    } else {
+      labelStyle.backgroundColor = errColor;
+      labelStyle.color = ContrastColor[errColor];
+    }
+  }
 
   return (
     <div
       className={`FloatingLabelWrapper ${inputClassName} ${className}`}
       style={{
         position: "relative",
-        ...defaultStyle,
-        ...style
+        ...combinedStyles
       }}
     >
       <div
@@ -236,14 +255,7 @@ export default function FloatingLabelWrapper<T = any>(
           className={`${
             labelFloated ? "floatedLabel" : ""
           } ${labelPositionClass()}`}
-          style={{
-            backgroundColor: error ? (Color.red100 as any) : undefined,
-            color: error
-              ? ContrastColor[Color.red100]
-              : (labelTextColor as any),
-            cursor,
-            width: labelFloated ? undefined : "80%"
-          }}
+          style={labelStyle}
           onClick={(e: any) => {
             onClick && onClick(e);
             inputRef.current && inputRef.current.focus();

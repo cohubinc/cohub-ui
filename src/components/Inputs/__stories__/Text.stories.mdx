@@ -8,24 +8,79 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
 <StoryHelpers.Margin />
 
+<!-- case "outside":
+        return "label-outside";
+      case "inside":
+        return "label-inside";
+      case "intersect": -->
+
 <Story name="Text">
-  <StoryHelpers.StateCtrl label="Error State">
-    {({ state: error }) => (
-      <StoryHelpers.StateContainer defaultState="">
-        {({ state, setState }) => (
-          <Inputs.Text
-            label="Text Input"
-            input={{
-              value: state,
-              onChange: ({ target }) => setState(target.value)
-            }}
-            meta={{ touched: true, error }}
-            style={{ width: 300 }}
-          />
-        )}
-      </StoryHelpers.StateContainer>
-    )}
-  </StoryHelpers.StateCtrl>
+  <div>
+    <StoryHelpers.StateCtrl label="Error State">
+      {({ state: error }) => (
+        <StoryHelpers.StateContainer defaultState="">
+          {({ state, setState }) => (
+            <div>
+              <StoryHelpers.Text>Plain input</StoryHelpers.Text>
+              <Inputs.Text
+                label="Text Input"
+                input={{
+                  value: state,
+                  onChange: ({ target }) => setState(target.value)
+                }}
+                meta={{ touched: true, error }}
+                style={{ width: 300 }}
+              />
+            </div>
+          )}
+        </StoryHelpers.StateContainer>
+      )}
+    </StoryHelpers.StateCtrl>
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateCtrl label="Error State">
+      {({ state: error }) => (
+        <StoryHelpers.StateContainer defaultState="">
+          {({ state, setState }) => (
+            <div>
+              <StoryHelpers.Text>Contrast Input</StoryHelpers.Text>
+              <Inputs.Text
+                label="Contrast Text Input"
+                appearance="contrast"
+                input={{
+                  value: state,
+                  onChange: ({ target }) => setState(target.value)
+                }}
+                meta={{ touched: true, error }}
+                style={{ width: 300 }}
+              />
+            </div>
+          )}
+        </StoryHelpers.StateContainer>
+      )}
+    </StoryHelpers.StateCtrl>
+    <StoryHelpers.Margin />
+    <StoryHelpers.StateCtrl label="Error State">
+      {({ state: error }) => (
+        <StoryHelpers.StateContainer defaultState="">
+          {({ state, setState }) => (
+            <div>
+              <StoryHelpers.Text>Inverted Input</StoryHelpers.Text>
+              <Inputs.Text
+                label="Inverted Text Input"
+                appearance="inverted"
+                input={{
+                  value: state,
+                  onChange: ({ target }) => setState(target.value)
+                }}
+                meta={{ touched: true, error }}
+                style={{ width: 300 }}
+              />
+            </div>
+          )}
+        </StoryHelpers.StateContainer>
+      )}
+    </StoryHelpers.StateCtrl>
+  </div>
 </Story>
 
 ## Usage
