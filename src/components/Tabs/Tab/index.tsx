@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ReactElement, ElementType } from "react";
 import style from "./Tab.module.scss";
 import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
@@ -14,10 +14,14 @@ export interface ITabProps {
   showCount?: boolean;
   count?: number;
   children?: ReactNode;
+}
+
+export interface IHiddenProps extends ITabProps {
+  showActiveStyles: boolean;
   useRedux?: boolean;
 }
 
-function Tab(props: ITabProps) {
+function Tab(props: IHiddenProps) {
   const {
     title,
     path,
@@ -26,15 +30,16 @@ function Tab(props: ITabProps) {
     showCount,
     count,
     onClick,
-    useRedux = true
+    useRedux = true,
+    showActiveStyles
   } = props;
-  const isActive = active || window.location.pathname === path;
-
   const dispatch = useRedux ? useDispatch() : null;
 
   return (
     <div
-      className={`${style.Tab} ${isActive && style.TabActive} ${className}`}
+      className={`${style.Tab} ${
+        showActiveStyles ? style.TabActive : ""
+      } ${className}`}
       onClick={() => {
         onClick && onClick();
         if (!path || !useRedux) return;
@@ -59,4 +64,4 @@ function Tab(props: ITabProps) {
   );
 }
 
-export default Tab;
+export default Tab as ElementType<ITabProps>;
