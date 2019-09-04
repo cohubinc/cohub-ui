@@ -6,9 +6,11 @@ import Tab, { ITabProps, IHiddenProps } from "./Tab";
 
 import "./Tabs.scss";
 
+type TChild<T = ITabProps> = ReactElement<T>;
+
 type TTab = ReactElement<ITabProps>;
 export interface ITabsProps {
-  children: Array<ReactElement<ITabProps>>;
+  children: Array<TChild | null | false>;
   /**
    * If using this component in an app that doesnt use connected-react-router
    * this must be set to false
@@ -21,20 +23,28 @@ export default function Tabs(props: ITabsProps) {
   const { children, useRedux = true } = props;
   const pathname = window.location.pathname;
 
-  const activeTab = children.find(child => child.props.active);
+  type TKid = TChild<IHiddenProps>;
 
-  const tabWithBestPathMatch = sortBy(children, ({ props: { path } }: TTab) =>
+  // Remove any falsey tabs
+  const tabs = children.filter(Boolean) as TKid[];
+
+  // Find any tabs where the active prop is set to true
+  const activeTab = tabs.find(child => child && child.props.active);
+
+  // Find the tab with the strongest path match
+  const tabWithBestPathMatch = sortBy(tabs, ({ props: { path } }: TTab) =>
     matchStrength(pathname, path || "")
-  ).pop()!;
+  ).pop()! as TKid;
 
-  const renderedTab = activeTab ? activeTab : tabWithBestPathMatch;
+  // Get the selected tab
+  const selectedTab: TKid = activeTab ? activeTab : tabWithBestPathMatch;
 
   return (
     <React.Fragment>
       <div className="Tabs flex">
-        {Children.map(children as any, (tab: ReactElement<IHiddenProps>) => {
+        {tabs.map(tab => {
           const isTheActiveTab =
-            tab.props.active || tab.props.path === renderedTab.props.path;
+            tab.props.active || tab.props.path === selectedTab.props.path;
 
           return React.cloneElement(tab, {
             useRedux,
@@ -43,7 +53,7 @@ export default function Tabs(props: ITabsProps) {
         })}
       </div>
 
-      <div className="Tabs-Content">{renderedTab.props.component}</div>
+      <div className="Tabs-Content">{selectedTab.props.component}</div>
     </React.Fragment>
   );
 }

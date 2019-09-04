@@ -25,7 +25,6 @@ function Tab(props: IHiddenProps) {
   const {
     title,
     path,
-    active,
     className,
     showCount,
     count,
