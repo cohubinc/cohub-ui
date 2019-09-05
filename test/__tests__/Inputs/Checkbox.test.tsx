@@ -1,7 +1,9 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import { Inputs } from "dist";
+import { Inputs, StoryHelpers } from "dist";
+import { fireEvent } from "@testing-library/dom";
+import { render } from "@testing-library/react";
 
 describe("CheckBox Input", () => {
   it("renders checked without crashing", async () => {
@@ -10,6 +12,7 @@ describe("CheckBox Input", () => {
         label="checkBox"
         input={{ value: true } as any}
         meta={{}}
+        id="checkbox_input"
       />
     );
 
@@ -22,9 +25,41 @@ describe("CheckBox Input", () => {
         label="checkBox"
         input={{ value: false } as any}
         meta={{}}
+        id="checkbox_input"
       />
     );
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("toggles on click", () => {
+    const { getByLabelText } = render(
+      <StoryHelpers.StateContainer defaultState="">
+        {({ state, setState }) => (
+          <Inputs.Checkbox
+            label="Checkbox Input"
+            key="selected"
+            id="checkbox_input"
+            input={{
+              name: "selected",
+              value: state,
+              onChange: () => setState(!state)
+            }}
+          />
+        )}
+      </StoryHelpers.StateContainer>
+    );
+
+    expect(getByLabelText("Checkbox Input")).toHaveAttribute(
+      "data-checked",
+      "false"
+    );
+
+    fireEvent.click(getByLabelText("Checkbox Input"));
+
+    expect(getByLabelText("Checkbox Input")).toHaveAttribute(
+      "data-checked",
+      "true"
+    );
   });
 });
