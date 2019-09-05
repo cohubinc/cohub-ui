@@ -1,4 +1,4 @@
-import React, { Children, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import sortBy from "lodash/sortBy";
 import matchStrength from "./match-strength";
 

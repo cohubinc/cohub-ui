@@ -21,7 +21,6 @@ exports[`Money renders Money without crashing 1`] = `
         className="FloatingLabelWrapper GenericInput "
         style={
           Object {
-            "color": "hsl(0, 2%, 12%)",
             "cursor": "text",
             "position": "relative",
           }

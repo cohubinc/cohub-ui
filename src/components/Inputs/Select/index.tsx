@@ -6,6 +6,10 @@ import { FieldRenderProps } from "react-final-form";
 
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
+import DropdownIndicator, {
+  indicatorsContainer
+} from "src/components/Inputs/SelectDropdownIndicator";
+
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 
 import "./Select.scss";
@@ -30,20 +34,24 @@ interface ISelectProps {
   style?: CSSProperties;
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
+  required?: boolean;
 }
 
 export type TSelectProps = ISelectProps;
 
-export default function Select({
-  options = [],
-  input = {},
-  label,
-  loading,
-  appearance,
-  clearable = false,
-  style,
-  meta
-}: TSelectProps) {
+export default function Select(props: TSelectProps) {
+  const {
+    options = [],
+    input = {},
+    label,
+    loading,
+    appearance,
+    clearable = false,
+    style,
+    meta,
+    required
+  } = props;
+
   let value = options.filter(o => input.value === o.value);
 
   const { touched, error } = meta || ({} as any);
@@ -99,7 +107,8 @@ export default function Select({
       } as any),
     dropdownIndicator: () => styles.dropdownIndicator,
     indicatorSeparator: () => styles.indicatorSeparator,
-    singleValue: styling => ({ ...styling, ...styles.singleValue })
+    singleValue: styling => ({ ...styling, ...styles.singleValue }),
+    indicatorsContainer
   };
 
   return (
@@ -107,28 +116,28 @@ export default function Select({
       className="SelectField"
       onBlur={input.onBlur}
       onFocus={input.onFocus}
-      label={label}
-      value={value}
-      appearance={appearance}
-      error={showError}
-      style={style}
+      {...{ label, value, appearance, style, required }}
     >
       {({
         componentProps: { onChange: _, onBlur, onFocus, ...componentProps }
       }) => (
         <SelectField
+          components={{
+            DropdownIndicator
+          }}
           classNamePrefix="react-select"
           options={options}
           isClearable={clearable}
           isLoading={loading}
           styles={selectStyles}
+          placeholder=""
           onChange={(arg1: any, { action }: any) => {
             const { onChange } = input;
             if (!onChange) return;
 
             switch (action) {
               case "select-option":
-                onChange(arg1.value);
+                onChange(arg1!.value);
                 break;
               case "clear":
                 onChange(null);
