@@ -25,6 +25,7 @@ export default function DatePickerBase({
       error={rangeError || error}
       {...restProps}
       value={value}
+      htmlFor="date-picker-input"
     >
       {({
         componentProps: { onChange: _, value: _val, ...cmptProps },

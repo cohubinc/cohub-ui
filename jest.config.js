@@ -11,7 +11,7 @@ module.exports = {
     "^.+\\.(json)$"
   ],
   snapshotSerializers: ["enzyme-to-json/serializer"],
-  setupFilesAfterEnv: ["<rootDir>/test/setupEnzyme.ts"],
+  setupFilesAfterEnv: ["<rootDir>/test/setupTestEnv.ts"],
   moduleFileExtensions: ["js", "ts", "tsx"],
   modulePaths: ["<rootDir>", "<rootDir>/dist/"],
   moduleDirectories: ["node_modules", "/dist"],

@@ -50,6 +50,7 @@ export interface IProps {
   inputStyle?: CSSProperties;
   rangeError?: boolean;
   ["data-testid"]?: string;
+  id?: string;
 }
 
 export default function LowLevelDatePicker(props: IProps) {

@@ -28,7 +28,8 @@ export default function DateRangeBase({
   onChange,
   appearance,
   error,
-  ...restProps
+  className,
+  style
 }: IProps) {
   const [startDateHasValue, setStartDateHasValue] = useState(false);
   const [endDateHasValue, setEndDateHasValue] = useState(false);
@@ -43,9 +44,8 @@ export default function DateRangeBase({
     <FloatingLabelWrapper
       floatLabel={startDateHasValue || endDateHasValue}
       error={error || startDateRangeError || endDateRangeError}
-      appearance={appearance}
-      value={value}
-      {...restProps}
+      {...{ className, style, appearance, value }}
+      htmlFor="date-range-picker"
     >
       {({
         componentProps: { onChange: _, value: _val, ...cmptProps },

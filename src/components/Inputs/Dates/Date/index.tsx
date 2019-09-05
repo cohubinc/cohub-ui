@@ -5,14 +5,24 @@ import DatePickerBase, {
   IProps as DatePickerBaseProps
 } from "../DatePickerBase";
 
-export type TDateInputProps = FieldRenderProps<string, HTMLInputElement> &
-  Omit<DatePickerBaseProps, "value" | "onChange" | "onFocus" | "onBlur">;
-const Date = ({
-  input,
-  meta: { touched, error },
-  ...rest
-}: TDateInputProps) => (
-  <DatePickerBase {...input} {...rest} error={touched && !!error} />
-);
+type FieldProps = FieldRenderProps<string, HTMLInputElement>;
+type PartialInput = Partial<Omit<FieldProps["input"], "onChange">>;
+interface IInput extends PartialInput {
+  onChange: DatePickerBaseProps["onChange"];
+}
+type DatePickerProps = Omit<
+  DatePickerBaseProps,
+  "value" | "onFocus" | "onBlur" | "onChange"
+>;
+interface IProps extends DatePickerProps {
+  input: IInput;
+  meta?: FieldProps["meta"];
+}
 
-export default Date;
+export type TDateInputProps = IProps;
+
+export default function Date({ input, meta = {}, ...rest }: TDateInputProps) {
+  const { touched, error } = meta;
+
+  return <DatePickerBase {...input} {...rest} error={touched && !!error} />;
+}
