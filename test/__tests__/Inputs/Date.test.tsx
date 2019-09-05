@@ -1,35 +1,35 @@
 import React from "react";
 import { fireEvent, waitForElement } from "@testing-library/react";
+import { generateImage } from "jsdom-screenshot";
 
 import { render } from "../../cohub-testing-library";
 import { sleep } from "../utils";
 
-import { Inputs } from "dist";
-
-import { mount } from "enzyme";
+import { Inputs, size, CssFramework } from "dist";
 
 describe("Date", () => {
-  // it("matches snapshot", async () => {
-  //   const wrapper = mount(
-  //     <Inputs.Date
-  //       label="Date"
-  //       appearance="contrast"
-  //       input={{
-  //         name: "nunyah",
-  //         value: "1984-09-09",
-  //         onChange: () => null,
-  //         onFocus: () => null,
-  //         onBlur: () => null
-  //       }}
-  //       meta={{}}
-  //     />
-  //   );
+  it("matches snapshot", async () => {
+    render(
+      <div style={size(800)} className="flex items-center justify-center p-3">
+        <CssFramework />
+        <div className="bd flex justify-center items center" style={size(200)}>
+          <Inputs.Date
+            label="Date"
+            appearance="contrast"
+            input={{
+              name: "nunyah",
+              value: "1984-09-09",
+              onChange: () => null,
+              onFocus: () => null,
+              onBlur: () => null
+            }}
+          />
+        </div>
+      </div>
+    );
 
-  //   expect(wrapper).toMatchSnapshot();
-  // });
-
-  // Don't think we need these test b/c they're pretty much duplicates from the DatePickerBase test, but they're here if that proves to be wrong //
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    expect(await generateImage()).toMatchImageSnapshot();
+  });
 
   it("Shows a properly formated date on init when at ISO 8601 formated datetime value is passed in", () => {
     const { getByLabelText } = render(
