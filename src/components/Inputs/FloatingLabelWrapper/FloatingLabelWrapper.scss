@@ -179,6 +179,7 @@
     }
 
     label {
+      background-color: $contrastBackground;
       color: var(--grey-800);
       top: 50%;
       transform: translateY(-50%);

@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import NumberFormat from "react-number-format";
 
 export interface IFormatMoneyProps {

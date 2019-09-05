@@ -8,12 +8,6 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
 <StoryHelpers.Margin />
 
-<!-- case "outside":
-        return "label-outside";
-      case "inside":
-        return "label-inside";
-      case "intersect": -->
-
 <Story name="Text">
   <div>
     <StoryHelpers.StateCtrl label="Error State">
@@ -30,6 +24,7 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
                 }}
                 meta={{ touched: true, error }}
                 style={{ width: 300 }}
+                required
               />
             </div>
           )}
@@ -52,6 +47,8 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
                 }}
                 meta={{ touched: true, error }}
                 style={{ width: 300 }}
+                className="mt-1"
+                required
               />
             </div>
           )}
@@ -74,6 +71,7 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
                 }}
                 meta={{ touched: true, error }}
                 style={{ width: 300 }}
+                required
               />
             </div>
           )}
@@ -94,6 +92,7 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
   }}
   meta={{ touched: true, error }}
   style={{ width: 300 }}
+  required
 />
 ```
 

@@ -7,6 +7,9 @@ import { StylesConfig } from "react-select/src/styles";
 import { uniqBy } from "lodash";
 import { FieldRenderProps } from "react-final-form";
 
+import DropdownIndicator, {
+  indicatorsContainer
+} from "src/components/Inputs/SelectDropdownIndicator";
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
@@ -18,7 +21,7 @@ interface IOption {
   value: string;
 }
 
-type FieldProps = FieldRenderProps<Array<IOption["value"]>, HTMLElement>;
+type FieldProps = FieldRenderProps<string[], HTMLElement>;
 type Input = FieldProps["input"];
 
 interface IProps {
@@ -32,6 +35,7 @@ interface IProps {
   input?: Partial<Input>;
   meta?: FieldProps["meta"];
   disabled?: boolean;
+  required?: boolean;
 }
 
 export type TMultiSelectProps = IProps;
@@ -46,25 +50,26 @@ export default function MultiSelect({
   clearable = false,
   style,
   meta,
-  disabled
+  disabled,
+  required
 }: TMultiSelectProps) {
   const { touched, error } = meta || ({} as any);
 
   const showError = !!(touched && error);
 
-  const { value: values = [], onChange } = input;
+  const { value: inputValues = [], onChange } = input;
 
-  let value = options.filter(o => values.includes(o.value));
+  let value = options.filter(o => inputValues.includes(o.value));
 
-  if (allowCreate && value.length) {
-    const inputValues: IOption[] = values.map((v: string) => {
+  if (allowCreate && inputValues) {
+    const createdOptions = inputValues.map((v: string) => {
       return {
         value: v,
         label: v
       } as IOption;
     });
 
-    value = [...inputValues, ...value];
+    value = [...createdOptions, ...value];
     value = uniqBy(value, "value");
   }
 
@@ -103,26 +108,28 @@ export default function MultiSelect({
           onChange(selectedOption.map(opt => opt.value) as any);
         }
       }}
-      label={label}
-      value={value}
-      appearance={appearance}
+      {...{ value, label, appearance, style, required }}
       error={showError}
-      style={style}
     >
       {({ componentProps }) => {
+        const props = {
+          ...selectConfig,
+          ...componentProps,
+          components: { DropdownIndicator }
+        };
+
         if (allowCreate) {
           return (
             <Creatable
-              {...selectConfig}
-              {...componentProps}
+              noOptionsMessage={() => "Type to add an option"}
+              formatCreateLabel={val => `Press Enter to add "${val}"`}
               isDisabled={disabled}
+              {...props}
             />
           );
         }
 
-        return (
-          <Select {...selectConfig} {...componentProps} isDisabled={disabled} />
-        );
+        return <Select isDisabled={disabled} {...props} />;
       }}
     </FloatingLabelWrapper>
   );
@@ -200,6 +207,7 @@ const getSelectStyles = (controlStyles: CSSProperties): StylesConfig => {
         borderBottomRightRadius: "11px"
       }
     }),
-    clearIndicator: style => ({ ...style, ...styles.clearIndicator })
+    clearIndicator: style => ({ ...style, ...styles.clearIndicator }),
+    indicatorsContainer
   };
 };

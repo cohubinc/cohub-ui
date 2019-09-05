@@ -11,7 +11,9 @@ import IRenderProps from "./IRenderProps";
 
 import "./FloatingLabelWrapper.scss";
 
-export interface IFloatingLabelWrapperProps<T = any> {
+type TValue = string | number | undefined | any[] | { [key: string]: string };
+
+export interface IFloatingLabelWrapperProps<T = TValue> {
   onChange?: (...args: any[]) => void;
 
   value?: T;
@@ -73,7 +75,7 @@ const baseStyle: CSSProperties = {
   cursor: "text"
 };
 
-export default function FloatingLabelWrapper<T = any>(
+export default function FloatingLabelWrapper<T = TValue>(
   props: TFloatingLabelWrapperProps<T | undefined>
 ) {
   const {
@@ -104,23 +106,6 @@ export default function FloatingLabelWrapper<T = any>(
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  let labelTextColor = Color.grey700;
-  let inputClassName = "GenericInput";
-  let labelBackground = Color.trueWhite;
-  let color: any = Color.black;
-  switch (appearance) {
-    case "contrast":
-      labelTextColor = Color.grey700;
-      labelBackground = "transparent" as any;
-      inputClassName = "ContrastInput";
-      break;
-    case "inverted":
-      labelTextColor = Color.trueWhite;
-      labelBackground = Color.darkBlack;
-      inputClassName = "GenericInput inverted";
-      color = Color.trueWhite;
-  }
-
   const isValidString = value && typeof value === "string" && !!value.length;
   const isValidNumber = value && typeof value === "number";
   const isValidObject = value && !isEmpty(value);
@@ -136,6 +121,23 @@ export default function FloatingLabelWrapper<T = any>(
   const setInputRef = (element: HTMLInputElement) => {
     (inputRef.current as any) = element;
   };
+
+  let labelTextColor = Color.grey700;
+  let inputClassName = "GenericInput";
+  let labelBackground = Color.trueWhite;
+  let color: any = Color.black;
+  switch (appearance) {
+    case "contrast":
+      labelTextColor = Color.grey700;
+      labelBackground = labelFloated ? "transparent" : (Color.grey300 as any);
+      inputClassName = "ContrastInput";
+      break;
+    case "inverted":
+      labelTextColor = Color.trueWhite;
+      labelBackground = Color.darkBlack;
+      inputClassName = "GenericInput inverted";
+      color = Color.trueWhite;
+  }
 
   const componentProps: IComponentProps<typeof value | undefined> = {
     onFocus: (e: any) => {
@@ -177,7 +179,6 @@ export default function FloatingLabelWrapper<T = any>(
     cursor
   };
 
-  console.log({ error, labelBackground });
   if (error) {
     const errColor = Color.red100;
 
@@ -187,7 +188,13 @@ export default function FloatingLabelWrapper<T = any>(
       labelStyle.backgroundColor = errColor;
       labelStyle.color = ContrastColor[errColor];
     }
+
+    if (appearance === "contrast" && labelFloated) {
+      labelStyle.backgroundColor = "transparent";
+    }
   }
+
+  const hasTruthyValue = isValueTruthy(value);
 
   return (
     <div
@@ -207,7 +214,7 @@ export default function FloatingLabelWrapper<T = any>(
           setInputRef
         })}
         <span className={`bar ${hasFocus ? "focused" : ""}`} />
-        {!error && !value && required && (
+        {!error && !hasTruthyValue && required && (
           <Icon.Asterisk
             size={12}
             color={Color.red300}
@@ -268,4 +275,19 @@ export default function FloatingLabelWrapper<T = any>(
       )}
     </div>
   );
+}
+
+function isValueTruthy<T = TValue>(value: T) {
+  if (value === undefined) return false;
+
+  switch (typeof value) {
+    case "string":
+      return !!value;
+    case "number":
+      // If we made it here value is truthy. Any number is valid, even zero
+      return true;
+    default:
+      // It must either be an Array or an object literal at this point
+      return !isEmpty(value);
+  }
 }
