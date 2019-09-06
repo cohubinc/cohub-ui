@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ScrollIntoView renders 1`] = `
-<ScrollIntoView
-  className=""
-  scroll={true}
-  scrollOpts={Object {}}
->
+<ScrollIntoView>
   <div
     className=" w-100"
   />

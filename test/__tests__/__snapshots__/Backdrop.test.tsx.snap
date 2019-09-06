@@ -2,11 +2,8 @@
 
 exports[`Backdrop component renders 1`] = `
 <Backdrop
-  containerClass=""
   focusTrapped={false}
-  onClose={[Function]}
   open={true}
-  showCloseIcon={false}
 >
   <Modal
     animationDuration={500}

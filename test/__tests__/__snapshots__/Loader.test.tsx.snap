@@ -5,11 +5,8 @@ exports[`Loader renders fullscreen version 1`] = `
   fullScreen={true}
 >
   <Backdrop
-    containerClass=""
     focusTrapped={false}
-    onClose={[Function]}
     open={true}
-    showCloseIcon={false}
   >
     <Modal
       animationDuration={500}

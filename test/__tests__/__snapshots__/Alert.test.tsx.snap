@@ -3,9 +3,6 @@
 exports[`matches snapshot 1`] = `
 <Alert>
   <ScrollIntoView
-    className=""
-    scroll={true}
-    scrollOpts={Object {}}
     traceProp=" Some Alert "
   >
     <div
