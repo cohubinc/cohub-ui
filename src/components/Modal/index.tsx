@@ -69,6 +69,7 @@ export default function Modal(props: IModalProps) {
         className={`modalBody ${className}`}
         elevation={24}
         style={{ width: `${modalSize}px` }}
+        hidden={!rest.open}
       >
         {title && (
           <React.Fragment>

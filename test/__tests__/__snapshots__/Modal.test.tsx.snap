@@ -177,6 +177,7 @@ exports[`Modal component renders 1`] = `
                       bordered={false}
                       className="modalBody undefined"
                       elevation={24}
+                      hidden={false}
                       padded={true}
                       style={
                         Object {
@@ -186,6 +187,7 @@ exports[`Modal component renders 1`] = `
                     >
                       <div
                         className="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk modalBody undefined"
+                        hidden={false}
                         style={
                           Object {
                             "backgroundColor": "hsl(0, 0%, 100%)",

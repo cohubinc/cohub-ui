@@ -34,7 +34,7 @@ describe("CheckBox Input", () => {
 
   it("toggles on click", () => {
     const { getByLabelText } = render(
-      <StoryHelpers.StateContainer defaultState="">
+      <StoryHelpers.StateContainer defaultState={false}>
         {({ state, setState }) => (
           <Inputs.Checkbox
             label="Checkbox Input"
