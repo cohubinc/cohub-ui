@@ -24,7 +24,6 @@ export interface ISegmentProps {
    * If true, the Segment will show a border
    */
   bordered?: boolean;
-  hidden?: boolean;
 }
 
 class Segment extends PureComponent<ISegmentProps> {
@@ -32,8 +31,7 @@ class Segment extends PureComponent<ISegmentProps> {
     elevation: 1,
     padded: true,
     className: "",
-    bordered: false,
-    hidden: false
+    bordered: false
   };
 
   render() {
@@ -45,7 +43,6 @@ class Segment extends PureComponent<ISegmentProps> {
       padded,
       contrast,
       bordered,
-      hidden,
       ...rest
     } = this.props;
 
@@ -59,7 +56,6 @@ class Segment extends PureComponent<ISegmentProps> {
         // apply any data attributes being passed through
         {...rest}
         className={classes}
-        hidden={hidden}
         style={{
           boxShadow: BoxShadow[dpLevel as any],
           border: bordered ? "1px solid var(--border)" : "",

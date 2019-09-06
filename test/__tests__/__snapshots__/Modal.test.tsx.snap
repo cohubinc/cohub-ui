@@ -80,12 +80,17 @@ exports[`Modal component renders 1`] = `
               >
                 <div>
                   <div
-                    class="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk modalBody undefined"
-                    style="box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14); background-color: hsl(0, 0%, 100%); width: 360px;"
+                    class="modalBody undefined"
+                    style="width: 360px;"
                   >
-                    <span>
-                      Content
-                    </span>
+                    <div
+                      class="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk "
+                      style="box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14); background-color: hsl(0, 0%, 100%); width: 100%;"
+                    >
+                      <span>
+                        Content
+                      </span>
+                    </div>
                   </div>
                   <button
                     class="styles_closeButton__20ID4 closeButton"
@@ -173,35 +178,43 @@ exports[`Modal component renders 1`] = `
                   tag="div"
                 >
                   <div>
-                    <Segment
-                      bordered={false}
+                    <div
                       className="modalBody undefined"
-                      elevation={24}
                       hidden={false}
-                      padded={true}
                       style={
                         Object {
                           "width": "360px",
                         }
                       }
                     >
-                      <div
-                        className="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk modalBody undefined"
-                        hidden={false}
+                      <Segment
+                        bordered={false}
+                        className=""
+                        elevation={24}
+                        padded={true}
                         style={
                           Object {
-                            "backgroundColor": "hsl(0, 0%, 100%)",
-                            "border": "",
-                            "boxShadow": "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)",
-                            "width": "360px",
+                            "width": "100%",
                           }
                         }
                       >
-                        <span>
-                          Content
-                        </span>
-                      </div>
-                    </Segment>
+                        <div
+                          className="Segment-module_CohubSegment__3MMwJ Segment-module_padded__39Fvk "
+                          style={
+                            Object {
+                              "backgroundColor": "hsl(0, 0%, 100%)",
+                              "border": "",
+                              "boxShadow": "0px 11px 15px rgba(0, 0, 0, 0.2), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14)",
+                              "width": "100%",
+                            }
+                          }
+                        >
+                          <span>
+                            Content
+                          </span>
+                        </div>
+                      </Segment>
+                    </div>
                     <CloseIcon
                       classNames={
                         Object {
