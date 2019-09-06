@@ -4,6 +4,8 @@ exports[`ScrollIntoView renders 1`] = `
 <ScrollIntoView>
   <div
     className=" w-100"
-  />
+  >
+    hi
+  </div>
 </ScrollIntoView>
 `;

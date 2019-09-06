@@ -1,8 +1,8 @@
-import React, { Component, useRef, useEffect } from "react";
+import React, { Component, useRef, useEffect, ReactNode } from "react";
 import usePrevious from "src/hooks/usePrevious";
 
 export interface IScrollIntoViewProps {
-  children: JSX.Element[] | JSX.Element;
+  children: ReactNode;
   traceProp?: any;
   scroll?: boolean;
   style?: any;
