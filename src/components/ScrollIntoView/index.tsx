@@ -1,11 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useRef, useEffect, ReactNode } from "react";
+import usePrevious from "src/hooks/usePrevious";
 
-const defaultScrollOpts: ScrollIntoViewOptions = {
-  behavior: "smooth",
-  block: "center"
-};
 export interface IScrollIntoViewProps {
-  children: JSX.Element[] | JSX.Element;
+  children: ReactNode;
   traceProp?: any;
   scroll?: boolean;
   style?: any;
@@ -13,48 +10,40 @@ export interface IScrollIntoViewProps {
   scrollOpts?: ScrollIntoViewOptions;
 }
 
-export default class ScrollIntoView extends Component<IScrollIntoViewProps> {
-  selfRef: React.RefObject<HTMLDivElement>;
-  static defaultProps: Partial<IScrollIntoViewProps> = {
-    scroll: true,
-    scrollOpts: {},
-    className: ""
-  };
+export default function ScrollIntoView(props: IScrollIntoViewProps) {
+  const {
+    style,
+    className = "",
+    children,
+    scroll = true,
+    scrollOpts = {},
+    traceProp
+  } = props;
 
-  constructor(props: IScrollIntoViewProps) {
-    super(props);
-    this.selfRef = React.createRef();
-  }
+  const selfRef = useRef<HTMLDivElement>(null);
 
-  componentDidMount() {
-    this.scrollIntoView();
-  }
+  function scrollIntoView() {
+    const self = selfRef.current;
+    if (!scroll || !self) return;
 
-  componentDidUpdate(oldProps: IScrollIntoViewProps) {
-    const { scroll, traceProp } = this.props;
-    // if new props are different, trigger scrollInto view again
-    if (oldProps.traceProp !== traceProp || oldProps.scroll !== scroll) {
-      this.scrollIntoView();
-    }
-  }
-  render() {
-    const { style, className, children } = this.props;
-
-    return (
-      <div ref={this.selfRef} style={style} className={`${className} w-100`}>
-        {children}
-      </div>
+    setTimeout(
+      () => self.scrollIntoView({ ...defaultScrollOpts, ...scrollOpts }),
+      100
     );
   }
 
-  scrollIntoView() {
-    const { scroll, scrollOpts } = this.props;
-    const self = this.selfRef.current;
-    if (scroll && self) {
-      setTimeout(
-        () => self.scrollIntoView({ ...defaultScrollOpts, ...scrollOpts }),
-        100
-      );
-    }
-  }
+  useEffect(() => {
+    scrollIntoView();
+  }, [traceProp, scroll]);
+
+  return (
+    <div ref={selfRef} style={style} className={`${className} w-100`}>
+      {children}
+    </div>
+  );
 }
+
+const defaultScrollOpts: ScrollIntoViewOptions = {
+  behavior: "smooth",
+  block: "center"
+};

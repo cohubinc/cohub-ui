@@ -5,7 +5,7 @@ import { ScrollIntoView } from "dist";
 
 describe("ScrollIntoView", () => {
   it("renders", async () => {
-    const wrapper = mount(<ScrollIntoView />);
+    const wrapper = mount(<ScrollIntoView>hi</ScrollIntoView>);
 
     expect(wrapper).toMatchSnapshot();
   });
