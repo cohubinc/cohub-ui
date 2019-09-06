@@ -11,7 +11,6 @@ describe("CheckBox Input", () => {
       <Inputs.Checkbox
         label="checkBox"
         input={{ value: true } as any}
-        meta={{}}
         id="checkbox_input"
       />
     );
@@ -23,8 +22,7 @@ describe("CheckBox Input", () => {
     const wrapper = mount(
       <Inputs.Checkbox
         label="checkBox"
-        input={{ value: false } as any}
-        meta={{}}
+        input={{ value: false }}
         id="checkbox_input"
       />
     );
@@ -34,7 +32,7 @@ describe("CheckBox Input", () => {
 
   it("toggles on click", () => {
     const { getByLabelText } = render(
-      <StoryHelpers.StateContainer defaultState="">
+      <StoryHelpers.StateContainer defaultState={false}>
         {({ state, setState }) => (
           <Inputs.Checkbox
             label="Checkbox Input"
@@ -42,7 +40,7 @@ describe("CheckBox Input", () => {
             id="checkbox_input"
             input={{
               name: "selected",
-              value: state,
+              value: !!state,
               onChange: () => setState(!state)
             }}
           />

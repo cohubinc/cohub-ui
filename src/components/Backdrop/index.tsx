@@ -1,86 +1,76 @@
-import React, { PureComponent, CSSProperties } from "react";
+import React, { CSSProperties, ReactNode, useEffect } from "react";
 import ReactResponsiveModal from "react-responsive-modal";
 
 import Color from "src/definitions/enums/Color";
 
 import "./Backdrop.scss";
 
-export interface IBackdropProps {
+interface IBackdropProps {
   open: boolean;
   onClose?: () => void;
   showCloseIcon?: boolean;
   containerClass?: string;
   style?: CSSProperties;
+  children?: ReactNode;
+  focusTrapped: boolean;
 }
 
-export type TBackdropProps = IBackdropProps & { focusTrapped: boolean };
+export type TBackdropProps = IBackdropProps;
 
-export default class Backdrop extends PureComponent<TBackdropProps> {
-  static defaultProps: Partial<TBackdropProps> = {
-    showCloseIcon: false,
-    containerClass: "",
-    onClose: () => undefined,
-    focusTrapped: true,
-    open: true
-  };
+export default function Backdrop(props: TBackdropProps) {
+  const {
+    children,
+    onClose = () => null,
+    showCloseIcon = false,
+    containerClass = "",
+    style,
+    focusTrapped = true,
+    open = true,
+    ...rest
+  } = props;
 
-  appRoot: HTMLElement | null = document.getElementById("root");
-
-  componentDidMount() {
-    this.setBlurState();
+  function setBlurState() {
+    open ? addBlurClass() : removeBlurClass();
   }
 
-  componentDidUpdate() {
-    this.setBlurState();
-  }
+  // Set blur state on mount and any time open changes
+  useEffect(() => {
+    setBlurState();
 
-  componentWillUnmount() {
-    this.removeBlurClass();
-  }
+    return removeBlurClass;
+  }, [open]);
 
-  render() {
-    const {
-      children,
-      onClose,
-      showCloseIcon,
-      containerClass = "",
-      style,
-      ...rest
-    } = this.props;
+  return (
+    <ReactResponsiveModal
+      {...rest}
+      {...{ open, focusTrapped, onClose }}
+      closeOnEsc
+      closeOnOverlayClick
+      classNames={{
+        overlay: `CohubBackdrop ${containerClass}`,
+        modal: "modal",
+        closeButton: "closeButton"
+      }}
+      showCloseIcon={showCloseIcon}
+      onOverlayClick={onClose}
+      onEscKeyDown={onClose}
+      closeIconSvgPath={CloseIcon}
+      styles={{ overlay: style }}
+    >
+      {children}
+    </ReactResponsiveModal>
+  );
+}
 
-    return (
-      <ReactResponsiveModal
-        closeOnEsc
-        closeOnOverlayClick
-        {...rest}
-        classNames={{
-          overlay: `CohubBackdrop ${containerClass}`,
-          modal: "modal",
-          closeButton: "closeButton"
-        }}
-        showCloseIcon={showCloseIcon}
-        onClose={onClose!}
-        onOverlayClick={onClose}
-        onEscKeyDown={onClose}
-        closeIconSvgPath={CloseIcon}
-        styles={{ overlay: style }}
-      >
-        {children}
-      </ReactResponsiveModal>
-    );
-  }
-
-  private setBlurState = () => {
-    const { open } = this.props;
-
-    open ? this.addBlurClass() : this.removeBlurClass();
-  };
-  private addBlurClass = () => {
-    this.appRoot && this.appRoot.classList.add("blurred");
-  };
-  private removeBlurClass = () => {
-    this.appRoot && this.appRoot.classList.remove("blurred");
-  };
+function getRoot(func: (appRoot: HTMLElement) => void) {
+  const appRoot = document.getElementById("root");
+  appRoot && func(appRoot);
+}
+function removeBlurClass() {
+  getRoot(appRoot => appRoot.classList.remove("blurred"));
+}
+function addBlurClass() {
+  getRoot(appRoot => appRoot.classList.add("blurred"));
 }
 
 const iconSize = 44;

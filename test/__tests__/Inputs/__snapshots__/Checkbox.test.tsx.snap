@@ -9,7 +9,6 @@ exports[`CheckBox Input renders checked without crashing 1`] = `
     }
   }
   label="checkBox"
-  meta={Object {}}
 >
   <div
     className="CheckboxField-Container flex justify-start items-center"
@@ -93,7 +92,6 @@ exports[`CheckBox Input renders un-checked without crashing 1`] = `
     }
   }
   label="checkBox"
-  meta={Object {}}
 >
   <div
     className="CheckboxField-Container flex justify-start items-center"
