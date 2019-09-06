@@ -5,7 +5,7 @@ import Color from "src/definitions/enums/Color";
 
 import "./Backdrop.scss";
 
-interface IBackdropProps {
+export interface IBackdropProps {
   open: boolean;
   onClose?: () => void;
   showCloseIcon?: boolean;
@@ -15,9 +15,7 @@ interface IBackdropProps {
   focusTrapped: boolean;
 }
 
-export type TBackdropProps = IBackdropProps;
-
-export default function Backdrop(props: TBackdropProps) {
+export default function Backdrop(props: IBackdropProps) {
   const {
     children,
     onClose = () => null,

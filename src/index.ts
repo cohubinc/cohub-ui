@@ -9,7 +9,7 @@ export {
   IAttributeListProps
 } from "src/components/AttributeList";
 export { default as Avatar, IAvatarProps } from "src/components/Avatar";
-export { default as Backdrop, TBackdropProps } from "src/components/Backdrop";
+export { default as Backdrop, IBackdropProps } from "src/components/Backdrop";
 export { default as BoxShadow } from "src/definitions/enums/BoxShadow";
 export { default as Buttons } from "src/components/Buttons";
 export { IFabRefObject } from "src/components/Buttons/FloatingActionButton";
