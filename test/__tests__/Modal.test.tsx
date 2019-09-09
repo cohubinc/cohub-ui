@@ -40,6 +40,8 @@ describe("Modal component", () => {
 
     expect(modal).toBeVisible();
     fireEvent.click(closeButton);
-    expect(modal).not.toBeVisible();
+    setTimeout(() => {
+      expect(modal).not.toBeVisible();
+    }, 1000);
   });
 });
