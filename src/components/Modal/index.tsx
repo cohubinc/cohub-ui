@@ -65,19 +65,21 @@ export default function Modal(props: IModalProps) {
       containerClass="CohubModal"
       {...rest}
     >
-      <Segment
+      <div
         className={`modalBody ${className}`}
-        elevation={24}
         style={{ width: `${modalSize}px` }}
+        hidden={!rest.open}
       >
-        {title && (
-          <React.Fragment>
-            <Typography.HeadingTiny>{title}</Typography.HeadingTiny>
-            <Divider marginSize={1} />
-          </React.Fragment>
-        )}
-        {children}
-      </Segment>
+        <Segment elevation={24} style={{ width: "100%" }}>
+          {title && (
+            <React.Fragment>
+              <Typography.HeadingTiny>{title}</Typography.HeadingTiny>
+              <Divider marginSize={1} />
+            </React.Fragment>
+          )}
+          {children}
+        </Segment>
+      </div>
     </Backdrop>
   );
 }
