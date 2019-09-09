@@ -5,7 +5,7 @@ exports[`renders without crashing 1`] = `
   direction="horizontal"
 >
   <div
-    className="FormGroup-module_horizontal__M22Uj"
+    className="FormGroup-module_horizontal__M22Uj undefined"
   >
     <div>
       test
