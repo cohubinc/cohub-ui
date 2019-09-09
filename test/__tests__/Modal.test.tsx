@@ -15,7 +15,7 @@ describe("Modal component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("toggles on click", async () => {
+  it("toggles on click", () => {
     const modalId = "modal-id-toggles-on-click";
     const closeButtonId = "close-toggles-on-click";
     const { getByTestId } = render(
@@ -40,8 +40,6 @@ describe("Modal component", () => {
 
     expect(modal).toBeVisible();
     fireEvent.click(closeButton);
-    setTimeout(() => {
-      expect(modal).not.toBeVisible();
-    }, 1000);
+    expect(modal).not.toBeVisible();
   });
 });
