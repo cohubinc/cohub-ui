@@ -1,3 +1,6 @@
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://cohub-ui.netlify.com/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/10126ad2-a0d6-44bb-8bbc-8007102b2aa9/deploy-status)](https://app.netlify.com/sites/cohub-ui/deploys)
+
 # Cohub UI
 
 Sharable UI components for react web apps

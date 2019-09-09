@@ -2,8 +2,7 @@ import React from "react";
 import { mount } from "enzyme";
 
 import { Inputs, StoryHelpers } from "dist";
-import { fireEvent } from "@testing-library/dom";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
 describe("CheckBox Input", () => {
   it("renders checked without crashing", async () => {
