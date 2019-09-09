@@ -4,6 +4,7 @@ import styles from "./FormGroup.module.scss";
 interface IProps {
   children: any;
   direction?: "horizontal" | "vertical";
+  className?: string;
 }
 
 export type TFormGroupProps = IProps &
@@ -12,13 +13,14 @@ export type TFormGroupProps = IProps &
 export default function FormGroup({
   children,
   direction = "horizontal",
+  className,
   ...restProps
 }: TFormGroupProps) {
   return (
     <div
-      className={
+      className={`${
         direction === "horizontal" ? styles.horizontal : styles.vertical
-      }
+      } ${className}`}
       {...restProps}
     >
       {children}
