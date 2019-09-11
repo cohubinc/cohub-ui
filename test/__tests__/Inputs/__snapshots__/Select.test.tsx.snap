@@ -33,7 +33,7 @@ exports[`Select Input renders checked without crashing 1`] = `
 >
   <FloatingLabelWrapper
     className="SelectField"
-    label="whoa"
+    label="Select"
     value={
       Array [
         Object {
@@ -2445,7 +2445,7 @@ exports[`Select Input renders checked without crashing 1`] = `
           }
         }
       >
-        whoa
+        Select
       </label>
     </div>
   </FloatingLabelWrapper>
