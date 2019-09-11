@@ -1,7 +1,7 @@
 import React, { CSSProperties } from "react";
 import SelectField from "react-select";
 import { StylesConfig } from "react-select/src/styles";
-import { OptionsType } from "react-select/src/types";
+import { OptionsType, InputActionMeta } from "react-select/src/types";
 import { FieldRenderProps } from "react-final-form";
 
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
@@ -13,6 +13,7 @@ import DropdownIndicator, {
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 
 import "./Select.scss";
+import { SelectComponents } from "react-select/src/components";
 
 interface IOption {
   label: string;
@@ -35,6 +36,13 @@ interface ISelectProps {
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
   required?: boolean;
+  onMenuScrollToBottom?:
+    | ((event: React.SyntheticEvent<HTMLElement, Event>) => void)
+    | undefined;
+  handleScrolledToBottom?: () => void;
+  onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
+  ref?: React.RefObject<SelectField<IOption>> | null;
+  components?: Partial<SelectComponents<IOption>>;
 }
 
 export type TSelectProps = ISelectProps;
@@ -49,6 +57,11 @@ export default function Select(props: TSelectProps) {
     clearable = false,
     style,
     meta,
+    onMenuScrollToBottom,
+    handleScrolledToBottom,
+    onInputChange,
+    components,
+    ref,
     required
   } = props;
 
@@ -116,13 +129,14 @@ export default function Select(props: TSelectProps) {
       className="SelectField"
       onBlur={input.onBlur}
       onFocus={input.onFocus}
-      {...{ label, value, appearance, style, required }}
+      {...{ label: "whoa", value, appearance, style, required }}
     >
       {({
         componentProps: { onChange: _, onBlur, onFocus, ...componentProps }
       }) => (
         <SelectField
           components={{
+            ...components,
             DropdownIndicator
           }}
           classNamePrefix="react-select"
@@ -131,6 +145,10 @@ export default function Select(props: TSelectProps) {
           isLoading={loading}
           styles={selectStyles}
           placeholder=""
+          onMenuScrollToBottom={onMenuScrollToBottom}
+          handleScrolledToBottom={handleScrolledToBottom}
+          onInputChange={onInputChange}
+          ref={ref}
           onChange={(arg1: any, { action }: any) => {
             const { onChange } = input;
             if (!onChange) return;
