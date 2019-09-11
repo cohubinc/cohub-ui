@@ -40,7 +40,6 @@ interface ISelectProps {
   ) => void;
   handleScrolledToBottom?: () => void;
   onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
-  ref?: React.RefObject<SelectField<IOption>> | null;
   components?: Partial<SelectComponents<IOption>>;
 }
 
@@ -60,7 +59,6 @@ export default function Select(props: TSelectProps) {
     handleScrolledToBottom,
     onInputChange,
     components,
-    ref,
     required
   } = props;
 
@@ -147,7 +145,6 @@ export default function Select(props: TSelectProps) {
           onMenuScrollToBottom={onMenuScrollToBottom}
           handleScrolledToBottom={handleScrolledToBottom}
           onInputChange={onInputChange}
-          ref={ref}
           onChange={(arg1: any, { action }: any) => {
             const { onChange } = input;
             if (!onChange) return;

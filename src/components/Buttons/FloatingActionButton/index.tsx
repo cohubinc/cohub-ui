@@ -65,7 +65,7 @@ const FloatingActionButton: React.RefForwardingComponent<
         height: size,
         borderRadius: "50%",
         backgroundColor: shakeColor || (backgroundColor as any),
-        boxShadow: BoxShadow[dpLevel as any],
+        boxShadow: (BoxShadow as any)[dpLevel],
         cursor: "pointer",
         border: "none",
         transition: "all 20ms ease-in"
