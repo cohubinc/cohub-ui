@@ -38,6 +38,7 @@ interface ISelectProps {
   onMenuScrollToBottom?: (
     event: React.SyntheticEvent<HTMLElement, Event>
   ) => void;
+  onMenuScrollToBottomOffset?: number;
   handleScrolledToBottom?: () => void;
   onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
   components?: Partial<SelectComponents<IOption>>;
@@ -57,6 +58,7 @@ export default function Select(props: TSelectProps) {
     meta,
     onMenuScrollToBottom,
     handleScrolledToBottom,
+    onMenuScrollToBottomOffset,
     onInputChange,
     components,
     required
@@ -144,6 +146,7 @@ export default function Select(props: TSelectProps) {
           placeholder=""
           onMenuScrollToBottom={onMenuScrollToBottom}
           handleScrolledToBottom={handleScrolledToBottom}
+          onMenuScrollToBottomOffset={onMenuScrollToBottomOffset}
           onInputChange={onInputChange}
           onChange={(arg1: any, { action }: any) => {
             const { onChange } = input;
