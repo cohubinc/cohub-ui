@@ -61,12 +61,11 @@
     "react-responsive": "^8.0.0-beta.1",
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.0.1",
-    "react-select": "3.0.4",
+    "react-select": "jackspiva/react-select#d8094e0070d908e1a09079e793a98b5f509e7504",
     "react-transition-group": "^4.2.1"
   },
   "resolutions": {
-    "@types/react": "16.8.25",
-    "react-select": "git://github.com/jackspiva/react-select"
+    "@types/react": "16.8.25"
   },
   "peerDependencies": {},
   "devDependencies": {
