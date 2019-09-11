@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/components/FormatPercent/index.tsx"],"names":[],"mappings":";AAGA,MAAM,WAAW,mBAAmB;IAClC,KAAK,EAAE,MAAM,GAAG,MAAM,GAAG,IAAI,GAAG,SAAS,CAAC;IAC1C,WAAW,CAAC,EAAE,OAAO,CAAC;CACvB;AAED,MAAM,CAAC,OAAO,UAAU,aAAa,CAAC,EACpC,KAAK,EACL,WAAkB,EACnB,EAAE,mBAAmB,sBAoBrB"}
