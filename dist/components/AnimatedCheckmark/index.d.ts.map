@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/components/AnimatedCheckmark/index.tsx"],"names":[],"mappings":";AAEA,OAAO,0BAA0B,CAAC;AAClC,OAAO,KAAK,sCAAoC;AAEhD,MAAM,WAAW,uBAAuB;IACtC,KAAK,EAAE,MAAM,GAAG,KAAK,CAAC;IACtB,IAAI,CAAC,EAAE,MAAM,GAAG,MAAM,CAAC;CACxB;AACD,QAAA,MAAM,iBAAiB,2DA8BtB,CAAC;AAEF,eAAe,iBAAiB,CAAC"}
