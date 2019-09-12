@@ -43,7 +43,7 @@ exports[`Date matches snapshot 1`] = `
         }
       >
         <div
-          className="inputWrapper  bd-radius"
+          className="inputWrapper noLabel  bd-radius"
         >
           <LowLevelDatePicker
             onBlur={[Function]}

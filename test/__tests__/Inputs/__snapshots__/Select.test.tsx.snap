@@ -53,7 +53,7 @@ exports[`Select Input renders checked without crashing 1`] = `
       }
     >
       <div
-        className="inputWrapper  bd-radius"
+        className="inputWrapper noLabel  bd-radius"
       >
         <StateManager
           classNamePrefix="react-select"

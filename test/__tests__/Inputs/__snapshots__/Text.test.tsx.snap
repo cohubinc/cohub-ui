@@ -31,7 +31,7 @@ exports[`Text Input renders without crashing 1`] = `
           }
         >
           <div
-            className="noLabelInputWrapper  bd-radius"
+            className="inputWrapper   bd-radius"
           >
             <input
               aria-invalid={false}

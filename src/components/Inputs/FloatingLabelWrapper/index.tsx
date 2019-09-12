@@ -205,7 +205,7 @@ export default function FloatingLabelWrapper<T = TValue>(
       }}
     >
       <div
-        className={`${label ? "inputWrapper" : "noLabelInputWrapper"} ${
+        className={`inputWrapper ${label ? "noLabel" : ""} ${
           error ? "error" : ""
         } bd-radius`}
       >
