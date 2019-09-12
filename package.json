@@ -14,6 +14,7 @@
     "build": "NODE_ENV=production rollup -c",
     "build:stories": "NODE_ENV=storybook rollup -c",
     "watch:stories": "NODE_ENV=storybook rollup -cw",
+    "fresh": "rm -rf node_modules && yarn install",
     "storybook": "start-storybook -p 6007",
     "storybook:build": "yarn build:stories && build-storybook -c .storybook -o .storybook/stories-dist",
     "pre-push-msg": "echo 'Pre-push checks...' && exit 0",
@@ -61,7 +62,7 @@
     "react-responsive": "^8.0.0-beta.1",
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.0.1",
-    "react-select": "jackspiva/react-select#d8094e0070d908e1a09079e793a98b5f509e7504",
+    "react-select": "jackspiva/react-select#76d2d33b3efa9682ee15ed527aa77045592b7448",
     "react-transition-group": "^4.2.1"
   },
   "resolutions": {
