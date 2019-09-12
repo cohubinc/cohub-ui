@@ -28,18 +28,20 @@ export default class Text extends PureComponent<TTextButtonProps> {
       block,
       style,
       className = "",
+      disabled,
       ...rest
     } = this.props;
 
     return (
       <Blank
         {...rest}
+        disabled={disabled}
         className={`${className} p-05`}
         style={{ display: block ? "block" : undefined, ...style }}
       >
         <Typography
           uppercase
-          color={color}
+          color={disabled ? Color.grey600 : color}
           weight={500}
           style={{
             fontSize,
