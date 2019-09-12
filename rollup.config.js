@@ -11,6 +11,7 @@ import commonjs from "rollup-plugin-commonjs";
 // import docGenPlugin from "babel-plugin-react-docgen-typescript";
 import ttypescript from "ttypescript";
 import execute from "rollup-plugin-execute";
+import alias from "rollup-plugin-alias";
 
 import pkg from "./package.json";
 

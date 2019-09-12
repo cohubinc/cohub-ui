@@ -25,7 +25,7 @@ var toNumber = _interopDefault(require('lodash/toNumber'));
 var padStart = _interopDefault(require('lodash/padStart'));
 var times = _interopDefault(require('lodash/times'));
 var rangeRight = _interopDefault(require('lodash/rangeRight'));
-var Select$1 = _interopDefault(require('react-select'));
+var Select$1 = _interopDefault(require('@cohubinc/react-select'));
 var Creatable = _interopDefault(require('react-select/creatable'));
 var lodash = require('lodash');
 var sortBy = _interopDefault(require('lodash/sortBy'));
@@ -5744,12 +5744,8 @@ function Select(props) {
             onChange(null);
         }
       },
-      onBlur: function (e) {
-        onBlur && onBlur(e);
-      },
-      onFocus: function (e) {
-        onFocus && onFocus(e);
-      }
+      onBlur: onBlur,
+      onFocus: onFocus
     }, componentProps));
   });
 }

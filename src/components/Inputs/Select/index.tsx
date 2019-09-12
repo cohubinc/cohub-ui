@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import SelectField from "react-select";
+import SelectField from "@cohubinc/react-select";
 import { StylesConfig } from "react-select/src/styles";
 import { OptionsType, InputActionMeta } from "react-select/src/types";
 import { SelectComponents } from "react-select/src/components";
@@ -160,12 +160,8 @@ export default function Select(props: TSelectProps) {
                 onChange(null);
             }
           }}
-          onBlur={e => {
-            onBlur && onBlur(e);
-          }}
-          onFocus={e => {
-            onFocus && onFocus(e);
-          }}
+          onBlur={onBlur}
+          onFocus={onFocus}
           {...componentProps}
         />
       )}

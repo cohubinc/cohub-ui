@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import Select from "react-select";
+import Select from "@cohubinc/react-select";
 import Creatable from "react-select/creatable";
 import { OptionsType, ValueType } from "react-select/src/types";
 import { SelectComponentsProps } from "react-select/src/Select";

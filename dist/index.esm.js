@@ -18,7 +18,7 @@ import toNumber from 'lodash/toNumber';
 import padStart from 'lodash/padStart';
 import times from 'lodash/times';
 import rangeRight from 'lodash/rangeRight';
-import Select$1 from 'react-select';
+import Select$1 from '@cohubinc/react-select';
 import Creatable from 'react-select/creatable';
 import { uniqBy } from 'lodash';
 import sortBy from 'lodash/sortBy';
@@ -5737,12 +5737,8 @@ function Select(props) {
             onChange(null);
         }
       },
-      onBlur: function (e) {
-        onBlur && onBlur(e);
-      },
-      onFocus: function (e) {
-        onFocus && onFocus(e);
-      }
+      onBlur: onBlur,
+      onFocus: onFocus
     }, componentProps));
   });
 }
