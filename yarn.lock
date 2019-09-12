@@ -970,10 +970,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cohubinc/react-select@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@cohubinc/react-select/-/react-select-1.0.2.tgz#444780aada6f7cea91fde7b5882d8c0df5c86bc1"
-  integrity sha512-UCwjrSz0pbxf3bgF98LQ/FaDWWmbYBFCD6Vd7vHkPU6PhYwrnmSE+rRTAykZLfky1RVNZWkQwFgJdYrrDZgl9w==
+"@cohubinc/react-select@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@cohubinc/react-select/-/react-select-1.0.3.tgz#5ec2dadcb0aca7eb8ee20c741d61628072a6b6a8"
+  integrity sha512-9E9pGX8LLSnzKgjj6SvoJVkXfsRXQ9s8wn1vfZPNR0KtfdA0hO4imCiIDdj2Yb91+NIanVT56XE3hRB/AXyrxA==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@emotion/cache" "^10.0.9"
