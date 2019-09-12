@@ -27,7 +27,7 @@ exports[`Money renders Money without crashing 1`] = `
         }
       >
         <div
-          className="noLabelInputWrapper  bd-radius"
+          className="inputWrapper   bd-radius"
         >
           <NumberFormat
             allowEmptyFormatting={false}

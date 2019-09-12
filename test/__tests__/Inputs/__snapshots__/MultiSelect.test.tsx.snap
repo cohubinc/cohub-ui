@@ -62,7 +62,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
       }
     >
       <div
-        className="inputWrapper  bd-radius"
+        className="inputWrapper noLabel  bd-radius"
       >
         <StateManager
           aria-invalid={false}

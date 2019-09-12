@@ -61,9 +61,22 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
         <StoryHelpers.StateContainer defaultState="">
           {({ state, setState }) => (
             <div>
-              <StoryHelpers.Text>Inverted Input</StoryHelpers.Text>
+              <StoryHelpers.Text>Inverted Inputs</StoryHelpers.Text>
               <Inputs.Text
                 label="Inverted Text Input"
+                appearance="inverted"
+                input={{
+                  value: state,
+                  onChange: ({ target }) => setState(target.value)
+                }}
+                meta={{ touched: true, error }}
+                style={{ width: 300 }}
+                required
+              />
+              <StoryHelpers.Margin />
+              <StoryHelpers.Text>Inverted Input</StoryHelpers.Text>
+              <Inputs.Text
+                placeholder="Placeholder Text"
                 appearance="inverted"
                 input={{
                   value: state,
