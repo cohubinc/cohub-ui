@@ -18,6 +18,7 @@ export interface IModalProps {
   title?: string;
   children: ReactNode;
   focusTrapped?: boolean;
+  showCloseIcon?: boolean;
 }
 
 export default function Modal(props: IModalProps) {
@@ -27,6 +28,7 @@ export default function Modal(props: IModalProps) {
     size = "medium",
     title,
     focusTrapped = true,
+    showCloseIcon,
     ...rest
   } = props;
 
@@ -60,7 +62,7 @@ export default function Modal(props: IModalProps) {
 
   return (
     <Backdrop
-      showCloseIcon={!isMobile}
+      showCloseIcon={showCloseIcon || !isMobile}
       focusTrapped={focusTrapped}
       containerClass="CohubModal"
       {...rest}
