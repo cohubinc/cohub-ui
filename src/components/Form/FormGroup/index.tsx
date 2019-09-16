@@ -16,9 +16,6 @@ export default function FormGroup({
   className = "",
   ...restProps
 }: TFormGroupProps) {
-  console.log(className);
-  console.log(restProps);
-
   return (
     <div
       className={`${
