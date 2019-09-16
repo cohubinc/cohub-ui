@@ -13,9 +13,12 @@ export type TFormGroupProps = IProps &
 export default function FormGroup({
   children,
   direction = "horizontal",
-  className,
+  className = "",
   ...restProps
 }: TFormGroupProps) {
+  console.log(className);
+  console.log(restProps);
+
   return (
     <div
       className={`${
