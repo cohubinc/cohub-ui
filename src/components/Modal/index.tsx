@@ -22,17 +22,16 @@ export interface IModalProps {
 }
 
 export default function Modal(props: IModalProps) {
+  const { isMobile } = useMediaQueries();
   const {
     children = "",
     className,
     size = "medium",
     title,
     focusTrapped = true,
-    showCloseIcon,
+    showCloseIcon = !isMobile,
     ...rest
   } = props;
-
-  const { isMobile } = useMediaQueries();
 
   let modalSize;
 
@@ -62,7 +61,7 @@ export default function Modal(props: IModalProps) {
 
   return (
     <Backdrop
-      showCloseIcon={showCloseIcon || !isMobile}
+      showCloseIcon={showCloseIcon}
       focusTrapped={focusTrapped}
       containerClass="CohubModal"
       {...rest}
