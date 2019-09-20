@@ -6,6 +6,11 @@ exports[`renders without crashing 1`] = `
 >
   <div
     className="FormGroup-module_horizontal__M22Uj "
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div>
       test
