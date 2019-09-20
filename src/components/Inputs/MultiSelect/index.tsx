@@ -79,9 +79,9 @@ export default function MultiSelect({
     container: s => ({ ...s, ...styles.container }),
     input: s => ({ ...s, ...styles.input }),
     menu: s => ({ ...s, ...styles.menu }),
-    option: (_, { isFocused }) =>
+    option: (s, { isFocused }) =>
       ({
-        ...style,
+        ...s,
         backgroundColor: isFocused ? Color.grey300 : Color.trueWhite,
         ":hover": {
           backgroundColor: Color.grey300,
