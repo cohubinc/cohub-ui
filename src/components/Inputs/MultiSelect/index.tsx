@@ -36,6 +36,7 @@ interface IProps {
   meta?: FieldProps["meta"];
   disabled?: boolean;
   required?: boolean;
+  placeholder?: string;
 }
 
 export type TMultiSelectProps = IProps;
@@ -51,7 +52,8 @@ export default function MultiSelect({
   style,
   meta,
   disabled,
-  required
+  required,
+  placeholder = ""
 }: TMultiSelectProps) {
   const { touched, error } = meta || ({} as any);
 
@@ -72,15 +74,52 @@ export default function MultiSelect({
     value = [...createdOptions, ...value];
     value = uniqBy(value, "value");
   }
-
-  const contrastPadding = appearance === "contrast" ? { paddingTop: 0 } : {};
+  const selectStyles: StylesConfig = {
+    control: s => ({ ...s, ...styles.control, paddingTop: 0 }),
+    container: s => ({ ...s, ...styles.container }),
+    input: s => ({ ...s, ...styles.input }),
+    menu: s => ({ ...s, ...styles.menu }),
+    option: (_, { isFocused }) =>
+      ({
+        ...style,
+        backgroundColor: isFocused ? Color.grey300 : Color.trueWhite,
+        ":hover": {
+          backgroundColor: Color.grey300,
+          color: Color.black
+        }
+      } as any),
+    dropdownIndicator: () => styles.dropdownIndicator,
+    indicatorSeparator: () => styles.indicatorSeparator,
+    multiValue: s => ({
+      ...s,
+      backgroundColor:
+        appearance === "contrast" ? Color.trueWhite : (Color.grey100 as any),
+      borderRadius: "11px",
+      paddingLeft: "6px",
+      marginTop: "3px",
+      marginBottom: "3px"
+    }),
+    multiValueLabel: s => ({ ...s, ...styles.multiValueLabel }),
+    multiValueRemove: s => ({
+      ...s,
+      ...styles.multiValueRemove,
+      ":hover": {
+        backgroundColor: Color.red100,
+        color: Color.red400,
+        borderTopRightRadius: "11px",
+        borderBottomRightRadius: "11px"
+      }
+    }),
+    clearIndicator: s => ({ ...s, ...styles.clearIndicator }),
+    indicatorsContainer
+  };
 
   const selectConfig: SelectComponentsProps = {
     options,
     isMulti: true,
     isLoading: loading,
-    styles: getSelectStyles(contrastPadding),
-    placeholder: "",
+    styles: selectStyles,
+    placeholder,
     isClearable: clearable,
     classNamePrefix: "react-select"
   };
@@ -157,13 +196,6 @@ const styles: IStyleContainer = {
     marginRight: "8px",
     display: "flex"
   },
-  multiValue: {
-    backgroundColor: Color.white500 as any,
-    borderRadius: "11px",
-    paddingLeft: "6px",
-    marginTop: "3px",
-    marginBottom: "3px"
-  },
   multiValueLabel: {
     color: Color.black as any,
     padding: "1px",
@@ -176,38 +208,4 @@ const styles: IStyleContainer = {
   clearIndicator: {
     paddingTop: "-1rem"
   }
-};
-
-const getSelectStyles = (controlStyles: CSSProperties): StylesConfig => {
-  return {
-    control: style => ({ ...style, ...styles.control, ...controlStyles }),
-    container: style => ({ ...style, ...styles.container }),
-    input: style => ({ ...style, ...styles.input }),
-    menu: style => ({ ...style, ...styles.menu }),
-    option: (style, { isFocused }) =>
-      ({
-        ...style,
-        backgroundColor: isFocused ? Color.grey300 : Color.trueWhite,
-        ":hover": {
-          backgroundColor: Color.grey300,
-          color: Color.black
-        }
-      } as any),
-    dropdownIndicator: () => styles.dropdownIndicator,
-    indicatorSeparator: () => styles.indicatorSeparator,
-    multiValue: style => ({ ...style, ...styles.multiValue }),
-    multiValueLabel: style => ({ ...style, ...styles.multiValueLabel }),
-    multiValueRemove: style => ({
-      ...style,
-      ...styles.multiValueRemove,
-      ":hover": {
-        backgroundColor: Color.red100,
-        color: Color.red400,
-        borderTopRightRadius: "11px",
-        borderBottomRightRadius: "11px"
-      }
-    }),
-    clearIndicator: style => ({ ...style, ...styles.clearIndicator }),
-    indicatorsContainer
-  };
 };

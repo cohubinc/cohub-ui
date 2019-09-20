@@ -23,16 +23,19 @@ type FieldProps = FieldRenderProps<
   IOption["value"] | Array<IOption["value"]>,
   HTMLElement
 >;
-
+interface IInput extends Partial<Omit<FieldProps["input"], "onChange">> {
+  onChange?: (value: string | null) => void;
+}
 interface ISelectProps {
   label?: string;
+  placeholder?: string;
   options?: OptionsType<IOption>;
   loading?: boolean;
   appearance?: "contrast" | "inverted";
   error?: boolean;
   clearable?: boolean;
   style?: CSSProperties;
-  input?: Partial<FieldProps["input"]>;
+  input?: IInput;
   meta?: FieldProps["meta"];
   required?: boolean;
   onMenuScrollToBottom?: (
@@ -51,6 +54,7 @@ export default function Select(props: TSelectProps) {
     options = [],
     input = {},
     label,
+    placeholder = "",
     loading,
     appearance,
     clearable = false,
@@ -143,7 +147,7 @@ export default function Select(props: TSelectProps) {
           isClearable={clearable}
           isLoading={loading}
           styles={selectStyles}
-          placeholder=""
+          placeholder={placeholder}
           onMenuScrollToBottom={onMenuScrollToBottom}
           handleScrolledToBottom={handleScrolledToBottom}
           onMenuScrollToBottomOffset={onMenuScrollToBottomOffset}

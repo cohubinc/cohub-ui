@@ -624,6 +624,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                           "label": "control",
                           "minHeight": "32px",
                           "outline": "none",
+                          "paddingTop": 0,
                           "position": "relative",
                           "transition": "all 100ms",
                         }
@@ -632,7 +633,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                       onTouchEnd={[Function]}
                     >
                       <div
-                        className="react-select__control css-2utfxe-control"
+                        className="react-select__control css-1x2g1pw-control"
                         onMouseDown={[Function]}
                         onTouchEnd={[Function]}
                       >
@@ -1011,7 +1012,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                     }
                                     innerProps={
                                       Object {
-                                        "className": "css-14pf2e0-multiValue react-select__multi-value",
+                                        "className": "css-bj3jbw-multiValue react-select__multi-value",
                                       }
                                     }
                                     selectProps={
@@ -1116,7 +1117,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                     }
                                   >
                                     <div
-                                      className="css-14pf2e0-multiValue react-select__multi-value"
+                                      className="css-bj3jbw-multiValue react-select__multi-value"
                                     >
                                       <MultiValueGeneric
                                         data={
@@ -1595,7 +1596,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                     }
                                     innerProps={
                                       Object {
-                                        "className": "css-14pf2e0-multiValue react-select__multi-value",
+                                        "className": "css-bj3jbw-multiValue react-select__multi-value",
                                       }
                                     }
                                     selectProps={
@@ -1700,7 +1701,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                     }
                                   >
                                     <div
-                                      className="css-14pf2e0-multiValue react-select__multi-value"
+                                      className="css-bj3jbw-multiValue react-select__multi-value"
                                     >
                                       <MultiValueGeneric
                                         data={
