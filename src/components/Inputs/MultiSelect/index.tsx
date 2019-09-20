@@ -36,6 +36,7 @@ interface IProps {
   meta?: FieldProps["meta"];
   disabled?: boolean;
   required?: boolean;
+  placeholder?: string;
 }
 
 export type TMultiSelectProps = IProps;
@@ -51,7 +52,8 @@ export default function MultiSelect({
   style,
   meta,
   disabled,
-  required
+  required,
+  placeholder = ""
 }: TMultiSelectProps) {
   const { touched, error } = meta || ({} as any);
 
@@ -80,7 +82,7 @@ export default function MultiSelect({
     isMulti: true,
     isLoading: loading,
     styles: getSelectStyles(contrastPadding),
-    placeholder: "",
+    placeholder,
     isClearable: clearable,
     classNamePrefix: "react-select"
   };
