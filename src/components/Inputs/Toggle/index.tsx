@@ -5,7 +5,7 @@ import Color from "src/definitions/enums/Color";
 import styles from "./Toggle.module.scss";
 
 type FieldProps = FieldRenderProps<boolean | string, HTMLInputElement>;
-interface IToggleProps {
+export interface IToggleProps {
   label?: string;
   labelPosition?: "top" | "bottom" | "left" | "right";
   className?: string;
@@ -14,9 +14,7 @@ interface IToggleProps {
   "data-qa"?: string;
 }
 
-export type TToggleProps = IToggleProps;
-
-export default function Toggle(props: TToggleProps) {
+export default function Toggle(props: IToggleProps) {
   const {
     label,
     input = {},

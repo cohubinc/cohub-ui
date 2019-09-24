@@ -1,11 +1,11 @@
 import React, { CSSProperties } from "react";
-import IProps from "../definitions/IProps";
+import { ITypographyProps } from "../definitions/ITypographyProps";
 import Color from "../../../definitions/enums/Color";
 
-type TFactoryArgs = Omit<IProps, "children">;
+type TFactoryArgs = Omit<ITypographyProps, "children">;
 // Function that takes some typography props and returns a Typography component
 export function typographyFactory(defaultProps: TFactoryArgs) {
-  return (props: IProps) => {
+  return (props: ITypographyProps) => {
     const { style: factoryStyle } = defaultProps;
     const { children, style } = props;
 

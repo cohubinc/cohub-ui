@@ -4,13 +4,11 @@ import { FieldRenderProps } from "react-final-form";
 import TInputElementProps from "../definitions/TInputElementProps";
 import Base from "../Base";
 import Color from "src/definitions/enums/Color";
+import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
-interface IPasswordInputProps {
-  label?: string;
-  labelPosition?: "inside" | "outside" | "intersect";
-  appearance?: "contrast" | "inverted";
+interface IPasswordInputProps extends TInheritedFloatingLabelProps {
   msgPosition?: {
     bottom: number;
   };

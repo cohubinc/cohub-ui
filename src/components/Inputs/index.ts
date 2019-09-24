@@ -14,15 +14,15 @@ import Toggle from "./Toggle";
 export { TBaseInputProps } from "./Base";
 export { TTextInputProps } from "./Text";
 export { TDecimalInputProps } from "./Decimal";
-export { TCheckboxProps } from "./Checkbox";
-export { TMultiSelectProps } from "./MultiSelect";
-export { TSelectProps } from "./Select";
+export { ICheckboxProps } from "./Checkbox";
+export { IMultiSelectProps } from "./MultiSelect";
+export { ISelectProps } from "./Select";
 export { TDateInputProps } from "./Dates/Date";
 export { TDateRangeInputProps } from "./Dates/DateRange";
 export { IMoneyInputProps } from "./Money";
 export { TPasswordInputProps } from "./Password";
 export { TTextAreaProps } from "./TextArea";
-export { TToggleProps } from "./Toggle";
+export { IToggleProps } from "./Toggle";
 
 const Inputs = {
   Base,

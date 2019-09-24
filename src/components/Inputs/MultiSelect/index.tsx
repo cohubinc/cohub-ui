@@ -12,9 +12,12 @@ import DropdownIndicator, {
 } from "src/components/Inputs/SelectDropdownIndicator";
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
-import FloatingLabelWrapper from "../FloatingLabelWrapper";
+import FloatingLabelWrapper, {
+  IFloatingLabelWrapperProps
+} from "../FloatingLabelWrapper";
 
 import "./Multiselect.scss";
+import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 interface IOption {
   label: string;
@@ -24,22 +27,16 @@ interface IOption {
 type FieldProps = FieldRenderProps<string[], HTMLElement>;
 type Input = FieldProps["input"];
 
-interface IProps {
-  label?: string;
+export interface IMultiSelectProps extends TInheritedFloatingLabelProps {
   options?: OptionsType<IOption>;
   allowCreate?: boolean;
   loading?: boolean;
-  appearance?: "contrast" | "inverted";
   clearable?: boolean;
   style?: CSSProperties;
   input?: Partial<Input>;
   meta?: FieldProps["meta"];
   disabled?: boolean;
-  required?: boolean;
-  placeholder?: string;
 }
-
-export type TMultiSelectProps = IProps;
 
 export default function MultiSelect({
   options = [],
@@ -54,7 +51,7 @@ export default function MultiSelect({
   disabled,
   required,
   placeholder = ""
-}: TMultiSelectProps) {
+}: IMultiSelectProps) {
   const { touched, error } = meta || ({} as any);
 
   const showError = !!(touched && error);

@@ -3,20 +3,17 @@ import { FieldRenderProps } from "react-final-form";
 
 import TInputElementProps from "../definitions/TInputElementProps";
 import Base from "../Base";
+import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
-interface ITextInputProps {
-  label?: string;
-  labelPosition?: "inside" | "outside" | "intersect";
-  appearance?: "contrast" | "inverted";
+interface ITextInputProps extends TInheritedFloatingLabelProps {
   msgPosition?: {
     bottom: number;
   };
   "data-qa"?: string;
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
-  placeholder?: string;
 }
 
 export type TTextInputProps = ITextInputProps &

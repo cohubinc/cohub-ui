@@ -13,6 +13,7 @@ import DropdownIndicator, {
 
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import "./Select.scss";
+import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 interface IOption {
   label: string;
@@ -26,18 +27,14 @@ type FieldProps = FieldRenderProps<
 interface IInput extends Partial<Omit<FieldProps["input"], "onChange">> {
   onChange?: (value: string | null) => void;
 }
-interface ISelectProps {
-  label?: string;
-  placeholder?: string;
+
+export interface ISelectProps extends TInheritedFloatingLabelProps {
   options?: OptionsType<IOption>;
   loading?: boolean;
-  appearance?: "contrast" | "inverted";
-  error?: boolean;
   clearable?: boolean;
   style?: CSSProperties;
   input?: IInput;
   meta?: FieldProps["meta"];
-  required?: boolean;
   onMenuScrollToBottom?: (
     event: React.SyntheticEvent<HTMLElement, Event>
   ) => void;
@@ -47,9 +44,7 @@ interface ISelectProps {
   components?: Partial<SelectComponents<IOption>>;
 }
 
-export type TSelectProps = ISelectProps;
-
-export default function Select(props: TSelectProps) {
+export default function Select(props: ISelectProps) {
   const {
     options = [],
     input = {},

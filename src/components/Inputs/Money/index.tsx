@@ -6,6 +6,7 @@ import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import TInputElementProps from "../definitions/TInputElementProps";
 
 import "./Money.scss";
+import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 type InputValue = number;
 
@@ -20,16 +21,15 @@ interface IInputProp {
   required?: boolean;
 }
 
-export interface IMoneyInputProps extends TInputElementProps {
+export interface IMoneyInputProps
+  extends TInputElementProps,
+    TInheritedFloatingLabelProps {
   /**
    * Use to extend decimal precision
    */
   extendedPrecision?: boolean;
   input: IInputProp;
   meta?: FormRenderProps["meta"];
-  label?: string;
-  labelPosition?: "inside" | "outside" | "intersect";
-  appearance?: "contrast" | "inverted";
   "data-qa"?: string;
 }
 

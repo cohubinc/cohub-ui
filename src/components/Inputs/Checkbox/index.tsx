@@ -8,16 +8,14 @@ import "./Checkbox.scss";
 import guid from "src/helpers/guid";
 
 type FieldProps = FieldRenderProps<boolean | string, HTMLInputElement>;
-interface ICheckboxProps {
+export interface ICheckboxProps {
   label: string;
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
   id?: string;
 }
 
-export type TCheckboxProps = ICheckboxProps;
-
-export default function({ label, input = {}, id = guid() }: TCheckboxProps) {
+export default function({ label, input = {}, id = guid() }: ICheckboxProps) {
   const checked =
     (input.value && input.value === true) || input.value === "true";
 

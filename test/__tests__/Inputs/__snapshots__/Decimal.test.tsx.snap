@@ -10,7 +10,7 @@ exports[`Decimal renders Decimal without crashing 1`] = `
   }
 >
   <div
-    className="decimal-input align-left"
+    className="decimal-input align-left "
   >
     <FloatingLabelWrapper
       error={false}

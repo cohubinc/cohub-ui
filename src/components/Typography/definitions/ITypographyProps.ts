@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import Color from "../../../definitions/enums/Color";
 
-export default interface IProps {
+export interface ITypographyProps {
   fontFamily?: "Akkurat-Mono" | "MillerDisplay" | "Inter";
   /** React Children nodes are required */
   children: React.ReactNode;
