@@ -1,0 +1,20 @@
+.decimal-input {
+  input {
+    border: none;
+  }
+  &.align-left {
+    input {
+      text-align: left;
+    }
+  }
+  &.align-center {
+    input {
+      text-align: center;
+    }
+  }
+  &.align-right {
+    input {
+      text-align: right;
+    }
+  }
+}
