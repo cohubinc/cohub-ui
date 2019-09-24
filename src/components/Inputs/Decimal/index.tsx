@@ -4,7 +4,7 @@ import NumberFormat from "react-number-format";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import TInputElementProps from "../definitions/TInputElementProps";
 
-import styles from "./styles.module.scss";
+import "./styles.scss";
 
 type InputValue = number | undefined;
 
@@ -15,7 +15,7 @@ interface IInputProp {
   onBlur?: FinalFormInputProp["onBlur"];
   onChange: (value: InputValue) => void;
   onFocus?: FinalFormInputProp["onFocus"];
-  value: FinalFormInputProp["value"];
+  value?: FinalFormInputProp["value"];
   required?: boolean;
 }
 
@@ -30,7 +30,13 @@ interface IDecimalInputProps {
   label?: string;
   labelPosition?: "inside" | "outside" | "intersect";
   appearance?: "contrast" | "inverted";
+  /**
+   * Alignment of the input value text
+   * @default left
+   */
+  textAlign?: "left" | "right" | "center";
   "data-qa"?: string;
+  className?: string;
 }
 
 export type TDecimalInputProps = IDecimalInputProps & TInputElementProps;
@@ -46,12 +52,18 @@ export default function DecimalInput({
   integer = false,
   required,
   placeholder,
+  textAlign = "left",
+  className = "",
   ...rest
 }: TDecimalInputProps) {
   const showError = !!(meta && meta.touched && meta.error);
 
   return (
-    <div className={styles.input} data-qa={dataQa} {...rest}>
+    <div
+      className={`decimal-input align-${textAlign} ${className}`}
+      data-qa={dataQa}
+      {...rest}
+    >
       <FloatingLabelWrapper
         {...input}
         label={label}

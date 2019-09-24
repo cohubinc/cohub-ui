@@ -17,7 +17,7 @@ exports[`Horizontal renders without crashing 1`] = `
       className="flex"
     >
       <div
-        className="flex ml-1"
+        className="flex ml-1 w-100"
       >
         <div
           className="ml-1 w-100"

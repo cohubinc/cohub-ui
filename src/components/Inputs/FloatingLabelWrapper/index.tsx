@@ -107,7 +107,7 @@ export default function FloatingLabelWrapper<T = TValue>(
   const inputRef = useRef<HTMLInputElement>(null);
 
   const isValidString = value && typeof value === "string" && !!value.length;
-  const isValidNumber = value && typeof value === "number";
+  const isValidNumber = typeof value === "number";
   const isValidObject = value && !isEmpty(value);
 
   const labelFloated =
