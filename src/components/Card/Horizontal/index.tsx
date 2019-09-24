@@ -36,6 +36,8 @@ export interface IHorizontalCardProps {
    * The level of drop shadow that shows beneath the card
    */
   elevation?: ElevationLevel;
+  imgContainerStyle?: CSSProperties;
+  imageWidth?: string | number;
 }
 
 export default function Horizontal({
@@ -49,13 +51,13 @@ export default function Horizontal({
   className,
   style,
   children,
-  elevation = 1
+  elevation = 1,
+  imgContainerStyle,
+  imageWidth
 }: IHorizontalCardProps) {
   const { isMobile } = useMediaQueries();
 
   const cardWidth = isMobile ? "100%" : "360px";
-
-  const dpLevel = `dp${elevation}` as any;
 
   let actionList;
 
@@ -92,11 +94,14 @@ export default function Horizontal({
       <div className="flex">
         {avatar && <Avatar size={50} src={imageUrl} />}
         {!avatar && imageUrl && (
-          <div>
-            <img src={imageUrl} className={styles.CardHorizontalImage} />
+          <div
+            style={{ width: imageWidth, ...imgContainerStyle }}
+            className={styles.CardHorizontalImage}
+          >
+            <img style={{ width: "100%" }} src={imageUrl} />
           </div>
         )}
-        <div className="flex ml-1">
+        <div className="flex ml-1 w-100">
           <div className="ml-1 w-100">
             {titleLinkElement()}
             <Typography block>{subtitle}</Typography>
@@ -113,7 +118,7 @@ export default function Horizontal({
       className={`${styles.CardHorizontal} ${className}`}
       style={{
         ...style,
-        boxShadow: BoxShadow[dpLevel] || BoxShadow.dp1,
+        boxShadow: (BoxShadow as any)[`dp${elevation}`] || BoxShadow.dp1,
         width: cardWidth
       }}
     >
