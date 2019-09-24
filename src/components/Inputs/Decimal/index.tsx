@@ -36,6 +36,7 @@ interface IDecimalInputProps {
    */
   textAlign?: "left" | "right" | "center";
   "data-qa"?: string;
+  className?: string;
 }
 
 export type TDecimalInputProps = IDecimalInputProps & TInputElementProps;
@@ -52,13 +53,14 @@ export default function DecimalInput({
   required,
   placeholder,
   textAlign = "left",
+  className = "",
   ...rest
 }: TDecimalInputProps) {
   const showError = !!(meta && meta.touched && meta.error);
 
   return (
     <div
-      className={`decimal-input align-${textAlign}`}
+      className={`decimal-input align-${textAlign} ${className}`}
       data-qa={dataQa}
       {...rest}
     >
