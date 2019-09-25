@@ -32,7 +32,7 @@ exports[`Select Input renders checked without crashing 1`] = `
   }
 >
   <FloatingLabelWrapper
-    className="SelectField"
+    className="SelectField undefined"
     label="Select"
     value={
       Array [
@@ -44,7 +44,7 @@ exports[`Select Input renders checked without crashing 1`] = `
     }
   >
     <div
-      className="FloatingLabelWrapper GenericInput SelectField"
+      className="FloatingLabelWrapper GenericInput SelectField undefined"
       style={
         Object {
           "cursor": "text",

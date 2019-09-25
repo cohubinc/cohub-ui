@@ -3,7 +3,7 @@ import { FieldRenderProps } from "react-final-form";
 import NumberFormat from "react-number-format";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import TInputElementProps from "../definitions/TInputElementProps";
-
+import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 import "./styles.scss";
 
 type InputValue = number | undefined;
@@ -19,7 +19,7 @@ interface IInputProp {
   required?: boolean;
 }
 
-interface IDecimalInputProps {
+interface IDecimalInputProps extends TInheritedFloatingLabelProps {
   /**
    * Use to extend decimal precision
    */
@@ -27,9 +27,6 @@ interface IDecimalInputProps {
   integer?: boolean;
   input: IInputProp;
   meta?: FormRenderProps["meta"];
-  label?: string;
-  labelPosition?: "inside" | "outside" | "intersect";
-  appearance?: "contrast" | "inverted";
   /**
    * Alignment of the input value text
    * @default left

@@ -12,12 +12,10 @@ import DropdownIndicator, {
 } from "src/components/Inputs/SelectDropdownIndicator";
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import Color from "src/definitions/enums/Color";
-import FloatingLabelWrapper, {
-  IFloatingLabelWrapperProps
-} from "../FloatingLabelWrapper";
+import FloatingLabelWrapper from "../FloatingLabelWrapper";
+import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 import "./Multiselect.scss";
-import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 interface IOption {
   label: string;
@@ -36,6 +34,7 @@ export interface IMultiSelectProps extends TInheritedFloatingLabelProps {
   input?: Partial<Input>;
   meta?: FieldProps["meta"];
   disabled?: boolean;
+  className?: string;
 }
 
 export default function MultiSelect({
@@ -50,7 +49,8 @@ export default function MultiSelect({
   meta,
   disabled,
   required,
-  placeholder = ""
+  placeholder = "",
+  className
 }: IMultiSelectProps) {
   const { touched, error } = meta || ({} as any);
 
@@ -123,7 +123,7 @@ export default function MultiSelect({
 
   return (
     <FloatingLabelWrapper
-      className="MultiselectField"
+      className={`MultiselectField ${className}`}
       onBlur={input.onBlur}
       onFocus={input.onFocus}
       onChange={(selectedOption: ValueType<IOption>, { action }: any) => {

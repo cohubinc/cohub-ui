@@ -35,7 +35,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
   }
 >
   <FloatingLabelWrapper
-    className="MultiselectField"
+    className="MultiselectField undefined"
     error={false}
     label="Select"
     onChange={[Function]}
@@ -53,7 +53,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
     }
   >
     <div
-      className="FloatingLabelWrapper GenericInput MultiselectField"
+      className="FloatingLabelWrapper GenericInput MultiselectField undefined"
       style={
         Object {
           "cursor": "text",

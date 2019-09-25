@@ -12,8 +12,9 @@ import DropdownIndicator, {
 } from "src/components/Inputs/SelectDropdownIndicator";
 
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
-import "./Select.scss";
 import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
+
+import "./Select.scss";
 
 interface IOption {
   label: string;
@@ -42,6 +43,7 @@ export interface ISelectProps extends TInheritedFloatingLabelProps {
   handleScrolledToBottom?: () => void;
   onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
   components?: Partial<SelectComponents<IOption>>;
+  className?: string;
 }
 
 export default function Select(props: ISelectProps) {
@@ -60,7 +62,8 @@ export default function Select(props: ISelectProps) {
     onMenuScrollToBottomOffset,
     onInputChange,
     components,
-    required
+    required,
+    className
   } = props;
 
   let value = options.filter(o => input.value === o.value);
@@ -124,7 +127,7 @@ export default function Select(props: ISelectProps) {
 
   return (
     <FloatingLabelWrapper
-      className="SelectField"
+      className={`SelectField ${className}`}
       onBlur={input.onBlur}
       onFocus={input.onFocus}
       {...{ label, value, appearance, style, required }}
