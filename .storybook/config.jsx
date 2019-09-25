@@ -19,6 +19,7 @@ const Decorator = storyFn => (
 );
 
 addDecorator(Decorator);
+// addDecorator(DocsPage);
 addParameters({
   options: {
     theme: CohubTheme
