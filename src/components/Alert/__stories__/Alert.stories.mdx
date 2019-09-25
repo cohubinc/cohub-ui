@@ -1,29 +1,27 @@
 import { action } from "@storybook/addon-actions";
-import { Story, Meta, Props } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Alert, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Alerts" />
+<Meta title="Components|Alerts" component={Alert} />
 
 # Alert
 
-<Story name="Alert">
-  <div>
+<Preview>
+  <Story name="default">
     <Alert>Default Alert</Alert>
-    <StoryHelpers.Margin />
+  </Story>
+  <Story name="centerAlign">
     <Alert centerAlign>Alert with centerAlign set to true</Alert>
-    <StoryHelpers.Margin />
+  </Story>
+  <Story name="success">
     <Alert success>Success Alert</Alert>
-    <StoryHelpers.Margin />
+  </Story>
+  <Story name="info">
     <Alert info>Info Alert</Alert>
-    <StoryHelpers.Margin />
+  </Story>
+  <Story name="error">
     <Alert error="true">Error Alert</Alert>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Alert info>Info Alert</Alert>
-```
+  </Story>
+</Preview>
 
 <Props of={Alert} />
