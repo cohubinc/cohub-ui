@@ -1,26 +1,16 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Buttons, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|Blank" />
+<Meta title="Components|Buttons|Blank" component={Buttons.Blank} />
 
 # Blank Button
 
-<StoryHelpers.Margin />
-
 ## Blank is an HTML button element with all the styles removed
 
-<Story name="Blank">
-  <div className="w-100 h-100 border bd-radius p-1">
-    <StoryHelpers.Text underlined>Blank Button Exmple Below</StoryHelpers.Text>
+<Preview>
+  <Story name="Blank">
     <Buttons.Blank>Blank Button</Buttons.Blank>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Buttons.Blank>Blank Button</Buttons.Blank>
-```
+  </Story>
+</Preview>
 
 <Props of={Buttons.Blank} />

@@ -17,7 +17,9 @@ addDecorator(withA11y);
 addParameters({
   options: {
     theme: CohubTheme
-  }
+  },
+  hierarchySeparator: /\/|\./, // matches a . or /
+  hierarchyRootSeparator: /\|/ //matches a |
 });
 
 configure(
