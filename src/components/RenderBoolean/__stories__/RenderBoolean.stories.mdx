@@ -10,13 +10,15 @@ import { Buttons, StoryHelpers, Color, RenderBoolean } from "dist/index.esm.js";
 
 ## A method for displaying a boolean value
 
-<Story name="RenderBoolean">
-  <div>
-    <StoryHelpers.StateCtrl label="RenderBoolean">
-      {({ state }) => <RenderBoolean value={state} className="mt-05" />}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
+<Preview>
+  <Story name="RenderBoolean">
+    <div>
+      <StoryHelpers.StateCtrl label="RenderBoolean">
+        {({ state }) => <RenderBoolean value={state} className="mt-05" />}
+      </StoryHelpers.StateCtrl>
+    </div>
+  </Story>
+</Preview>
 
 ## Example usage
 

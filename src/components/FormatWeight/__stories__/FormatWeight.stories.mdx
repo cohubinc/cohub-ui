@@ -6,18 +6,20 @@ import { FormatWeight } from "dist/index.esm.js";
 
 # FormatWeight
 
-<Story name="FormatWeight">
-  <div>
-    <div className="mb-2">
-      <FormatWeight value={26600.12} />
+<Preview>
+  <Story name="FormatWeight">
+    <div>
+      <div className="mb-2">
+        <FormatWeight value={26600.12} />
+      </div>
+      <div className="mb-2">
+        <FormatWeight value={26600.12345} thousandSeparator={false} />
+      </div>
+      <div className="mb-2">
+        <FormatWeight value={26600} />
+      </div>
     </div>
-    <div className="mb-2">
-      <FormatWeight value={26600.12345} thousandSeparator={false} />
-    </div>
-    <div className="mb-2">
-      <FormatWeight value={26600} />
-    </div>
-  </div>
-</Story>
+  </Story>
+</Preview>
 
 <Props of={FormatWeight} />

@@ -1,48 +1,34 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Buttons, StoryHelpers } from "dist/index.esm.js";
 
 <Meta title="Components|Buttons|Default" />
 
-# Defualt Button
+# Default Button
 
-<StoryHelpers.Margin />
-
-<Story name="Default">
-  <div>
-    <Buttons>Default</Buttons>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="error">
-      {({ state }) => <Buttons error={state}>Error</Buttons>}
-    </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="raised" defaultState>
-      {({ state }) => <Buttons raised={state}>Raised</Buttons>}
-    </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="success">
-      {({ state }) => (
-        <Buttons success={state} style={{ width: "5rem" }}>
-          Submit
-        </Buttons>
-      )}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
+<Preview>
+  <Story name="Default">
+    <div>
+      <Buttons>Default</Buttons>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="error">
+        {({ state }) => <Buttons error={state}>Error</Buttons>}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="raised" defaultState>
+        {({ state }) => <Buttons raised={state}>Raised</Buttons>}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="success">
+        {({ state }) => (
+          <Buttons success={state} style={{ width: "5rem" }}>
+            Submit
+          </Buttons>
+        )}
+      </StoryHelpers.StateCtrl>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Buttons.Base} />
-
-## Example usage
-
-```jsx
-<Buttons>Submit</Buttons>
-
-<Buttons
-  icon="chevronDown"
-  iconPosition="right"
->
-  Push Me
-</Buttons>
-```
 
 **Also accepts all [native button attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes) as props**

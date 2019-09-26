@@ -6,6 +6,8 @@ import Avatar from "src/components/Avatar";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import useMediaQueries from "src/hooks/useMediaQueries";
 import styles from "./Vertical.module.scss";
+import { Buttons } from "src";
+import Color from "src/definitions/enums/Color";
 
 export interface IVerticalCardProps {
   /**
@@ -25,7 +27,7 @@ export interface IVerticalCardProps {
   /**
    * An array of objects that each have a name and an action. The action is usually a function, but doesn't have to be
    */
-  actions?: Array<{ name: string; action: () => void }>;
+  actions?: Array<{ name: string; action: () => void; disabled?: boolean }>;
   /**
    * A url for the card's image
    */
@@ -68,13 +70,16 @@ export default function Vertical({
   if (actions) {
     actionList = actions.map(a => {
       return (
-        <div
+        <Buttons.Text
           className={styles.CardAction}
           key={a.name}
           onClick={() => a.action()}
+          fontSize={12}
+          disabled={!!a.disabled}
+          color={Color.iconGrey as any}
         >
           {a.name}
-        </div>
+        </Buttons.Text>
       );
     });
   }

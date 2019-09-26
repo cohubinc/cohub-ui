@@ -8,53 +8,55 @@ import { Typography, StoryHelpers, Color } from "dist/index.esm.js";
 
 <StoryHelpers.Margin showDividerLine />
 
-<Story name="Typography">
-  <div>
-    <div className="mb-3">
-      <Typography.SuperTitle>Super Title - 48px</Typography.SuperTitle>
+<Preview>
+  <Story name="Typography">
+    <div>
+      <div className="mb-3">
+        <Typography.SuperTitle>Super Title - 48px</Typography.SuperTitle>
+      </div>
+      <div className="mb-3">
+        <Typography.Title>Title - 36px</Typography.Title>
+      </div>
+      <div className="mb-3">
+        <Typography.Subtitle>Subtitle - 30px</Typography.Subtitle>
+      </div>
+      <div className="mb-3">
+        <Typography.HeadingLarge>Large Heading - 24px</Typography.HeadingLarge>
+      </div>
+      <div className="mb-3">
+        <Typography.HeadingSmall>Small Heading - 20px</Typography.HeadingSmall>
+      </div>
+      <div className="mb-3">
+        <Typography.HeadingTiny>Tiny Heading - 18px</Typography.HeadingTiny>
+      </div>
+      <div className="mb-3">
+        <Typography.Large>Large Body Typography - 16px</Typography.Large>
+      </div>
+      <div className="mb-3">
+        <Typography p>
+          Regular Body Typography (rendered as a paragraph) - 14px
+        </Typography>
+      </div>
+      <div className="mb-3">
+        <Typography.Small>Small Body - 12px</Typography.Small>
+      </div>
+      <div className="mb-3">
+        <Typography.Tiny>Tiny Body - 10.2px</Typography.Tiny>
+      </div>
+      <div className="mb-3">
+        <Typography bold>Bold</Typography>
+      </div>
+      <div className="mb-3">
+        <Typography muted>Muted</Typography>
+      </div>
+      <div
+        className="mb-3 p-1"
+        style={{ backgroundColor: Color.invertedBackground }}
+      >
+        <Typography inverted>Inverted</Typography>
+      </div>
     </div>
-    <div className="mb-3">
-      <Typography.Title>Title - 36px</Typography.Title>
-    </div>
-    <div className="mb-3">
-      <Typography.Subtitle>Subtitle - 30px</Typography.Subtitle>
-    </div>
-    <div className="mb-3">
-      <Typography.HeadingLarge>Large Heading - 24px</Typography.HeadingLarge>
-    </div>
-    <div className="mb-3">
-      <Typography.HeadingSmall>Small Heading - 20px</Typography.HeadingSmall>
-    </div>
-    <div className="mb-3">
-      <Typography.HeadingTiny>Tiny Heading - 18px</Typography.HeadingTiny>
-    </div>
-    <div className="mb-3">
-      <Typography.Large>Large Body Typography - 16px</Typography.Large>
-    </div>
-    <div className="mb-3">
-      <Typography p>
-        Regular Body Typography (rendered as a paragraph) - 14px
-      </Typography>
-    </div>
-    <div className="mb-3">
-      <Typography.Small>Small Body - 12px</Typography.Small>
-    </div>
-    <div className="mb-3">
-      <Typography.Tiny>Tiny Body - 10.2px</Typography.Tiny>
-    </div>
-    <div className="mb-3">
-      <Typography bold>Bold</Typography>
-    </div>
-    <div className="mb-3">
-      <Typography muted>Muted</Typography>
-    </div>
-    <div
-      className="mb-3 p-1"
-      style={{ backgroundColor: Color.invertedBackground }}
-    >
-      <Typography inverted>Inverted</Typography>
-    </div>
-  </div>
-</Story>
+  </Story>
+</Preview>
 
 <Props of={Typography} />

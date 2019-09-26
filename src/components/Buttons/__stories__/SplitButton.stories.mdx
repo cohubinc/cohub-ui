@@ -1,51 +1,40 @@
 import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
-
 import { Buttons, Color, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|SplitButton" />
+<Meta title="Components|Buttons|SplitButton" component={Buttons.SplitButton} />
 
 # SplitButtons
 
-## Usage
-
-<Story name="SplitButtons">
-  <div>
-    <StoryHelpers.Text underlined>Default Split Buttons</StoryHelpers.Text>
-    <StoryHelpers.StateContainer defaultState={0}>
-      {({ setState, state }) => (
-        <Buttons.Split
-          labels={["Brown", "Chicken", "BrownCow"]}
-          selectedIndex={state}
-          onChange={setState}
-        />
-      )}
-    </StoryHelpers.StateContainer>
-    <StoryHelpers.Margin />
-    <StoryHelpers.Text underlined>Primary Split Buttons</StoryHelpers.Text>
-    <StoryHelpers.Text italicize>
-      Segments will always be the same size
-    </StoryHelpers.Text>
-    <StoryHelpers.StateContainer defaultState={1}>
-      {({ setState, state }) => (
-        <Buttons.Split
-          color={Color.teal500}
-          labels={["Collections", "Search", "Select an item at random"]}
-          selectedIndex={state}
-          onChange={setState}
-        />
-      )}
-    </StoryHelpers.StateContainer>
-  </div>
-</Story>
-
-## Example Usage
-
-```jsx
-<Buttons.Split
-  labels={["Brown", "Chicken", "BrownCow"]}
-  selectedIndex={2}
-  onChange={index => `setState(index)`}
-/>
-```
+<Preview>
+  <Story name="SplitButtons">
+    <div>
+      <StoryHelpers.Text underlined>Default Split Buttons</StoryHelpers.Text>
+      <StoryHelpers.StateContainer defaultState={0}>
+        {({ setState, state }) => (
+          <Buttons.Split
+            labels={["Brown", "Chicken", "BrownCow"]}
+            selectedIndex={state}
+            onChange={setState}
+          />
+        )}
+      </StoryHelpers.StateContainer>
+      <StoryHelpers.Margin />
+      <StoryHelpers.Text underlined>Primary Split Buttons</StoryHelpers.Text>
+      <StoryHelpers.Text italicize>
+        Segments will always be the same size
+      </StoryHelpers.Text>
+      <StoryHelpers.StateContainer defaultState={1}>
+        {({ setState, state }) => (
+          <Buttons.Split
+            color={Color.teal500}
+            labels={["Collections", "Search", "Select an item at random"]}
+            selectedIndex={state}
+            onChange={setState}
+          />
+        )}
+      </StoryHelpers.StateContainer>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Buttons.Split} />

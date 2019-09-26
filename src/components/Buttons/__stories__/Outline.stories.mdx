@@ -1,28 +1,21 @@
 import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
-
 import { Buttons, Margin, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|Outline" />
+<Meta title="Components|Buttons|Outline" component={Buttons.Outline} />
 
 # Outline Button
 
-<StoryHelpers.Margin />
-
-<Story name="Outline">
-  <div>
-    <Buttons.Outline>Outline</Buttons.Outline>
-    <StoryHelpers.Margin />
+<Preview>
+  <Story name="Outline">
     <div>
-      <Buttons.Outline light>Light Outline</Buttons.Outline>
+      <Buttons.Outline>Outline</Buttons.Outline>
+      <StoryHelpers.Margin />
+      <div>
+        <Buttons.Outline light>Light Outline</Buttons.Outline>
+      </div>
     </div>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Buttons.Outline light>Light Outline</Buttons.Outline>
-```
+  </Story>
+</Preview>
 
 <Props of={Buttons.Base} />
 

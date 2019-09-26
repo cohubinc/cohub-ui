@@ -1,31 +1,18 @@
-import { action } from "@storybook/addon-actions";
 import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Divider } from "dist/index.esm.js";
 
-<Meta title="Components|Dividers" />
+<Meta title="Components|Dividers" component={Divider} />
 
 # Divider
 
-This is a Divider.
-
-<Story name="Divider">
-  <div>
-    <span>Liberals</span>
-    <Divider />
-    <span>Conservatives</span>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Divider />
-
-<Divider className="divider" style={{width: 100}} showDividerLine={false} marginSize={3} />
-
-<Divider marginTop={0.5} />
-
-<Divider marginBottom={6} />
-```
+<Preview>
+  <Story name="Divider">
+    <div>
+      <span>Liberals</span>
+      <Divider />
+      <span>Conservatives</span>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Divider} />

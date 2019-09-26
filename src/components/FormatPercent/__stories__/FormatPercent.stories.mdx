@@ -6,18 +6,20 @@ import { FormatPercent } from "dist/index.esm.js";
 
 # FormatPercent
 
-<Story name="FormatPercent">
-  <div>
-    <div className="mb-2">
-      <FormatPercent value={26600.12} />
+<Preview>
+  <Story name="FormatPercent">
+    <div>
+      <div className="mb-2">
+        <FormatPercent value={26600.12} />
+      </div>
+      <div className="mb-2">
+        <FormatPercent value={26600.12345} thousandSeparator={false} />
+      </div>
+      <div className="mb-2">
+        <FormatPercent value={26600} />
+      </div>
     </div>
-    <div className="mb-2">
-      <FormatPercent value={26600.12345} thousandSeparator={false} />
-    </div>
-    <div className="mb-2">
-      <FormatPercent value={26600} />
-    </div>
-  </div>
-</Story>
+  </Story>
+</Preview>
 
 <Props of={FormatPercent} />

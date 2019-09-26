@@ -7,25 +7,27 @@ import { MemoryRouter } from "react-router";
 
 # Link
 
-<Story name="Link">
-  <div>
-    <MemoryRouter>
-      <div className="mb-1">
-        <Link to="/some/internal/route">Internal Link</Link>
-      </div>
-      <div className="mb-1">
-        <Link href="https://www.google.com/">External Link</Link>
-      </div>
-      <div className="mb-1">
-        <Link styled animated={false} href="https://www.google.com/">
-          Link with no animation
-        </Link>
-      </div>
-      <div className="mb-1">
-        <Link.Muted to="/some/internal/route">Muted Link</Link.Muted>
-      </div>
-    </MemoryRouter>
-  </div>
-</Story>
+<Preview>
+  <Story name="Link">
+    <div>
+      <MemoryRouter>
+        <div className="mb-1">
+          <Link to="/some/internal/route">Internal Link</Link>
+        </div>
+        <div className="mb-1">
+          <Link href="https://www.google.com/">External Link</Link>
+        </div>
+        <div className="mb-1">
+          <Link styled animated={false} href="https://www.google.com/">
+            Link with no animation
+          </Link>
+        </div>
+        <div className="mb-1">
+          <Link.Muted to="/some/internal/route">Muted Link</Link.Muted>
+        </div>
+      </MemoryRouter>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Link} />

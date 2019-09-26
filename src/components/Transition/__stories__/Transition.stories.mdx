@@ -18,24 +18,26 @@ The Transition component it a wrapper around _react-transition-group/Transition_
 You can [read more about it here.](https://reactcommunity.org/react-transition-group/transition)
 The component will animate on mount and on dismount if you use the **show** prop to toggle it on and off.
 
-<Story name="Transition">
-  <div>
-    <StoryHelpers.StateCtrl>
-      {({ state }) => (
-        <div className="mb-5 text-center">
-          <Transition
-            show={state}
-            start={{ transform: "scale(0)" }}
-            entered={{ transform: "scale(3)" }}
-            duration={1000}
-          >
-            <h2>Scale Up</h2>
-          </Transition>
-        </div>
-      )}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
+<Preview>
+  <Story name="Transition">
+    <div>
+      <StoryHelpers.StateCtrl>
+        {({ state }) => (
+          <div className="mb-5 text-center">
+            <Transition
+              show={state}
+              start={{ transform: "scale(0)" }}
+              entered={{ transform: "scale(3)" }}
+              duration={1000}
+            >
+              <h2>Scale Up</h2>
+            </Transition>
+          </div>
+        )}
+      </StoryHelpers.StateCtrl>
+    </div>
+  </Story>
+</Preview>
 
 ## Example usage
 

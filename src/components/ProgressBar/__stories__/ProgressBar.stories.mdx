@@ -10,12 +10,14 @@ import { Buttons, StoryHelpers, Color, ProgressBar } from "dist/index.esm.js";
 
 ## A bar for showing progress, visually
 
-<Story name="ProgressBar">
-  <div>
-    <StoryHelpers.StateSlider label="ProgressBar" defaultState={50}>
-      {({ rangeLevel }) => <ProgressBar progress={rangeLevel} />}
-    </StoryHelpers.StateSlider>
-  </div>
-</Story>
+<Preview>
+  <Story name="ProgressBar">
+    <div>
+      <StoryHelpers.StateSlider label="ProgressBar" defaultState={50}>
+        {({ rangeLevel }) => <ProgressBar progress={rangeLevel} />}
+      </StoryHelpers.StateSlider>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Buttons.Blank} />

@@ -10,20 +10,22 @@ import { Buttons, StoryHelpers, Color, Loader } from "dist/index.esm.js";
 
 ## A loader
 
-<Story name="Loader">
-  <div>
+<Preview>
+  <Story name="Loader">
     <div>
-      <StoryHelpers.StateCtrl label="Loader">
-        {({ state }) => <Loader show={state} />}
-      </StoryHelpers.StateCtrl>
+      <div>
+        <StoryHelpers.StateCtrl label="Loader">
+          {({ state }) => <Loader show={state} />}
+        </StoryHelpers.StateCtrl>
+      </div>
+      <StoryHelpers.Margin />
+      <div>
+        <StoryHelpers.StateCtrl label="Fullscreen Loader">
+          {({ state }) => <Loader fullScreen show={state} />}
+        </StoryHelpers.StateCtrl>
+      </div>
     </div>
-    <StoryHelpers.Margin />
-    <div>
-      <StoryHelpers.StateCtrl label="Fullscreen Loader">
-        {({ state }) => <Loader fullScreen show={state} />}
-      </StoryHelpers.StateCtrl>
-    </div>
-  </div>
-</Story>
+  </Story>
+</Preview>
 
 <Props of={Loader} />

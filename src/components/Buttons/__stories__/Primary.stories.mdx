@@ -1,58 +1,46 @@
 import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
-
 import { Buttons, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|Primary" />
+<Meta title="Components|Buttons|Primary" component={Buttons.Primary} />
 
 # Primary Button
 
-<StoryHelpers.Margin />
-
-<Story name="Primary">
-  <div>
-    <Buttons.Primary>Primary</Buttons.Primary>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="error">
-      {({ state }) => <Buttons.Primary error={state}>Error</Buttons.Primary>}
-    </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="raised" defaultState>
-      {({ state }) => <Buttons.Primary raised={state}>Raised</Buttons.Primary>}
-    </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="success">
-      {({ state }) => (
-        <Buttons.Primary success={state} style={{ width: "5rem" }}>
-          Submit
-        </Buttons.Primary>
-      )}
-    </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="position">
-      {({ state }) => (
-        <Buttons.Primary
-          icon="chevronDown"
-          iconPosition={state ? "right" : "left"}
-        >
-          Text
-        </Buttons.Primary>
-      )}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Buttons.Primary>Primary</Buttons.Primary>
-
-<Buttons.Primary
-  icon="chevronDown"
-  iconPosition="right"
->
-  Push Me
-</Buttons.Primary>
-```
+<Preview>
+  <Story name="Primary">
+    <div>
+      <Buttons.Primary>Primary</Buttons.Primary>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="error">
+        {({ state }) => <Buttons.Primary error={state}>Error</Buttons.Primary>}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="raised" defaultState>
+        {({ state }) => (
+          <Buttons.Primary raised={state}>Raised</Buttons.Primary>
+        )}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="success">
+        {({ state }) => (
+          <Buttons.Primary success={state} style={{ width: "5rem" }}>
+            Submit
+          </Buttons.Primary>
+        )}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="position">
+        {({ state }) => (
+          <Buttons.Primary
+            icon="chevronDown"
+            iconPosition={state ? "right" : "left"}
+          >
+            Text
+          </Buttons.Primary>
+        )}
+      </StoryHelpers.StateCtrl>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Buttons.Default} />
 

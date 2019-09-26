@@ -6,18 +6,20 @@ import { FormatMoney } from "dist/index.esm.js";
 
 # FormatMoney
 
-<Story name="FormatMoney">
-  <div>
-    <div className="mb-2">
-      <FormatMoney value={26600.12} />
+<Preview>
+  <Story name="FormatMoney">
+    <div>
+      <div className="mb-2">
+        <FormatMoney value={26600.12} />
+      </div>
+      <div className="mb-2">
+        <FormatMoney value={26600.12345} />
+      </div>
+      <div className="mb-2">
+        <FormatMoney extendedPrecision={false} value={26600.12345} />
+      </div>
     </div>
-    <div className="mb-2">
-      <FormatMoney value={26600.12345} />
-    </div>
-    <div className="mb-2">
-      <FormatMoney extendedPrecision={false} value={26600.12345} />
-    </div>
-  </div>
-</Story>
+  </Story>
+</Preview>
 
 <Props of={FormatMoney} />
