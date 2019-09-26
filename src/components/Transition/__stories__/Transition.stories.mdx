@@ -1,4 +1,3 @@
-import { action } from "@storybook/addon-actions";
 import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import {
   StoryHelpers,
@@ -10,7 +9,7 @@ import {
   Color
 } from "dist/index.esm.js";
 
-<Meta title="Components|Transitions" />
+<Meta title="Components|Transitions" component={Transition} />
 
 # Transition
 
@@ -35,47 +34,39 @@ The component will animate on mount and on dismount if you use the **show** prop
           </div>
         )}
       </StoryHelpers.StateCtrl>
+      <StoryHelpers.StateCtrl>
+        {({ state }) => (
+          <React.Fragment>
+            <div className="mb-3">
+              <Fade show={state} duration={1000}>
+                <h2>Fade In</h2>
+              </Fade>
+            </div>
+            <div className="mb-3">
+              <Expand show={state} duration={1000}>
+                <h2
+                  style={{
+                    color: Color.white300,
+                    backgroundColor: Color.black200,
+                    width: "100%"
+                  }}
+                >
+                  Expand
+                </h2>
+              </Expand>
+            </div>
+            <div className="mb-3">
+              <Grow show={state} duration={1000} height="10em">
+                <div className="full-height bd">
+                  <h2>Grow</h2>
+                </div>
+              </Grow>
+            </div>
+          </React.Fragment>
+        )}
+      </StoryHelpers.StateCtrl>
     </div>
   </Story>
 </Preview>
-
-## Example usage
-
-<StoryHelpers.StateCtrl>
-  { ({ state }) => (
-    <React.Fragment>
-      <div className="mb-3">
-        <Fade
-          show={state}
-          duration={1000}
-        >
-          <h2>Fade In</h2>
-        </Fade>
-      </div>
-      <div className="mb-3">
-        <Expand
-          show={state}
-          duration={1000}
-        >
-          <h2
-            style={{
-              color: Color.white300,
-              backgroundColor: Color.black200,
-              width: "100%"
-            }}
-          >
-            Expand
-          </h2>
-        </Expand>
-      </div>
-      <div className="mb-3">
-        <Grow show={state} duration={1000} height="10em">
-          <div className="full-height bd"><h2>Grow</h2></div>
-        </Grow>
-      </div>
-    </React.Fragment>
-)}
-
-</StoryHelpers.StateCtrl>
 
 <Props of={Transition} />

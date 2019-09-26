@@ -1,12 +1,9 @@
 import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
-
 import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Inputs|Text" />
+<Meta title="Components|Inputs|Text" component={Inputs.Text} />
 
 # Text Input
-
-<StoryHelpers.Margin />
 
 <Preview>
   <Story name="Text">
@@ -95,20 +92,5 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
     </div>
   </Story>
 </Preview>
-
-## Usage
-
-```jsx
-<Inputs.Text
-  label="Text Input"
-  input={{
-    value: state,
-    onChange: ({ target }) => setState(target.value)
-  }}
-  meta={{ touched: true, error }}
-  style={{ width: 300 }}
-  required
-/>
-```
 
 <Props of={Inputs.Text} />

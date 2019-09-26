@@ -1,38 +1,23 @@
 import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
-
 import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Inputs|Base" />
+<Meta title="Components|Inputs|Base" component={Inputs.Base} />
 
 # Base Input
 
-<StoryHelpers.Margin />
-
 <Preview>
   <Story name="Base">
-  <StoryHelpers.StateContainer defaultState="">
-    {({ state, setState }) => (
-      <Inputs.Base
-        label="Base Input"
-        value={state}
-        onChange={({ target }) => setState(target.value)}
-        style={{ width: 300 }}
-      />
-    )}
-  </StoryHelpers.StateContainer>
-</Story>
+    <StoryHelpers.StateContainer defaultState="">
+      {({ state, setState }) => (
+        <Inputs.Base
+          label="Base Input"
+          value={state}
+          onChange={({ target }) => setState(target.value)}
+          style={{ width: 300 }}
+        />
+      )}
+    </StoryHelpers.StateContainer>
+  </Story>
 </Preview>
-
-## Usage
-
-```jsx
-<Inputs.Base
-  label="Base Input"
-  value={state}
-  onChange={({ target }) => setState(target.value)}
-  meta={{ touched: true, error }}
-  style={{ width: 300 }}
-/>
-```
 
 <Props of={Inputs.Base} />

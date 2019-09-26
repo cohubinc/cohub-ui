@@ -2,34 +2,25 @@ import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Form, Field } from "react-final-form";
 import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Inputs|DateRange" />
+<Meta title="Components|Inputs|DateRange" component={Inputs.DateRange} />
 
 # DateRange Input
 
 <Preview>
   <Story name="DateRange">
-  <Form
-    initialValues={{ toggle: true }}
-    onSubmit={() => {}}
-    render={() => (
-      <React.Fragment>
-        <Field
-          name="daterange"
-          render={props => <Inputs.DateRange label="Date Range" {...props} />}
-        />
-      </React.Fragment>
-    )}
-  />
-</Story>
+    <Form
+      initialValues={{ toggle: true }}
+      onSubmit={() => {}}
+      render={() => (
+        <React.Fragment>
+          <Field
+            name="daterange"
+            render={props => <Inputs.DateRange label="Date Range" {...props} />}
+          />
+        </React.Fragment>
+      )}
+    />
+  </Story>
 </Preview>
-
-## Usage
-
-```jsx
-<Field
-  name="daterange"
-  render={props => <Inputs.DateRange label="Date Range" {...props} />}
-/>
-```
 
 <Props of={Inputs.DateRange} />
