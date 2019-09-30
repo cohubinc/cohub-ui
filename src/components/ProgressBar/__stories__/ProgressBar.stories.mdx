@@ -1,21 +1,18 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Buttons, StoryHelpers, Color, ProgressBar } from "dist/index.esm.js";
 
-<Meta title="Components|ProgressBars" />
+<Meta title="Components|ProgressBars" component={ProgressBar} />
 
 # ProgressBar
 
-<StoryHelpers.Margin />
-
-## A bar for showing progress, visually
-
-<Story name="ProgressBar">
-  <div>
-    <StoryHelpers.StateSlider label="ProgressBar" defaultState={50}>
-      {({ rangeLevel }) => <ProgressBar progress={rangeLevel} />}
-    </StoryHelpers.StateSlider>
-  </div>
-</Story>
+<Preview>
+  <Story name="ProgressBar">
+    <div>
+      <StoryHelpers.StateSlider label="ProgressBar" defaultState={50}>
+        {({ rangeLevel }) => <ProgressBar progress={rangeLevel} />}
+      </StoryHelpers.StateSlider>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Buttons.Blank} />

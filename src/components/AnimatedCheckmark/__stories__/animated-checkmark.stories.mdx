@@ -1,49 +1,27 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 
-import { AnimatedCheckmark, Color, StoryHelpers } from "dist/index.esm.js";
+import { AnimatedCheckmark, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|AnimatedCheckmarks" />
+<Meta title="Components|AnimatedCheckmarks" component={AnimatedCheckmark} />
 
 # AnimatedCheckmark
 
-<Story name="AnimatedCheckmark">
-  <div>
+<Preview>
+  <Story name="AnimatedCheckmark">
     <StoryHelpers.StateCtrl>
       {({ state }) => (
         <div
           className="flex justify-center items-center"
           style={{
             height: "8em",
-            width: "14.6em",
-            backgroundColor: Color.black
+            width: "14.6em"
           }}
         >
           {state && <AnimatedCheckmark size="3em" />}
         </div>
       )}
     </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl>
-      {({ state }) => (
-        <div
-          className="flex justify-center items-center"
-          style={{
-            height: "8em",
-            width: "14.6em",
-            backgroundColor: Color.primary
-          }}
-        >
-          {state && <AnimatedCheckmark size="3em" />}
-        </div>
-      )}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<AnimatedCheckmark size="3em" />
-```
+  </Story>
+</Preview>
 
 <Props of={AnimatedCheckmark} />

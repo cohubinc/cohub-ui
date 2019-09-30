@@ -1,23 +1,24 @@
-import { action } from "@storybook/addon-actions";
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { FormatMoney } from "dist/index.esm.js";
 
 <Meta title="Components|FormatMoneys" />
 
 # FormatMoney
 
-<Story name="FormatMoney">
-  <div>
-    <div className="mb-2">
-      <FormatMoney value={26600.12} />
+<Preview>
+  <Story name="FormatMoney">
+    <div>
+      <div className="mb-2">
+        <FormatMoney value={26600.12} />
+      </div>
+      <div className="mb-2">
+        <FormatMoney value={26600.12345} />
+      </div>
+      <div className="mb-2">
+        <FormatMoney extendedPrecision={false} value={26600.12345} />
+      </div>
     </div>
-    <div className="mb-2">
-      <FormatMoney value={26600.12345} />
-    </div>
-    <div className="mb-2">
-      <FormatMoney extendedPrecision={false} value={26600.12345} />
-    </div>
-  </div>
-</Story>
+  </Story>
+</Preview>
 
 <Props of={FormatMoney} />

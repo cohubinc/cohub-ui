@@ -1,43 +1,41 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|Dropdown" />
+<Meta title="Components|Buttons|Dropdown" component={Buttons.Dropdown} />
 
 # Outline Button
 
-<StoryHelpers.Margin />
-
-<Story name="Dropdown">
-  <div style={{ width: "13rem" }}>
-    <Buttons.Dropdown
-      buttonType="Primary"
-      options={[
-        {
-          onClick: () => console.log("Option one click"),
-          label: "Option One"
-        },
-        {
-          onClick: () => console.log("Option two click"),
-          label: "Option Two"
-        },
-        {
-          onClick: () => console.log("Option three click"),
-          label: "Option Three"
-        },
-        {
-          onClick: () => console.log("Option four click"),
-          label: "Option Four"
-        }
-      ]}
-    />
-    <div className="mt-1">
+<Preview>
+  <Story name="Dropdown">
+    <div style={{ width: "13rem" }}>
+      <Buttons.Dropdown
+        buttonType="Primary"
+        options={[
+          {
+            onClick: () => console.log("Primary click"),
+            label: "Primary"
+          },
+          {
+            onClick: () => console.log("Option two click"),
+            label: "Option Two"
+          },
+          {
+            onClick: () => console.log("Option three click"),
+            label: "Option Three"
+          },
+          {
+            onClick: () => console.log("Option four click"),
+            label: "Option Four"
+          }
+        ]}
+      />
+      <StoryHelpers.Margin />
       <Buttons.Dropdown
         buttonType="Info"
         options={[
           {
-            onClick: () => console.log("Foo click"),
-            label: "Foo"
+            onClick: () => console.log("Info click"),
+            label: "Info"
           },
           {
             onClick: () => console.log("Bar click"),
@@ -45,14 +43,13 @@ import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
           }
         ]}
       />
-    </div>
-    <div className="mt-1">
+      <StoryHelpers.Margin />
       <Buttons.Dropdown
         buttonType="Cancel"
         options={[
           {
-            onClick: () => console.log("Left click"),
-            label: "Left"
+            onClick: () => console.log("Cancel click"),
+            label: "Cancel"
           },
           {
             onClick: () => console.log("Right click"),
@@ -60,13 +57,12 @@ import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
           }
         ]}
       />
-    </div>
-    <div className="mt-1">
+      <StoryHelpers.Margin />
       <Buttons.Dropdown
         options={[
           {
-            onClick: () => console.log("Up click"),
-            label: "Up"
+            onClick: () => console.log("Default click"),
+            label: "Default"
           },
           {
             onClick: () => console.log("Down click"),
@@ -75,24 +71,7 @@ import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
         ]}
       />
     </div>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Buttons.Dropdown
-  options={[
-    {
-      onClick: () => console.log("Up click"),
-      label: "Up"
-    },
-    {
-      onClick: () => console.log("Down click"),
-      label: "Down"
-    }
-  ]}
-/>
-```
+  </Story>
+</Preview>
 
 <Props of={Buttons.Dropdown} />

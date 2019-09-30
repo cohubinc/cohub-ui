@@ -3,6 +3,7 @@ import NumberFormat from "react-number-format";
 
 export interface IFormatMoneyProps {
   value: string | number | null | undefined;
+  className?: string;
   /**
    * Use to extend decimal precision
    */
@@ -11,7 +12,8 @@ export interface IFormatMoneyProps {
 
 export default function FormatMoney({
   value,
-  extendedPrecision = true
+  extendedPrecision = true,
+  className = ""
 }: IFormatMoneyProps) {
   const decimals = `${value}`.split(".")[1];
 
@@ -22,6 +24,7 @@ export default function FormatMoney({
       prefix="$"
       thousandSeparator
       fixedDecimalScale
+      className={className}
       decimalScale={
         extendedPrecision && decimals && decimals.length > 2
           ? decimals.length

@@ -1,42 +1,26 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Inputs|Checkbox" />
+<Meta title="Components|Inputs|Checkbox" component={Inputs.Checkbox} />
 
 # Checkbox Input
 
-<StoryHelpers.Margin />
-
-<Story name="Checkbox">
-  <StoryHelpers.StateContainer defaultState="">
-    {({ state, setState }) => (
-      <Inputs.Checkbox
-        label="Checkbox Input"
-        key="selected"
-        input={{
-          name: "selected",
-          value: state,
-          onChange: () => setState(!state)
-        }}
-      />
-    )}
-  </StoryHelpers.StateContainer>
-</Story>
-
-## Usage
-
-```jsx
-<Inputs.Checkbox
-  label="Checkbox Input"
-  key="selected"
-  meta={{}}
-  input={{
-    name: "selected",
-    value: state,
-    onChange: () => setState(!state)
-  }}
-/>
-```
+<Preview>
+  <Story name="Checkbox">
+    <StoryHelpers.StateContainer defaultState="">
+      {({ state, setState }) => (
+        <Inputs.Checkbox
+          label="Checkbox Input"
+          key="selected"
+          input={{
+            name: "selected",
+            value: state,
+            onChange: () => setState(!state)
+          }}
+        />
+      )}
+    </StoryHelpers.StateContainer>
+  </Story>
+</Preview>
 
 <Props of={Inputs.Text} />

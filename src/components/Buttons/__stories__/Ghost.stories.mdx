@@ -1,42 +1,32 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Buttons, StoryHelpers, Color } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|Ghost" />
+<Meta title="Components|Buttons|Ghost" component={Buttons.Ghost} />
 
 # Outline Button
 
-<StoryHelpers.Margin />
-
-<Story name="Ghost 👻">
-  <div style={{ backgroundColor: Color.black500, padding: "6em" }}>
-    <div className="mb-2">
-      <Buttons.Ghost>Default 👻</Buttons.Ghost>
+<Preview>
+  <Story name="Ghost">
+    <div style={{ backgroundColor: Color.black500, padding: "6em" }}>
+      <div className="mb-2">
+        <Buttons.Ghost>Default</Buttons.Ghost>
+      </div>
+      <div className="mb-2">
+        <Buttons.PrimaryGhost>Primary</Buttons.PrimaryGhost>
+      </div>
+      <div className="mb-2">
+        <Buttons.CancelGhost>Cancel</Buttons.CancelGhost>
+      </div>
+      <StoryHelpers.StateCtrl label="success">
+        {({ state }) => (
+          <Buttons.PrimaryGhost success={state} style={{ width: "5rem" }}>
+            Submit
+          </Buttons.PrimaryGhost>
+        )}
+      </StoryHelpers.StateCtrl>
     </div>
-    <div className="mb-2">
-      <Buttons.PrimaryGhost>Primary</Buttons.PrimaryGhost>
-    </div>
-    <div className="mb-2">
-      <Buttons.CancelGhost>Cancel</Buttons.CancelGhost>
-    </div>
-    <StoryHelpers.StateCtrl label="success">
-      {({ state }) => (
-        <Buttons.PrimaryGhost success={state} style={{ width: "5rem" }}>
-          Submit
-        </Buttons.PrimaryGhost>
-      )}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Buttons.Ghost>Default 👻</Buttons.Ghost>
-
-<Buttons.PrimaryGhost>Primary</Buttons.PrimaryGhost>
-
-<Buttons.CancelGhost>Cancel</Buttons.CancelGhost>
-```
+  </Story>
+</Preview>
 
 <Props of={Buttons.Base} />
 

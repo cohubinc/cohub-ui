@@ -1,5 +1,4 @@
-import { action } from "@storybook/addon-actions";
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import {
   StoryHelpers,
   Transition,
@@ -10,7 +9,7 @@ import {
   Color
 } from "dist/index.esm.js";
 
-<Meta title="Components|Transitions" />
+<Meta title="Components|Transitions" component={Transition} />
 
 # Transition
 
@@ -18,62 +17,56 @@ The Transition component it a wrapper around _react-transition-group/Transition_
 You can [read more about it here.](https://reactcommunity.org/react-transition-group/transition)
 The component will animate on mount and on dismount if you use the **show** prop to toggle it on and off.
 
-<Story name="Transition">
-  <div>
-    <StoryHelpers.StateCtrl>
-      {({ state }) => (
-        <div className="mb-5 text-center">
-          <Transition
-            show={state}
-            start={{ transform: "scale(0)" }}
-            entered={{ transform: "scale(3)" }}
-            duration={1000}
-          >
-            <h2>Scale Up</h2>
-          </Transition>
-        </div>
-      )}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
-
-## Example usage
-
-<StoryHelpers.StateCtrl>
-  { ({ state }) => (
-    <React.Fragment>
-      <div className="mb-3">
-        <Fade
-          show={state}
-          duration={1000}
-        >
-          <h2>Fade In</h2>
-        </Fade>
-      </div>
-      <div className="mb-3">
-        <Expand
-          show={state}
-          duration={1000}
-        >
-          <h2
-            style={{
-              color: Color.white300,
-              backgroundColor: Color.black200,
-              width: "100%"
-            }}
-          >
-            Expand
-          </h2>
-        </Expand>
-      </div>
-      <div className="mb-3">
-        <Grow show={state} duration={1000} height="10em">
-          <div className="full-height bd"><h2>Grow</h2></div>
-        </Grow>
-      </div>
-    </React.Fragment>
-)}
-
-</StoryHelpers.StateCtrl>
+<Preview>
+  <Story name="Transition">
+    <div>
+      <StoryHelpers.StateCtrl>
+        {({ state }) => (
+          <div className="mb-5 text-center">
+            <Transition
+              show={state}
+              start={{ transform: "scale(0)" }}
+              entered={{ transform: "scale(3)" }}
+              duration={1000}
+            >
+              <h2>Scale Up</h2>
+            </Transition>
+          </div>
+        )}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.StateCtrl>
+        {({ state }) => (
+          <React.Fragment>
+            <div className="mb-3">
+              <Fade show={state} duration={1000}>
+                <h2>Fade In</h2>
+              </Fade>
+            </div>
+            <div className="mb-3">
+              <Expand show={state} duration={1000}>
+                <h2
+                  style={{
+                    color: Color.white300,
+                    backgroundColor: Color.black200,
+                    width: "100%"
+                  }}
+                >
+                  Expand
+                </h2>
+              </Expand>
+            </div>
+            <div className="mb-3">
+              <Grow show={state} duration={1000} height="10em">
+                <div className="full-height bd">
+                  <h2>Grow</h2>
+                </div>
+              </Grow>
+            </div>
+          </React.Fragment>
+        )}
+      </StoryHelpers.StateCtrl>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Transition} />

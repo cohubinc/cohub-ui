@@ -1,23 +1,24 @@
-import { action } from "@storybook/addon-actions";
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { FormatPercent } from "dist/index.esm.js";
 
-<Meta title="Components|FormatPercents" />
+<Meta title="Components|FormatPercents" component={FormatPercent} />
 
 # FormatPercent
 
-<Story name="FormatPercent">
-  <div>
-    <div className="mb-2">
-      <FormatPercent value={26600.12} />
+<Preview>
+  <Story name="FormatPercent">
+    <div>
+      <div className="mb-2">
+        <FormatPercent value={26600.12} />
+      </div>
+      <div className="mb-2">
+        <FormatPercent value={26600.12345} thousandSeparator={false} />
+      </div>
+      <div className="mb-2">
+        <FormatPercent value={26600} />
+      </div>
     </div>
-    <div className="mb-2">
-      <FormatPercent value={26600.12345} thousandSeparator={false} />
-    </div>
-    <div className="mb-2">
-      <FormatPercent value={26600} />
-    </div>
-  </div>
-</Story>
+  </Story>
+</Preview>
 
 <Props of={FormatPercent} />

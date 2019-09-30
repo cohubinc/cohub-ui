@@ -1,14 +1,9 @@
 import React from "react";
-// Load came in here because we modified the index.d.ts file to add a load type definition
-// This is not part of the actual library
-import { addDecorator } from "@storybook/react";
-import { addParameters, configure } from "@storybook/react";
-import { DocsPage } from "@storybook/addon-docs/blocks";
 import CohubTheme from "./cohub_theme";
-
+import { configure, addDecorator, addParameters } from "@storybook/react";
+// import { withInfo } from "@storybook/addon-info";
+import { withA11y } from "@storybook/addon-a11y";
 import { CssFramework } from "dist/index.esm.js";
-
-import "./custom-styles.scss";
 
 const padding = "1rem";
 const Decorator = storyFn => (
@@ -17,16 +12,15 @@ const Decorator = storyFn => (
     {storyFn()}
   </div>
 );
-
 addDecorator(Decorator);
+addDecorator(withA11y);
 addParameters({
   options: {
     theme: CohubTheme
-  }
+  },
+  hierarchySeparator: /\/|\./, // matches a . or /
+  hierarchyRootSeparator: /\|/ //matches a |
 });
-// addParameters({
-//   docs: DocsPage
-// });
 
 configure(
   require.context("../src", true, /\.stories\.(js|ts|tsx|mdx)$/),

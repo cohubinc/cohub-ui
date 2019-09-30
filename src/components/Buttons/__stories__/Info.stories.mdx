@@ -1,47 +1,35 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Buttons, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|Info" />
+<Meta title="Components|Buttons|Info" component={Buttons.Info} />
 
 # Info Button
 
 <StoryHelpers.Margin />
 
-<Story name="Info">
-  <div>
-    <Buttons.Info>Info</Buttons.Info>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="error">
-      {({ state }) => <Buttons.Info error={state}>Error</Buttons.Info>}
-    </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="raised" defaultState>
-      {({ state }) => <Buttons.Info raised={state}>Raised</Buttons.Info>}
-    </StoryHelpers.StateCtrl>
-    <StoryHelpers.Margin />
-    <StoryHelpers.StateCtrl label="success">
-      {({ state }) => (
-        <Buttons.Info success={state} style={{ width: "5rem" }}>
-          Submit
-        </Buttons.Info>
-      )}
-    </StoryHelpers.StateCtrl>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Buttons.Info>PushMe</Buttons.Info>
-
-<Buttons.Info
-  icon="chevronDown"
-  iconPosition="right"
->
-  Push Me
-</Buttons.Info>
-```
+<Preview>
+  <Story name="Info">
+    <div>
+      <Buttons.Info>Info</Buttons.Info>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="error">
+        {({ state }) => <Buttons.Info error={state}>Error</Buttons.Info>}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="raised" defaultState>
+        {({ state }) => <Buttons.Info raised={state}>Raised</Buttons.Info>}
+      </StoryHelpers.StateCtrl>
+      <StoryHelpers.Margin />
+      <StoryHelpers.StateCtrl label="success">
+        {({ state }) => (
+          <Buttons.Info success={state} style={{ width: "5rem" }}>
+            Submit
+          </Buttons.Info>
+        )}
+      </StoryHelpers.StateCtrl>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Buttons.Base} />
 

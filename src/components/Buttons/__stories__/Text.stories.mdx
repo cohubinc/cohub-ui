@@ -1,29 +1,22 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Buttons, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Buttons|Text" />
+<Meta title="Components|Buttons|Text" component={Buttons.Text} />
 
 # Text Button
 
-<StoryHelpers.Margin />
-
-<Story name="Text">
-  <div>
-    <StoryHelpers.Text underlined>Default Text Button</StoryHelpers.Text>
-    <Buttons.Text>Text</Buttons.Text>
-    <StoryHelpers.Margin />
-    <StoryHelpers.Text underlined>
-      Larger fontSize Text Button
-    </StoryHelpers.Text>
-    <Buttons.Text fontSize="2rem">Text</Buttons.Text>
-  </div>
-</Story>
-
-## Example usage
-
-```jsx
-<Buttons.Text fontSize="2rem">Text</Buttons.Text>
-```
+<Preview>
+  <Story name="Text">
+    <div>
+      <StoryHelpers.Text underlined>Default Text Button</StoryHelpers.Text>
+      <Buttons.Text>Text</Buttons.Text>
+      <StoryHelpers.Margin />
+      <StoryHelpers.Text underlined>
+        Larger fontSize Text Button
+      </StoryHelpers.Text>
+      <Buttons.Text fontSize="2rem">Text</Buttons.Text>
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Buttons.Text} />

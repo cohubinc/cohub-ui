@@ -1,43 +1,22 @@
-import { action } from "@storybook/addon-actions";
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Icon, Color, StoryHelpers, iconNames } from "dist/index.esm.js";
 
-<Meta title="Components|Icons" />
+<Meta title="Components|Icons" component={Icon} />
 
 # Icon
 
-<Story name="Icon">
-  <div>
-    {iconNames.map(name => (
-      <div>
-        <StoryHelpers.Text>{name}</StoryHelpers.Text>
-        <Icon name={name} className="mb-05" />
-      </div>
-    ))}
-  </div>
-</Story>
-
-## Example Usage
-
-```jsx
-<Icon.TagDollar />
-```
-
-<StoryHelpers.Margin />
-
-```jsx
-<Icon name="tagDollar" />
-```
-
-<StoryHelpers.Margin />
-
-```jsx
-<Icon.Calculator
-  size={44}
-  color={Color.primary}
-  className="mg-l"
-  style={{ alignSelf: "flex-end" }}
-/>
-```
+<Preview>
+  <Story name="Icon">
+    <div>
+      {iconNames.map(name => (
+        <div>
+          <StoryHelpers.Text>{name}</StoryHelpers.Text>
+          <Icon name={name} className="mb-05" />
+          <StoryHelpers.Margin />
+        </div>
+      ))}
+    </div>
+  </Story>
+</Preview>
 
 <Props of={Icon} />

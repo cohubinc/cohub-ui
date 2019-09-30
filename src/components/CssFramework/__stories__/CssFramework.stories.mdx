@@ -1,8 +1,7 @@
-import { action } from "@storybook/addon-actions";
-import { Story, Meta, Props } from "@storybook/addon-docs/blocks";
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { CssFramework, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|CssFrameworks" />
+<Meta title="Components|CssFrameworks" component={CssFramework} />
 
 # CssFramework
 
@@ -10,13 +9,14 @@ This component needs to be added to the root of your application one time/
 It will add all the css variables and css utility classes needed for our component library.
 The css vars and utils are availible for use in the consuming application
 
-<Story name="CssFramework">See the docs tab</Story>
-
-## Example usage
-
-```jsx
-<CssFramework />
-```
+<Preview>
+  <Story name="CssFramework">
+    <div>
+      See the docs tab
+      <CssFramework />
+    </div>
+  </Story>
+</Preview>
 
 ## Css Utilities
 

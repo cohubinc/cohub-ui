@@ -1,37 +1,24 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Inputs|Toggle" />
+<Meta title="Components|Inputs|Toggle" component={Inputs.Toggle} />
 
 # Toggle Input
 
-<StoryHelpers.Margin />
-
-<Story name="Toggle">
-  <StoryHelpers.StateContainer defaultState={true}>
-    {({ state, setState }) => (
-      <Inputs.Toggle
-        label="Toggle Input"
-        input={{
-          value: state,
-          onChange: setState
-        }}
-      />
-    )}
-  </StoryHelpers.StateContainer>
-</Story>
-
-## Usage
-
-```jsx
-<Inputs.Toggle
-  label="Toggle Input"
-  input={{
-    value: state,
-    onChange: setState
-  }}
-/>
-```
+<Preview>
+  <Story name="Toggle">
+    <StoryHelpers.StateContainer defaultState={true}>
+      {({ state, setState }) => (
+        <Inputs.Toggle
+          label="Toggle Input"
+          input={{
+            value: state,
+            onChange: setState
+          }}
+        />
+      )}
+    </StoryHelpers.StateContainer>
+  </Story>
+</Preview>
 
 <Props of={Inputs.Toggle} />

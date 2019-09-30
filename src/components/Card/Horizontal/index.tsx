@@ -20,7 +20,7 @@ export interface IHorizontalCardProps {
   /**
    * An array of objects that each have a name and an action. The action is usually a function, but doesn't have to be
    */
-  actions?: Array<{ name: string; action: any }>;
+  actions?: Array<{ name: string; action: any; disabled?: boolean }>;
   /**
    * If true, puts the image in a circular element with a slightly inset shadow
    */
@@ -67,6 +67,7 @@ export default function Horizontal({
         <Buttons.Text
           className={styles.CardAction}
           key={a.name}
+          disabled={!!a.disabled}
           onClick={() => a.action()}
           fontSize={12}
           color={Color.iconGrey as any}

@@ -1,37 +1,30 @@
-import { Story, Meta, Props, Source } from "@storybook/addon-docs/blocks";
-
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
 import { Backdrop, StoryHelpers } from "dist/index.esm.js";
 
-<Meta title="Components|Backdrops" />
+<Meta title="Components|Backdrop" component={Backdrop} />
 
 # Backdrop
 
-<Story name="Backdrop">
-  <StoryHelpers.StateCtrl label="Backdrop">
-    {({ state, toggleOff }) => (
-      <Backdrop open={state} onClose={toggleOff}>
-        <div style={{ color: "white" }}>
-          <div className="text-center">Close by</div>
-          <ul style={{ listStylePosition: "inside", marginTop: 0 }}>
-            <li>clicking the backdrop</li>
-            <li>clicking the button</li>
-            <li>or hitting esc on your keyboard</li>
-          </ul>
-          <button className="w-100" onClick={toggleOff}>
-            Close
-          </button>
-        </div>
-      </Backdrop>
-    )}
-  </StoryHelpers.StateCtrl>
-</Story>
-
-## Example usage
-
-```jsx
-<Backdrop open={true} onClose={() => toggleOff()}>
-  <h1>Some content...</h1>
-</Backdrop>
-```
+<Preview>
+  <Story name="Backdrop">
+    <StoryHelpers.StateCtrl label="Backdrop">
+      {({ state, toggleOff }) => (
+        <Backdrop open={state} onClose={toggleOff}>
+          <div style={{ color: "white" }}>
+            <div className="text-center">Close by</div>
+            <ul style={{ listStylePosition: "inside", marginTop: 0 }}>
+              <li>clicking the backdrop</li>
+              <li>clicking the button</li>
+              <li>or hitting esc on your keyboard</li>
+            </ul>
+            <button className="w-100" onClick={toggleOff}>
+              Close
+            </button>
+          </div>
+        </Backdrop>
+      )}
+    </StoryHelpers.StateCtrl>
+  </Story>
+</Preview>
 
 <Props of={Backdrop} />
