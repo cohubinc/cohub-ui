@@ -1,0 +1,11 @@
+.FloatingActionButton {
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+
+    &:hover {
+      filter: inherit;
+    }
+  }
+}
