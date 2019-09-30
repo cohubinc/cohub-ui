@@ -4,6 +4,7 @@ import Color, { ContrastColor } from "src/definitions/enums/Color";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import Buttons from "..";
 import { TBlankButtonProps } from "src/components/Buttons/Blank";
+import "./FloatingActionButton.scss";
 
 interface IProps {
   icon: IIconProps["name"];
@@ -32,11 +33,14 @@ const FloatingActionButton: React.RefForwardingComponent<
     backgroundColor = Color.trueWhite,
     size = 24,
     elevation = 8,
+    disabled,
+    className,
     ...rest
   } = props;
 
   const [shaking, setShaking] = useState(false);
   const [shakeColor, setShakeColor] = useState<Color | undefined>();
+  const [isHovered, setIsHovered] = useState(false);
 
   useImperativeHandle(
     ref,
@@ -52,35 +56,36 @@ const FloatingActionButton: React.RefForwardingComponent<
       }
     })
   );
-
+  let color = iconColor
+    ? iconColor
+    : (ContrastColor[shakeColor || backgroundColor] as any);
+  let computedBackgroundColor = shakeColor || (backgroundColor as any);
+  if (isHovered && !disabled && iconColor) {
+    computedBackgroundColor = color;
+    color = Color.trueWhite;
+  }
   const dpLevel = `dp${elevation}`;
 
   return (
     <Buttons.Blank
-      className={`flex items-center justify-center ${
+      className={`FloatingActionButton flex items-center justify-center ${
         shaking ? "uh-uh-shake" : ""
-      }`}
+      } ${className}`}
       style={{
         width: size,
         height: size,
         borderRadius: "50%",
-        backgroundColor: shakeColor || (backgroundColor as any),
+        backgroundColor: computedBackgroundColor,
         boxShadow: (BoxShadow as any)[dpLevel],
-        cursor: "pointer",
         border: "none",
         transition: "all 20ms ease-in"
       }}
+      onMouseOver={() => setIsHovered(true)}
+      onMouseOut={() => setIsHovered(false)}
+      disabled={disabled}
       {...rest}
     >
-      <Icon
-        name={icon}
-        size={size / 1.5}
-        color={
-          iconColor
-            ? iconColor
-            : (ContrastColor[shakeColor || backgroundColor] as any)
-        }
-      />
+      <Icon name={icon} size={size / 1.5} color={color} className="mx-auto" />
     </Buttons.Blank>
   );
 };
