@@ -35,6 +35,7 @@ const FloatingActionButton: React.RefForwardingComponent<
     elevation = 8,
     disabled,
     className,
+    onClick,
     ...rest
   } = props;
 
@@ -60,7 +61,7 @@ const FloatingActionButton: React.RefForwardingComponent<
     ? iconColor
     : (ContrastColor[shakeColor || backgroundColor] as any);
   let computedBackgroundColor = shakeColor || (backgroundColor as any);
-  if (isHovered && !disabled && iconColor) {
+  if (isHovered && !disabled && iconColor && onClick) {
     computedBackgroundColor = color;
     color = Color.trueWhite;
   }
@@ -82,6 +83,7 @@ const FloatingActionButton: React.RefForwardingComponent<
       }}
       onMouseOver={() => setIsHovered(true)}
       onMouseOut={() => setIsHovered(false)}
+      onClick={onClick}
       disabled={disabled}
       {...rest}
     >
