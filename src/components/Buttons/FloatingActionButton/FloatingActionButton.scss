@@ -3,9 +3,9 @@
   &:disabled {
     cursor: default;
     opacity: 0.4;
+  }
 
-    &:hover {
-      filter: inherit;
-    }
+  &:hover {
+    filter: inherit;
   }
 }

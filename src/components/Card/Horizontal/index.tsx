@@ -17,6 +17,7 @@ export interface IHorizontalCardProps {
   subtitle?: ReactNode;
   meta?: string;
   titleLink?: string;
+  width?: number | string;
   /**
    * An array of objects that each have a name and an action. The action is usually a function, but doesn't have to be
    */
@@ -46,6 +47,7 @@ export default function Horizontal({
   meta,
   titleLink,
   actions,
+  width = 360,
   avatar,
   imageUrl,
   className,
@@ -57,7 +59,7 @@ export default function Horizontal({
 }: IHorizontalCardProps) {
   const { isMobile } = useMediaQueries();
 
-  const cardWidth = isMobile ? "100%" : "360px";
+  const cardWidth = isMobile ? "100%" : width;
 
   let actionList;
 
