@@ -8,6 +8,7 @@ exports[`renders FormatMoney without crashing 1`] = `
     allowEmptyFormatting={false}
     allowLeadingZeros={false}
     allowNegative={true}
+    className=""
     decimalScale={2}
     decimalSeparator="."
     displayType="text"
@@ -28,7 +29,9 @@ exports[`renders FormatMoney without crashing 1`] = `
     type="text"
     value={0}
   >
-    <span>
+    <span
+      className=""
+    >
       $0.00
     </span>
   </NumberFormat>
