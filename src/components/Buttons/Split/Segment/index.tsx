@@ -23,14 +23,14 @@ export default class Segment extends Component<IProps, IState> {
       style,
       children,
       selected,
-      color = Color.darkBlack,
+      color = Color.grey500,
       small,
       ...restOfProps
     } = this.props;
 
     const { hasFocus } = this.state;
 
-    let backgroundColor = Color.trueWhite;
+    let backgroundColor = Color.outlineGrey;
     if (hasFocus && !selected) {
       backgroundColor = Color.grey300;
     } else if (selected) {
@@ -47,7 +47,6 @@ export default class Segment extends Component<IProps, IState> {
           {
             backgroundColor,
             filter: hasFocus && selected ? "brightness(90%)" : "none",
-            border: `1px solid ${color}`,
             transition: `all 65ms ease-in-out`,
             cursor: "pointer",
             minWidth: 75,
@@ -55,13 +54,15 @@ export default class Segment extends Component<IProps, IState> {
             fontFamily: "Akkurat-Mono",
             fontWeight: "lighter",
             outline: "none",
+            border: "none",
+            borderRadius: "4px",
             overflow: "hidden",
             ...smallStyle,
             ...style
           } as CSSProperties
         }
       >
-        <Typography color={selected ? Color.trueWhite : color}>
+        <Typography color={selected ? Color.iconGrey : Color.darkGrey}>
           {children}
         </Typography>
       </button>
