@@ -17,7 +17,7 @@ export type TTextAreaProps = ITextAreaProps &
       React.TextareaHTMLAttributes<HTMLTextAreaElement>,
       HTMLTextAreaElement
     >,
-    "ref"
+    "ref" | "value" | "onChange" | "onBlur" | "onFocus"
   >;
 
 export default class TextArea extends Component<TTextAreaProps> {
