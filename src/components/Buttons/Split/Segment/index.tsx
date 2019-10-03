@@ -7,6 +7,7 @@ import styles from "./Segment.module.scss";
 export interface IProps {
   children: React.ReactNode;
   selected: boolean;
+  backgroundColor: Color;
   small?: boolean;
   color?: Color;
   style?: CSSProperties;
@@ -24,17 +25,18 @@ export default class Segment extends Component<IProps, IState> {
       children,
       selected,
       color = Color.grey500,
+      backgroundColor,
       small,
       ...restOfProps
     } = this.props;
 
     const { hasFocus } = this.state;
 
-    let backgroundColor = Color.outlineGrey;
+    let calculatedBackgroundColor = backgroundColor;
     if (hasFocus && !selected) {
-      backgroundColor = Color.grey300;
+      calculatedBackgroundColor = Color.grey300;
     } else if (selected) {
-      backgroundColor = color;
+      calculatedBackgroundColor = color;
     }
 
     const smallStyle = small ? { height: 24, padding: "3px 11px" } : {};
@@ -45,7 +47,7 @@ export default class Segment extends Component<IProps, IState> {
         className={styles.SplitButtonSegment}
         style={
           {
-            backgroundColor,
+            backgroundColor: calculatedBackgroundColor,
             filter: hasFocus && selected ? "brightness(90%)" : "none",
             transition: `all 65ms ease-in-out`,
             cursor: "pointer",

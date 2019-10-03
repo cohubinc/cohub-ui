@@ -43,6 +43,7 @@ export default function SplitButton(props: ISplitButtonProps) {
         <Segment
           key={label}
           color={color}
+          backgroundColor={backgroundColor}
           style={segmentStyle}
           onClick={() => onChange(index)}
           selected={selectedIndex === index}
