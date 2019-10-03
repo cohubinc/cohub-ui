@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import { FieldRenderProps } from "react-final-form";
 import { IStyleContainer } from "src/definitions/interfaces/IStyleContainer";
 import "./TextArea.scss";
 
+type FieldProps = FieldRenderProps<string, HTMLInputElement>;
+
 interface ITextAreaProps {
   readOnly?: boolean;
+  input?: Partial<FieldProps["input"]>;
+  meta?: FieldProps["meta"];
 }
 
 export type TTextAreaProps = ITextAreaProps &
@@ -12,7 +17,7 @@ export type TTextAreaProps = ITextAreaProps &
       React.TextareaHTMLAttributes<HTMLTextAreaElement>,
       HTMLTextAreaElement
     >,
-    "ref"
+    "ref" | "value" | "onChange" | "onBlur" | "onFocus"
   >;
 
 export default class TextArea extends Component<TTextAreaProps> {
