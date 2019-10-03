@@ -7,6 +7,7 @@ import styles from "./Segment.module.scss";
 export interface IProps {
   children: React.ReactNode;
   selected: boolean;
+  backgroundColor: Color;
   small?: boolean;
   color?: Color;
   style?: CSSProperties;
@@ -23,18 +24,19 @@ export default class Segment extends Component<IProps, IState> {
       style,
       children,
       selected,
-      color = Color.darkBlack,
+      color = Color.grey500,
+      backgroundColor,
       small,
       ...restOfProps
     } = this.props;
 
     const { hasFocus } = this.state;
 
-    let backgroundColor = Color.trueWhite;
+    let calculatedBackgroundColor = backgroundColor;
     if (hasFocus && !selected) {
-      backgroundColor = Color.grey300;
+      calculatedBackgroundColor = Color.grey300;
     } else if (selected) {
-      backgroundColor = color;
+      calculatedBackgroundColor = color;
     }
 
     const smallStyle = small ? { height: 24, padding: "3px 11px" } : {};
@@ -45,9 +47,8 @@ export default class Segment extends Component<IProps, IState> {
         className={styles.SplitButtonSegment}
         style={
           {
-            backgroundColor,
+            backgroundColor: calculatedBackgroundColor,
             filter: hasFocus && selected ? "brightness(90%)" : "none",
-            border: `1px solid ${color}`,
             transition: `all 65ms ease-in-out`,
             cursor: "pointer",
             minWidth: 75,
@@ -55,13 +56,15 @@ export default class Segment extends Component<IProps, IState> {
             fontFamily: "Akkurat-Mono",
             fontWeight: "lighter",
             outline: "none",
+            border: "none",
+            borderRadius: "4px",
             overflow: "hidden",
             ...smallStyle,
             ...style
           } as CSSProperties
         }
       >
-        <Typography color={selected ? Color.trueWhite : color}>
+        <Typography color={selected ? Color.iconGrey : Color.darkGrey}>
           {children}
         </Typography>
       </button>

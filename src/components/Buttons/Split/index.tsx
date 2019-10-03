@@ -7,6 +7,7 @@ export interface ISplitButtonProps {
   selectedIndex?: number;
   onChange: (index: number) => void;
   segmentStyle?: CSSProperties;
+  backgroundColor?: Color;
   color?: Color;
   style?: CSSProperties;
   className?: string;
@@ -20,23 +21,29 @@ export default function SplitButton(props: ISplitButtonProps) {
     segmentStyle,
     onChange,
     selectedIndex,
-    color = Color.primary
+    color = Color.grey500,
+    backgroundColor = Color.outlineGrey
   } = props;
 
   const numBtns = labels.length;
 
   return (
     <div
-      {...{ className, style }}
+      {...{ className }}
       style={{
         display: "inline-grid",
-        gridTemplateColumns: `repeat(${numBtns}, 1fr)`
+        gridTemplateColumns: `repeat(${numBtns}, 1fr)`,
+        backgroundColor: backgroundColor as any,
+        padding: "0.5rem",
+        borderRadius: "4px",
+        ...style
       }}
     >
       {labels.map((label, index) => (
         <Segment
           key={label}
           color={color}
+          backgroundColor={backgroundColor}
           style={segmentStyle}
           onClick={() => onChange(index)}
           selected={selectedIndex === index}
