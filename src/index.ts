@@ -54,6 +54,10 @@ export { default as Modal, IModalProps } from "src/components/Modal";
 export { default as MediaQuery } from "src/definitions/enums/MediaQuery";
 export { default as Menu, IMenuProps } from "src/components/Menu";
 export {
+  default as Opacifier,
+  IOpacifierProps
+} from "src/components/Opacifier";
+export {
   default as ProgressBar,
   IProgressBarProps
 } from "src/components/ProgressBar";

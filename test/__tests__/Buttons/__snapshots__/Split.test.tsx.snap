@@ -14,13 +14,17 @@ exports[`Split renders without crashing 1`] = `
   <div
     style={
       Object {
+        "backgroundColor": "hsl(0, 0%, 96%)",
+        "borderRadius": "4px",
         "display": "inline-grid",
         "gridTemplateColumns": "repeat(2, 1fr)",
+        "padding": "0.5rem",
       }
     }
   >
     <Segment
-      color="hsl(114, 35%, 52%)"
+      backgroundColor="hsl(0, 0%, 96%)"
+      color="hsl(0, 2%, 88%)"
       key="one"
       onClick={[Function]}
       selected={false}
@@ -30,8 +34,9 @@ exports[`Split renders without crashing 1`] = `
         onClick={[Function]}
         style={
           Object {
-            "backgroundColor": "hsl(0, 0%, 100%)",
-            "border": "1px solid hsl(114, 35%, 52%)",
+            "backgroundColor": "hsl(0, 0%, 96%)",
+            "border": "none",
+            "borderRadius": "4px",
             "cursor": "pointer",
             "filter": "none",
             "fontFamily": "Akkurat-Mono",
@@ -45,17 +50,17 @@ exports[`Split renders without crashing 1`] = `
         }
       >
         <Typography
-          color="hsl(114, 35%, 52%)"
+          color="hsl(356, 3%, 59%)"
         >
           <Component
-            color="hsl(114, 35%, 52%)"
+            color="hsl(356, 3%, 59%)"
           >
             <span
               className=""
               data-qa="text"
               style={
                 Object {
-                  "color": "hsl(114, 35%, 52%)",
+                  "color": "hsl(356, 3%, 59%)",
                   "fontFamily": "Inter",
                   "fontSize": 14,
                   "fontWeight": 400,
@@ -71,7 +76,8 @@ exports[`Split renders without crashing 1`] = `
       </button>
     </Segment>
     <Segment
-      color="hsl(114, 35%, 52%)"
+      backgroundColor="hsl(0, 0%, 96%)"
+      color="hsl(0, 2%, 88%)"
       key="two"
       onClick={[Function]}
       selected={true}
@@ -81,8 +87,9 @@ exports[`Split renders without crashing 1`] = `
         onClick={[Function]}
         style={
           Object {
-            "backgroundColor": "hsl(114, 35%, 52%)",
-            "border": "1px solid hsl(114, 35%, 52%)",
+            "backgroundColor": "hsl(0, 2%, 88%)",
+            "border": "none",
+            "borderRadius": "4px",
             "cursor": "pointer",
             "filter": "none",
             "fontFamily": "Akkurat-Mono",
@@ -96,17 +103,17 @@ exports[`Split renders without crashing 1`] = `
         }
       >
         <Typography
-          color="hsl(0, 0%, 100%)"
+          color="hsl(212, 14%, 35%)"
         >
           <Component
-            color="hsl(0, 0%, 100%)"
+            color="hsl(212, 14%, 35%)"
           >
             <span
               className=""
               data-qa="text"
               style={
                 Object {
-                  "color": "hsl(0, 0%, 100%)",
+                  "color": "hsl(212, 14%, 35%)",
                   "fontFamily": "Inter",
                   "fontSize": 14,
                   "fontWeight": 400,
