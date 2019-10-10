@@ -73,7 +73,7 @@ describe("Typography", () => {
   });
 
   it("renders bold Text without crashing", async () => {
-    const wrapper = mount(<Typography weight={500}>Some Text</Typography>);
+    const wrapper = mount(<Typography bold>Some Text</Typography>);
 
     expect(wrapper).toMatchSnapshot();
   });

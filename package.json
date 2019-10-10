@@ -70,7 +70,8 @@
     "react-transition-group": "^4.2.1"
   },
   "resolutions": {
-    "@types/react": "16.8.25"
+    "@types/react-native": "0.60.19",
+    "@types/react": "16.9.5"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -87,7 +88,8 @@
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.17",
     "@types/lodash": "4.14.136",
-    "@types/react": "16.8.25",
+    "@types/react": "16.9.5",
+    "@types/react-native": "0.60.19",
     "@types/react-responsive": "^3.0.3",
     "@types/react-router-dom": "4.3.4",
     "@types/react-select": "3.0.4",

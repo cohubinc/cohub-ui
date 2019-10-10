@@ -16,6 +16,7 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "jsx": "preserve",
+    "skipLibCheck": true,
     "paths": {
       "src/*": ["src/*"]
     },
