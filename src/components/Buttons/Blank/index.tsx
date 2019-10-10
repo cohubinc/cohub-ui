@@ -23,7 +23,11 @@ const Blank = ({
     ref={nativeElRef}
     {...rest}
   >
-    <Typography style={pick(style, "color", "fontSize")}>{children}</Typography>
+    <Typography
+      style={style && { color: style.color, fontSize: style.fontSize as any }}
+    >
+      {children}
+    </Typography>
   </button>
 );
 

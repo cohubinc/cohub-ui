@@ -2,32 +2,32 @@ import { typographyFactory } from "./typographyFactory";
 
 export const SuperTitle = typographyFactory({
   "data-qa": "page-supertitle",
-  style: { fontSize: 48, lineHeight: "normal", display: "block" }
+  style: { fontSize: 48 }
 });
 
 export const Title = typographyFactory({
   "data-qa": "page-title",
-  style: { fontSize: 36, lineHeight: "normal", display: "block" }
+  style: { fontSize: 36 }
 });
 
 export const Subtitle = typographyFactory({
   "data-qa": "page-subtitle",
-  style: { fontSize: 30, display: "block" }
+  style: { fontSize: 30 }
 });
 
 export const HeadingLarge = typographyFactory({
   "data-qa": "heading-large",
-  style: { fontSize: 24, display: "block" }
+  style: { fontSize: 24 }
 });
 
 export const HeadingSmall = typographyFactory({
   "data-qa": "heading-small",
-  style: { fontSize: 20, display: "block" }
+  style: { fontSize: 20 }
 });
 
 export const HeadingTiny = typographyFactory({
   "data-qa": "heading-tiny",
-  style: { fontSize: 18, display: "block" }
+  style: { fontSize: 18 }
 });
 
 export const Large = typographyFactory({ style: { fontSize: 16 } });

@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import Color from "../../../definitions/enums/Color";
+import { StyleProp, TextStyle } from "react-native";
 
 export interface ITypographyProps {
   fontFamily?: "Akkurat-Mono" | "MillerDisplay" | "Inter";
@@ -8,7 +9,7 @@ export interface ITypographyProps {
   /** Optionally pass className */
   className?: string;
   /** Optionally pass style object */
-  style?: CSSProperties;
+  style?: StyleProp<TextStyle> | Array<StyleProp<TextStyle>>;
   /** Text can be the muted color */
   muted?: boolean;
 
@@ -16,7 +17,19 @@ export interface ITypographyProps {
   block?: boolean;
 
   /** Font weight */
-  weight?: 300 | 400 | 500 | 600 | 700;
+  weight?:
+    | "bold"
+    | "normal"
+    | "100"
+    | "200"
+    | "300"
+    | "400"
+    | "500"
+    | "600"
+    | "700"
+    | "800"
+    | "900"
+    | undefined;
 
   /** Text can be bold */
   bold?: boolean;
@@ -40,7 +53,7 @@ export interface ITypographyProps {
 
   uppercase?: boolean;
 
-  alignment?: string;
+  alignment?: "left" | "right" | "center" | "justify" | "auto";
 
   kerning?: number;
 

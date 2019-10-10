@@ -91,8 +91,8 @@ export default function Base(props: IBaseButtonProps) {
           uppercase
           color={color as any}
           style={{
-            opacity: success ? 0 : 1,
-            transition: "opacity 150ms ease-in"
+            opacity: success ? 0 : 1
+            // transition: "opacity 150ms ease-in"
           }}
         >
           <div className="flex items-center" style={{ flexDirection }}>
