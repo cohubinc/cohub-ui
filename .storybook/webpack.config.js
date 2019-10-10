@@ -6,5 +6,12 @@ module.exports = async ({ config }) => {
     include: path.resolve(__dirname, "../src"),
     use: [require.resolve("react-docgen-typescript-loader")]
   });
+
+  config.resolve = {
+    ...config.resolve,
+    alias: {
+      "react-native": "react-native-web"
+    }
+  };
   return config;
 };
