@@ -7,18 +7,18 @@ import Color from "src/definitions/enums/Color";
 import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 type FieldProps = FieldRenderProps<string, HTMLInputElement>;
-
-interface IPasswordInputProps extends TInheritedFloatingLabelProps {
-  msgPosition?: {
-    bottom: number;
-  };
+type TFloatingLabelProps = Omit<
+  TInheritedFloatingLabelProps,
+  "clearable" | "icon" | "required"
+>;
+interface IPasswordInputProps extends TFloatingLabelProps {
   "data-qa"?: string;
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
 }
 
 export type TPasswordInputProps = IPasswordInputProps &
-  Omit<TInputElementProps, "onChange" | "value">;
+  Omit<TInputElementProps, "onChange" | "value" | "required">;
 
 export default function Password(props: TPasswordInputProps) {
   const {
@@ -26,7 +26,6 @@ export default function Password(props: TPasswordInputProps) {
     meta,
     style,
     className,
-    msgPosition = {},
     "data-qa": dataQa,
     ...restProps
   } = props;
@@ -57,7 +56,9 @@ export default function Password(props: TPasswordInputProps) {
         icon={{
           name: "eye",
           color: Color.grey600,
-          onClick: () => setVisible(!visible)
+          onClick: () => {
+            setVisible(!visible);
+          }
         }}
       />
     </div>

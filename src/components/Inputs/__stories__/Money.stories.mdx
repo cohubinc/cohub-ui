@@ -7,10 +7,11 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
 
 <Preview>
   <Story name="Money">
-    <StoryHelpers.StateContainer defaultState="">
+    <StoryHelpers.StateContainer defaultState={22.67}>
       {({ state, setState }) => (
         <div>
           <Inputs.Money
+            clearable
             appearance="contrast"
             label="Amount"
             input={{

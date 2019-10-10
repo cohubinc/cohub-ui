@@ -7,12 +7,16 @@ import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabel
 
 type FieldProps = FieldRenderProps<string, HTMLInputElement>;
 
+interface IInput extends Omit<Partial<FieldProps["input"]>, "onChange"> {
+  onChange: (value: string) => void;
+}
+
 interface ITextInputProps extends TInheritedFloatingLabelProps {
   msgPosition?: {
     bottom: number;
   };
   "data-qa"?: string;
-  input?: Partial<FieldProps["input"]>;
+  input?: IInput;
   meta?: FieldProps["meta"];
 }
 
@@ -36,7 +40,12 @@ export default function Text(props: TTextInputProps) {
 
   return (
     <div {...{ className, style: { width: "100%", ...style } }}>
-      <Base {...input} {...restProps} error={showError} data-qa={dataQa} />
+      <Base
+        {...(input as any)}
+        {...restProps}
+        error={showError}
+        data-qa={dataQa}
+      />
     </div>
   );
 }
