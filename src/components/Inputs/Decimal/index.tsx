@@ -51,9 +51,10 @@ export default function DecimalInput({
   placeholder,
   textAlign = "left",
   className = "",
+  clearable,
   ...rest
 }: TDecimalInputProps) {
-  const showError = !!(meta && meta.touched && meta.error);
+  const error = !!(meta && meta.touched && meta.error);
 
   return (
     <div
@@ -63,28 +64,26 @@ export default function DecimalInput({
     >
       <FloatingLabelWrapper
         {...input}
-        label={label}
-        labelPosition={labelPosition}
-        error={showError}
-        appearance={appearance}
-        required={required}
+        {...{ label, labelPosition, error, appearance, required, clearable }}
         children={({
           componentProps: { onChange, value, ...restComponentProps },
           setInputRef
-        }) => (
-          <NumberFormat
-            {...restComponentProps}
-            getInputRef={setInputRef}
-            value={value}
-            displayType="input"
-            placeholder={placeholder}
-            decimalScale={integer ? 0 : extendedPrecision ? 5 : 2}
-            onValueChange={({ floatValue }) => {
-              onChange!(floatValue);
-            }}
-            thousandSeparator
-          />
-        )}
+        }) => {
+          return (
+            <NumberFormat
+              {...restComponentProps}
+              getInputRef={setInputRef}
+              value={value || ""}
+              displayType="input"
+              placeholder={placeholder}
+              decimalScale={integer ? 0 : extendedPrecision ? 5 : 2}
+              onValueChange={({ floatValue }) => {
+                onChange!(floatValue);
+              }}
+              thousandSeparator
+            />
+          );
+        }}
       />
     </div>
   );

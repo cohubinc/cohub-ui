@@ -11,10 +11,10 @@ import IRenderProps from "./IRenderProps";
 
 import "./FloatingLabelWrapper.scss";
 
-type TValue = string | number | undefined | any[] | { [key: string]: string };
+type TValue = unknown;
 
 export interface IFloatingLabelWrapperProps<T = TValue> {
-  onChange?: (...args: any[]) => void;
+  onChange?: (val: T, ...args: unknown[]) => void;
 
   value?: T;
 
@@ -59,12 +59,17 @@ export interface IFloatingLabelWrapperProps<T = TValue> {
 
   required?: boolean;
 
+  /**
+   * Show a clear input icon
+   */
+  clearable?: boolean;
+
   placeholder?: string;
 }
 
 export interface IFloatingLabelIconProps {
   name: TIconName;
-  color: Color;
+  color?: Color;
   onClick?: () => void;
 }
 
@@ -95,6 +100,7 @@ export default function FloatingLabelWrapper<T = TValue>(
     label,
     value,
     required,
+    clearable,
     "data-qa-label": dataQaLabel = "base-input-element-label"
   } = props;
 
@@ -143,6 +149,7 @@ export default function FloatingLabelWrapper<T = TValue>(
     onFocus: (e: any) => {
       onFocus && onFocus(e);
       setHasFocus(true);
+      inputRef.current && inputRef.current.select();
     },
     onBlur: (e: any) => {
       onBlur && onBlur(e);
@@ -195,6 +202,10 @@ export default function FloatingLabelWrapper<T = TValue>(
   }
 
   const hasTruthyValue = isValueTruthy(value);
+
+  function focusInput() {
+    inputRef.current && inputRef.current.focus();
+  }
 
   return (
     <div
@@ -255,6 +266,23 @@ export default function FloatingLabelWrapper<T = TValue>(
             }}
           />
         )}
+        {clearable && !error && hasTruthyValue && (
+          <Icon.Close
+            size={20}
+            color={hasFocus ? Color.iconGrey : Color.grey}
+            onClick={() => {
+              onChange && onChange(undefined);
+              focusInput();
+            }}
+            style={{
+              position: "absolute",
+              right: "8px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 2
+            }}
+          />
+        )}
       </div>
 
       {label && (
@@ -265,7 +293,7 @@ export default function FloatingLabelWrapper<T = TValue>(
           style={labelStyle}
           onClick={(e: any) => {
             onClick && onClick(e);
-            inputRef.current && inputRef.current.focus();
+            focusInput();
           }}
           data-qa={dataQaLabel}
           htmlFor={htmlFor}

@@ -15,6 +15,7 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
               {({ state, setState }) => (
                 <Inputs.Decimal
                   label="Decimal Input"
+                  clearable
                   input={{
                     value: state,
                     onChange: value => setState(value)
@@ -70,4 +71,4 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
   </Story>
 </Preview>
 
-<Props of={Inputs.Decimal} />````
+<Props of={Inputs.Decimal} />

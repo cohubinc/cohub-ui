@@ -1,17 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Base Input renders with value without crashing 1`] = `
-<Base
-  autoComplete="off"
-  autoFocus={false}
-  data-qa="base-input-element"
-  data-qa-label="base-input-element-label"
+<Base$1
   onChange={[Function]}
-  type="text"
   value="test"
 >
   <FloatingLabelWrapper
-    data-qa-label="base-input-element-label"
+    data-qa="base-input"
+    data-qa-label="base-input-label"
     onChange={[Function]}
     value="test"
   >
@@ -29,9 +25,7 @@ exports[`Base Input renders with value without crashing 1`] = `
       >
         <input
           autoComplete="off"
-          autoFocus={false}
-          data-qa="base-input-element"
-          data-qa-label="base-input-element-label"
+          autoFocus={true}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -51,19 +45,15 @@ exports[`Base Input renders with value without crashing 1`] = `
       </div>
     </div>
   </FloatingLabelWrapper>
-</Base>
+</Base$1>
 `;
 
 exports[`Base Input renders without crashing 1`] = `
-<Base
-  autoComplete="off"
-  autoFocus={false}
-  data-qa="base-input-element"
-  data-qa-label="base-input-element-label"
-  type="text"
->
+<Base$1>
   <FloatingLabelWrapper
-    data-qa-label="base-input-element-label"
+    data-qa="base-input"
+    data-qa-label="base-input-label"
+    onChange={[Function]}
   >
     <div
       className="FloatingLabelWrapper GenericInput "
@@ -79,10 +69,9 @@ exports[`Base Input renders without crashing 1`] = `
       >
         <input
           autoComplete="off"
-          autoFocus={false}
-          data-qa="base-input-element"
-          data-qa-label="base-input-element-label"
+          autoFocus={true}
           onBlur={[Function]}
+          onChange={[Function]}
           onFocus={[Function]}
           style={
             Object {
@@ -99,5 +88,5 @@ exports[`Base Input renders without crashing 1`] = `
       </div>
     </div>
   </FloatingLabelWrapper>
-</Base>
+</Base$1>
 `;

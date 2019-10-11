@@ -1,24 +1,16 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import TInputElementProps from "../definitions/TInputElementProps";
 
-import FloatingLabelWrapper, {
-  IFloatingLabelIconProps
-} from "../FloatingLabelWrapper";
+import FloatingLabelWrapper from "../FloatingLabelWrapper";
+import TInheritedFloatingLabelProps from "src/components/Inputs/definitions/TInheritedFloatingLabelProps";
 
-export interface IBaseInputProps {
-  /**
-   * Floating label for the input
-   */
-  label?: string;
-
+export interface IBaseInputProps
+  extends Omit<TInputElementProps, "onChange" | "value">,
+    Omit<TInheritedFloatingLabelProps, "required"> {
   /**
    * Input is invalid
    */
   error?: boolean;
-
-  appearance?: "contrast" | "inverted";
-
-  labelPosition?: "inside" | "outside" | "intersect";
 
   /**
    * HTML attribute for debugging the input
@@ -30,67 +22,74 @@ export interface IBaseInputProps {
    */
   "data-qa-label"?: string;
 
-  icon?: IFloatingLabelIconProps;
+  onChange?: (value: string) => void;
 
-  placeholder?: string;
+  value?: string;
 }
 
-export type TBaseInputProps = IBaseInputProps & TInputElementProps;
+export type TBaseInputProps = IBaseInputProps;
 
 interface IState {
   hasFocus: boolean;
 }
 
-export default class Base extends React.PureComponent<TBaseInputProps, IState> {
-  static defaultProps: Partial<TBaseInputProps> = {
-    type: "text",
-    autoComplete: "off",
-    autoFocus: false,
-    "data-qa": "base-input-element",
-    "data-qa-label": "base-input-element-label"
-  };
+export default function Base(props: IBaseInputProps) {
+  const {
+    type = "text",
+    autoComplete = "off",
+    autoFocus = true,
+    style,
+    id,
+    className,
+    appearance,
+    label,
+    onChange,
+    onClick,
+    onFocus,
+    onBlur,
+    value,
+    error,
+    icon,
+    required,
+    labelPosition,
+    clearable,
+    ...restProps
+  } = props;
 
-  render() {
-    const {
-      style,
-      id,
-      className,
-      appearance,
-      label,
-      onClick,
-      onFocus,
-      onBlur,
-      onChange,
-      value,
-      error,
-      icon,
-      required,
-      labelPosition,
-      ...restProps
-    } = this.props;
-
-    return (
-      <FloatingLabelWrapper
-        data-qa-label={this.props["data-qa-label"]}
-        htmlFor={id}
-        {...{
-          style,
-          className,
-          appearance,
-          label,
-          onClick,
-          onFocus,
-          onBlur,
-          onChange,
-          icon,
-          value,
-          error,
-          labelPosition,
-          required
-        }}
-      >
-        {({ componentProps }) => <input {...componentProps} {...restProps} />}
-      </FloatingLabelWrapper>
-    );
-  }
+  return (
+    <FloatingLabelWrapper
+      data-qa-label={props["data-qa-label"] || "base-input-label"}
+      data-qa={props["data-qa"] || "base-input"}
+      htmlFor={id}
+      onChange={val => onChange && onChange(val || "")}
+      {...{
+        style,
+        className,
+        appearance,
+        label,
+        onClick,
+        onFocus,
+        onBlur,
+        icon,
+        value,
+        error,
+        labelPosition,
+        required,
+        clearable
+      }}
+    >
+      {({ componentProps: { onChange: _, ...restCmptProps } }) => {
+        return (
+          <input
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+              onChange && onChange(event.target.value);
+            }}
+            {...{ type, autoComplete, autoFocus }}
+            {...restCmptProps}
+            {...restProps}
+          />
+        );
+      }}
+    </FloatingLabelWrapper>
+  );
 }

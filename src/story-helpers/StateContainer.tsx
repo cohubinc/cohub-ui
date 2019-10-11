@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 interface IRenderProps<T = string> {
-  state?: T;
-  setState: (state?: T) => void;
+  state: T | undefined;
+  setState: (state: T | undefined) => void;
 }
-interface IProps<T = string> {
+interface IProps<T = any> {
   defaultState?: T;
   children: (props: IRenderProps<T>) => JSX.Element;
 }

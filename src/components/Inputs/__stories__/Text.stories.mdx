@@ -18,11 +18,12 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
                   label="Text Input"
                   input={{
                     value: state,
-                    onChange: ({ target }) => setState(target.value)
+                    onChange: value => setState(value)
                   }}
                   meta={{ touched: true, error }}
                   style={{ width: 300 }}
                   required
+                  clearable
                 />
               </div>
             )}
@@ -41,12 +42,13 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
                   appearance="contrast"
                   input={{
                     value: state,
-                    onChange: ({ target }) => setState(target.value)
+                    onChange: value => setState(value)
                   }}
                   meta={{ touched: true, error }}
                   style={{ width: 300 }}
                   className="mt-1"
                   required
+                  clearable
                 />
               </div>
             )}
@@ -65,11 +67,12 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
                   appearance="inverted"
                   input={{
                     value: state,
-                    onChange: ({ target }) => setState(target.value)
+                    onChange: value => setState(value)
                   }}
                   meta={{ touched: true, error }}
                   style={{ width: 300 }}
                   required
+                  clearable
                 />
                 <StoryHelpers.Margin />
                 <StoryHelpers.Text>Inverted Input</StoryHelpers.Text>
@@ -78,11 +81,12 @@ import { Inputs, StoryHelpers } from "dist/index.esm.js";
                   appearance="inverted"
                   input={{
                     value: state,
-                    onChange: ({ target }) => setState(target.value)
+                    onChange: value => setState(value)
                   }}
                   meta={{ touched: true, error }}
                   style={{ width: 300 }}
                   required
+                  clearable
                 />
               </div>
             )}

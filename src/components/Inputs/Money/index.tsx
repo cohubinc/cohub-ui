@@ -8,7 +8,7 @@ import TInputElementProps from "../definitions/TInputElementProps";
 import "./Money.scss";
 import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
-type InputValue = number;
+type InputValue = number | undefined;
 
 type FormRenderProps = FieldRenderProps<InputValue, HTMLInputElement>;
 type FinalFormInputProp = FormRenderProps["input"];
@@ -43,38 +43,37 @@ export default function MoneyInput({
   required,
   "data-qa": dataQa,
   placeholder,
+  clearable,
   ...rest
 }: IMoneyInputProps) {
-  const showError = !!(meta.touched && meta.error);
+  const error = !!(meta.touched && meta.error);
 
   return (
     <div className="CohubMoneyInput" data-qa={dataQa} {...rest}>
       <FloatingLabelWrapper
         {...input}
-        label={label}
-        labelPosition={labelPosition}
-        error={showError}
-        appearance={appearance}
-        required={required}
+        {...{ label, labelPosition, clearable, error, appearance, required }}
       >
         {({
           componentProps: { onChange, value, ...restComponentProps },
           setInputRef
-        }) => (
-          <NumberFormat
-            {...restComponentProps}
-            getInputRef={setInputRef}
-            value={value}
-            displayType="input"
-            prefix="$"
-            placeholder={placeholder}
-            decimalScale={extendedPrecision ? 5 : 2}
-            onValueChange={({ floatValue }) => {
-              onChange!(floatValue);
-            }}
-            thousandSeparator
-          />
-        )}
+        }) => {
+          return (
+            <NumberFormat
+              {...restComponentProps}
+              getInputRef={setInputRef}
+              value={value || ""}
+              displayType="input"
+              prefix="$"
+              placeholder={placeholder}
+              decimalScale={extendedPrecision ? 5 : 2}
+              onValueChange={({ floatValue }) => {
+                onChange!(floatValue);
+              }}
+              thousandSeparator
+            />
+          );
+        }}
       </FloatingLabelWrapper>
     </div>
   );
