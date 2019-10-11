@@ -20,7 +20,6 @@ class IconWrapper extends PureComponent<IWrapperProps> {
       size = 24,
       className = "",
       style,
-      name,
       onClick,
       disabled
     } = this.props;
@@ -29,12 +28,13 @@ class IconWrapper extends PureComponent<IWrapperProps> {
 
     return (
       <div
-        className={`CohubIcon ${name}Icon ${className} ${clickable}`}
+        className={className}
         style={{
           width: size,
           height: size,
           transition: "opacity 300ms ease-in 200ms",
           opacity: disabled ? 0.3 : undefined,
+          cursor: clickable ? "pointer" : undefined,
           ...style
         }}
         onClick={disabled ? undefined : onClick}

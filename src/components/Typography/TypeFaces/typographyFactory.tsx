@@ -1,7 +1,7 @@
 import React from "react";
 import { ITypographyProps } from "../definitions/ITypographyProps";
 import Color from "src/definitions/enums/Color";
-import { Text, StyleProp, TextStyle } from "react-native";
+import { Text, StyleProp, TextStyle, Platform } from "react-native";
 
 type TFactoryArgs = Omit<ITypographyProps, "children">;
 // Function that takes some typography props and returns a Typography component
@@ -73,20 +73,16 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
       styleProp.push({ display: "flex" });
     }
 
-    // const properties = {
-    //   children,
-    //   className,
-    //   style: styleProp,
-    //   "data-qa": dataQa
-    // };
+    const properties = {
+      children,
+      className,
+      style: styleProp,
+      "data-qa": dataQa
+    };
 
-    // if (Platform.OS === "web") {
-    //   return p ? (
-    //     <p {...(properties as any)} />
-    //   ) : (
-    //     <span {...(properties as any)} />
-    //   );
-    // }
+    if (Platform.OS === "web") {
+      return <span {...(properties as any)} />;
+    }
 
     return <Text children={children} style={styleProp} />;
   };
