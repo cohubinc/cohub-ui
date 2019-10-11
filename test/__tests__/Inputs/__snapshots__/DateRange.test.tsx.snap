@@ -331,51 +331,83 @@ exports[`DateRange matches snapshot 1`] = `
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
-                                                <Typography
-                                                  style={Object {}}
-                                                >
-                                                  <Component
-                                                    style={Object {}}
-                                                  >
-                                                    <span
-                                                      className=""
-                                                      data-qa="text"
+                                                <Typography>
+                                                  <Component>
+                                                    <Text
                                                       style={
-                                                        Object {
-                                                          "color": "hsl(0, 2%, 22%)",
-                                                          "fontFamily": "Inter",
-                                                          "fontSize": 14,
-                                                          "fontWeight": 400,
-                                                          "textAlign": "initial",
-                                                          "textTransform": "initial",
-                                                        }
+                                                        Array [
+                                                          Object {
+                                                            "fontSize": 14,
+                                                          },
+                                                          undefined,
+                                                          Object {
+                                                            "fontWeight": "400",
+                                                          },
+                                                          Object {
+                                                            "color": "hsl(0, 2%, 22%)",
+                                                          },
+                                                          Object {
+                                                            "fontFamily": "Helvetica",
+                                                          },
+                                                        ]
                                                       }
                                                     >
-                                                      <Typography
-                                                        bold={true}
+                                                      <div
+                                                        className="css-text-901oao"
+                                                        dir="auto"
+                                                        style={
+                                                          Object {
+                                                            "color": "rgba(57,55,55,1.00)",
+                                                            "fontFamily": "Helvetica",
+                                                            "fontSize": "14px",
+                                                            "fontWeight": "400",
+                                                          }
+                                                        }
                                                       >
-                                                        <Component
+                                                        <Typography
                                                           bold={true}
                                                         >
-                                                          <span
-                                                            className=""
-                                                            data-qa="text"
-                                                            style={
-                                                              Object {
-                                                                "color": "hsl(0, 2%, 22%)",
-                                                                "fontFamily": "Inter",
-                                                                "fontSize": 14,
-                                                                "fontWeight": 600,
-                                                                "textAlign": "initial",
-                                                                "textTransform": "initial",
-                                                              }
-                                                            }
+                                                          <Component
+                                                            bold={true}
                                                           >
-                                                            September
-                                                          </span>
-                                                        </Component>
-                                                      </Typography>
-                                                    </span>
+                                                            <Text
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "fontSize": 14,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontWeight": "600",
+                                                                  },
+                                                                  Object {
+                                                                    "color": "hsl(0, 2%, 22%)",
+                                                                  },
+                                                                  Object {
+                                                                    "fontFamily": "Helvetica",
+                                                                  },
+                                                                ]
+                                                              }
+                                                            >
+                                                              <span
+                                                                className="css-text-901oao css-textHasAncestor-16my406"
+                                                                dir="auto"
+                                                                style={
+                                                                  Object {
+                                                                    "color": "rgba(57,55,55,1.00)",
+                                                                    "fontFamily": "Helvetica",
+                                                                    "fontSize": "14px",
+                                                                    "fontWeight": "600",
+                                                                  }
+                                                                }
+                                                              >
+                                                                September
+                                                              </span>
+                                                            </Text>
+                                                          </Component>
+                                                        </Typography>
+                                                      </div>
+                                                    </Text>
                                                   </Component>
                                                 </Typography>
                                               </button>
@@ -445,51 +477,83 @@ exports[`DateRange matches snapshot 1`] = `
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
-                                                <Typography
-                                                  style={Object {}}
-                                                >
-                                                  <Component
-                                                    style={Object {}}
-                                                  >
-                                                    <span
-                                                      className=""
-                                                      data-qa="text"
+                                                <Typography>
+                                                  <Component>
+                                                    <Text
                                                       style={
-                                                        Object {
-                                                          "color": "hsl(0, 2%, 22%)",
-                                                          "fontFamily": "Inter",
-                                                          "fontSize": 14,
-                                                          "fontWeight": 400,
-                                                          "textAlign": "initial",
-                                                          "textTransform": "initial",
-                                                        }
+                                                        Array [
+                                                          Object {
+                                                            "fontSize": 14,
+                                                          },
+                                                          undefined,
+                                                          Object {
+                                                            "fontWeight": "400",
+                                                          },
+                                                          Object {
+                                                            "color": "hsl(0, 2%, 22%)",
+                                                          },
+                                                          Object {
+                                                            "fontFamily": "Helvetica",
+                                                          },
+                                                        ]
                                                       }
                                                     >
-                                                      <Typography
-                                                        bold={true}
+                                                      <div
+                                                        className="css-text-901oao"
+                                                        dir="auto"
+                                                        style={
+                                                          Object {
+                                                            "color": "rgba(57,55,55,1.00)",
+                                                            "fontFamily": "Helvetica",
+                                                            "fontSize": "14px",
+                                                            "fontWeight": "400",
+                                                          }
+                                                        }
                                                       >
-                                                        <Component
+                                                        <Typography
                                                           bold={true}
                                                         >
-                                                          <span
-                                                            className=""
-                                                            data-qa="text"
-                                                            style={
-                                                              Object {
-                                                                "color": "hsl(0, 2%, 22%)",
-                                                                "fontFamily": "Inter",
-                                                                "fontSize": 14,
-                                                                "fontWeight": 600,
-                                                                "textAlign": "initial",
-                                                                "textTransform": "initial",
-                                                              }
-                                                            }
+                                                          <Component
+                                                            bold={true}
                                                           >
-                                                            09
-                                                          </span>
-                                                        </Component>
-                                                      </Typography>
-                                                    </span>
+                                                            <Text
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "fontSize": 14,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontWeight": "600",
+                                                                  },
+                                                                  Object {
+                                                                    "color": "hsl(0, 2%, 22%)",
+                                                                  },
+                                                                  Object {
+                                                                    "fontFamily": "Helvetica",
+                                                                  },
+                                                                ]
+                                                              }
+                                                            >
+                                                              <span
+                                                                className="css-text-901oao css-textHasAncestor-16my406"
+                                                                dir="auto"
+                                                                style={
+                                                                  Object {
+                                                                    "color": "rgba(57,55,55,1.00)",
+                                                                    "fontFamily": "Helvetica",
+                                                                    "fontSize": "14px",
+                                                                    "fontWeight": "600",
+                                                                  }
+                                                                }
+                                                              >
+                                                                09
+                                                              </span>
+                                                            </Text>
+                                                          </Component>
+                                                        </Typography>
+                                                      </div>
+                                                    </Text>
                                                   </Component>
                                                 </Typography>
                                               </button>
@@ -560,51 +624,83 @@ exports[`DateRange matches snapshot 1`] = `
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
-                                                <Typography
-                                                  style={Object {}}
-                                                >
-                                                  <Component
-                                                    style={Object {}}
-                                                  >
-                                                    <span
-                                                      className=""
-                                                      data-qa="text"
+                                                <Typography>
+                                                  <Component>
+                                                    <Text
                                                       style={
-                                                        Object {
-                                                          "color": "hsl(0, 2%, 22%)",
-                                                          "fontFamily": "Inter",
-                                                          "fontSize": 14,
-                                                          "fontWeight": 400,
-                                                          "textAlign": "initial",
-                                                          "textTransform": "initial",
-                                                        }
+                                                        Array [
+                                                          Object {
+                                                            "fontSize": 14,
+                                                          },
+                                                          undefined,
+                                                          Object {
+                                                            "fontWeight": "400",
+                                                          },
+                                                          Object {
+                                                            "color": "hsl(0, 2%, 22%)",
+                                                          },
+                                                          Object {
+                                                            "fontFamily": "Helvetica",
+                                                          },
+                                                        ]
                                                       }
                                                     >
-                                                      <Typography
-                                                        bold={true}
+                                                      <div
+                                                        className="css-text-901oao"
+                                                        dir="auto"
+                                                        style={
+                                                          Object {
+                                                            "color": "rgba(57,55,55,1.00)",
+                                                            "fontFamily": "Helvetica",
+                                                            "fontSize": "14px",
+                                                            "fontWeight": "400",
+                                                          }
+                                                        }
                                                       >
-                                                        <Component
+                                                        <Typography
                                                           bold={true}
                                                         >
-                                                          <span
-                                                            className=""
-                                                            data-qa="text"
-                                                            style={
-                                                              Object {
-                                                                "color": "hsl(0, 2%, 22%)",
-                                                                "fontFamily": "Inter",
-                                                                "fontSize": 14,
-                                                                "fontWeight": 600,
-                                                                "textAlign": "initial",
-                                                                "textTransform": "initial",
-                                                              }
-                                                            }
+                                                          <Component
+                                                            bold={true}
                                                           >
-                                                            1984
-                                                          </span>
-                                                        </Component>
-                                                      </Typography>
-                                                    </span>
+                                                            <Text
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "fontSize": 14,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontWeight": "600",
+                                                                  },
+                                                                  Object {
+                                                                    "color": "hsl(0, 2%, 22%)",
+                                                                  },
+                                                                  Object {
+                                                                    "fontFamily": "Helvetica",
+                                                                  },
+                                                                ]
+                                                              }
+                                                            >
+                                                              <span
+                                                                className="css-text-901oao css-textHasAncestor-16my406"
+                                                                dir="auto"
+                                                                style={
+                                                                  Object {
+                                                                    "color": "rgba(57,55,55,1.00)",
+                                                                    "fontFamily": "Helvetica",
+                                                                    "fontSize": "14px",
+                                                                    "fontWeight": "600",
+                                                                  }
+                                                                }
+                                                              >
+                                                                1984
+                                                              </span>
+                                                            </Text>
+                                                          </Component>
+                                                        </Typography>
+                                                      </div>
+                                                    </Text>
                                                   </Component>
                                                 </Typography>
                                               </button>
@@ -673,7 +769,7 @@ exports[`DateRange matches snapshot 1`] = `
               className="flex items-center mx-025"
               style={
                 Object {
-                  "fontWeight": 600,
+                  "fontWeight": "600",
                   "paddingTop": 7,
                 }
               }
@@ -682,28 +778,49 @@ exports[`DateRange matches snapshot 1`] = `
                 className="flex items-center mx-025"
                 style={
                   Object {
-                    "fontWeight": 600,
+                    "fontWeight": "600",
                     "paddingTop": 7,
                   }
                 }
               >
-                <span
-                  className="flex items-center mx-025"
-                  data-qa="text"
+                <Text
                   style={
-                    Object {
-                      "color": "hsl(0, 2%, 22%)",
-                      "fontFamily": "Inter",
-                      "fontSize": 14,
-                      "fontWeight": 600,
-                      "paddingTop": 7,
-                      "textAlign": "initial",
-                      "textTransform": "initial",
-                    }
+                    Array [
+                      Object {
+                        "fontSize": 14,
+                      },
+                      Object {
+                        "fontWeight": "600",
+                        "paddingTop": 7,
+                      },
+                      Object {
+                        "fontWeight": "400",
+                      },
+                      Object {
+                        "color": "hsl(0, 2%, 22%)",
+                      },
+                      Object {
+                        "fontFamily": "Helvetica",
+                      },
+                    ]
                   }
                 >
-                  to
-                </span>
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(57,55,55,1.00)",
+                        "fontFamily": "Helvetica",
+                        "fontSize": "14px",
+                        "fontWeight": "400",
+                        "paddingTop": "7px",
+                      }
+                    }
+                  >
+                    to
+                  </div>
+                </Text>
               </Component>
             </Typography>
             <LowLevelDatePicker
@@ -973,51 +1090,83 @@ exports[`DateRange matches snapshot 1`] = `
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
-                                                <Typography
-                                                  style={Object {}}
-                                                >
-                                                  <Component
-                                                    style={Object {}}
-                                                  >
-                                                    <span
-                                                      className=""
-                                                      data-qa="text"
+                                                <Typography>
+                                                  <Component>
+                                                    <Text
                                                       style={
-                                                        Object {
-                                                          "color": "hsl(0, 2%, 22%)",
-                                                          "fontFamily": "Inter",
-                                                          "fontSize": 14,
-                                                          "fontWeight": 400,
-                                                          "textAlign": "initial",
-                                                          "textTransform": "initial",
-                                                        }
+                                                        Array [
+                                                          Object {
+                                                            "fontSize": 14,
+                                                          },
+                                                          undefined,
+                                                          Object {
+                                                            "fontWeight": "400",
+                                                          },
+                                                          Object {
+                                                            "color": "hsl(0, 2%, 22%)",
+                                                          },
+                                                          Object {
+                                                            "fontFamily": "Helvetica",
+                                                          },
+                                                        ]
                                                       }
                                                     >
-                                                      <Typography
-                                                        bold={true}
+                                                      <div
+                                                        className="css-text-901oao"
+                                                        dir="auto"
+                                                        style={
+                                                          Object {
+                                                            "color": "rgba(57,55,55,1.00)",
+                                                            "fontFamily": "Helvetica",
+                                                            "fontSize": "14px",
+                                                            "fontWeight": "400",
+                                                          }
+                                                        }
                                                       >
-                                                        <Component
+                                                        <Typography
                                                           bold={true}
                                                         >
-                                                          <span
-                                                            className=""
-                                                            data-qa="text"
-                                                            style={
-                                                              Object {
-                                                                "color": "hsl(0, 2%, 22%)",
-                                                                "fontFamily": "Inter",
-                                                                "fontSize": 14,
-                                                                "fontWeight": 600,
-                                                                "textAlign": "initial",
-                                                                "textTransform": "initial",
-                                                              }
-                                                            }
+                                                          <Component
+                                                            bold={true}
                                                           >
-                                                            September
-                                                          </span>
-                                                        </Component>
-                                                      </Typography>
-                                                    </span>
+                                                            <Text
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "fontSize": 14,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontWeight": "600",
+                                                                  },
+                                                                  Object {
+                                                                    "color": "hsl(0, 2%, 22%)",
+                                                                  },
+                                                                  Object {
+                                                                    "fontFamily": "Helvetica",
+                                                                  },
+                                                                ]
+                                                              }
+                                                            >
+                                                              <span
+                                                                className="css-text-901oao css-textHasAncestor-16my406"
+                                                                dir="auto"
+                                                                style={
+                                                                  Object {
+                                                                    "color": "rgba(57,55,55,1.00)",
+                                                                    "fontFamily": "Helvetica",
+                                                                    "fontSize": "14px",
+                                                                    "fontWeight": "600",
+                                                                  }
+                                                                }
+                                                              >
+                                                                September
+                                                              </span>
+                                                            </Text>
+                                                          </Component>
+                                                        </Typography>
+                                                      </div>
+                                                    </Text>
                                                   </Component>
                                                 </Typography>
                                               </button>
@@ -1087,51 +1236,83 @@ exports[`DateRange matches snapshot 1`] = `
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
-                                                <Typography
-                                                  style={Object {}}
-                                                >
-                                                  <Component
-                                                    style={Object {}}
-                                                  >
-                                                    <span
-                                                      className=""
-                                                      data-qa="text"
+                                                <Typography>
+                                                  <Component>
+                                                    <Text
                                                       style={
-                                                        Object {
-                                                          "color": "hsl(0, 2%, 22%)",
-                                                          "fontFamily": "Inter",
-                                                          "fontSize": 14,
-                                                          "fontWeight": 400,
-                                                          "textAlign": "initial",
-                                                          "textTransform": "initial",
-                                                        }
+                                                        Array [
+                                                          Object {
+                                                            "fontSize": 14,
+                                                          },
+                                                          undefined,
+                                                          Object {
+                                                            "fontWeight": "400",
+                                                          },
+                                                          Object {
+                                                            "color": "hsl(0, 2%, 22%)",
+                                                          },
+                                                          Object {
+                                                            "fontFamily": "Helvetica",
+                                                          },
+                                                        ]
                                                       }
                                                     >
-                                                      <Typography
-                                                        bold={true}
+                                                      <div
+                                                        className="css-text-901oao"
+                                                        dir="auto"
+                                                        style={
+                                                          Object {
+                                                            "color": "rgba(57,55,55,1.00)",
+                                                            "fontFamily": "Helvetica",
+                                                            "fontSize": "14px",
+                                                            "fontWeight": "400",
+                                                          }
+                                                        }
                                                       >
-                                                        <Component
+                                                        <Typography
                                                           bold={true}
                                                         >
-                                                          <span
-                                                            className=""
-                                                            data-qa="text"
-                                                            style={
-                                                              Object {
-                                                                "color": "hsl(0, 2%, 22%)",
-                                                                "fontFamily": "Inter",
-                                                                "fontSize": 14,
-                                                                "fontWeight": 600,
-                                                                "textAlign": "initial",
-                                                                "textTransform": "initial",
-                                                              }
-                                                            }
+                                                          <Component
+                                                            bold={true}
                                                           >
-                                                            09
-                                                          </span>
-                                                        </Component>
-                                                      </Typography>
-                                                    </span>
+                                                            <Text
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "fontSize": 14,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontWeight": "600",
+                                                                  },
+                                                                  Object {
+                                                                    "color": "hsl(0, 2%, 22%)",
+                                                                  },
+                                                                  Object {
+                                                                    "fontFamily": "Helvetica",
+                                                                  },
+                                                                ]
+                                                              }
+                                                            >
+                                                              <span
+                                                                className="css-text-901oao css-textHasAncestor-16my406"
+                                                                dir="auto"
+                                                                style={
+                                                                  Object {
+                                                                    "color": "rgba(57,55,55,1.00)",
+                                                                    "fontFamily": "Helvetica",
+                                                                    "fontSize": "14px",
+                                                                    "fontWeight": "600",
+                                                                  }
+                                                                }
+                                                              >
+                                                                09
+                                                              </span>
+                                                            </Text>
+                                                          </Component>
+                                                        </Typography>
+                                                      </div>
+                                                    </Text>
                                                   </Component>
                                                 </Typography>
                                               </button>
@@ -1202,51 +1383,83 @@ exports[`DateRange matches snapshot 1`] = `
                                                 onClick={[Function]}
                                                 tabIndex={-1}
                                               >
-                                                <Typography
-                                                  style={Object {}}
-                                                >
-                                                  <Component
-                                                    style={Object {}}
-                                                  >
-                                                    <span
-                                                      className=""
-                                                      data-qa="text"
+                                                <Typography>
+                                                  <Component>
+                                                    <Text
                                                       style={
-                                                        Object {
-                                                          "color": "hsl(0, 2%, 22%)",
-                                                          "fontFamily": "Inter",
-                                                          "fontSize": 14,
-                                                          "fontWeight": 400,
-                                                          "textAlign": "initial",
-                                                          "textTransform": "initial",
-                                                        }
+                                                        Array [
+                                                          Object {
+                                                            "fontSize": 14,
+                                                          },
+                                                          undefined,
+                                                          Object {
+                                                            "fontWeight": "400",
+                                                          },
+                                                          Object {
+                                                            "color": "hsl(0, 2%, 22%)",
+                                                          },
+                                                          Object {
+                                                            "fontFamily": "Helvetica",
+                                                          },
+                                                        ]
                                                       }
                                                     >
-                                                      <Typography
-                                                        bold={true}
+                                                      <div
+                                                        className="css-text-901oao"
+                                                        dir="auto"
+                                                        style={
+                                                          Object {
+                                                            "color": "rgba(57,55,55,1.00)",
+                                                            "fontFamily": "Helvetica",
+                                                            "fontSize": "14px",
+                                                            "fontWeight": "400",
+                                                          }
+                                                        }
                                                       >
-                                                        <Component
+                                                        <Typography
                                                           bold={true}
                                                         >
-                                                          <span
-                                                            className=""
-                                                            data-qa="text"
-                                                            style={
-                                                              Object {
-                                                                "color": "hsl(0, 2%, 22%)",
-                                                                "fontFamily": "Inter",
-                                                                "fontSize": 14,
-                                                                "fontWeight": 600,
-                                                                "textAlign": "initial",
-                                                                "textTransform": "initial",
-                                                              }
-                                                            }
+                                                          <Component
+                                                            bold={true}
                                                           >
-                                                            2019
-                                                          </span>
-                                                        </Component>
-                                                      </Typography>
-                                                    </span>
+                                                            <Text
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "fontSize": 14,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontWeight": "600",
+                                                                  },
+                                                                  Object {
+                                                                    "color": "hsl(0, 2%, 22%)",
+                                                                  },
+                                                                  Object {
+                                                                    "fontFamily": "Helvetica",
+                                                                  },
+                                                                ]
+                                                              }
+                                                            >
+                                                              <span
+                                                                className="css-text-901oao css-textHasAncestor-16my406"
+                                                                dir="auto"
+                                                                style={
+                                                                  Object {
+                                                                    "color": "rgba(57,55,55,1.00)",
+                                                                    "fontFamily": "Helvetica",
+                                                                    "fontSize": "14px",
+                                                                    "fontWeight": "600",
+                                                                  }
+                                                                }
+                                                              >
+                                                                2019
+                                                              </span>
+                                                            </Text>
+                                                          </Component>
+                                                        </Typography>
+                                                      </div>
+                                                    </Text>
                                                   </Component>
                                                 </Typography>
                                               </button>

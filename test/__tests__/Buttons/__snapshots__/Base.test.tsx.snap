@@ -18,7 +18,6 @@ exports[`Base Button renders without crashing 1`] = `
       style={
         Object {
           "opacity": 1,
-          "transition": "opacity 150ms ease-in",
         }
       }
       uppercase={true}

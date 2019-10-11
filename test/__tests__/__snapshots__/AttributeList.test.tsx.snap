@@ -11,7 +11,7 @@ exports[`renders without crashing 1`] = `
     className="mb-1"
     muted={true}
     uppercase={true}
-    weight={500}
+    weight="500"
   >
     test
   </Component>

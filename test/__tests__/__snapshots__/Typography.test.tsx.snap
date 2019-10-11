@@ -3,246 +3,436 @@
 exports[`Typography renders Regular Text without crashing 1`] = `
 <Typography>
   <Component>
-    <span
-      className=""
-      data-qa="text"
+    <Text
       style={
-        Object {
-          "color": "hsl(0, 2%, 22%)",
-          "fontFamily": "Inter",
-          "fontSize": 14,
-          "fontWeight": 400,
-          "textAlign": "initial",
-          "textTransform": "initial",
-        }
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          undefined,
+          Object {
+            "fontWeight": "400",
+          },
+          Object {
+            "color": "hsl(0, 2%, 22%)",
+          },
+          Object {
+            "fontFamily": "Helvetica",
+          },
+        ]
       }
     >
-      Some Text
-    </span>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(57,55,55,1.00)",
+            "fontFamily": "Helvetica",
+            "fontSize": "14px",
+            "fontWeight": "400",
+          }
+        }
+      >
+        Some Text
+      </div>
+    </Text>
   </Component>
 </Typography>
 `;
 
 exports[`Typography renders Text.HeadingLarge without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="heading-large"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "display": "block",
-        "fontFamily": "Inter",
-        "fontSize": 24,
-        "fontWeight": 400,
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 24,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "24px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.HeadingSmall without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="heading-small"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "display": "block",
-        "fontFamily": "Inter",
-        "fontSize": 20,
-        "fontWeight": 400,
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 20,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "20px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.HeadingTiny without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="heading-tiny"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "display": "block",
-        "fontFamily": "Inter",
-        "fontSize": 18,
-        "fontWeight": 400,
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 18,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "18px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.Large without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="text"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "fontFamily": "Inter",
-        "fontSize": 16,
-        "fontWeight": 400,
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 16,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "16px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.Small without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="text"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "fontFamily": "Inter",
-        "fontSize": 12,
-        "fontWeight": 400,
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 12,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "12px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.Subtitle without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="page-subtitle"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "display": "block",
-        "fontFamily": "Inter",
-        "fontSize": 30,
-        "fontWeight": 400,
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 30,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "30px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.SuperTitle without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="page-supertitle"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "display": "block",
-        "fontFamily": "Inter",
-        "fontSize": 48,
-        "fontWeight": 400,
-        "lineHeight": "normal",
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 48,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "48px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.Tiny without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="text"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "fontFamily": "Inter",
-        "fontSize": 10.2,
-        "fontWeight": 400,
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 10.2,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "10.2px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders Text.Title without crashing 1`] = `
 <Component>
-  <span
-    className=""
-    data-qa="page-title"
+  <Text
     style={
-      Object {
-        "color": "hsl(0, 2%, 22%)",
-        "display": "block",
-        "fontFamily": "Inter",
-        "fontSize": 36,
-        "fontWeight": 400,
-        "lineHeight": "normal",
-        "textAlign": "initial",
-        "textTransform": "initial",
-      }
+      Array [
+        Object {
+          "fontSize": 36,
+        },
+        undefined,
+        Object {
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "hsl(0, 2%, 22%)",
+        },
+        Object {
+          "fontFamily": "Helvetica",
+        },
+      ]
     }
   >
-    Some Text
-  </span>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(57,55,55,1.00)",
+          "fontFamily": "Helvetica",
+          "fontSize": "36px",
+          "fontWeight": "400",
+        }
+      }
+    >
+      Some Text
+    </div>
+  </Text>
 </Component>
 `;
 
 exports[`Typography renders bold Text without crashing 1`] = `
 <Typography
-  weight={500}
+  bold={true}
 >
   <Component
-    weight={500}
+    bold={true}
   >
-    <span
-      className=""
-      data-qa="text"
+    <Text
       style={
-        Object {
-          "color": "hsl(0, 2%, 22%)",
-          "fontFamily": "Inter",
-          "fontSize": 14,
-          "fontWeight": 500,
-          "textAlign": "initial",
-          "textTransform": "initial",
-        }
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          undefined,
+          Object {
+            "fontWeight": "600",
+          },
+          Object {
+            "color": "hsl(0, 2%, 22%)",
+          },
+          Object {
+            "fontFamily": "Helvetica",
+          },
+        ]
       }
     >
-      Some Text
-    </span>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(57,55,55,1.00)",
+            "fontFamily": "Helvetica",
+            "fontSize": "14px",
+            "fontWeight": "600",
+          }
+        }
+      >
+        Some Text
+      </div>
+    </Text>
   </Component>
 </Typography>
 `;
@@ -254,22 +444,40 @@ exports[`Typography renders inverted Text without crashing 1`] = `
   <Component
     inverted={true}
   >
-    <span
-      className=""
-      data-qa="text"
+    <Text
       style={
-        Object {
-          "color": "hsl(0, 0%, 98%)",
-          "fontFamily": "Inter",
-          "fontSize": 14,
-          "fontWeight": 400,
-          "textAlign": "initial",
-          "textTransform": "initial",
-        }
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          undefined,
+          Object {
+            "fontWeight": "400",
+          },
+          Object {
+            "color": "hsl(0, 0%, 98%)",
+          },
+          Object {
+            "fontFamily": "Helvetica",
+          },
+        ]
       }
     >
-      Some Text
-    </span>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(250,250,250,1.00)",
+            "fontFamily": "Helvetica",
+            "fontSize": "14px",
+            "fontWeight": "400",
+          }
+        }
+      >
+        Some Text
+      </div>
+    </Text>
   </Component>
 </Typography>
 `;
@@ -281,22 +489,40 @@ exports[`Typography renders muted Text without crashing 1`] = `
   <Component
     muted={true}
   >
-    <span
-      className=""
-      data-qa="text"
+    <Text
       style={
-        Object {
-          "color": "hsl(356, 3%, 59%)",
-          "fontFamily": "Inter",
-          "fontSize": 14,
-          "fontWeight": 400,
-          "textAlign": "initial",
-          "textTransform": "initial",
-        }
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          undefined,
+          Object {
+            "fontWeight": "400",
+          },
+          Object {
+            "color": "hsl(356, 3%, 59%)",
+          },
+          Object {
+            "fontFamily": "Helvetica",
+          },
+        ]
       }
     >
-      Some Text
-    </span>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(154,147,148,1.00)",
+            "fontFamily": "Helvetica",
+            "fontSize": "14px",
+            "fontWeight": "400",
+          }
+        }
+      >
+        Some Text
+      </div>
+    </Text>
   </Component>
 </Typography>
 `;

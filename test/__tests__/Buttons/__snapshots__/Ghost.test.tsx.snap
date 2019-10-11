@@ -39,47 +39,69 @@ exports[`Ghost renders without crashing 1`] = `
               style={
                 Object {
                   "opacity": 1,
-                  "transition": "opacity 150ms ease-in",
                 }
               }
               uppercase={true}
             >
-              <span
-                className=""
-                data-qa="text"
+              <Text
                 style={
-                  Object {
-                    "color": "hsl(0, 0%, 98%)",
-                    "fontFamily": "Inter",
-                    "fontSize": 12,
-                    "fontWeight": 400,
-                    "opacity": 1,
-                    "textAlign": "initial",
-                    "textTransform": "uppercase",
-                    "transition": "opacity 150ms ease-in",
-                  }
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "opacity": 1,
+                    },
+                    Object {
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "color": "hsl(0, 0%, 98%)",
+                    },
+                    Object {
+                      "fontFamily": "Helvetica",
+                    },
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                  ]
                 }
               >
                 <div
-                  className="flex items-center"
+                  className="css-text-901oao"
+                  dir="auto"
                   style={
                     Object {
-                      "flexDirection": "row",
+                      "color": "rgba(250,250,250,1.00)",
+                      "fontFamily": "Helvetica",
+                      "fontSize": "12px",
+                      "fontWeight": "400",
+                      "opacity": 1,
+                      "textTransform": "uppercase",
                     }
                   }
                 >
-                  <span
+                  <div
+                    className="flex items-center"
                     style={
                       Object {
-                        "marginLeft": "",
-                        "marginRight": "",
+                        "flexDirection": "row",
                       }
                     }
                   >
-                    push me
-                  </span>
+                    <span
+                      style={
+                        Object {
+                          "marginLeft": "",
+                          "marginRight": "",
+                        }
+                      }
+                    >
+                      push me
+                    </span>
+                  </div>
                 </div>
-              </span>
+              </Text>
             </Component>
           </div>
         </button>

@@ -10,7 +10,8 @@
       {
         "root": ["./src/", "./dist/"],
         "alias": {
-          "dist": "./dist"
+          "dist": "./dist",
+          "^react-native$": "react-native-web"
         }
       }
     ],

@@ -5,28 +5,42 @@ exports[`Blank renders without crashing 1`] = `
   <button
     className="Blank-module_ButtonBlank__2u_7K "
   >
-    <Typography
-      style={Object {}}
-    >
-      <Component
-        style={Object {}}
-      >
-        <span
-          className=""
-          data-qa="text"
+    <Typography>
+      <Component>
+        <Text
           style={
-            Object {
-              "color": "hsl(0, 2%, 22%)",
-              "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": 400,
-              "textAlign": "initial",
-              "textTransform": "initial",
-            }
+            Array [
+              Object {
+                "fontSize": 14,
+              },
+              undefined,
+              Object {
+                "fontWeight": "400",
+              },
+              Object {
+                "color": "hsl(0, 2%, 22%)",
+              },
+              Object {
+                "fontFamily": "Helvetica",
+              },
+            ]
           }
         >
-          push me
-        </span>
+          <div
+            className="css-text-901oao"
+            dir="auto"
+            style={
+              Object {
+                "color": "rgba(57,55,55,1.00)",
+                "fontFamily": "Helvetica",
+                "fontSize": "14px",
+                "fontWeight": "400",
+              }
+            }
+          >
+            push me
+          </div>
+        </Text>
       </Component>
     </Typography>
   </button>
