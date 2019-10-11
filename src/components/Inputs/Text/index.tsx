@@ -40,12 +40,7 @@ export default function Text(props: TTextInputProps) {
 
   return (
     <div {...{ className, style: { width: "100%", ...style } }}>
-      <Base
-        {...(input as any)}
-        {...restProps}
-        error={showError}
-        data-qa={dataQa}
-      />
+      <Base {...input} {...restProps} error={showError} data-qa={dataQa} />
     </div>
   );
 }
