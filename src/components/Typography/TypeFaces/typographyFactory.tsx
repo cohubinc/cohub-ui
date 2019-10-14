@@ -1,10 +1,9 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { ITypographyProps } from "../definitions/ITypographyProps";
-import Color from "src/definitions/enums/Color";
-import { Text, StyleProp, TextStyle, Platform } from "react-native";
+import Color from "../../../definitions/enums/Color";
 
 type TFactoryArgs = Omit<ITypographyProps, "children">;
-// Function that takes some typography props and returns a Typography component
+
 export function typographyFactory(defaultProps: TFactoryArgs) {
   return (props: ITypographyProps) => {
     const { style: factoryStyle } = defaultProps;
@@ -16,12 +15,14 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
     const mergedProperties = { ...defaultProps, ...props };
     const {
       fontFamily,
+      p,
       muted,
       light,
       block,
       error,
       className = "",
       inverted,
+      color = Color.text,
       uppercase,
       alignment,
       weight,
@@ -31,47 +32,39 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
       "data-qa": dataQa = "text"
     } = mergedProperties;
 
-    const fontWeight = bold ? "600" : weight || "400";
+    const fontFamilyStyle = fontFamily
+      ? { fontFamily }
+      : { fontFamily: "Inter" };
+    const fontWeightStyle = { fontWeight: weight || 400 };
+    const boldStyles = bold ? { fontWeight: 600 } : {};
+    const mutedStyle = muted ? { color: Color.lightText as any } : {};
+    const kerningStyle = kerning ? { letterSpacing: `${kerning}rem` } : {};
+    const blockStyle = block ? { display: "block" } : {};
+    const lightStyle = light ? { color: Color.trueWhite as any } : {};
+    const invertedStyle = inverted ? { color: Color.invertedText as any } : {};
+    const errorStyle = error ? { color: Color.primaryRed as any } : {};
+    const italicStyle = italicize ? { fontStyle: "italic" } : {};
 
-    let color: any = mergedProperties.color || Color.text;
-    if (muted) {
-      color = Color.lightText;
-    } else if (light) {
-      color = Color.trueWhite;
-    } else if (inverted) {
-      color = Color.invertedText;
-    } else if (error) {
-      color = Color.primaryRed;
-    }
-
-    const styleProp: Array<StyleProp<TextStyle>> = [
-      factoryStyle,
-      style,
-      { fontWeight },
-      { color }
-    ];
-
-    styleProp.push(fontFamily ? { fontFamily } : { fontFamily: "Helvetica" });
-
-    if (kerning) {
-      styleProp.push({ letterSpacing: kerning * 16 }); // rems, yo
-    }
-
-    if (italicize) {
-      styleProp.push({ fontStyle: "italic" });
-    }
-
-    if (uppercase) {
-      styleProp.push({ textTransform: "uppercase" });
-    }
-
-    if (alignment) {
-      styleProp.push({ textAlign: alignment });
-    }
-
-    if (block) {
-      styleProp.push({ display: "flex" });
-    }
+    const styleDefaults = {
+      color: color as any,
+      textTransform: (uppercase ? "uppercase" : "initial") as any,
+      textAlign: (alignment ? alignment : "initial") as any
+    };
+    const mergedStyles = { ...factoryStyle, ...style };
+    const styleProp: CSSProperties = {
+      ...styleDefaults,
+      ...fontFamilyStyle,
+      ...fontWeightStyle,
+      ...boldStyles,
+      ...italicStyle,
+      ...kerningStyle,
+      ...mutedStyle,
+      ...blockStyle,
+      ...lightStyle,
+      ...invertedStyle,
+      ...errorStyle,
+      ...mergedStyles
+    };
 
     const properties = {
       children,
@@ -80,10 +73,6 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
       "data-qa": dataQa
     };
 
-    if (Platform.OS === "web") {
-      return <span {...(properties as any)} />;
-    }
-
-    return <Text children={children} style={styleProp} />;
+    return p ? <p {...properties} /> : <span {...properties} />;
   };
 }

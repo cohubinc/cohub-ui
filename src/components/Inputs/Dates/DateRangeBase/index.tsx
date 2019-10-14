@@ -76,7 +76,7 @@ export default function DateRangeBase({
               <Typography
                 className="flex items-center mx-025"
                 style={{
-                  fontWeight: "600",
+                  fontWeight: 600,
                   paddingTop: appearance === "contrast" ? 7 : undefined
                 }}
               >

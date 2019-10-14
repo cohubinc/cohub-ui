@@ -1,19 +1,22 @@
 import React, { Component } from "react";
+import { Platform } from "react-native";
 
 import Button, { IBaseButtonProps } from "./Base";
 import Blank from "./Blank";
 import OutlineButton from "./Outline";
 import { Ghost, PrimaryGhostButton, CancelGhostButton } from "./Ghost";
 import Text from "./Text";
+
 import Primary from "./Primary";
 import Secondary from "./Secondary";
 import Info from "./Info";
 import Cancel from "./Cancel";
-import Dropdown from "./Dropdown/index";
+import Dropdown from "./Dropdown";
 import FloatingActionButton from "./FloatingActionButton";
 import Split from "./Split";
 
 export { TBlankButtonProps } from "./Blank";
+export { TPrimaryButtonProps } from "./Primary";
 export { TOutlineButtonProps } from "./Outline";
 export { TGhostButtonProps } from "./Ghost";
 export { TTextButtonProps } from "./Text";

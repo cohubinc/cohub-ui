@@ -11,6 +11,7 @@ import commonjs from "rollup-plugin-commonjs";
 // import docGenPlugin from "babel-plugin-react-docgen-typescript";
 import ttypescript from "ttypescript";
 import execute from "rollup-plugin-execute";
+import nodeResolve from "rollup-plugin-node-resolve";
 
 import pkg from "./package.json";
 
@@ -23,25 +24,21 @@ export default {
   input: "src/index.ts",
   output: [
     {
-      file: pkg.main,
+      file: pkg.reactNative,
       format: "cjs",
-      sourcemap: true
-    },
-    {
-      file: "dist/index.esm.js",
-      format: "esm",
       sourcemap: true
     }
   ],
   external: dependencies,
   plugins: [
+    nodeResolve({ extensions: [".ios.tsx", ".tsx"] }),
     replace({
       __DEV__,
       exclude: "node_modules/**"
     }),
     typescriptPlugin({
       typescript: ttypescript,
-      tsconfig: "./tsconfig.build.json"
+      tsconfig: "./tsconfig.build.ios.json"
     }),
     babel({
       babelrc: false,
@@ -83,6 +80,9 @@ export default {
       autoModules: true
     }),
     commonjs(),
-    execute("cp ./dist/index.d.ts ./dist/index.esm.d.ts")
+    execute("cp ./dist/index.d.ts ./dist/react-native/index.d.ts"),
+    execute(
+      "sleep 2 && cp -R ./dist ./CohubUIPlayground/node_modules/@cohubinc/cohub-ui"
+    )
   ]
 };

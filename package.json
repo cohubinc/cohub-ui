@@ -3,6 +3,7 @@
   "version": "1.0.7",
   "description": "Sharable UI components",
   "main": "dist/index.js",
+  "reactNative": "dist/react-native/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -12,6 +13,7 @@
   "scripts": {
     "start": "NODE_ENV=development rollup -cw",
     "build": "NODE_ENV=production rollup -c",
+    "build:ios": "NODE_ENV=production rollup -c ./native-rollup.config.js",
     "build:stories": "NODE_ENV=storybook rollup -c",
     "watch:stories": "NODE_ENV=storybook rollup -cw",
     "fresh": "rm -rf node_modules && yarn cache clean && yarn install",
@@ -118,7 +120,7 @@
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "10.0.2",
     "rollup-plugin-execute": "1.1.1",
-    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-replace": "2.2.0",
     "rollup-plugin-typescript2": "0.22.1",
