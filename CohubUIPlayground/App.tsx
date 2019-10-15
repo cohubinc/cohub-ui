@@ -40,7 +40,7 @@ const App = () => {
           style={styles.scrollView}>
           <Header />
           {/* <Typography.Title>Whoa</Typography.Title> */}
-          <Buttons.Primary plaform={'ios'} />
+          <Buttons.Primary native={'ios'} />
           {!usingHermes ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
