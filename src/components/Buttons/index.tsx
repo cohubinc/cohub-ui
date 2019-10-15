@@ -16,7 +16,7 @@ import FloatingActionButton from "./FloatingActionButton";
 import Split from "./Split";
 
 export { TBlankButtonProps } from "./Blank";
-export { TPrimaryButtonProps } from "./Primary";
+export { TPrimaryButtonProps } from "./Primary/TPrimaryButtonProps";
 export { TOutlineButtonProps } from "./Outline";
 export { TGhostButtonProps } from "./Ghost";
 export { TTextButtonProps } from "./Text";

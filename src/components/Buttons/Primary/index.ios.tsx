@@ -1,10 +1,9 @@
 import React from "react";
 
 import { TouchableHighlight, Text } from "react-native";
+import { TPrimaryButtonProps } from "./TPrimaryButtonProps";
 
-export type TPrimaryButtonProps = string[];
-
-const Primary = ({  }: TPrimaryButtonProps) => (
+const Primary = ({  }: TPrimaryButtonProps<"ios">) => (
   <TouchableHighlight>
     <Text>hi</Text>
   </TouchableHighlight>
