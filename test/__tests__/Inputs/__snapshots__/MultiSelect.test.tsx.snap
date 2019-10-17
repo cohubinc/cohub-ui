@@ -412,6 +412,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
               }
             >
               <EmotionCssPropInternal
+                __EMOTION_LABEL_PLEASE_DO_NOT_USE__="SelectContainer"
                 __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                 className=""
                 css={
@@ -600,6 +601,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                     }
                   >
                     <EmotionCssPropInternal
+                      __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                       __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                       className="react-select__control"
                       css={
@@ -1367,6 +1369,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                               size={14}
                                             >
                                               <EmotionCssPropInternal
+                                                __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Svg"
                                                 __EMOTION_TYPE_PLEASE_DO_NOT_USE__="svg"
                                                 aria-hidden="true"
                                                 css={
@@ -1383,7 +1386,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="css-19bqh2r"
+                                                  className="css-tj5bde-Svg"
                                                   focusable="false"
                                                   height={14}
                                                   viewBox="0 0 20 20"
@@ -1951,6 +1954,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                               size={14}
                                             >
                                               <EmotionCssPropInternal
+                                                __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Svg"
                                                 __EMOTION_TYPE_PLEASE_DO_NOT_USE__="svg"
                                                 aria-hidden="true"
                                                 css={
@@ -1967,7 +1971,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="css-19bqh2r"
+                                                  className="css-tj5bde-Svg"
                                                   focusable="false"
                                                   height={14}
                                                   viewBox="0 0 20 20"
@@ -2135,6 +2139,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                 value=""
                               >
                                 <EmotionCssPropInternal
+                                  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Input"
                                   __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                   css={
                                     Object {
@@ -2148,7 +2153,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                   }
                                 >
                                   <div
-                                    className="css-1p30je5"
+                                    className="css-1a35ybn-Input"
                                   >
                                     <AutosizeInput
                                       aria-autocomplete="list"
@@ -2401,6 +2406,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                           }
                         >
                           <EmotionCssPropInternal
+                            __EMOTION_LABEL_PLEASE_DO_NOT_USE__="IndicatorsContainer"
                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                             className="react-select__indicators"
                             css={
@@ -2415,7 +2421,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                             }
                           >
                             <div
-                              className="react-select__indicators css-cejxbf"
+                              className="react-select__indicators css-1446o1x-IndicatorsContainer"
                             >
                               <IndicatorSeparator
                                 clearValue={[Function]}
@@ -2580,6 +2586,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                 }
                               >
                                 <EmotionCssPropInternal
+                                  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="IndicatorSeparator"
                                   __EMOTION_TYPE_PLEASE_DO_NOT_USE__="span"
                                   className="react-select__indicator-separator"
                                   css={
@@ -2589,7 +2596,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                   }
                                 >
                                   <span
-                                    className="react-select__indicator-separator css-1hyfx7x"
+                                    className="react-select__indicator-separator css-1emuzj5-IndicatorSeparator"
                                   />
                                 </EmotionCssPropInternal>
                               </IndicatorSeparator>
