@@ -10,7 +10,7 @@ src/.DS_Store
 
 .storybook/stories-dist
 development-playground/node_modules
-development-playgroud/dist
-development-playgroud/.cache
-development-playgroud/DevSandbox.tsx
+development-playground/dist
+development-playground/.cache
+development-playground/DevSandbox.tsx
 .vscode
