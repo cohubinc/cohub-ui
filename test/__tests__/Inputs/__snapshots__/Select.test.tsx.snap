@@ -381,6 +381,7 @@ exports[`Select Input renders checked without crashing 1`] = `
               }
             >
               <EmotionCssPropInternal
+                __EMOTION_LABEL_PLEASE_DO_NOT_USE__="SelectContainer"
                 __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                 className=""
                 css={
@@ -564,6 +565,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                     }
                   >
                     <EmotionCssPropInternal
+                      __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                       __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                       className="react-select__control"
                       css={
@@ -938,6 +940,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                 }
                               >
                                 <EmotionCssPropInternal
+                                  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="SingleValue"
                                   __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                   className="react-select__single-value"
                                   css={
@@ -1108,6 +1111,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                 value=""
                               >
                                 <EmotionCssPropInternal
+                                  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Input"
                                   __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                   css={
                                     Object {
@@ -1121,7 +1125,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                   }
                                 >
                                   <div
-                                    className="css-cj7phe"
+                                    className="css-mk8o0d-Input"
                                   >
                                     <AutosizeInput
                                       aria-autocomplete="list"
@@ -1369,6 +1373,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                           }
                         >
                           <EmotionCssPropInternal
+                            __EMOTION_LABEL_PLEASE_DO_NOT_USE__="IndicatorsContainer"
                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                             className="react-select__indicators"
                             css={
@@ -1383,7 +1388,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                             }
                           >
                             <div
-                              className="react-select__indicators css-cejxbf"
+                              className="react-select__indicators css-1446o1x-IndicatorsContainer"
                             >
                               <IndicatorSeparator
                                 clearValue={[Function]}
@@ -1542,9 +1547,15 @@ exports[`Select Input renders checked without crashing 1`] = `
                                   }
                                 }
                               >
-                                <span
+                                <EmotionCssPropInternal
+                                  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="IndicatorSeparator"
+                                  __EMOTION_TYPE_PLEASE_DO_NOT_USE__="span"
                                   className="react-select__indicator-separator"
-                                />
+                                >
+                                  <span
+                                    className="react-select__indicator-separator css-42s6pq-IndicatorSeparator"
+                                  />
+                                </EmotionCssPropInternal>
                               </IndicatorSeparator>
                               <DropdownIndicator
                                 clearValue={[Function]}
