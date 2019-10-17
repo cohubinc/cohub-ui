@@ -21,6 +21,9 @@ export interface ITypographyProps {
   /** Text can be bold */
   bold?: boolean;
 
+  /** Text can be mono spaced */
+  mono?: boolean;
+
   /** Text can be italic */
   italicize?: boolean;
 

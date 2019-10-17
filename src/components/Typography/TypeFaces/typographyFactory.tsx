@@ -28,13 +28,12 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
       weight,
       kerning,
       bold,
+      mono,
       italicize,
       "data-qa": dataQa = "text"
     } = mergedProperties;
 
-    const fontFamilyStyle = fontFamily
-      ? { fontFamily }
-      : { fontFamily: "Inter" };
+    let fontFamilyStyle = fontFamily ? { fontFamily } : { fontFamily: "Inter" };
     const fontWeightStyle = { fontWeight: weight || 400 };
     const boldStyles = bold ? { fontWeight: 600 } : {};
     const mutedStyle = muted ? { color: Color.lightText as any } : {};
@@ -44,6 +43,10 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
     const invertedStyle = inverted ? { color: Color.invertedText as any } : {};
     const errorStyle = error ? { color: Color.primaryRed as any } : {};
     const italicStyle = italicize ? { fontStyle: "italic" } : {};
+
+    if (mono) {
+      fontFamilyStyle = { fontFamily: "Akkurat-Mono" };
+    }
 
     const styleDefaults = {
       color: color as any,
