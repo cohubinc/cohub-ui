@@ -5,7 +5,7 @@ import Icon from "src/components/Icon";
 import Color from "src/definitions/enums/Color";
 
 import "./Checkbox.scss";
-import guid from "src/helpers/guid";
+import { guid } from "@cohubinc/cohub-utils";
 
 type FieldProps = FieldRenderProps<boolean | string, HTMLInputElement>;
 export interface ICheckboxProps {
