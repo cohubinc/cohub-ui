@@ -1,5 +1,7 @@
 import React, { ReactElement } from "react";
 import sortBy from "lodash/sortBy";
+import { guid } from "@cohubinc/cohub-utils";
+
 import matchStrength from "./match-strength";
 
 import Tab, { ITabProps, IHiddenProps } from "./Tab";
@@ -48,7 +50,7 @@ export default function Tabs(props: ITabsProps) {
           return React.cloneElement(tab, {
             useRedux,
             showActiveStyles: !!isTheActiveTab,
-            key: tab.props.title
+            key: guid()
           });
         })}
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 import IconWrapper from "../../IconWrapper";
 import { IIconProps as IProps } from "../../index";
-import guid from "src/helpers/guid";
+import { guid } from "@cohubinc/cohub-utils";
 
 const User = (props: IProps) => {
   const uniqueId = guid();
