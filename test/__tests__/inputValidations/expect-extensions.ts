@@ -9,7 +9,6 @@ declare global {
     // tslint:disable-next-line
     interface Matchers<R> {
       toBeValid(expected: TValidatorResponse): R;
-      toNotBeValid(expected: TValidatorResponse): R;
     }
   }
 }
@@ -23,7 +22,8 @@ declare global {
 
 expect.extend({
   toBeValid(received) {
-    if (isValid(received)) {
+    // If received is undefined that means the validate function is valid and doesn't have any errors
+    if (received === undefined) {
       return {
         pass: true,
         message: () =>

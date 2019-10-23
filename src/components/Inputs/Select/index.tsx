@@ -44,6 +44,7 @@ export interface ISelectProps extends TInheritedFloatingLabelProps {
   onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
   components?: Partial<SelectComponents<IOption>>;
   className?: string;
+  searchable?: boolean;
 }
 
 export default function Select(props: ISelectProps) {
@@ -63,7 +64,8 @@ export default function Select(props: ISelectProps) {
     onInputChange,
     components,
     required,
-    className
+    className,
+    searchable
   } = props;
 
   let value = options.filter(o => input.value === o.value);
@@ -150,6 +152,7 @@ export default function Select(props: ISelectProps) {
           handleScrolledToBottom={handleScrolledToBottom}
           onMenuScrollToBottomOffset={onMenuScrollToBottomOffset}
           onInputChange={onInputChange}
+          isSearchable={searchable}
           onChange={(arg1: any, { action }: any) => {
             const { onChange } = input;
             if (!onChange) return;
