@@ -33,7 +33,7 @@ exports[`Text Input renders without crashing 1`] = `
             <input
               aria-invalid={false}
               autoComplete="off"
-              autoFocus={true}
+              autoFocus={false}
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
