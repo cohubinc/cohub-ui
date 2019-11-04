@@ -37,7 +37,7 @@ export default function Base(props: IBaseInputProps) {
   const {
     type = "text",
     autoComplete = "off",
-    autoFocus = true,
+    autoFocus = false,
     style,
     id,
     className,
