@@ -36,6 +36,7 @@ import sales from "./Sales";
 import save from "./Save";
 import scales from "./Scales";
 import search from "./Search";
+import settings from "./Settings";
 import shipping from "./Shipping";
 import tagDollar from "./TagDollar";
 import trash from "./Trash";
@@ -83,6 +84,7 @@ export type TIconName =
   | "save"
   | "scales"
   | "search"
+  | "settings"
   | "shipping"
   | "tagDollar"
   | "trash"
@@ -131,6 +133,7 @@ const icons: TIconMap = {
   save,
   scales,
   search,
+  settings,
   shipping,
   tagDollar,
   trash,
