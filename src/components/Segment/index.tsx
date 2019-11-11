@@ -57,7 +57,7 @@ class Segment extends PureComponent<ISegmentProps> {
         {...rest}
         className={classes}
         style={{
-          boxShadow: BoxShadow[dpLevel as any],
+          boxShadow: (BoxShadow as any)[dpLevel],
           border: bordered ? "1px solid var(--border)" : "",
           backgroundColor: contrast
             ? (Color.grey200 as any)

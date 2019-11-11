@@ -142,7 +142,7 @@ export default function Vertical({
       className={`${styles.CardVertical} ${className} pb-1`}
       style={{
         ...style,
-        boxShadow: BoxShadow[dpLevel] || BoxShadow.dp1,
+        boxShadow: (BoxShadow as any)[dpLevel] || BoxShadow.dp1,
         width: cardWidth
       }}
     >
