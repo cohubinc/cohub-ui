@@ -25,8 +25,6 @@ export interface IBaseInputProps
   onChange?: (value: string) => void;
 
   value?: string;
-
-  alignment?: "left" | "right" | "center";
 }
 
 export type TBaseInputProps = IBaseInputProps;
@@ -36,7 +34,6 @@ export default function Base(props: IBaseInputProps) {
     type = "text",
     autoComplete = "off",
     autoFocus = false,
-    alignment = "left",
     style,
     id,
     className,
