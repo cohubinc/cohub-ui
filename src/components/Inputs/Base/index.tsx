@@ -25,19 +25,18 @@ export interface IBaseInputProps
   onChange?: (value: string) => void;
 
   value?: string;
+
+  alignment?: "left" | "right" | "center";
 }
 
 export type TBaseInputProps = IBaseInputProps;
-
-interface IState {
-  hasFocus: boolean;
-}
 
 export default function Base(props: IBaseInputProps) {
   const {
     type = "text",
     autoComplete = "off",
     autoFocus = false,
+    alignment = "left",
     style,
     id,
     className,

@@ -5,7 +5,6 @@ import NumberFormat from "react-number-format";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import TInputElementProps from "../definitions/TInputElementProps";
 
-import "./Money.scss";
 import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 type InputValue = number | undefined;
@@ -49,7 +48,7 @@ export default function MoneyInput({
   const error = !!(meta.touched && meta.error);
 
   return (
-    <div className="CohubMoneyInput" data-qa={dataQa} {...rest}>
+    <div data-qa={dataQa} {...rest}>
       <FloatingLabelWrapper
         {...input}
         {...{ label, labelPosition, clearable, error, appearance, required }}
