@@ -10,7 +10,12 @@ exports[`Decimal renders Decimal without crashing 1`] = `
   }
 >
   <div
-    className="decimal-input align-left "
+    className=""
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <FloatingLabelWrapper
       error={false}
@@ -50,9 +55,7 @@ exports[`Decimal renders Decimal without crashing 1`] = `
             prefix=""
             style={
               Object {
-                "color": "hsl(0, 2%, 12%)",
-                "cursor": "text",
-                "textAlign": undefined,
+                "textAlign": "left",
               }
             }
             suffix=""
@@ -70,9 +73,7 @@ exports[`Decimal renders Decimal without crashing 1`] = `
               onMouseUp={[Function]}
               style={
                 Object {
-                  "color": "hsl(0, 2%, 12%)",
-                  "cursor": "text",
-                  "textAlign": undefined,
+                  "textAlign": "left",
                 }
               }
               type="text"

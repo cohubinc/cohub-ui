@@ -5,7 +5,6 @@ import NumberFormat from "react-number-format";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import TInputElementProps from "../definitions/TInputElementProps";
 
-import "./Money.scss";
 import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
 
 type InputValue = number | undefined;
@@ -30,6 +29,11 @@ export interface IMoneyInputProps
   extendedPrecision?: boolean;
   input: IInputProp;
   meta?: FormRenderProps["meta"];
+  /**
+   * Alignment of the input value text
+   * @default left
+   */
+  textAlign?: "left" | "right" | "center";
   "data-qa"?: string;
 }
 
@@ -44,12 +48,13 @@ export default function MoneyInput({
   "data-qa": dataQa,
   placeholder,
   clearable,
+  textAlign = "left",
   ...rest
 }: IMoneyInputProps) {
   const error = !!(meta.touched && meta.error);
 
   return (
-    <div className="CohubMoneyInput" data-qa={dataQa} {...rest}>
+    <div data-qa={dataQa} {...rest} style={{ width: "100%" }}>
       <FloatingLabelWrapper
         {...input}
         {...{ label, labelPosition, clearable, error, appearance, required }}
@@ -70,6 +75,7 @@ export default function MoneyInput({
               onValueChange={({ floatValue }) => {
                 onChange!(floatValue);
               }}
+              style={{ textAlign }}
               thousandSeparator
             />
           );

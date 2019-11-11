@@ -29,10 +29,6 @@ export interface IBaseInputProps
 
 export type TBaseInputProps = IBaseInputProps;
 
-interface IState {
-  hasFocus: boolean;
-}
-
 export default function Base(props: IBaseInputProps) {
   const {
     type = "text",
