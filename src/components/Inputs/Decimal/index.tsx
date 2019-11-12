@@ -4,7 +4,6 @@ import NumberFormat from "react-number-format";
 import FloatingLabelWrapper from "../FloatingLabelWrapper";
 import TInputElementProps from "../definitions/TInputElementProps";
 import TInheritedFloatingLabelProps from "../definitions/TInheritedFloatingLabelProps";
-import "./styles.scss";
 
 type InputValue = number | undefined;
 
@@ -58,7 +57,8 @@ export default function DecimalInput({
 
   return (
     <div
-      className={`decimal-input align-${textAlign} ${className}`}
+      className={className}
+      style={{ width: "100%" }}
       data-qa={dataQa}
       {...rest}
     >
@@ -80,6 +80,7 @@ export default function DecimalInput({
               onValueChange={({ floatValue }) => {
                 onChange!(floatValue);
               }}
+              style={{ textAlign }}
               thousandSeparator
             />
           );
