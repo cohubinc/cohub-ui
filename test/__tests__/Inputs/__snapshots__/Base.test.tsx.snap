@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Base Input renders with value without crashing 1`] = `
-<Base$1
+<Base$2
   onChange={[Function]}
   value="test"
 >
@@ -45,11 +45,11 @@ exports[`Base Input renders with value without crashing 1`] = `
       </div>
     </div>
   </FloatingLabelWrapper>
-</Base$1>
+</Base$2>
 `;
 
 exports[`Base Input renders without crashing 1`] = `
-<Base$1>
+<Base$2>
   <FloatingLabelWrapper
     data-qa="base-input"
     data-qa-label="base-input-label"
@@ -88,5 +88,5 @@ exports[`Base Input renders without crashing 1`] = `
       </div>
     </div>
   </FloatingLabelWrapper>
-</Base$1>
+</Base$2>
 `;

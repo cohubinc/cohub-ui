@@ -7,6 +7,7 @@ it("renders without crashing", async () => {
   const wrapper = mount(
     <FormGroup direction="horizontal">
       <div>test</div>
+      <div>test</div>
     </FormGroup>
   );
 
