@@ -9,7 +9,7 @@ exports[`Text Input renders without crashing 1`] = `
       }
     }
   >
-    <Base$1
+    <Base$2
       error={false}
     >
       <FloatingLabelWrapper
@@ -52,7 +52,7 @@ exports[`Text Input renders without crashing 1`] = `
           </div>
         </div>
       </FloatingLabelWrapper>
-    </Base$1>
+    </Base$2>
   </div>
 </Text$1>
 `;
