@@ -14,9 +14,9 @@ exports[`renders without crashing 1`] = `
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "sc-bwzfXH",
+            "componentId": "sc-bZQynM",
             "isStatic": false,
-            "lastClassName": "hSIVIn",
+            "lastClassName": "jpOCVS",
             "rules": Array [
               "
   display: flex;
@@ -38,10 +38,10 @@ exports[`renders without crashing 1`] = `
           },
           "displayName": "Styled(styled.div)",
           "foldedComponentIds": Array [
-            "sc-bdVaJa",
+            "sc-EHOje",
           ],
           "render": [Function],
-          "styledComponentId": "sc-bwzfXH",
+          "styledComponentId": "sc-bZQynM",
           "target": "div",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -52,7 +52,7 @@ exports[`renders without crashing 1`] = `
       inGroupsOf={1}
     >
       <div
-        className="sc-bdVaJa sc-bwzfXH hSIVIn"
+        className="sc-EHOje sc-bZQynM jpOCVS"
       >
         <div>
           test
@@ -70,9 +70,9 @@ exports[`renders without crashing 1`] = `
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "sc-bwzfXH",
+            "componentId": "sc-bZQynM",
             "isStatic": false,
-            "lastClassName": "hSIVIn",
+            "lastClassName": "jpOCVS",
             "rules": Array [
               "
   display: flex;
@@ -94,10 +94,10 @@ exports[`renders without crashing 1`] = `
           },
           "displayName": "Styled(styled.div)",
           "foldedComponentIds": Array [
-            "sc-bdVaJa",
+            "sc-EHOje",
           ],
           "render": [Function],
-          "styledComponentId": "sc-bwzfXH",
+          "styledComponentId": "sc-bZQynM",
           "target": "div",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -108,7 +108,7 @@ exports[`renders without crashing 1`] = `
       inGroupsOf={1}
     >
       <div
-        className="sc-bdVaJa sc-bwzfXH hSIVIn"
+        className="sc-EHOje sc-bZQynM jpOCVS"
       >
         <div>
           test

@@ -5,9 +5,10 @@ import Typography from "src/components/Typography";
 import Avatar from "src/components/Avatar";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
 import useMediaQueries from "src/hooks/useMediaQueries";
-import styles from "./Vertical.module.scss";
 import { Buttons } from "src";
 import Color from "src/definitions/enums/Color";
+import styled from "styled-components";
+import { TTextButtonProps } from "src/components/Buttons";
 
 export interface IVerticalCardProps {
   /**
@@ -43,7 +44,33 @@ export interface IVerticalCardProps {
    * The level of drop shadow that shows beneath the card
    */
   elevation?: ElevationLevel;
+  width?: number | string;
 }
+
+const CardVertical = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${Color.trueWhite};
+  border-radius: var(--default-border-radius);
+  padding-bottom: 1rem;
+
+  img {
+    border-top-left-radius: var(--default-border-radius);
+    border-top-right-radius: var(--default-border-radius);
+  }
+`;
+
+const CardAction = styled(Buttons.Text)<TTextButtonProps>`
+  transition: 100ms ease-in;
+
+  &:hover {
+    color: ${Color.grey800};
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+`;
 
 export default function Vertical({
   title,
@@ -57,11 +84,14 @@ export default function Vertical({
   style,
   children,
   centered,
-  elevation = 1
+  elevation = 1,
+  width = "240px"
 }: IVerticalCardProps) {
   const { isMobile } = useMediaQueries();
 
-  const cardWidth = isMobile ? "100%" : "240px";
+  width = typeof width === "string" ? width : `${width}px`;
+
+  const cardWidth = isMobile ? "100%" : width;
 
   const dpLevel = `dp${elevation}` as any;
 
@@ -70,8 +100,7 @@ export default function Vertical({
   if (actions) {
     actionList = actions.map(a => {
       return (
-        <Buttons.Text
-          className={styles.CardAction}
+        <CardAction
           key={a.name}
           onClick={() => a.action()}
           fontSize={12}
@@ -79,7 +108,7 @@ export default function Vertical({
           color={Color.iconGrey as any}
         >
           {a.name}
-        </Buttons.Text>
+        </CardAction>
       );
     });
   }
@@ -138,8 +167,8 @@ export default function Vertical({
   );
 
   return (
-    <div
-      className={`${styles.CardVertical} ${className} pb-1`}
+    <CardVertical
+      className={className}
       style={{
         ...style,
         boxShadow: (BoxShadow as any)[dpLevel] || BoxShadow.dp1,
@@ -147,6 +176,6 @@ export default function Vertical({
       }}
     >
       {cardContent}
-    </div>
+    </CardVertical>
   );
 }

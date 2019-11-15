@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import Avatar from "src/components/Avatar";
 import Typography from "src/components/Typography";
 import BoxShadow, { ElevationLevel } from "src/definitions/enums/BoxShadow";
-import Buttons from "src/components/Buttons";
+import Buttons, { TTextButtonProps } from "src/components/Buttons";
 import Color from "src/definitions/enums/Color";
 import useMediaQueries from "src/hooks/useMediaQueries";
-import styles from "./Horizontal.module.scss";
+import styled from "styled-components";
 
 export interface IHorizontalCardProps {
   /**
@@ -41,6 +41,29 @@ export interface IHorizontalCardProps {
   imageWidth?: string | number;
 }
 
+const CardHorizontal = styled.div`
+  padding: 1rem;
+  background-color: ${Color.trueWhite};
+  border-radius: var(--default-border-radius);
+`;
+
+const CardHorizontalImage = styled.div`
+  max-width: 150px;
+  max-height: 150px;
+`;
+
+const CardAction = styled(Buttons.Text)<TTextButtonProps>`
+  transition: 100ms ease-in;
+
+  &:hover {
+    color: ${Color.grey800};
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+`;
+
 export default function Horizontal({
   title,
   subtitle,
@@ -59,6 +82,8 @@ export default function Horizontal({
 }: IHorizontalCardProps) {
   const { isMobile } = useMediaQueries();
 
+  width = typeof width === "string" ? width : `${width}px`;
+
   const cardWidth = isMobile ? "100%" : width;
 
   let actionList;
@@ -66,8 +91,7 @@ export default function Horizontal({
   if (actions) {
     actionList = actions.map(a => {
       return (
-        <Buttons.Text
-          className={styles.CardAction}
+        <CardAction
           key={a.name}
           disabled={!!a.disabled}
           onClick={() => a.action()}
@@ -75,7 +99,7 @@ export default function Horizontal({
           color={Color.iconGrey as any}
         >
           {a.name}
-        </Buttons.Text>
+        </CardAction>
       );
     });
   }
@@ -95,13 +119,18 @@ export default function Horizontal({
   const cardContent = (
     <React.Fragment>
       <div className="flex">
-        {avatar && <Avatar size={50} src={imageUrl} />}
+        {avatar && (
+          <div>
+            <Avatar size={50} src={imageUrl} />
+          </div>
+        )}
         {!avatar && imageUrl && (
-          <div
-            style={{ width: imageWidth, ...imgContainerStyle }}
-            className={styles.CardHorizontalImage}
-          >
-            <img style={{ width: "100%" }} src={imageUrl} />
+          <div>
+            <CardHorizontalImage
+              style={{ width: imageWidth, ...imgContainerStyle }}
+            >
+              <img style={{ width: "100%" }} src={imageUrl} />
+            </CardHorizontalImage>
           </div>
         )}
         <div className="flex ml-1 w-100">
@@ -117,8 +146,8 @@ export default function Horizontal({
   );
 
   return (
-    <div
-      className={`${styles.CardHorizontal} ${className}`}
+    <CardHorizontal
+      className={className}
       style={{
         ...style,
         boxShadow: (BoxShadow as any)[`dp${elevation}`] || BoxShadow.dp1,
@@ -129,6 +158,6 @@ export default function Horizontal({
       {actions && (
         <div className="flex justify-end items-center mt-05">{actionList}</div>
       )}
-    </div>
+    </CardHorizontal>
   );
 }
