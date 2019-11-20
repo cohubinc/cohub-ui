@@ -4,7 +4,7 @@ exports[`renders without crashing 1`] = `
 <Segment
   bordered={false}
   className="flex flex-column"
-  elevation={1}
+  elevation={0}
   padded={false}
 >
   <Component
@@ -16,7 +16,7 @@ exports[`renders without crashing 1`] = `
     test
   </Component>
   <div
-    className="flex justify-between items-center mb-1 undefined"
+    className="flex justify-between items-center my-05 undefined"
     key="test"
   >
     <Typography>

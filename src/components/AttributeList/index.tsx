@@ -44,7 +44,7 @@ export default function AttributeList({
   let hiddenAttributes = null;
   let visibleAttributes = items.map(i => (
     <div
-      className={`flex justify-between items-center mb-1 ${className}`}
+      className={`flex justify-between items-center my-05 ${className}`}
       key={i.attribute}
     >
       <Typography>{i.attribute}</Typography>
@@ -64,6 +64,7 @@ export default function AttributeList({
       contrast={contrast}
       padded={contrast ? true : false}
       bordered={bordered}
+      elevation={bordered ? 1 : 0}
     >
       <Typography.Small muted weight={500} uppercase className="mb-1">
         {header}
