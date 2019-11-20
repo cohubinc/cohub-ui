@@ -14,6 +14,7 @@ export interface IAttributeListProps {
   className?: string;
   maxVisible?: number;
   expandable?: boolean;
+  bordered?: boolean;
 }
 
 export default function AttributeList({
@@ -22,7 +23,8 @@ export default function AttributeList({
   contrast,
   className,
   maxVisible,
-  expandable = false
+  expandable = false,
+  bordered = false
 }: IAttributeListProps) {
   const formattedValue = (value: any, format: any) => {
     switch (format) {
@@ -61,6 +63,7 @@ export default function AttributeList({
       className="flex flex-column"
       contrast={contrast}
       padded={contrast ? true : false}
+      bordered={bordered}
     >
       <Typography.Small muted weight={500} uppercase className="mb-1">
         {header}
