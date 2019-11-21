@@ -7,14 +7,21 @@ import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
 import Expander from "../Expander";
 
+type TAttributeListItem = {
+  attribute: string;
+  value: any;
+  format: any;
+};
+
 export interface IAttributeListProps {
-  items: Array<{ attribute: string; value: any; format: any }>;
+  items: Array<TAttributeListItem>;
   header?: string;
   contrast?: boolean;
   className?: string;
   maxVisible?: number;
   expandable?: boolean;
   bordered?: boolean;
+  typographySize?: "Tiny" | "Small" | "Large";
 }
 
 export default function AttributeList({
@@ -24,7 +31,8 @@ export default function AttributeList({
   className,
   maxVisible,
   expandable = false,
-  bordered = false
+  bordered = false,
+  typographySize
 }: IAttributeListProps) {
   const formattedValue = (value: any, format: any) => {
     switch (format) {
@@ -37,22 +45,67 @@ export default function AttributeList({
       case "text":
         return value;
       default:
-        return <FormatNumber value={value} />;
+        return value;
+    }
+  };
+
+  const textSizeSwitch = (item: TAttributeListItem) => {
+    switch (typographySize) {
+      case "Tiny":
+        return (
+          <div
+            className={`flex justify-between items-center my-05 ${className}`}
+            key={item.attribute}
+          >
+            <Typography.Tiny>{item.attribute}</Typography.Tiny>
+            <Typography.Tiny alignment="right">
+              {formattedValue(item.value, item.format)}
+            </Typography.Tiny>
+          </div>
+        );
+      case "Small":
+        return (
+          <div
+            className={`flex justify-between items-center my-05 ${className}`}
+            key={item.attribute}
+          >
+            <Typography.Small>{item.attribute}</Typography.Small>
+            <Typography.Small alignment="right">
+              {formattedValue(item.value, item.format)}
+            </Typography.Small>
+          </div>
+        );
+      case "Large":
+        return (
+          <div
+            className={`flex justify-between items-center my-05 ${className}`}
+            key={item.attribute}
+          >
+            <Typography.Large>{item.attribute}</Typography.Large>
+            <Typography.Large alignment="right">
+              {formattedValue(item.value, item.format)}
+            </Typography.Large>
+          </div>
+        );
+      default:
+        return (
+          <div
+            className={`flex justify-between items-center my-05 ${className}`}
+            key={item.attribute}
+          >
+            <Typography>{item.attribute}</Typography>
+            <Typography alignment="right">
+              {formattedValue(item.value, item.format)}
+            </Typography>
+          </div>
+        );
     }
   };
 
   let hiddenAttributes = null;
-  let visibleAttributes = items.map(i => (
-    <div
-      className={`flex justify-between items-center my-05 ${className}`}
-      key={i.attribute}
-    >
-      <Typography>{i.attribute}</Typography>
-      <Typography alignment="right">
-        {formattedValue(i.value, i.format)}
-      </Typography>
-    </div>
-  ));
+  let visibleAttributes = items.map(i => {
+    return textSizeSwitch(i);
+  });
 
   if (maxVisible) {
     hiddenAttributes = visibleAttributes.splice(maxVisible);
