@@ -10,77 +10,172 @@ exports[`CheckBox Input renders checked without crashing 1`] = `
   }
   label="checkBox"
 >
-  <div
-    className="CheckboxField-Container flex justify-start items-center"
-  >
-    <div
-      className="CheckboxField mr-05"
-      data-checked={true}
-      id="checkbox_input"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="checkbox"
-      tabIndex={0}
+  <styled.div>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-htoDjs",
+            "isStatic": false,
+            "lastClassName": "HFewZ",
+            "rules": Array [
+              "
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-htoDjs",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
     >
-      <Component
-        color="hsl(114, 35%, 52%)"
-        size={16}
+      <div
+        className="sc-htoDjs HFewZ"
       >
-        <DefaultIcon
-          color="hsl(114, 35%, 52%)"
-          name="checkmark"
-          size={16}
+        <styled.div
+          className="CheckboxField mr-05"
+          data-checked={true}
+          id="checkbox_input"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
         >
-          <Checkmark
-            color="hsl(114, 35%, 52%)"
-            name="checkmark"
-            size={16}
+          <StyledComponent
+            className="CheckboxField mr-05"
+            data-checked={true}
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-dnqmqq",
+                  "isStatic": false,
+                  "lastClassName": "jeGekR",
+                  "rules": Array [
+                    "
+  width: 20px;
+  height: 20px;
+  background-color: ",
+                    "hsl(0, 0%, 92%)",
+                    ";
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:focus {
+    outline-width: 0;
+  }
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-dnqmqq",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+            id="checkbox_input"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="checkbox"
+            tabIndex={0}
           >
-            <IconWrapper
-              color="hsl(114, 35%, 52%)"
-              name="checkmark"
-              size={16}
+            <div
+              className="sc-dnqmqq jeGekR CheckboxField mr-05"
+              data-checked={true}
+              id="checkbox_input"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="checkbox"
+              tabIndex={0}
             >
-              <div
-                className="CohubIcon checkmarkIcon  "
-                style={
-                  Object {
-                    "height": 16,
-                    "opacity": undefined,
-                    "transition": "opacity 300ms ease-in 200ms",
-                    "width": 16,
-                  }
-                }
+              <Component
+                color="hsl(114, 35%, 52%)"
+                size={16}
               >
-                <div
-                  className="flex justify-center items-center"
+                <DefaultIcon
+                  color="hsl(114, 35%, 52%)"
+                  name="checkmark"
+                  size={16}
                 >
-                  <svg
-                    fill="none"
-                    height={16}
-                    viewBox="0 0 24 24"
-                    width={16}
-                    xmlns="http://www.w3.org/2000/svg"
+                  <Checkmark
+                    color="hsl(114, 35%, 52%)"
+                    name="checkmark"
+                    size={16}
                   >
-                    <path
-                      d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"
-                      fill="hsl(114, 35%, 52%)"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </IconWrapper>
-          </Checkmark>
-        </DefaultIcon>
-      </Component>
-    </div>
-    <label
-      htmlFor="checkbox_input"
-      onClick={[Function]}
-    >
-      checkBox
-    </label>
-  </div>
+                    <IconWrapper
+                      color="hsl(114, 35%, 52%)"
+                      name="checkmark"
+                      size={16}
+                    >
+                      <div
+                        className="CohubIcon checkmarkIcon  "
+                        style={
+                          Object {
+                            "height": 16,
+                            "opacity": undefined,
+                            "transition": "opacity 300ms ease-in 200ms",
+                            "width": 16,
+                          }
+                        }
+                      >
+                        <div
+                          className="flex justify-center items-center"
+                        >
+                          <svg
+                            fill="none"
+                            height={16}
+                            viewBox="0 0 24 24"
+                            width={16}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"
+                              fill="hsl(114, 35%, 52%)"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </IconWrapper>
+                  </Checkmark>
+                </DefaultIcon>
+              </Component>
+            </div>
+          </StyledComponent>
+        </styled.div>
+        <label
+          htmlFor="checkbox_input"
+          onClick={[Function]}
+          style={
+            Object {
+              "fontSize": "14px",
+            }
+          }
+        >
+          checkBox
+        </label>
+      </div>
+    </StyledComponent>
+  </styled.div>
 </Checkbox>
 `;
 
@@ -94,24 +189,119 @@ exports[`CheckBox Input renders un-checked without crashing 1`] = `
   }
   label="checkBox"
 >
-  <div
-    className="CheckboxField-Container flex justify-start items-center"
-  >
-    <div
-      className="CheckboxField mr-05"
-      data-checked={false}
-      id="checkbox_input"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="checkbox"
-      tabIndex={0}
-    />
-    <label
-      htmlFor="checkbox_input"
-      onClick={[Function]}
+  <styled.div>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-htoDjs",
+            "isStatic": false,
+            "lastClassName": "HFewZ",
+            "rules": Array [
+              "
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-htoDjs",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
     >
-      checkBox
-    </label>
-  </div>
+      <div
+        className="sc-htoDjs HFewZ"
+      >
+        <styled.div
+          className="CheckboxField mr-05"
+          data-checked={false}
+          id="checkbox_input"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <StyledComponent
+            className="CheckboxField mr-05"
+            data-checked={false}
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-dnqmqq",
+                  "isStatic": false,
+                  "lastClassName": "jeGekR",
+                  "rules": Array [
+                    "
+  width: 20px;
+  height: 20px;
+  background-color: ",
+                    "hsl(0, 0%, 92%)",
+                    ";
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:focus {
+    outline-width: 0;
+  }
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-dnqmqq",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+            id="checkbox_input"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="checkbox"
+            tabIndex={0}
+          >
+            <div
+              className="sc-dnqmqq jeGekR CheckboxField mr-05"
+              data-checked={false}
+              id="checkbox_input"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="checkbox"
+              tabIndex={0}
+            />
+          </StyledComponent>
+        </styled.div>
+        <label
+          htmlFor="checkbox_input"
+          onClick={[Function]}
+          style={
+            Object {
+              "fontSize": "14px",
+            }
+          }
+        >
+          checkBox
+        </label>
+      </div>
+    </StyledComponent>
+  </styled.div>
 </Checkbox>
 `;

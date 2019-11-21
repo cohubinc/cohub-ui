@@ -1,11 +1,10 @@
 import React from "react";
 import { FieldRenderProps } from "react-final-form";
+import { guid } from "@cohubinc/cohub-utils";
+import styled from "styled-components";
 
 import Icon from "src/components/Icon";
 import Color from "src/definitions/enums/Color";
-
-import "./Checkbox.scss";
-import { guid } from "@cohubinc/cohub-utils";
 
 type FieldProps = FieldRenderProps<boolean | string, HTMLInputElement>;
 export interface ICheckboxProps {
@@ -13,9 +12,36 @@ export interface ICheckboxProps {
   input?: Partial<FieldProps["input"]>;
   meta?: FieldProps["meta"];
   id?: string;
+  className?: string;
 }
 
-export default function({ label, input = {}, id = guid() }: ICheckboxProps) {
+const CheckboxFieldContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const CheckboxField = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: ${Color.grey400};
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:focus {
+    outline-width: 0;
+  }
+`;
+
+export default function({
+  label,
+  input = {},
+  id = guid(),
+  className
+}: ICheckboxProps) {
   const checked =
     (input.value && input.value === true) || input.value === "true";
 
@@ -30,8 +56,8 @@ export default function({ label, input = {}, id = guid() }: ICheckboxProps) {
   };
 
   return (
-    <div className="CheckboxField-Container flex justify-start items-center">
-      <div
+    <CheckboxFieldContainer className={className}>
+      <CheckboxField
         className="CheckboxField mr-05"
         role="checkbox"
         tabIndex={0}
@@ -41,10 +67,10 @@ export default function({ label, input = {}, id = guid() }: ICheckboxProps) {
         data-checked={checked}
       >
         {checked && <Icon.Checkmark color={Color.primary} size={16} />}
-      </div>
-      <label htmlFor={id} onClick={toggle}>
+      </CheckboxField>
+      <label htmlFor={id} onClick={toggle} style={{ fontSize: "14px" }}>
         {label}
       </label>
-    </div>
+    </CheckboxFieldContainer>
   );
 }
