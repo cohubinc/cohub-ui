@@ -181,7 +181,8 @@ const styles: IStyleContainer = {
     minHeight: "32px"
   },
   input: {
-    color: Color.black as any
+    color: Color.black as any,
+    fontSize: "14px"
   },
   menu: {
     backgroundColor: Color.trueWhite as any

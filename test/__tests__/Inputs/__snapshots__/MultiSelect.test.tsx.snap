@@ -2145,6 +2145,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                     Object {
                                       "boxSizing": "border-box",
                                       "color": "hsl(0, 2%, 12%)",
+                                      "fontSize": "14px",
                                       "margin": 2,
                                       "paddingBottom": 2,
                                       "paddingTop": 2,
@@ -2153,7 +2154,7 @@ exports[`Multiselect Input renders checked without crashing 1`] = `
                                   }
                                 >
                                   <div
-                                    className="css-1a35ybn-Input"
+                                    className="css-1mddy7o-Input"
                                   >
                                     <AutosizeInput
                                       aria-autocomplete="list"

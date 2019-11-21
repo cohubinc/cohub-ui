@@ -1117,6 +1117,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                     Object {
                                       "boxSizing": "border-box",
                                       "color": "hsl(0, 2%, 12%)",
+                                      "fontSize": "14px",
                                       "margin": 0,
                                       "paddingBottom": 2,
                                       "paddingTop": 2,
@@ -1125,7 +1126,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                   }
                                 >
                                   <div
-                                    className="css-mk8o0d-Input"
+                                    className="css-1b9ufbv-Input"
                                   >
                                     <AutosizeInput
                                       aria-autocomplete="list"

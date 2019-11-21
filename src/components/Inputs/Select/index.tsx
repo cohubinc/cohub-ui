@@ -94,7 +94,8 @@ export default function Select(props: ISelectProps) {
     },
     input: {
       color: Color.black as any,
-      margin: 0
+      margin: 0,
+      fontSize: "14px"
     },
     control: {
       backgroundColor: "transparent",
