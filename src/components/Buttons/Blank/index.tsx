@@ -15,12 +15,14 @@ const Blank = ({
   children,
   style,
   nativeElRef,
+  type = "button",
   ...rest
 }: TBlankButtonProps) => (
   <button
     style={style}
     className={`${styles.ButtonBlank} ${className}`}
     ref={nativeElRef}
+    type={type}
     {...rest}
   >
     <Typography style={pick(style, "color", "fontSize")}>{children}</Typography>
