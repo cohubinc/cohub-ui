@@ -294,6 +294,7 @@ exports[`Date matches snapshot 1`] = `
                                               className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 SectionNavigation-module_active__3scI6"
                                               onClick={[Function]}
                                               tabIndex={-1}
+                                              type="button"
                                             >
                                               <Typography
                                                 style={Object {}}
@@ -408,6 +409,7 @@ exports[`Date matches snapshot 1`] = `
                                               className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 "
                                               onClick={[Function]}
                                               tabIndex={-1}
+                                              type="button"
                                             >
                                               <Typography
                                                 style={Object {}}
@@ -523,6 +525,7 @@ exports[`Date matches snapshot 1`] = `
                                               className="Blank-module_ButtonBlank__2u_7K SectionNavigation-module_action__wr6E9 "
                                               onClick={[Function]}
                                               tabIndex={-1}
+                                              type="button"
                                             >
                                               <Typography
                                                 style={Object {}}

@@ -61,7 +61,7 @@ exports[`Money renders Money without crashing 1`] = `
             thousandSeparator={true}
             thousandsGroupStyle="thousand"
             type="text"
-            value=""
+            value={0}
           >
             <input
               aria-invalid={false}
@@ -76,7 +76,7 @@ exports[`Money renders Money without crashing 1`] = `
                 }
               }
               type="text"
-              value=""
+              value="$0"
             />
           </NumberFormat>
           <span

@@ -4,6 +4,7 @@ exports[`Blank renders without crashing 1`] = `
 <Blank>
   <button
     className="Blank-module_ButtonBlank__2u_7K "
+    type="button"
   >
     <Typography
       style={Object {}}
