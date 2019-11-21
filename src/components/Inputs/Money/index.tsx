@@ -67,7 +67,7 @@ export default function MoneyInput({
             <NumberFormat
               {...restComponentProps}
               getInputRef={setInputRef}
-              value={value || ""}
+              value={value || 0}
               displayType="input"
               prefix="$"
               placeholder={placeholder}
