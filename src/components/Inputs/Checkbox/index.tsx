@@ -42,7 +42,9 @@ export default function({ label, input = {}, id = guid() }: ICheckboxProps) {
       >
         {checked && <Icon.Checkmark color={Color.primary} size={16} />}
       </div>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id} onClick={toggle}>
+        {label}
+      </label>
     </div>
   );
 }

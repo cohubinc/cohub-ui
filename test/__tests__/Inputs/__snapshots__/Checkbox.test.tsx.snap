@@ -76,6 +76,7 @@ exports[`CheckBox Input renders checked without crashing 1`] = `
     </div>
     <label
       htmlFor="checkbox_input"
+      onClick={[Function]}
     >
       checkBox
     </label>
@@ -107,6 +108,7 @@ exports[`CheckBox Input renders un-checked without crashing 1`] = `
     />
     <label
       htmlFor="checkbox_input"
+      onClick={[Function]}
     >
       checkBox
     </label>
