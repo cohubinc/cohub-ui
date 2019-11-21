@@ -3,7 +3,7 @@ import React from "react";
 import IconWrapper from "../../IconWrapper";
 import { IIconProps as IProps } from "../../index";
 
-const Back = (props: IProps) => (
+const Forward = (props: IProps) => (
   <IconWrapper {...props}>
     {({ color, size }) => (
       <svg
@@ -22,4 +22,4 @@ const Back = (props: IProps) => (
   </IconWrapper>
 );
 
-export default Back;
+export default Forward;
