@@ -28,6 +28,7 @@ import eye from "./Eye";
 import filter from "./Filter";
 import forward from "./Forward";
 import help from "./Help";
+import itemShapes from "./ItemShapes";
 import laptop from "./Laptop";
 import list from "./List";
 import print from "./Print";
@@ -77,6 +78,7 @@ export type TIconName =
   | "filter"
   | "forward"
   | "help"
+  | "itemShapes"
   | "laptop"
   | "list"
   | "print"
@@ -127,6 +129,7 @@ const icons: TIconMap = {
   filter,
   forward,
   help,
+  itemShapes,
   laptop,
   list,
   print,
