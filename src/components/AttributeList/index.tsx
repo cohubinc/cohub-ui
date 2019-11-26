@@ -54,7 +54,7 @@ export default function AttributeList({
       case "Tiny":
         return (
           <div
-            className={`flex justify-between items-center my-05 ${className}`}
+            className={`${className} flex justify-between items-center my-05`}
             key={item.attribute}
           >
             <Typography.Tiny>{item.attribute}</Typography.Tiny>
@@ -66,7 +66,7 @@ export default function AttributeList({
       case "Small":
         return (
           <div
-            className={`flex justify-between items-center my-05 ${className}`}
+            className={`${className} flex justify-between items-center my-05`}
             key={item.attribute}
           >
             <Typography.Small>{item.attribute}</Typography.Small>
@@ -78,7 +78,7 @@ export default function AttributeList({
       case "Large":
         return (
           <div
-            className={`flex justify-between items-center my-05 ${className}`}
+            className={`${className} flex justify-between items-center my-05`}
             key={item.attribute}
           >
             <Typography.Large>{item.attribute}</Typography.Large>
@@ -90,7 +90,7 @@ export default function AttributeList({
       default:
         return (
           <div
-            className={`flex justify-between items-center my-05 ${className}`}
+            className={`${className} flex justify-between items-center my-05`}
             key={item.attribute}
           >
             <Typography>{item.attribute}</Typography>
