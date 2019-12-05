@@ -77,7 +77,8 @@ export default function Select(props: ISelectProps) {
   const styles: IStyleContainer = {
     singleValue: {
       color: Color.black as any,
-      top: "50%"
+      top: "50%",
+      fontSize: "14px"
     },
     dropdownIndicator: {
       marginRight: "8px",
@@ -87,7 +88,8 @@ export default function Select(props: ISelectProps) {
       backgroundColor: Color.trueWhite as any
     },
     option: {
-      marginTop: 0
+      marginTop: 0,
+      fontSize: "14px"
     },
     menuList: {
       marginTop: 0

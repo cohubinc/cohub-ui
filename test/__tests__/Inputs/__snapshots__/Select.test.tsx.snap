@@ -947,6 +947,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                     Object {
                                       "boxSizing": "border-box",
                                       "color": "hsl(0, 2%, 12%)",
+                                      "fontSize": "14px",
                                       "label": "singleValue",
                                       "marginLeft": 2,
                                       "marginRight": 2,
@@ -961,7 +962,7 @@ exports[`Select Input renders checked without crashing 1`] = `
                                   }
                                 >
                                   <div
-                                    className="react-select__single-value css-frwv62-singleValue"
+                                    className="react-select__single-value css-ag1lrv-singleValue"
                                   >
                                     Option 1
                                   </div>

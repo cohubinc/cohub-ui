@@ -203,7 +203,13 @@ const styles: IStyleContainer = {
     cursor: "pointer",
     paddingRight: "4px"
   },
+  multiValue: {
+    fontSize: "14px"
+  },
   clearIndicator: {
     paddingTop: "-1rem"
+  },
+  option: {
+    fontSize: "14px"
   }
 };
