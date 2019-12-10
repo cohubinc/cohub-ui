@@ -1,0 +1,19 @@
+import { Story, Meta, Props, Preview } from "@storybook/addon-docs/blocks";
+import { Buttons, StoryHelpers, Color, LoaderRow } from "dist/index.esm.js";
+
+<Meta title="Components|LoaderRow" component={LoaderRow} />
+
+# LoaderRow
+
+<Preview>
+  <Story name="LoaderRow">
+    <div>
+      <div>
+        <StoryHelpers.StateCtrl label="LoaderRow">
+          {({ state }) => <LoaderRow show={state} repeatCount={10} />}
+        </StoryHelpers.StateCtrl>
+      </div>
+    </div>
+  </Story>
+</Preview>
+<Props of={LoaderRow} />

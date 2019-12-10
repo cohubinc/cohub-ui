@@ -50,6 +50,10 @@ export { default as Inputs } from "src/components/Inputs";
 export * from "src/components/Inputs";
 export { default as Link } from "src/components/Link";
 export { default as Loader, ILoaderProps } from "src/components/Loader";
+export {
+  default as LoaderRow,
+  ILoaderRowProps
+} from "src/components/LoaderRow";
 export { default as Modal, IModalProps } from "src/components/Modal";
 export { default as MediaQuery } from "src/definitions/enums/MediaQuery";
 export { default as Menu, IMenuProps } from "src/components/Menu";
@@ -77,9 +81,7 @@ export {
 export { default as Tabs, ITabsProps } from "src/components/Tabs";
 export { default as Tooltip, ITooltipProps } from "src/components/Tooltip";
 export { default as Typography } from "src/components/Typography";
-export {
-  ITypographyProps
-} from "src/components/Typography/definitions/ITypographyProps";
+export { ITypographyProps } from "src/components/Typography/definitions/ITypographyProps";
 export {
   default as Transition,
   ITransitionProps
