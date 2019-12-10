@@ -32,7 +32,7 @@ export default function LoaderRow({ repeatCount }: ILoaderRowProps) {
   let count = 0;
   let rows = [];
   while (count < repeatCount) {
-    rows.push(<LoadingRow />);
+    rows.push(<LoadingRow key={count} />);
     count += 1;
   }
   return <React.Fragment>{rows}</React.Fragment>;
