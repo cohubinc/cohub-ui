@@ -34,12 +34,11 @@ export type TFormGroupProps = IProps &
 
 const Base = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-bottom: 1rem;
 `;
 
 const Horizontal = styled(Base)<Required<Pick<IProps, "inGroupsOf">>>`
-  margin-bottom: 2rem;
+  justify-content: flex-start;
 
   --calculated-flex: ${props => {
     return 100 / props.inGroupsOf;
@@ -48,10 +47,24 @@ const Horizontal = styled(Base)<Required<Pick<IProps, "inGroupsOf">>>`
   & > * {
     flex-basis: calc(var(--calculated-flex) - 1rem);
   }
+
+  & > :first-child {
+    margin-right: 0.5rem;
+  }
+
+  & > :not(:first-child):not(:last-child) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  & > :last-child {
+    margin-left: 0.5rem;
+  }
 `;
 
 const Vertical = styled(Base)`
   flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 0;
 
   & > * {
@@ -73,7 +86,17 @@ export default function FormGroup({
   const groupedChildren = childFields.map((cf, idx) => {
     if (direction === "horizontal") {
       return (
-        <Horizontal key={idx} inGroupsOf={inGroupsOf} {...restProps}>
+        <Horizontal
+          key={idx}
+          inGroupsOf={inGroupsOf}
+          {...restProps}
+          // Don't put bottom margin on the last group of fields
+          style={
+            idx + 1 === childFields.length
+              ? { marginBottom: 0 }
+              : { marginBottom: "2rem" }
+          }
+        >
           {cf.map(c => c)}
         </Horizontal>
       );

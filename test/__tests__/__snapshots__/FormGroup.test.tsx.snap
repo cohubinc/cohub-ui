@@ -7,6 +7,11 @@ exports[`renders without crashing 1`] = `
   <Styled(styled.div)
     inGroupsOf={1}
     key="0"
+    style={
+      Object {
+        "marginBottom": "2rem",
+      }
+    }
   >
     <StyledComponent
       forwardedComponent={
@@ -16,15 +21,14 @@ exports[`renders without crashing 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bZQynM",
             "isStatic": false,
-            "lastClassName": "jpOCVS",
+            "lastClassName": "eoYjiz",
             "rules": Array [
               "
   display: flex;
-  justify-content: space-between;
   margin-bottom: 1rem;
 ",
               "
-  margin-bottom: 2rem;
+  justify-content: flex-start;
 
   --calculated-flex: ",
               [Function],
@@ -32,6 +36,19 @@ exports[`renders without crashing 1`] = `
 
   & > * {
     flex-basis: calc(var(--calculated-flex) - 1rem);
+  }
+
+  & > :first-child {
+    margin-right: 0.5rem;
+  }
+
+  & > :not(:first-child):not(:last-child) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  & > :last-child {
+    margin-left: 0.5rem;
   }
 ",
             ],
@@ -50,9 +67,19 @@ exports[`renders without crashing 1`] = `
       }
       forwardedRef={null}
       inGroupsOf={1}
+      style={
+        Object {
+          "marginBottom": "2rem",
+        }
+      }
     >
       <div
-        className="sc-EHOje sc-bZQynM jpOCVS"
+        className="sc-EHOje sc-bZQynM eoYjiz"
+        style={
+          Object {
+            "marginBottom": "2rem",
+          }
+        }
       >
         <div>
           test
@@ -63,6 +90,11 @@ exports[`renders without crashing 1`] = `
   <Styled(styled.div)
     inGroupsOf={1}
     key="1"
+    style={
+      Object {
+        "marginBottom": 0,
+      }
+    }
   >
     <StyledComponent
       forwardedComponent={
@@ -72,15 +104,14 @@ exports[`renders without crashing 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bZQynM",
             "isStatic": false,
-            "lastClassName": "jpOCVS",
+            "lastClassName": "eoYjiz",
             "rules": Array [
               "
   display: flex;
-  justify-content: space-between;
   margin-bottom: 1rem;
 ",
               "
-  margin-bottom: 2rem;
+  justify-content: flex-start;
 
   --calculated-flex: ",
               [Function],
@@ -88,6 +119,19 @@ exports[`renders without crashing 1`] = `
 
   & > * {
     flex-basis: calc(var(--calculated-flex) - 1rem);
+  }
+
+  & > :first-child {
+    margin-right: 0.5rem;
+  }
+
+  & > :not(:first-child):not(:last-child) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  & > :last-child {
+    margin-left: 0.5rem;
   }
 ",
             ],
@@ -106,9 +150,19 @@ exports[`renders without crashing 1`] = `
       }
       forwardedRef={null}
       inGroupsOf={1}
+      style={
+        Object {
+          "marginBottom": 0,
+        }
+      }
     >
       <div
-        className="sc-EHOje sc-bZQynM jpOCVS"
+        className="sc-EHOje sc-bZQynM eoYjiz"
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }
       >
         <div>
           test
