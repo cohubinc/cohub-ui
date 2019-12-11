@@ -40,13 +40,13 @@ const Base = styled.div`
 const Horizontal = styled(Base)<Required<Pick<IProps, "inGroupsOf">>>`
   justify-content: flex-start;
 
-  --calculated-flex: ${props => {
+  /* --calculated-flex: ${props => {
     return 100 / props.inGroupsOf;
   }}%;
 
   & > * {
     flex-basis: calc(var(--calculated-flex) - 1rem);
-  }
+  } */
 
   & > :first-child {
     margin-right: 0.5rem;
