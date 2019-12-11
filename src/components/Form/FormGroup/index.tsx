@@ -27,6 +27,8 @@ interface IProps {
   style?: CSSProperties;
 
   inGroupsOf?: number;
+
+  applyHorizontalFlex?: boolean;
 }
 
 export type TFormGroupProps = IProps &
@@ -37,16 +39,26 @@ const Base = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Horizontal = styled(Base)<Required<Pick<IProps, "inGroupsOf">>>`
+type HorizontalProps = Required<
+  Pick<IProps, "inGroupsOf" | "applyHorizontalFlex">
+>;
+
+const Horizontal = styled(Base)<HorizontalProps>`
   justify-content: flex-start;
 
-  /* --calculated-flex: ${props => {
-    return 100 / props.inGroupsOf;
+  --calculated-flex: ${props => {
+    if (props.applyHorizontalFlex) {
+      return 100 / props.inGroupsOf;
+    }
   }}%;
 
   & > * {
-    flex-basis: calc(var(--calculated-flex) - 1rem);
-  } */
+    flex-basis: ${props => {
+      if (props.applyHorizontalFlex) {
+        return "calc(var(--calculated-flex) - 1rem)";
+      }
+    }};
+  }
 
   & > :first-child {
     margin-right: 0.5rem;
@@ -79,6 +91,7 @@ export default function FormGroup({
   width = 100,
   inGroupsOf = 1,
   style,
+  applyHorizontalFlex = false,
   ...restProps
 }: IProps) {
   const childFields = children ? chunk(children, inGroupsOf) : [];
@@ -89,6 +102,7 @@ export default function FormGroup({
         <Horizontal
           key={idx}
           inGroupsOf={inGroupsOf}
+          applyHorizontalFlex={applyHorizontalFlex}
           {...restProps}
           // Don't put bottom margin on the last group of fields
           style={
