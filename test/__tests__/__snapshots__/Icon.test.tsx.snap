@@ -1566,6 +1566,55 @@ exports[`Icon renders help without crashing 1`] = `
 </Icon>
 `;
 
+exports[`Icon renders importExport without crashing 1`] = `
+<Icon
+  name="importExport"
+>
+  <DefaultIcon
+    name="importExport"
+  >
+    <ImportExport
+      name="importExport"
+    >
+      <IconWrapper
+        name="importExport"
+      >
+        <div
+          className="CohubIcon importExportIcon  "
+          style={
+            Object {
+              "height": 24,
+              "opacity": undefined,
+              "transition": "opacity 300ms ease-in 200ms",
+              "width": 24,
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+          >
+            <svg
+              height={24}
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M9,3l-4,3.99h3v7.01h2v-7.01h3l-4,-3.99Zm7,14.01v-7.01h-2v7.01h-3l4,3.99l4,-3.99h-3Z"
+                fill="hsl(0, 2%, 88%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
+              />
+            </svg>
+          </div>
+        </div>
+      </IconWrapper>
+    </ImportExport>
+  </DefaultIcon>
+</Icon>
+`;
+
 exports[`Icon renders itemShapes without crashing 1`] = `
 <Icon
   name="itemShapes"

@@ -61,6 +61,7 @@ export default class Icon extends PureComponent<IIconProps> {
   static Filter = buildIcon("filter");
   static Forward = buildIcon("forward");
   static Help = buildIcon("help");
+  static ImportExport = buildIcon("importExport");
   static ItemShapes = buildIcon("itemShapes");
   static Laptop = buildIcon("laptop");
   static List = buildIcon("list");
