@@ -41,7 +41,7 @@ exports[`Money renders Money without crashing 1`] = `
             decimalScale={2}
             decimalSeparator="."
             displayType="input"
-            fixedDecimalScale={false}
+            fixedDecimalScale={true}
             getInputRef={[Function]}
             isAllowed={[Function]}
             isNumericString={false}
@@ -76,7 +76,7 @@ exports[`Money renders Money without crashing 1`] = `
                 }
               }
               type="text"
-              value="$0"
+              value="$0.00"
             />
           </NumberFormat>
           <span

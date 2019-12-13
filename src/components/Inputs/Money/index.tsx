@@ -72,6 +72,7 @@ export default function MoneyInput({
               prefix="$"
               placeholder={placeholder}
               decimalScale={extendedPrecision ? 5 : 2}
+              fixedDecimalScale
               onValueChange={({ floatValue }) => {
                 onChange!(floatValue);
               }}
