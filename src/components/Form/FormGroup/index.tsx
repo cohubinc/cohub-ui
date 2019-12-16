@@ -72,6 +72,11 @@ const Horizontal = styled(Base)<HorizontalProps>`
   & > :last-child {
     margin-left: 0.5rem;
   }
+
+  & > :only-child {
+    margin-left: 0;
+    margin-right: 0;
+  }
 `;
 
 const Vertical = styled(Base)`

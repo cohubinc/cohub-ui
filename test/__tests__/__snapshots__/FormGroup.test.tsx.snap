@@ -23,7 +23,7 @@ exports[`renders without crashing 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bZQynM",
             "isStatic": false,
-            "lastClassName": "MyeHC",
+            "lastClassName": "flTSGb",
             "rules": Array [
               "
   display: flex;
@@ -54,6 +54,11 @@ exports[`renders without crashing 1`] = `
   & > :last-child {
     margin-left: 0.5rem;
   }
+
+  & > :only-child {
+    margin-left: 0;
+    margin-right: 0;
+  }
 ",
             ],
           },
@@ -78,7 +83,7 @@ exports[`renders without crashing 1`] = `
       }
     >
       <div
-        className="sc-EHOje sc-bZQynM MyeHC"
+        className="sc-EHOje sc-bZQynM flTSGb"
         style={
           Object {
             "marginBottom": "2rem",
@@ -110,7 +115,7 @@ exports[`renders without crashing 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bZQynM",
             "isStatic": false,
-            "lastClassName": "MyeHC",
+            "lastClassName": "flTSGb",
             "rules": Array [
               "
   display: flex;
@@ -141,6 +146,11 @@ exports[`renders without crashing 1`] = `
   & > :last-child {
     margin-left: 0.5rem;
   }
+
+  & > :only-child {
+    margin-left: 0;
+    margin-right: 0;
+  }
 ",
             ],
           },
@@ -165,7 +175,7 @@ exports[`renders without crashing 1`] = `
       }
     >
       <div
-        className="sc-EHOje sc-bZQynM MyeHC"
+        className="sc-EHOje sc-bZQynM flTSGb"
         style={
           Object {
             "marginBottom": 0,
