@@ -17,19 +17,23 @@ export default function FormatMoney({
 }: IFormatMoneyProps) {
   const decimals = `${value}`.split(".")[1];
 
-  return (
-    <NumberFormat
-      value={value || 0}
-      displayType="text"
-      prefix="$"
-      thousandSeparator
-      fixedDecimalScale
-      className={className}
-      decimalScale={
-        extendedPrecision && decimals && decimals.length > 2
-          ? decimals.length
-          : 2
-      }
-    />
-  );
+  if (value === null || value === undefined) {
+    return null;
+  } else {
+    return (
+      <NumberFormat
+        value={value || 0}
+        displayType="text"
+        prefix="$"
+        thousandSeparator
+        fixedDecimalScale
+        className={className}
+        decimalScale={
+          extendedPrecision && decimals && decimals.length > 2
+            ? decimals.length
+            : 2
+        }
+      />
+    );
+  }
 }
