@@ -51,7 +51,7 @@ export default function Alert(props: IAlertProps) {
             backgroundColor,
             ...style
           }}
-          {...{ error, ...rest }}
+          {...rest}
         >
           <div className={classes}>
             <Typography.Small style={{ color }}>{children}</Typography.Small>
