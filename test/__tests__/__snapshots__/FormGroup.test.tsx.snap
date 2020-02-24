@@ -14,87 +14,18 @@ exports[`renders without crashing 1`] = `
       }
     }
   >
-    <StyledComponent
-      applyHorizontalFlex={false}
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bZQynM",
-            "isStatic": false,
-            "lastClassName": "flTSGb",
-            "rules": Array [
-              "
-  display: flex;
-  margin-bottom: 1rem;
-",
-              "
-  justify-content: flex-start;
-
-  --calculated-flex: ",
-              [Function],
-              "%;
-
-  & > * {
-    flex-basis: ",
-              [Function],
-              ";
-  }
-
-  & > :first-child {
-    margin-right: 0.5rem;
-  }
-
-  & > :not(:first-child):not(:last-child) {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  & > :last-child {
-    margin-left: 0.5rem;
-  }
-
-  & > :only-child {
-    margin-left: 0;
-    margin-right: 0;
-  }
-",
-            ],
-          },
-          "displayName": "Styled(styled.div)",
-          "foldedComponentIds": Array [
-            "sc-EHOje",
-          ],
-          "render": [Function],
-          "styledComponentId": "sc-bZQynM",
-          "target": "div",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
-      }
-      forwardedRef={null}
-      inGroupsOf={1}
+    <div
+      className="sc-AxgMl sc-AxheI kpfxNW"
       style={
         Object {
           "marginBottom": "2rem",
         }
       }
     >
-      <div
-        className="sc-EHOje sc-bZQynM flTSGb"
-        style={
-          Object {
-            "marginBottom": "2rem",
-          }
-        }
-      >
-        <div>
-          test
-        </div>
+      <div>
+        test
       </div>
-    </StyledComponent>
+    </div>
   </Styled(styled.div)>
   <Styled(styled.div)
     applyHorizontalFlex={false}
@@ -106,87 +37,18 @@ exports[`renders without crashing 1`] = `
       }
     }
   >
-    <StyledComponent
-      applyHorizontalFlex={false}
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bZQynM",
-            "isStatic": false,
-            "lastClassName": "flTSGb",
-            "rules": Array [
-              "
-  display: flex;
-  margin-bottom: 1rem;
-",
-              "
-  justify-content: flex-start;
-
-  --calculated-flex: ",
-              [Function],
-              "%;
-
-  & > * {
-    flex-basis: ",
-              [Function],
-              ";
-  }
-
-  & > :first-child {
-    margin-right: 0.5rem;
-  }
-
-  & > :not(:first-child):not(:last-child) {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  & > :last-child {
-    margin-left: 0.5rem;
-  }
-
-  & > :only-child {
-    margin-left: 0;
-    margin-right: 0;
-  }
-",
-            ],
-          },
-          "displayName": "Styled(styled.div)",
-          "foldedComponentIds": Array [
-            "sc-EHOje",
-          ],
-          "render": [Function],
-          "styledComponentId": "sc-bZQynM",
-          "target": "div",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
-      }
-      forwardedRef={null}
-      inGroupsOf={1}
+    <div
+      className="sc-AxgMl sc-AxheI kpfxNW"
       style={
         Object {
           "marginBottom": 0,
         }
       }
     >
-      <div
-        className="sc-EHOje sc-bZQynM flTSGb"
-        style={
-          Object {
-            "marginBottom": 0,
-          }
-        }
-      >
-        <div>
-          test
-        </div>
+      <div>
+        test
       </div>
-    </StyledComponent>
+    </div>
   </Styled(styled.div)>
 </FormGroup>
 `;

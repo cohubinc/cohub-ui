@@ -46,6 +46,7 @@ export {
 } from "src/components/Form/FormGroup";
 export { default as Icon, IIconProps } from "src/components/Icon";
 export { iconNames } from "src/components/Icon/Icons";
+export { default as Inline, IInlineProps } from "src/components/Inline";
 export { default as Inputs } from "src/components/Inputs";
 export * from "src/components/Inputs";
 export { default as Link } from "src/components/Link";
@@ -74,6 +75,7 @@ export {
   IScrollIntoViewProps
 } from "src/components/ScrollIntoView";
 export { default as Segment, ISegmentProps } from "src/components/Segment";
+export { default as Stack, IStackProps } from "src/components/Stack";
 export {
   default as Statistic,
   IStatisticProps

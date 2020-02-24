@@ -12,43 +12,8 @@ exports[`Vertical renders without crashing 1`] = `
       }
     }
   >
-    <StyledComponent
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bxivhb",
-            "isStatic": false,
-            "lastClassName": "gRqUsw",
-            "rules": Array [
-              "
-  display: flex;
-  flex-direction: column;
-  background-color: ",
-              "hsl(0, 0%, 100%)",
-              ";
-  border-radius: var(--default-border-radius);
-  padding-bottom: 1rem;
-
-  img {
-    border-top-left-radius: var(--default-border-radius);
-    border-top-right-radius: var(--default-border-radius);
-  }
-",
-            ],
-          },
-          "displayName": "styled.div",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "sc-bxivhb",
-          "target": "div",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
-      }
-      forwardedRef={null}
+    <div
+      className="sc-AxhCb iBNAkH"
       style={
         Object {
           "boxShadow": "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)",
@@ -57,49 +22,39 @@ exports[`Vertical renders without crashing 1`] = `
       }
     >
       <div
-        className="sc-bxivhb gRqUsw"
-        style={
-          Object {
-            "boxShadow": "0px -1px 1px rgba(0, 0, 0, 0.03), 0px 1px 1px rgba(0, 0, 0, 0.14)",
-            "width": "240px",
-          }
-        }
+        className="m-auto block"
+      />
+      <div
+        className="mx-1 mt-05"
       >
-        <div
-          className="m-auto block"
-        />
-        <div
-          className="mx-1 mt-05"
+        <Component
+          block={true}
+          className=""
         >
-          <Component
-            block={true}
+          <span
             className=""
-          >
-            <span
-              className=""
-              data-qa="text"
-              style={
-                Object {
-                  "color": "hsl(0, 2%, 22%)",
-                  "display": "block",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": 400,
-                  "textAlign": "initial",
-                  "textTransform": "initial",
-                }
+            data-qa="text"
+            style={
+              Object {
+                "color": "hsl(0, 2%, 22%)",
+                "display": "block",
+                "fontFamily": "Inter",
+                "fontSize": 16,
+                "fontWeight": 400,
+                "textAlign": "initial",
+                "textTransform": "initial",
               }
-            >
-              test
-            </span>
-          </Component>
-          <Component
-            block={true}
-            className=" mt-025"
-          />
-        </div>
+            }
+          >
+            test
+          </span>
+        </Component>
+        <Component
+          block={true}
+          className=" mt-025"
+        />
       </div>
-    </StyledComponent>
+    </div>
   </styled.div>
 </Vertical>
 `;
