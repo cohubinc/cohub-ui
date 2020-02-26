@@ -11,7 +11,7 @@ export default function Stack({
   children,
   alignment = "left"
 }: IStackProps) {
-  const alignmentSwitch = () => {
+  const calculateAlignment = () => {
     switch (alignment) {
       case "center":
         return { alignItems: "center" };
@@ -40,7 +40,11 @@ export default function Stack({
 
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", ...alignmentSwitch() }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        ...calculateAlignment()
+      }}
     >
       {spacedChildren()}
     </div>

@@ -33,7 +33,7 @@ export default function Inline({
     }
   };
 
-  const alignmentSwitch = () => {
+  const calculateAlignment = () => {
     switch (alignment) {
       case "center":
         return { justifyContent: "center" };
@@ -66,7 +66,7 @@ export default function Inline({
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        ...alignmentSwitch()
+        ...calculateAlignment()
       }}
     >
       {spacedChildren()}
