@@ -1821,6 +1821,57 @@ exports[`Icon renders list without crashing 1`] = `
 </Icon>
 `;
 
+exports[`Icon renders location without crashing 1`] = `
+<Icon
+  name="location"
+>
+  <DefaultIcon
+    name="location"
+  >
+    <Location
+      name="location"
+    >
+      <IconWrapper
+        defaultColor="hsl(212, 14%, 35%)"
+        name="location"
+      >
+        <div
+          className="CohubIcon locationIcon  "
+          style={
+            Object {
+              "height": 24,
+              "opacity": undefined,
+              "transition": "opacity 300ms ease-in 200ms",
+              "width": 24,
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+          >
+            <svg
+              fill="none"
+              height={24}
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M15,11v-6l-3,-3l-3,3v2h-6v14h18v-10h-6Zm-8,8h-2v-2h2v2Zm0,-4h-2v-2h2v2Zm0,-4h-2v-2h2v2Zm6,8h-2v-2h2v2Zm0,-4h-2v-2h2v2Zm0,-4h-2v-2h2v2Zm0,-4h-2v-2h2v2Zm6,12h-2v-2h2v2Zm0,-4h-2v-2h2v2Z"
+                fill="hsl(212, 14%, 35%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
+              />
+            </svg>
+          </div>
+        </div>
+      </IconWrapper>
+    </Location>
+  </DefaultIcon>
+</Icon>
+`;
+
 exports[`Icon renders print without crashing 1`] = `
 <Icon
   name="print"
@@ -2270,6 +2321,57 @@ exports[`Icon renders shipping without crashing 1`] = `
         </div>
       </IconWrapper>
     </Shipping>
+  </DefaultIcon>
+</Icon>
+`;
+
+exports[`Icon renders sync without crashing 1`] = `
+<Icon
+  name="sync"
+>
+  <DefaultIcon
+    name="sync"
+  >
+    <Sync
+      name="sync"
+    >
+      <IconWrapper
+        defaultColor="hsl(212, 14%, 35%)"
+        name="sync"
+      >
+        <div
+          className="CohubIcon syncIcon  "
+          style={
+            Object {
+              "height": 24,
+              "opacity": undefined,
+              "transition": "opacity 300ms ease-in 200ms",
+              "width": 24,
+            }
+          }
+        >
+          <div
+            className="flex justify-center items-center"
+          >
+            <svg
+              fill="none"
+              height={24}
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M12,4v-3l-4,4l4,4v-3c3.31,0 6,2.69 6,6c0,1.01 -0.25,1.97 -0.7,2.8l1.46,1.46c0.78,-1.23 1.24,-2.69 1.24,-4.26c0,-4.42 -3.58,-8 -8,-8Zm0,14c-3.31,0 -6,-2.69 -6,-6c0,-1.01 0.25,-1.97 0.7,-2.8l-1.46,-1.46c-0.78,1.23 -1.24,2.69 -1.24,4.26c0,4.42 3.58,8 8,8v3l4,-4l-4,-4v3Z"
+                fill="hsl(212, 14%, 35%)"
+              />
+              <path
+                d="M0,0h24v24h-24Z"
+                fill="none"
+              />
+            </svg>
+          </div>
+        </div>
+      </IconWrapper>
+    </Sync>
   </DefaultIcon>
 </Icon>
 `;
