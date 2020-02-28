@@ -33,6 +33,7 @@ import info from "./Info";
 import itemShapes from "./ItemShapes";
 import laptop from "./Laptop";
 import list from "./List";
+import location from "./Location";
 import print from "./Print";
 import report from "./Report";
 import rows from "./Rows";
@@ -42,6 +43,7 @@ import scales from "./Scales";
 import search from "./Search";
 import settings from "./Settings";
 import shipping from "./Shipping";
+import sync from "./Sync";
 import tagDollar from "./TagDollar";
 import trash from "./Trash";
 import triangle from "./Triangle";
@@ -85,6 +87,7 @@ export type TIconName =
   | "itemShapes"
   | "laptop"
   | "list"
+  | "location"
   | "print"
   | "report"
   | "rows"
@@ -94,6 +97,7 @@ export type TIconName =
   | "search"
   | "settings"
   | "shipping"
+  | "sync"
   | "tagDollar"
   | "trash"
   | "triangle"
@@ -138,6 +142,7 @@ const icons: TIconMap = {
   itemShapes,
   laptop,
   list,
+  location,
   print,
   report,
   rows,
@@ -147,6 +152,7 @@ const icons: TIconMap = {
   search,
   settings,
   shipping,
+  sync,
   tagDollar,
   trash,
   triangle,

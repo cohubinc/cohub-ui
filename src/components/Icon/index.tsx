@@ -66,6 +66,7 @@ export default class Icon extends PureComponent<IIconProps> {
   static ItemShapes = buildIcon("itemShapes");
   static Laptop = buildIcon("laptop");
   static List = buildIcon("list");
+  static Location = buildIcon("location");
   static Print = buildIcon("print");
   static Report = buildIcon("report");
   static Rows = buildIcon("rows");
@@ -74,6 +75,7 @@ export default class Icon extends PureComponent<IIconProps> {
   static Scales = buildIcon("scales");
   static Search = buildIcon("search");
   static Shipping = buildIcon("shipping");
+  static Sync = buildIcon("sync");
   static TagDollar = buildIcon("tagDollar");
   static Trash = buildIcon("trash");
   static Triangle = buildIcon("triangle");
