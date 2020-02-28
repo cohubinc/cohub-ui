@@ -4,12 +4,14 @@ export interface IInlineProps {
   children: ReactNode[] | ReactNode;
   space?: number;
   alignment?: "center" | "left" | "right";
+  itemsCentered?: boolean;
 }
 
 export default function Inline({
   space = 1,
   children,
-  alignment = "left"
+  alignment = "left",
+  itemsCentered = true
 }: IInlineProps) {
   const calculateMargin = () => {
     switch (alignment) {
@@ -66,6 +68,7 @@ export default function Inline({
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
+        alignItems: itemsCentered ? "center" : "stretch",
         ...calculateAlignment()
       }}
     >
