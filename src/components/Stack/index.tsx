@@ -28,13 +28,13 @@ export default function Stack({
     if (Array.isArray(children)) {
       return children.map((c, idx) => {
         return (
-          <span key={idx} style={{ marginBottom: `${space}rem` }}>
+          <div key={idx} style={{ marginBottom: `${space}rem` }}>
             {c}
-          </span>
+          </div>
         );
       });
     } else {
-      return <span style={{ marginBottom: `${space}rem` }}>{children}</span>;
+      return <div style={{ marginBottom: `${space}rem` }}>{children}</div>;
     }
   };
 
