@@ -4,14 +4,14 @@ export interface IInlineProps {
   children: ReactNode[] | ReactNode;
   space?: number;
   alignment?: "center" | "left" | "right";
-  itemsCentered?: boolean;
+  itemAlignment?: "start" | "end" | "center" | "baseline" | "stretch";
 }
 
 export default function Inline({
   space = 1,
   children,
   alignment = "left",
-  itemsCentered = true
+  itemAlignment = "center"
 }: IInlineProps) {
   const calculateMargin = () => {
     switch (alignment) {
@@ -48,6 +48,23 @@ export default function Inline({
     }
   };
 
+  const calculateItemAlignment = () => {
+    switch (itemAlignment) {
+      case "center":
+        return { alignItems: "center" };
+      case "baseline":
+        return { alignItems: "baseline" };
+      case "start":
+        return { alignItems: "flex-start" };
+      case "end":
+        return { alignItems: "flex-end" };
+      case "stretch":
+        return { alignItems: "stretch" };
+      default:
+        break;
+    }
+  };
+
   const spacedChildren = () => {
     if (Array.isArray(children)) {
       return children.map((c, idx) => {
@@ -68,7 +85,7 @@ export default function Inline({
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        alignItems: itemsCentered ? "center" : "stretch",
+        ...calculateItemAlignment(),
         ...calculateAlignment()
       }}
     >
