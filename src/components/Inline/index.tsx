@@ -1,17 +1,19 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, CSSProperties } from "react";
 
 export interface IInlineProps {
   children: ReactNode[] | ReactNode;
   space?: number;
   alignment?: "center" | "left" | "right";
   itemAlignment?: "start" | "end" | "center" | "baseline" | "stretch";
+  style?: CSSProperties;
 }
 
 export default function Inline({
   space = 1,
   children,
   alignment = "left",
-  itemAlignment = "center"
+  itemAlignment = "center",
+  style
 }: IInlineProps) {
   const calculateMargin = () => {
     switch (alignment) {
@@ -82,6 +84,7 @@ export default function Inline({
   return (
     <div
       style={{
+        ...style,
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",

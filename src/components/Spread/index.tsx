@@ -6,6 +6,7 @@ export interface ISpreadProps {
   spread?: "between" | "around" | "evenly" | "start" | "end" | "center";
   itemAlignment?: "start" | "end" | "center" | "baseline" | "stretch";
   flexChild?: boolean;
+  style?: CSSProperties;
 }
 
 export default function Spread({
@@ -13,7 +14,8 @@ export default function Spread({
   direction = "horizontal",
   spread = "between",
   itemAlignment = "start",
-  flexChild = true
+  flexChild = true,
+  style
 }: ISpreadProps) {
   const calculateSpread = () => {
     switch (spread) {
@@ -69,6 +71,7 @@ export default function Spread({
     <div
       className="spread-container"
       style={{
+        ...style,
         display: "flex",
         ...calculateDirection(),
         ...calculateSpread(),

@@ -6,6 +6,7 @@ export interface IStackProps {
   alignment?: "center" | "left" | "right";
   fullWidth?: boolean;
   childrenWidth?: CSSProperties["width"];
+  style?: CSSProperties;
 }
 
 export default function Stack({
@@ -13,7 +14,8 @@ export default function Stack({
   children,
   alignment = "left",
   fullWidth = false,
-  childrenWidth
+  childrenWidth,
+  style
 }: IStackProps) {
   const calculateAlignment = () => {
     switch (alignment) {
@@ -61,6 +63,7 @@ export default function Stack({
   return (
     <div
       style={{
+        ...style,
         display: "flex",
         flexDirection: "column",
         width: fullWidth ? "100%" : "initial",
