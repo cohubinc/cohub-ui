@@ -75,6 +75,7 @@ export {
   IScrollIntoViewProps
 } from "src/components/ScrollIntoView";
 export { default as Segment, ISegmentProps } from "src/components/Segment";
+export { default as Spread, ISpreadProps } from "src/components/Spread";
 export { default as Stack, IStackProps } from "src/components/Stack";
 export {
   default as Statistic,
