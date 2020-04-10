@@ -4,12 +4,14 @@ export interface IStackProps {
   children: ReactNode[] | ReactNode;
   space?: number;
   alignment?: "center" | "left" | "right";
+  fullWidth?: boolean;
 }
 
 export default function Stack({
   space = 1,
   children,
-  alignment = "left"
+  alignment = "left",
+  fullWidth = false
 }: IStackProps) {
   const calculateAlignment = () => {
     switch (alignment) {
@@ -28,13 +30,26 @@ export default function Stack({
     if (Array.isArray(children)) {
       return children.map((c, idx) => {
         return (
-          <div key={idx} style={{ marginBottom: `${space}rem` }}>
+          <div
+            key={idx}
+            style={{
+              marginBottom: `${space}rem`
+            }}
+          >
             {c}
           </div>
         );
       });
     } else {
-      return <div style={{ marginBottom: `${space}rem` }}>{children}</div>;
+      return (
+        <div
+          style={{
+            marginBottom: `${space}rem`
+          }}
+        >
+          {children}
+        </div>
+      );
     }
   };
 
@@ -43,6 +58,7 @@ export default function Stack({
       style={{
         display: "flex",
         flexDirection: "column",
+        width: fullWidth ? "100%" : "initial",
         ...calculateAlignment()
       }}
     >
