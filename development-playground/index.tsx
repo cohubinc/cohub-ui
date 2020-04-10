@@ -8,13 +8,13 @@ const App = () => {
   return (
     <React.Fragment>
       <CssFramework />
-      <Container>
+      {/* <Container>
         <Row>
           <Col xs={12} sm={6} offset={{ sm: 3 }}>
-            <DevSandbox />
           </Col>
         </Row>
-      </Container>
+      </Container> */}
+      <DevSandbox />
     </React.Fragment>
   );
 };
