@@ -1,8 +1,7 @@
-import React, { ReactNode, ReactElement } from "react";
-import { CSSProperties } from "styled-components";
+import React, { ReactNode, ReactElement, CSSProperties } from "react";
 
 export interface IStackProps {
-  children: ReactElement<any> | ReactElement<any>[];
+  children: ReactNode | ReactNode[];
   space?: number;
   alignment?: "center" | "left" | "right";
   fullWidth?: boolean;
@@ -30,18 +29,33 @@ export default function Stack({
   };
 
   const spacedChildren = () => {
-    return React.Children.map(children, (c, idx) => {
-      const newProps = {
-        ...c.props,
-        key: idx,
-        style: {
-          ...c.props?.style,
-          marginBottom: `${space}rem`,
-          width: childrenWidth
-        }
-      };
-      return React.cloneElement(c, newProps);
+    const kids = React.Children.map(children, (c, idx) => {
+      if (c === false || c === null) {
+        return;
+      }
+
+      if (typeof c === "function" || typeof c === "object") {
+        const child = c as ReactElement<any>;
+        const newProps = {
+          ...child.props,
+          key: idx,
+          style: {
+            ...child.props?.style,
+            marginBottom: `${space}rem`,
+            width: childrenWidth
+          }
+        };
+        return React.cloneElement(child, newProps);
+      }
+
+      return (
+        <div style={{ marginBottom: `${space}rem`, width: childrenWidth }}>
+          {c}
+        </div>
+      );
     });
+
+    return kids.filter(Boolean);
   };
 
   return (
