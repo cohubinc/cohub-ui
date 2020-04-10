@@ -13,7 +13,8 @@ export default function Stack({
   space = 1,
   children,
   alignment = "left",
-  fullWidth = false
+  fullWidth = false,
+  childrenWidth
 }: IStackProps) {
   const calculateAlignment = () => {
     switch (alignment) {
@@ -32,7 +33,12 @@ export default function Stack({
     return React.Children.map(children, (c, idx) => {
       const newProps = {
         ...c.props,
-        style: { ...c.props?.style, marginBottom: `${space}rem` }
+        key: idx,
+        style: {
+          ...c.props?.style,
+          marginBottom: `${space}rem`,
+          width: childrenWidth
+        }
       };
       return React.cloneElement(c, newProps);
     });
