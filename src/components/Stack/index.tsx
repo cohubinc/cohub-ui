@@ -44,7 +44,7 @@ export default function Stack({
           style: {
             ...child.props?.style,
             marginBottom: `${space}rem`,
-            width: childrenWidth
+            width: childrenWidth || child.props?.style?.width
           }
         };
         return React.cloneElement(child, newProps);
