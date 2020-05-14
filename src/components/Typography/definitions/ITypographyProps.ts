@@ -2,7 +2,7 @@ import { CSSProperties } from "react";
 import Color from "../../../definitions/enums/Color";
 
 export interface ITypographyProps {
-  fontFamily?: "Akkurat-Mono" | "MillerDisplay" | "Inter";
+  fontFamily?: "Akkurat-Mono" | "MillerDisplay" | "Inter" | "Roboto Mono";
   /** React Children nodes are required */
   children: React.ReactNode;
   /** Optionally pass className */

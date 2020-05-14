@@ -30,7 +30,7 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
       bold,
       mono,
       italicize,
-      "data-qa": dataQa = "text"
+      "data-qa": dataQa = "text",
     } = mergedProperties;
 
     let fontFamilyStyle = fontFamily ? { fontFamily } : { fontFamily: "Inter" };
@@ -45,13 +45,13 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
     const italicStyle = italicize ? { fontStyle: "italic" } : {};
 
     if (mono) {
-      fontFamilyStyle = { fontFamily: "Akkurat-Mono" };
+      fontFamilyStyle = { fontFamily: "Roboto Mono" };
     }
 
     const styleDefaults = {
       color: color as any,
       textTransform: (uppercase ? "uppercase" : "initial") as any,
-      textAlign: (alignment ? alignment : "initial") as any
+      textAlign: (alignment ? alignment : "initial") as any,
     };
     const mergedStyles = { ...factoryStyle, ...style };
     const styleProp: CSSProperties = {
@@ -66,14 +66,14 @@ export function typographyFactory(defaultProps: TFactoryArgs) {
       ...lightStyle,
       ...invertedStyle,
       ...errorStyle,
-      ...mergedStyles
+      ...mergedStyles,
     };
 
     const properties = {
       children,
       className,
       style: styleProp,
-      "data-qa": dataQa
+      "data-qa": dataQa,
     };
 
     return p ? <p {...properties} /> : <span {...properties} />;

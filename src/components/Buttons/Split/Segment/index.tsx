@@ -53,14 +53,14 @@ export default class Segment extends Component<IProps, IState> {
             cursor: "pointer",
             minWidth: 75,
             padding: "1em",
-            fontFamily: "Akkurat-Mono",
+            fontFamily: "Roboto Mono",
             fontWeight: "lighter",
             outline: "none",
             border: "none",
             borderRadius: "4px",
             overflow: "hidden",
             ...smallStyle,
-            ...style
+            ...style,
           } as CSSProperties
         }
       >

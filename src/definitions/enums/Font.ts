@@ -1,7 +1,7 @@
 enum Font {
   defaultFontFamily = "Inter",
   defaultFontSize = "16px",
-  monoFontFamily = "Akkurat-Mono"
+  monoFontFamily = "Roboto Mono",
 }
 
 export default Font;
