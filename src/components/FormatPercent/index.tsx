@@ -8,9 +8,9 @@ export interface IFormatPercentProps {
 
 export default function FormatPercent({
   value,
-  shouldParse = true
+  shouldParse = true,
 }: IFormatPercentProps) {
-  if (!value) {
+  if (!value && value !== 0) {
     return null;
   }
 
