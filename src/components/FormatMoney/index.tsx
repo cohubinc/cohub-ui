@@ -23,6 +23,8 @@ export default function FormatMoney({
     switch (currency) {
       case "USD":
         return "$";
+      case "CAD":
+        return "$";
       case "GBP":
         return "£";
       case "EUR":

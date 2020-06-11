@@ -4,6 +4,7 @@ import FormatMoney from "../FormatMoney";
 import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
 import Color from "../../definitions/enums/Color";
+import { TCountryCodes } from "src/definitions/unions/CountryCodes";
 
 type Value = number | string | undefined | null;
 export interface IStatisticProps {
@@ -15,6 +16,7 @@ export interface IStatisticProps {
   label: string;
   value: Value;
   color?: Color;
+  countryCode?: TCountryCodes;
 }
 
 export default function Statistic({
@@ -22,12 +24,18 @@ export default function Statistic({
   format,
   label,
   value,
-  color = Color.black500
+  color = Color.black500,
+  countryCode = "US",
 }: IStatisticProps) {
   const formattedValue = (val: Value) => {
     switch (format) {
       case "money":
-        return <FormatMoney value={val} />;
+        return (
+          <FormatMoney
+            value={val}
+            currency={countryCode === "GB" ? "GBP" : "USD"}
+          />
+        );
       case "number":
         return <FormatNumber value={val} />;
       case "percentage":
