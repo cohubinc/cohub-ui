@@ -4,6 +4,7 @@ import NumberFormat from "react-number-format";
 export interface IFormatMoneyProps {
   value: string | number | null | undefined;
   className?: string;
+  currency?: string;
   /**
    * Use to extend decimal precision
    */
@@ -13,9 +14,23 @@ export interface IFormatMoneyProps {
 export default function FormatMoney({
   value,
   extendedPrecision = true,
-  className = ""
+  className = "",
+  currency = "USD",
 }: IFormatMoneyProps) {
   const decimals = `${value}`.split(".")[1];
+
+  const currencySymbol = () => {
+    switch (currency) {
+      case "USD":
+        return "$";
+      case "GBP":
+        return "£";
+      case "EUR":
+        return "€";
+      default:
+        return "$";
+    }
+  };
 
   if (value === null || value === undefined) {
     return null;
@@ -24,7 +39,7 @@ export default function FormatMoney({
       <NumberFormat
         value={value || 0}
         displayType="text"
-        prefix="$"
+        prefix={currencySymbol()}
         thousandSeparator
         fixedDecimalScale
         className={className}
