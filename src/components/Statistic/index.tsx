@@ -17,6 +17,7 @@ export interface IStatisticProps {
   value: Value;
   color?: Color;
   countryCode?: TCountryCodes;
+  moneyFormatFunction?: Function;
 }
 
 export default function Statistic({
@@ -26,16 +27,23 @@ export default function Statistic({
   value,
   color = Color.black500,
   countryCode = "US",
+  moneyFormatFunction,
 }: IStatisticProps) {
   const formattedValue = (val: Value) => {
     switch (format) {
       case "money":
-        return (
-          <FormatMoney
-            value={val}
-            currency={countryCode === "GB" ? "GBP" : "USD"}
-          />
-        );
+        if (moneyFormatFunction) {
+          return (
+            <FormatMoney value={val} formatFunction={moneyFormatFunction} />
+          );
+        } else {
+          return (
+            <FormatMoney
+              value={val}
+              currency={countryCode === "GB" ? "GBP" : "USD"}
+            />
+          );
+        }
       case "number":
         return <FormatNumber value={val} />;
       case "percentage":

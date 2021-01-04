@@ -9,7 +9,10 @@ export interface IFormatMoneyProps {
    * Use to extend decimal precision
    */
   extendedPrecision?: boolean;
-  formatFunction?: string | FormatInputValueFunction;
+  /**
+   * Use to format the value yourself
+   */
+  formatFunction?: Function;
 }
 
 export default function FormatMoney({
@@ -39,7 +42,7 @@ export default function FormatMoney({
   if (value === null || value === undefined) {
     return null;
   } else if (formatFunction) {
-    return <NumberFormat format={formatFunction} />;
+    return <span className={className}>{formatFunction(value)}</span>;
   } else {
     return (
       <NumberFormat
