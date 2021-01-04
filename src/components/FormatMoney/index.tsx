@@ -9,7 +9,7 @@ export interface IFormatMoneyProps {
    * Use to extend decimal precision
    */
   extendedPrecision?: boolean;
-  formatFunction?: FormatInputValueFunction;
+  formatFunction?: string | FormatInputValueFunction;
 }
 
 export default function FormatMoney({
