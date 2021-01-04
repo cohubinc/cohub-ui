@@ -39,7 +39,7 @@ export default function FormatMoney({
   if (value === null || value === undefined) {
     return null;
   } else if (formatFunction) {
-    <NumberFormat format={formatFunction} />;
+    return <NumberFormat format={formatFunction} />;
   } else {
     return (
       <NumberFormat
