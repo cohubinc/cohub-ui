@@ -1,5 +1,5 @@
 import React from "react";
-import NumberFormat from "react-number-format";
+import NumberFormat, { FormatInputValueFunction } from "react-number-format";
 
 export interface IFormatMoneyProps {
   value: string | number | null | undefined;
@@ -9,6 +9,7 @@ export interface IFormatMoneyProps {
    * Use to extend decimal precision
    */
   extendedPrecision?: boolean;
+  formatFunction?: FormatInputValueFunction;
 }
 
 export default function FormatMoney({
@@ -16,6 +17,7 @@ export default function FormatMoney({
   extendedPrecision = true,
   className = "",
   currency = "USD",
+  formatFunction,
 }: IFormatMoneyProps) {
   const decimals = `${value}`.split(".")[1];
 
@@ -36,14 +38,16 @@ export default function FormatMoney({
 
   if (value === null || value === undefined) {
     return null;
+  } else if (formatFunction) {
+    <NumberFormat format={formatFunction} />;
   } else {
     return (
       <NumberFormat
         value={value || 0}
         displayType="text"
-        prefix={currencySymbol()}
         thousandSeparator
         fixedDecimalScale
+        prefix={currencySymbol()}
         className={className}
         decimalScale={
           extendedPrecision && decimals && decimals.length > 2
