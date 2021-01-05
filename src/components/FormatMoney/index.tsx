@@ -1,5 +1,6 @@
 import React from "react";
-import NumberFormat, { FormatInputValueFunction } from "react-number-format";
+import NumberFormat from "react-number-format";
+import ShopCurrency from "../ShopCurrency";
 
 export interface IFormatMoneyProps {
   value: string | number | null | undefined;
@@ -10,9 +11,9 @@ export interface IFormatMoneyProps {
    */
   extendedPrecision?: boolean;
   /**
-   * Use to format the value yourself
+   * html (liquid) string from Shopify
    */
-  formatFunction?: Function;
+  shopCurrencyFormat?: string | null;
 }
 
 export default function FormatMoney({
@@ -20,7 +21,7 @@ export default function FormatMoney({
   extendedPrecision = true,
   className = "",
   currency = "USD",
-  formatFunction,
+  shopCurrencyFormat,
 }: IFormatMoneyProps) {
   const decimals = `${value}`.split(".")[1];
 
@@ -41,8 +42,14 @@ export default function FormatMoney({
 
   if (value === null || value === undefined) {
     return null;
-  } else if (formatFunction) {
-    return <span className={className}>{formatFunction(value)}</span>;
+  } else if (shopCurrencyFormat) {
+    return (
+      <ShopCurrency
+        shopCurrencyFormat={shopCurrencyFormat}
+        value={value}
+        className={className}
+      />
+    );
   } else {
     return (
       <NumberFormat

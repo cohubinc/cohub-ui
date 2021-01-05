@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "../Typography";
-import FormatMoney from "../FormatMoney";
+import FormatMoney, { IFormatMoneyProps } from "../FormatMoney";
 import FormatNumber from "../FormatNumber";
 import FormatPercent from "../FormatPercent";
 import Color from "../../definitions/enums/Color";
@@ -17,7 +17,7 @@ export interface IStatisticProps {
   value: Value;
   color?: Color;
   countryCode?: TCountryCodes;
-  moneyFormatFunction?: Function;
+  shopCurrencyFormat?: IFormatMoneyProps["shopCurrencyFormat"];
 }
 
 export default function Statistic({
@@ -27,14 +27,14 @@ export default function Statistic({
   value,
   color = Color.black500,
   countryCode = "US",
-  moneyFormatFunction,
+  shopCurrencyFormat,
 }: IStatisticProps) {
   const formattedValue = (val: Value) => {
     switch (format) {
       case "money":
-        if (moneyFormatFunction) {
+        if (shopCurrencyFormat) {
           return (
-            <FormatMoney value={val} formatFunction={moneyFormatFunction} />
+            <FormatMoney value={val} shopCurrencyFormat={shopCurrencyFormat} />
           );
         } else {
           return (
