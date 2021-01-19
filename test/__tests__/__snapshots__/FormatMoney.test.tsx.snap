@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders FormatMoney without crashing 1`] = `
+exports[`FormatMoney renders FormatMoney without crashing 1`] = `
 <FormatMoney
   value={0}
 >

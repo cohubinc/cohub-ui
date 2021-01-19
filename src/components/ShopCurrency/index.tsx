@@ -1,4 +1,5 @@
 import React from "react";
+import { decode } from "html-entities";
 
 interface IProps {
   shopCurrencyFormat: string;
@@ -24,11 +25,30 @@ export default function ShopCurrency(props: IProps) {
   });
 
   return (
-    <span
-      className={className}
-      dangerouslySetInnerHTML={{
-        __html: shopCurrencyFormat.replace(replaceable, delimited),
-      }}
-    />
+    <span className={className}>
+      {templateToFormattedMoney(value || 0, shopCurrencyFormat)}{" "}
+    </span>
   );
 }
+
+function templateToFormattedMoney(
+  value: number,
+  shopifyCurrencyFormat: string
+) {
+  const template = stripHtmlAndDecodeHtmlEntities(shopifyCurrencyFormat);
+  // Will return something that looks like: "{{amount_with_comma_separator}}"
+  const whatToReplace = template.substring(
+    template.indexOf("{"),
+    template.indexOf("}") + 2
+  );
+  const defaultPrecision = 2;
+  const formattedFloat = (value || 0).toLocaleString(undefined, {
+    minimumFractionDigits: defaultPrecision,
+    maximumFractionDigits: defaultPrecision,
+  });
+
+  return template.replace(whatToReplace, formattedFloat);
+}
+
+const stripHtmlAndDecodeHtmlEntities = (markup: string) =>
+  decode(markup.replace(/<[^>]*>?/gm, ""));

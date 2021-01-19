@@ -26,6 +26,10 @@ const App = () => {
       </div>
 
       <div>
+        <FormatMoney shopCurrencyFormat={"&euro;{{amount}}"} value={"2978.5"} />
+      </div>
+
+      <div>
         <Statistic
           format="money"
           label="Lookit"
