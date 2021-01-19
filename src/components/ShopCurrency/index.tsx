@@ -4,29 +4,24 @@ import { decode } from "html-entities";
 interface IProps {
   shopCurrencyFormat: string;
   value: string | number | null | undefined;
-  className: string;
+  className?: string;
 }
 
 export default function ShopCurrency(props: IProps) {
-  const { shopCurrencyFormat, className } = props;
+  const { shopCurrencyFormat, className = "" } = props;
   // Will return something that looks like: "{{amount_with_comma_separator}}"
   const replaceable = shopCurrencyFormat.substring(
     shopCurrencyFormat.indexOf("{"),
     shopCurrencyFormat.indexOf("}") + 2
   );
   const value =
-    typeof props.value === "string"
+    (typeof props.value === "string"
       ? Number.parseFloat(props.value)
-      : props.value;
-
-  const delimited = (value || 0).toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+      : props.value) || 0;
 
   return (
     <span className={className}>
-      {templateToFormattedMoney(value || 0, shopCurrencyFormat)}{" "}
+      {templateToFormattedMoney(value, shopCurrencyFormat)}
     </span>
   );
 }

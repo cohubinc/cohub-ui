@@ -31,7 +31,7 @@ describe("FormatMoney", () => {
     const wrapper = mount(
       <FormatMoney
         value={987.99}
-        shopCurrencyFormat="<span class=money>€{{amount}}</span>"
+        shopCurrencyFormat="<h1><span class=money>€{{amount}}</span></h1>"
       />
     );
 
