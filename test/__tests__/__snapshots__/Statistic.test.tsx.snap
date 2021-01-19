@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `
+exports[`Statistic renders without crashing 1`] = `
 <Statistic
   format="number"
   label="test stat"

@@ -31,11 +31,13 @@ describe("FormatMoney", () => {
     const wrapper = mount(
       <FormatMoney
         value={987.99}
-        shopCurrencyFormat="<h1><span class=money>€{{amount}}</span></h1>"
+        shopCurrencyFormat="<h1><span class=money>€{{amount}}</span><h1>"
       />
     );
 
-    expect(wrapper.text()).not.toContain("<span class=money>987.99</span>");
+    expect(wrapper.text()).not.toContain(
+      "<h1><span class=money>987.99</span></h1>"
+    );
   });
 
   it("It handles html entities correctly", async () => {
