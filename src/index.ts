@@ -96,6 +96,7 @@ export * from "src/helpers/ui";
 import * as InputValidationsToExport from "src/helpers/input-validations";
 export const inputValidations = InputValidationsToExport;
 export { default as useMediaQueries } from "src/hooks/useMediaQueries";
+export { default as usePersistedState } from "src/hooks/use-persisted-state";
 
 // Storybook
 import * as StoryCmpts from "./story-helpers";
